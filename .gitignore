@@ -1,5 +1,6 @@
 *.gem
 *.rbc
+*.secretkey
 /.config
 /coverage/
 /InstalledFiles
