@@ -17,7 +17,7 @@
   <% end %>
 </div>
 
-<img src="assets/bunker_ac_logo.png"/>
+<img src="bunker_ac_logo.png"/>
 
 <%= yield %>
 
