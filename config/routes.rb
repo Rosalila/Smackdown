@@ -1,5 +1,16 @@
 Myapp::Application.routes.draw do
+  resources :player_rules
+
+  resources :rules
+
+  resources :rule_groups
+
+  resources :user_playing_games
+
+  resources :games
+
   get "home/index"
+  get '/home/visit/:id', to: 'home#visit', as: 'visit'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

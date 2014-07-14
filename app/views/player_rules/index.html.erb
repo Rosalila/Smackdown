@@ -1,0 +1,31 @@
+<h1>Listing player_rules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rule</th>
+      <th>User</th>
+      <th>Activated</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @player_rules.each do |player_rule| %>
+      <tr>
+        <td><%= player_rule.rule_id %></td>
+        <td><%= player_rule.user_id %></td>
+        <td><%= player_rule.activated %></td>
+        <td><%= link_to 'Show', player_rule %></td>
+        <td><%= link_to 'Edit', edit_player_rule_path(player_rule) %></td>
+        <td><%= link_to 'Destroy', player_rule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Player rule', new_player_rule_path %>

@@ -1,0 +1,31 @@
+<h1>Listing user_playing_games</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Game</th>
+      <th>Is playing</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_playing_games.each do |user_playing_game| %>
+      <tr>
+        <td><%= user_playing_game.user_id %></td>
+        <td><%= user_playing_game.game_id %></td>
+        <td><%= user_playing_game.is_playing %></td>
+        <td><%= link_to 'Show', user_playing_game %></td>
+        <td><%= link_to 'Edit', edit_user_playing_game_path(user_playing_game) %></td>
+        <td><%= link_to 'Destroy', user_playing_game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User playing game', new_user_playing_game_path %>

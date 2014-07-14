@@ -1,0 +1,29 @@
+<h1>Listing rule_groups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rule_groups.each do |rule_group| %>
+      <tr>
+        <td><%= rule_group.game_id %></td>
+        <td><%= rule_group.name %></td>
+        <td><%= link_to 'Show', rule_group %></td>
+        <td><%= link_to 'Edit', edit_rule_group_path(rule_group) %></td>
+        <td><%= link_to 'Destroy', rule_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rule group', new_rule_group_path %>

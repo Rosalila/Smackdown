@@ -1,0 +1,10 @@
+<% user = User.find_by_id(params[:id].to_i) %>
+<h2><%= user.name %></h2>
+
+<% UserPlayingGame.where(:user_id=>user.id,:is_playing=>true).each do |upg| %>
+  <% game = upg.game %>
+  <h2><%= game.name %></h2>
+  <% PlayerRule.where(:user_id=>user.id,:activated=>true).each do |player_rule| %>
+    <p><%= Rule.find_by_id(player_rule.rule_id).name %></p>
+  <%end%>
+<% end %>

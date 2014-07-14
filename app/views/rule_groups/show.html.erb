@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @rule_group.game_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @rule_group.name %>
+</p>
+
+<%= link_to 'Edit', edit_rule_group_path(@rule_group) %> |
+<%= link_to 'Back', rule_groups_path %>

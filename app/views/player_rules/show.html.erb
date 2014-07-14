@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rule:</strong>
+  <%= @player_rule.rule_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @player_rule.user_id %>
+</p>
+
+<p>
+  <strong>Activated:</strong>
+  <%= @player_rule.activated %>
+</p>
+
+<%= link_to 'Edit', edit_player_rule_path(@player_rule) %> |
+<%= link_to 'Back', player_rules_path %>

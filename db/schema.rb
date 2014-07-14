@@ -11,7 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140713195441) do
+ActiveRecord::Schema.define(version: 20140714072622) do
+
+  create_table "game_modes", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "games", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "player_rules", force: true do |t|
+    t.integer  "rule_id"
+    t.integer  "user_id"
+    t.boolean  "activated"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rule_groups", force: true do |t|
+    t.integer  "game_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rules", force: true do |t|
+    t.integer  "rule_group_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_playing_games", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "game_id"
+    t.boolean  "is_playing"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "provider"
