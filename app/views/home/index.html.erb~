@@ -16,13 +16,336 @@
       }
 
 </style>
-<h1 align="center">DigitalOcean Rails Application</h1>
-<img src="assets/rails.png" align="center"><br/>
-<p>This file is located in /home/rails/app/views/home/index.html.erb</p>
 
-Your application root is located in: <%= Rails.root.to_s %><br>
+<h1 align="center">Home</h1>
 
-Ruby version: <%= RUBY_VERSION %><br>
+  <% if current_user %>
+    <% Game.all.each do |g| %>
+      <% upg = UserPlayingGame.where(:user_id=>current_user.id, :game_id=>g.id)[0] %>
+      <% if upg==nil %>
+        <% upg = UserPlayingGame.new %>
+        <% upg.is_playing = false %>
+      <% end %>
+      <% if userIsPlayingGame(current_user.id,g.id) %>
+        <h2><%= g.name %>: jugando
+          <%= form_for(upg) do |f| %>
+            <%= hidden_field_tag "user_playing_game[user_id]", current_user.id %>
+            <%= hidden_field_tag "user_playing_game[game_id]", g.id %>
+            <%= hidden_field_tag "user_playing_game[is_playing]", !upg.is_playing %>
+            <div class="actions">
+                <%= f.submit "dejar de jugar", :type => :image, :src => "/assets/switch/jugando.png" %>
+            </div>
+          <%end%>
+        </h2>
+        <% g.rule_groups.each do |rule_group| %>
+          <h3><%= rule_group.name %></h3>
+          <table>
+            <tr>
+            <% rule_group.rules.each do |rule| %>
+              <td><%= rule.name %></td>
+              <% player_rule = PlayerRule.where(:user_id=>current_user.id, :rule_id=>rule.id)[0] %>
+              <% if player_rule==nil %>
+                <% player_rule = PlayerRule.new %>
+                <% player_rule.activated = false %>
+              <% end %>
+              <td>
+              <%= form_for(player_rule) do |f| %>
+                <%= hidden_field_tag "player_rule[user_id]", current_user.id %>
+                <%= hidden_field_tag "player_rule[rule_id]", rule.id %>
+                <%= hidden_field_tag "player_rule[activated]", !player_rule.activated %>
+                <div class="actions">
+                  <% if player_rule.activated %>
+                    <%= f.submit "desactivar", :type => :image, :src => "/assets/switch/on.png"%>
+                  <% else %>
+                    <%= f.submit "activar", :type => :image, :src => "/assets/switch/off.png"%>
+                  <% end %>
+                </div>
+              <%end%>
+              </td>
+            <% end %>
+            </tr>
+          </table>
+        <% end %>
+      <%else%>
+        <h2><%= g.name %>: no jugando
+          <%= form_for(upg) do |f| %>
+            <%= hidden_field_tag "user_playing_game[user_id]", current_user.id %>
+            <%= hidden_field_tag "user_playing_game[game_id]", g.id %>
+            <%= hidden_field_tag "user_playing_game[is_playing]", !upg.is_playing %>
+            <div class="actions">
+                <%= f.submit "jugar", :type => :image, :src => "/assets/switch/no_jugando.png" %>
+            </div>
+          <%end%>
+        </h2>
+      <%end%>
 
-Rails version: <%= Rails.version %><br>
+    <% end %>
+  <% else %>
+    
+  <% end %>
+
+
+<table align="center">
+  <tr>
+    <th>Nombre de usuario</th>
+  </tr>
+  <% User.all.each do |user| %>
+  <tr>
+    <td><%= user.name%></td>
+    <td><a href="/home/visit/<%= user.id %>">visitar</a>
+  </tr>
+  <% end %>
+</table>
+
+
+<h2>Smackdowns enviados</h2>
+<table align="center">
+  <tr>
+    <th>oponente</th>
+    <th>juez 1</th>
+    <th>juez 2</th>
+    <th>ganador<th>
+    <th>comentario juez 1</th>
+    <th>comentario juez 2</th>
+  </tr>
+  <% Smackdown.where(:player1_id=>current_user.id).each do |smackdown| %>
+    <tr>
+      <td>
+        <%= User.find_by_id(smackdown.player2_id).name %>
+        <% if smackdown.player2_accepted == nil %>
+          pendiente
+        <% elsif smackdown.player2_accepted %>
+          acceptada
+        <% else %>
+          rechazada
+        <% end %>
+      </td>
+      <td>
+        <%= User.find_by_id(smackdown.judge1_id).name %>
+        <% if smackdown.judge1_accepted == nil %>
+          pendiente
+        <% elsif smackdown.judge1_accepted %>
+          acceptada
+        <% else %>
+          rechazada
+        <% end %>
+      </td>
+      <td>
+        <% if smackdown.judge2_id == nil %>
+          pendiente
+        <% else %>
+          <%= User.find_by_id(smackdown.judge2_id).name %>
+
+          <% if smackdown.judge2_accepted == nil %>
+            pendiente
+          <% elsif smackdown.judge2_accepted %>
+            acceptada
+          <% else %>
+            rechazada
+          <% end %>
+
+        <% end %>
+      </td>
+      <td>
+        <% if smackdown.judge1_winner_id == nil || smackdown.judge2_winner_id == nil %>
+          pendiente
+        <% elsif smackdown.judge1_winnder_id != smackdown.judge2_winner_id %>
+          conflicto!
+        <% else %>
+          <%= User.find_by_id(smackdown.judge1_winner_id).name %>
+        <% end %>
+      </td>
+      <td><%= smackdown.judge1_comment %><td>
+      <td><%= smackdown.judge2_comment %><td>
+    </tr>
+  <% end %>
+</table>
+
+
+<h2>Smackdowns recibidos</h2>
+<table align="center">
+  <tr>
+    <th>oponente</th>
+    <th>juez 1</th>
+    <th>juez 2</th>
+    <th>ganador<th>
+    <th>comentario juez 1</th>
+    <th>comentario juez 2</th>
+  </tr>
+  <% Smackdown.where(:player2_id=>current_user.id).each do |smackdown| %>
+    <tr>
+      <td>
+        <%= User.find_by_id(smackdown.player2_id).name %>
+        <% if smackdown.player2_accepted == nil %>
+          pendiente
+        <% elsif smackdown.player2_accepted %>
+          acceptada
+        <% else %>
+          rechazada
+        <% end %>
+      </td>
+      <td>
+        <%= User.find_by_id(smackdown.judge1_id).name %>
+        <% if smackdown.judge1_accepted == nil %>
+          pendiente
+        <% elsif smackdown.judge1_accepted %>
+          acceptada
+        <% else %>
+          rechazada
+        <% end %>
+
+      </td>
+      <td>
+        <% if smackdown.judge2_id == nil %>
+          pendiente
+        <% else %>
+          <%= User.find_by_id(smackdown.judge2_id).name %>
+          <% if smackdown.judge2_accepted == nil %>
+            pendiente
+          <% elsif smackdown.judge2_accepted %>
+            acceptada
+          <% else %>
+            rechazada
+          <% end %>
+        <% end %>
+      </td>
+      <td>
+        <% if smackdown.judge1_winner_id == nil || smackdown.judge2_winner_id == nil %>
+          pendiente
+        <% elsif smackdown.judge1_winnder_id != smackdown.judge2_winner_id %>
+          conflicto!
+        <% else %>
+          <%= User.find_by_id(smackdown.judge1_winner_id).name %>
+        <% end %>
+      </td>
+      <td><%= smackdown.judge1_comment %><td>
+      <td><%= smackdown.judge2_comment %><td>
+      <td>
+        <span>Juez: <span>
+        <select name="judge_id">
+          <% User.all.each do |judge| %>
+            <% if judge.id != current_user.id %>
+              <option value="<%= judge.id %>"><%= judge.name %></option>
+            <% end %>
+          <% end %>
+        </select>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+
+<h2>Smackdowns donde soy juez</h2>
+<table align="center">
+  <tr>
+    <th>oponente</th>
+    <th>juez 1</th>
+    <th>juez 2</th>
+    <th>ganador<th>
+    <th>comentario juez 1</th>
+    <th>comentario juez 2</th>
+  </tr>
+  <% Smackdown.where(:judge1_id=>current_user.id).each do |smackdown| %>
+    <tr>
+      <td>
+        <%= User.find_by_id(smackdown.player2_id).name %>
+        <% if smackdown.player2_accepted == nil %>
+          pendiente
+        <% elsif smackdown.player2_accepted %>
+          acceptada
+        <% else %>
+          rechazada
+        <% end %>
+
+      </td>
+      <td>
+        <%= User.find_by_id(smackdown.judge1_id).name %>
+        <% if smackdown.judge1_accepted == nil %>
+          pendiente
+        <% elsif smackdown.judge1_accepted %>
+          acceptada
+        <% else %>
+          rechazada
+        <% end %>
+      </td>
+      <td>
+        <% if smackdown.judge2_id == nil %>
+          pendiente
+        <% else %>
+          <%= User.find_by_id(smackdown.judge2_id).name %>
+          <% if smackdown.judge2_accepted == nil %>
+            pendiente
+          <% elsif smackdown.judge2_accepted %>
+            acceptada
+          <% else %>
+            rechazada
+          <% end %>
+        <% end %>
+      </td>
+      <td>
+        <% if smackdown.judge1_winner_id == nil || smackdown.judge2_winner_id == nil %>
+          pendiente
+        <% elsif smackdown.judge1_winnder_id != smackdown.judge2_winner_id %>
+          conflicto!
+        <% else %>
+          <%= User.find_by_id(smackdown.judge1_winner_id).name %>
+        <% end %>
+      </td>
+      <td><%= smackdown.judge1_comment %><td>
+      <td><%= smackdown.judge2_comment %><td>
+    </tr>
+  <% end %>
+
+  <% Smackdown.where(:judge2_id=>current_user.id).each do |smackdown| %>
+    <tr>
+      <td>
+        <%= User.find_by_id(smackdown.player2_id).name %>
+        <% if smackdown.player2_accepted == nil %>
+          pendiente
+        <% elsif smackdown.player2_accepted %>
+          acceptada
+        <% else %>
+          rechazada
+        <% end %>
+      </td>
+      <td>
+        <%= User.find_by_id(smackdown.judge1_id).name %>
+        <% if smackdown.judge1_accepted == nil %>
+          pendiente
+        <% elsif smackdown.judge1_accepted %>
+          acceptada
+        <% else %>
+          rechazada
+         <% end %>
+      </td>
+      <td>
+        <% if smackdown.judge2_id == nil %>
+          pendiente
+        <% else %>
+          <%= User.find_by_id(smackdown.judge2_id).name %>
+          <% if smackdown.judge2_accepted == nil %>
+            pendiente
+          <% elsif smackdown.judge2_accepted %>
+            acceptada
+          <% else %>
+            rechazada
+          <% end %>
+        <% end %>
+      </td>
+      <td>
+        <% if smackdown.judge1_winner_id == nil || smackdown.judge2_winner_id == nil %>
+          pendiente
+        <% elsif smackdown.judge1_winnder_id != smackdown.judge2_winner_id %>
+          conflicto!
+        <% else %>
+          <%= User.find_by_id(smackdown.judge1_winner_id).name %>
+        <% end %>
+      </td>
+      <td><%= smackdown.judge1_comment %><td>
+      <td><%= smackdown.judge2_comment %><td>
+    </tr>
+  <% end %>
+
+
+</table>
 

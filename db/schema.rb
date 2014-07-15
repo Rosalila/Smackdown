@@ -13,12 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140715020529) do
 
-  create_table "game_modes", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "games", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
