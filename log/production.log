@@ -10639,3 +10639,30 @@ I, [2014-07-15T05:05:30.694373 #17017]  INFO -- :   Rendered smackdowns/_form.ht
 I, [2014-07-15T05:05:30.695607 #17017]  INFO -- :   Rendered smackdowns/edit.html.erb within layouts/application (44.5ms)
 I, [2014-07-15T05:05:30.700250 #17017]  INFO -- : Completed 200 OK in 54ms (Views: 51.0ms | ActiveRecord: 0.9ms)
 I, [2014-07-15T05:05:30.888424 #17020]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 05:05:30 +0000
+I, [2014-07-15T06:35:35.635654 #22590]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:35:35 +0000
+I, [2014-07-15T06:35:35.650164 #22593]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:35:35 +0000
+I, [2014-07-15T06:35:35.678923 #22590]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:35:35.684214 #22593]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:35:35.922605 #22590]  INFO -- :   Rendered home/index.html.erb within layouts/application (220.9ms)
+I, [2014-07-15T06:35:35.924887 #22590]  INFO -- : Completed 200 OK in 246ms (Views: 211.4ms | ActiveRecord: 17.8ms)
+I, [2014-07-15T06:35:35.930781 #22590]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:35:35 +0000
+I, [2014-07-15T06:35:35.933261 #22590]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:35:35.944426 #22593]  INFO -- :   Rendered home/index.html.erb within layouts/application (237.5ms)
+I, [2014-07-15T06:35:35.951093 #22593]  INFO -- : Completed 200 OK in 267ms (Views: 228.8ms | ActiveRecord: 23.2ms)
+I, [2014-07-15T06:35:35.953133 #22593]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:35:35 +0000
+I, [2014-07-15T06:35:35.959892 #22593]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:35:36.063671 #22590]  INFO -- :   Rendered home/index.html.erb within layouts/application (125.1ms)
+I, [2014-07-15T06:35:36.064983 #22590]  INFO -- : Completed 200 OK in 132ms (Views: 118.7ms | ActiveRecord: 12.1ms)
+I, [2014-07-15T06:35:36.070591 #22590]  INFO -- : Started GET "/" for 190.92.77.76 at 2014-07-15 06:35:36 +0000
+I, [2014-07-15T06:35:36.072034 #22590]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:35:36.082943 #22593]  INFO -- :   Rendered home/index.html.erb within layouts/application (121.7ms)
+I, [2014-07-15T06:35:36.084184 #22593]  INFO -- : Completed 200 OK in 124ms (Views: 110.7ms | ActiveRecord: 12.7ms)
+I, [2014-07-15T06:35:36.096531 #22590]  INFO -- :   Rendered home/index.html.erb within layouts/application (23.4ms)
+I, [2014-07-15T06:35:36.097463 #22590]  INFO -- : Completed 200 OK in 25ms (Views: 18.0ms | ActiveRecord: 6.7ms)
+I, [2014-07-15T06:35:47.163503 #22624]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:35:47 +0000
+I, [2014-07-15T06:35:47.178723 #22624]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:35:47.318464 #22624]  INFO -- :   Rendered home/index.html.erb within layouts/application (129.1ms)
+I, [2014-07-15T06:35:47.320404 #22624]  INFO -- : Completed 200 OK in 141ms (Views: 123.8ms | ActiveRecord: 8.9ms)
+I, [2014-07-15T06:35:47.658866 #22626]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 06:35:47 +0000
+I, [2014-07-15T06:35:47.673083 #22624]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-15 06:35:47 +0000
+I, [2014-07-15T06:35:47.680159 #22624]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-15 06:35:47 +0000
