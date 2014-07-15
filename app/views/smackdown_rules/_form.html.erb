@@ -1,0 +1,25 @@
+<%= form_for(@smackdown_rule) do |f| %>
+  <% if @smackdown_rule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@smackdown_rule.errors.count, "error") %> prohibited this smackdown_rule from being saved:</h2>
+
+      <ul>
+      <% @smackdown_rule.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :smackdown_id %><br>
+    <%= f.number_field :smackdown_id %>
+  </div>
+  <div class="field">
+    <%= f.label :rule_id %><br>
+    <%= f.number_field :rule_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

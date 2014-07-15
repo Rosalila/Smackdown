@@ -1,4 +1,8 @@
 Myapp::Application.routes.draw do
+  resources :smackdown_rules
+
+  resources :smackdowns
+
   resources :player_rules
 
   resources :rules
@@ -11,6 +15,8 @@ Myapp::Application.routes.draw do
 
   get "home/index"
   get '/home/visit/:id', to: 'home#visit', as: 'visit'
+#  post '/home/send_smackdown', to: 'home#send_smackdown', as: 'send_smackdown'
+  get '/home/send_smackdown', to: 'home#send_smackdown', as: 'send_smackdown'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

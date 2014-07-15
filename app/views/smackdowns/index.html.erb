@@ -1,0 +1,47 @@
+<h1>Listing smackdowns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Player1</th>
+      <th>Player2</th>
+      <th>Judge1</th>
+      <th>Judge2</th>
+      <th>Judge1 winner</th>
+      <th>Judge2 winner</th>
+      <th>Player2 accepted</th>
+      <th>Judge1 accepted</th>
+      <th>Judge2 accepted</th>
+      <th>Judge1 comment</th>
+      <th>Judge2 comment</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @smackdowns.each do |smackdown| %>
+      <tr>
+        <td><%= smackdown.player1_id %></td>
+        <td><%= smackdown.player2_id %></td>
+        <td><%= smackdown.judge1_id %></td>
+        <td><%= smackdown.judge2_id %></td>
+        <td><%= smackdown.judge1_winner_id %></td>
+        <td><%= smackdown.judge2_winner_id %></td>
+        <td><%= smackdown.player2_accepted %></td>
+        <td><%= smackdown.judge1_accepted %></td>
+        <td><%= smackdown.judge2_accepted %></td>
+        <td><%= smackdown.judge1_comment %></td>
+        <td><%= smackdown.judge2_comment %></td>
+        <td><%= link_to 'Show', smackdown %></td>
+        <td><%= link_to 'Edit', edit_smackdown_path(smackdown) %></td>
+        <td><%= link_to 'Destroy', smackdown, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Smackdown', new_smackdown_path %>

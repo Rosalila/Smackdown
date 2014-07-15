@@ -1,10 +1,41 @@
 <% user = User.find_by_id(params[:id].to_i) %>
 <h2><%= user.name %></h2>
 
-<% UserPlayingGame.where(:user_id=>user.id,:is_playing=>true).each do |upg| %>
-  <% game = upg.game %>
-  <h2><%= game.name %></h2>
-  <% PlayerRule.where(:user_id=>user.id,:activated=>true).each do |player_rule| %>
-    <p><%= Rule.find_by_id(player_rule.rule_id).name %></p>
-  <%end%>
-<% end %>
+<form accept-charset="UTF-8" action="/home/send_smackdown" method="get" class="nifty_form">
+
+  <% Game.all.each do |game| %>
+    <% if userIsPlayingGame(user.id,game.id) %>
+      <h2><%= game.name %> </h2>
+      <% rule_group_count=0 %>
+      <% game.rule_groups.each do |rule_group| %>
+        <h3><%= rule_group.name %></h3>
+        <select name="rule[<%= rule_group_count %>]">
+          <% rule_group.rules.each do |rule| %>
+            <% if PlayerRule.where(:user_id=>user.id,:rule_id=>rule.id,:activated=>true)[0]!=nil %>
+              <option value="<%= rule.id %>"><%= rule.name %></option>
+            <% end %>
+          <% end %>
+        </select>
+        <% rule_group_count+=1 %>
+      <% end %>
+    <% end %>
+  <% end %>
+  </select>
+  
+  </br>
+  
+  <h3>Elige el juez<h3>
+  <select name="judge_id">
+    <% User.all.each do |judge| %>
+      <% if judge.id != current_user.id %>
+        <option value="<%= judge.id %>"><%= judge.name %></option>
+      <% end %>
+    <% end %>
+  </select>
+
+  <input name="opponent_id" type="hidden" value="<%= user.id %>" />
+  
+  </br>
+  
+  <input name="commit" type="submit" value="Create" />
+</form>

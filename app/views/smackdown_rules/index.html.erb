@@ -1,0 +1,29 @@
+<h1>Listing smackdown_rules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Smackdown</th>
+      <th>Rule</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @smackdown_rules.each do |smackdown_rule| %>
+      <tr>
+        <td><%= smackdown_rule.smackdown_id %></td>
+        <td><%= smackdown_rule.rule_id %></td>
+        <td><%= link_to 'Show', smackdown_rule %></td>
+        <td><%= link_to 'Edit', edit_smackdown_rule_path(smackdown_rule) %></td>
+        <td><%= link_to 'Destroy', smackdown_rule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Smackdown rule', new_smackdown_rule_path %>

@@ -1,0 +1,8 @@
+<h1>Acabas de mandar el siguiente smackdown</h1>
+
+<% params["rule"].each do |rule| %>
+  <p><%= Rule.find_by_id(rule[1]).name %></p>
+<% end %>
+
+<p>Juez: <%= User.find_by_id(params["judge_id"]).name %></p>
+<p>Oponente: <%= User.find_by_id(params["opponent_id"]).name %></p>

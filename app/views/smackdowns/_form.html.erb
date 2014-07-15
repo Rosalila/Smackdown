@@ -1,0 +1,61 @@
+<%= form_for(@smackdown) do |f| %>
+  <% if @smackdown.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@smackdown.errors.count, "error") %> prohibited this smackdown from being saved:</h2>
+
+      <ul>
+      <% @smackdown.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :player1_id %><br>
+    <%= f.number_field :player1_id %>
+  </div>
+  <div class="field">
+    <%= f.label :player2_id %><br>
+    <%= f.number_field :player2_id %>
+  </div>
+  <div class="field">
+    <%= f.label :judge1_id %><br>
+    <%= f.number_field :judge1_id %>
+  </div>
+  <div class="field">
+    <%= f.label :judge2_id %><br>
+    <%= f.number_field :judge2_id %>
+  </div>
+  <div class="field">
+    <%= f.label :judge1_winner_id %><br>
+    <%= f.number_field :judge1_winner_id %>
+  </div>
+  <div class="field">
+    <%= f.label :judge2_winner_id %><br>
+    <%= f.number_field :judge2_winner_id %>
+  </div>
+  <div class="field">
+    <%= f.label :player2_accepted %><br>
+    <%= f.check_box :player2_accepted %>
+  </div>
+  <div class="field">
+    <%= f.label :judge1_accepted %><br>
+    <%= f.check_box :judge1_accepted %>
+  </div>
+  <div class="field">
+    <%= f.label :judge2_accepted %><br>
+    <%= f.check_box :judge2_accepted %>
+  </div>
+  <div class="field">
+    <%= f.label :judge1_comment %><br>
+    <%= f.text_area :judge1_comment %>
+  </div>
+  <div class="field">
+    <%= f.label :judge2_comment %><br>
+    <%= f.text_area :judge2_comment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

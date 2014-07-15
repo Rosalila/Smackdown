@@ -1,0 +1,2 @@
+module SmackdownRulesHelper
+end

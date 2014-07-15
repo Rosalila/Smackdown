@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  smackdown_id: 1
+  rule_id: 1
+
+two:
+  smackdown_id: 1
+  rule_id: 1

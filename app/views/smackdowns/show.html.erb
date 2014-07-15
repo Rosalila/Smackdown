@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Player1:</strong>
+  <%= @smackdown.player1_id %>
+</p>
+
+<p>
+  <strong>Player2:</strong>
+  <%= @smackdown.player2_id %>
+</p>
+
+<p>
+  <strong>Judge1:</strong>
+  <%= @smackdown.judge1_id %>
+</p>
+
+<p>
+  <strong>Judge2:</strong>
+  <%= @smackdown.judge2_id %>
+</p>
+
+<p>
+  <strong>Judge1 winner:</strong>
+  <%= @smackdown.judge1_winner_id %>
+</p>
+
+<p>
+  <strong>Judge2 winner:</strong>
+  <%= @smackdown.judge2_winner_id %>
+</p>
+
+<p>
+  <strong>Player2 accepted:</strong>
+  <%= @smackdown.player2_accepted %>
+</p>
+
+<p>
+  <strong>Judge1 accepted:</strong>
+  <%= @smackdown.judge1_accepted %>
+</p>
+
+<p>
+  <strong>Judge2 accepted:</strong>
+  <%= @smackdown.judge2_accepted %>
+</p>
+
+<p>
+  <strong>Judge1 comment:</strong>
+  <%= @smackdown.judge1_comment %>
+</p>
+
+<p>
+  <strong>Judge2 comment:</strong>
+  <%= @smackdown.judge2_comment %>
+</p>
+
+<%= link_to 'Edit', edit_smackdown_path(@smackdown) %> |
+<%= link_to 'Back', smackdowns_path %>

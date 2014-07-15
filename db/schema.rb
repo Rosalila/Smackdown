@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140714072622) do
+ActiveRecord::Schema.define(version: 20140715020529) do
 
   create_table "game_modes", force: true do |t|
     t.string   "name"
@@ -43,6 +43,29 @@ ActiveRecord::Schema.define(version: 20140714072622) do
   create_table "rules", force: true do |t|
     t.integer  "rule_group_id"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "smackdown_rules", force: true do |t|
+    t.integer  "smackdown_id"
+    t.integer  "rule_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "smackdowns", force: true do |t|
+    t.integer  "player1_id"
+    t.integer  "player2_id"
+    t.integer  "judge1_id"
+    t.integer  "judge2_id"
+    t.integer  "judge1_winner_id"
+    t.integer  "judge2_winner_id"
+    t.boolean  "player2_accepted"
+    t.boolean  "judge1_accepted"
+    t.boolean  "judge2_accepted"
+    t.text     "judge1_comment"
+    t.text     "judge2_comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

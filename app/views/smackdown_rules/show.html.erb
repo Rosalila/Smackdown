@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Smackdown:</strong>
+  <%= @smackdown_rule.smackdown_id %>
+</p>
+
+<p>
+  <strong>Rule:</strong>
+  <%= @smackdown_rule.rule_id %>
+</p>
+
+<%= link_to 'Edit', edit_smackdown_rule_path(@smackdown_rule) %> |
+<%= link_to 'Back', smackdown_rules_path %>
