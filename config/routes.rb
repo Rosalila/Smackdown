@@ -17,6 +17,9 @@ Myapp::Application.routes.draw do
   get '/home/visit/:id', to: 'home#visit', as: 'visit'
 #  post '/home/send_smackdown', to: 'home#send_smackdown', as: 'send_smackdown'
   get '/home/send_smackdown', to: 'home#send_smackdown', as: 'send_smackdown'
+  get '/home/respond_smackdown', to: 'home#respond_smackdown', as: 'respond_smackdown'
+  get '/home/judge1_smackdown', to: 'home#judge1_smackdown', as: 'judge1_smackdown'
+  get '/home/judge2_smackdown', to: 'home#judge2_smackdown', as: 'judge2_smackdown'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

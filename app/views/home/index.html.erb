@@ -80,9 +80,6 @@
       <%end%>
 
     <% end %>
-  <% else %>
-    
-  <% end %>
 
 
 <table align="center">
@@ -221,14 +218,22 @@
       <td><%= smackdown.judge1_comment %><td>
       <td><%= smackdown.judge2_comment %><td>
       <td>
-        <span>Juez: <span>
-        <select name="judge_id">
-          <% User.all.each do |judge| %>
-            <% if judge.id != current_user.id %>
-              <option value="<%= judge.id %>"><%= judge.name %></option>
+        <form accept-charset="UTF-8" action="/home/respond_smackdown" method="get" class="nifty_form">
+          <span>Juez: <span>
+          <select name="judge_id">
+            <% User.all.each do |judge| %>
+              <% if judge.id != current_user.id %>
+                <option value="<%= judge.id %>"><%= judge.name %></option>
+              <% end %>
             <% end %>
-          <% end %>
-        </select>
+          </select>
+          <select name="player2_accepted">
+            <option value="true">Aceptar</option>
+            <option value="false">Rechazar</option>
+          </select>
+          <input name="smackdown_id" type="hidden" value="<%= smackdown.id %>" />
+          <input name="commit" type="submit" value="Enviar" />
+        </form>
       </td>
     </tr>
   <% end %>
@@ -349,3 +354,6 @@
 
 </table>
 
+  <% else %>
+
+  <% end %>

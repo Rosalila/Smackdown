@@ -10666,3 +10666,1476 @@ I, [2014-07-15T06:35:47.320404 #22624]  INFO -- : Completed 200 OK in 141ms (Vie
 I, [2014-07-15T06:35:47.658866 #22626]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 06:35:47 +0000
 I, [2014-07-15T06:35:47.673083 #22624]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-15 06:35:47 +0000
 I, [2014-07-15T06:35:47.680159 #22624]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-15 06:35:47 +0000
+I, [2014-07-15T06:38:47.871745 #22626]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:38:47 +0000
+I, [2014-07-15T06:38:47.877765 #22626]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:38:48.161657 #22626]  INFO -- :   Rendered home/index.html.erb within layouts/application (262.4ms)
+I, [2014-07-15T06:38:48.165677 #22626]  INFO -- : Completed 200 OK in 288ms (Views: 250.9ms | ActiveRecord: 18.7ms)
+I, [2014-07-15T06:38:48.374260 #22624]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 06:38:48 +0000
+I, [2014-07-15T06:38:48.527484 #22626]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-15 06:38:48 +0000
+I, [2014-07-15T06:38:48.530782 #22624]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-15 06:38:48 +0000
+I, [2014-07-15T06:39:27.400391 #22626]  INFO -- : Started PATCH "/player_rules/27" for 190.53.48.241 at 2014-07-15 06:39:27 +0000
+I, [2014-07-15T06:39:27.404573 #22626]  INFO -- : Processing by PlayerRulesController#update as HTML
+I, [2014-07-15T06:39:27.404730 #22626]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"2FDLWA1B4jNIu0XayEIFo2NewhZA6HqGLnj6qoUboNI=", "player_rule"=>{"user_id"=>"1", "rule_id"=>"3", "activated"=>"false"}, "commit.x"=>"62", "commit.y"=>"19", "commit"=>"desactivar", "id"=>"27"}
+I, [2014-07-15T06:39:27.419124 #22626]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-15T06:39:27.419471 #22626]  INFO -- : Completed 302 Found in 15ms (ActiveRecord: 6.8ms)
+I, [2014-07-15T06:39:27.583086 #22624]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:39:27 +0000
+I, [2014-07-15T06:39:27.586729 #22624]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:39:27.607665 #22624]  INFO -- :   Rendered home/index.html.erb within layouts/application (19.2ms)
+I, [2014-07-15T06:39:27.608736 #22624]  INFO -- : Completed 200 OK in 22ms (Views: 17.7ms | ActiveRecord: 3.1ms)
+I, [2014-07-15T06:39:27.823547 #22626]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 06:39:27 +0000
+I, [2014-07-15T06:39:27.833438 #22626]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-15 06:39:27 +0000
+I, [2014-07-15T06:39:27.843902 #22624]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-15 06:39:27 +0000
+I, [2014-07-15T06:39:27.846512 #22626]  INFO -- : Started GET "/assets/switch/off.png" for 190.53.48.241 at 2014-07-15 06:39:27 +0000
+I, [2014-07-15T06:39:28.838089 #22624]  INFO -- : Started PATCH "/player_rules/27" for 190.53.48.241 at 2014-07-15 06:39:28 +0000
+I, [2014-07-15T06:39:28.841295 #22624]  INFO -- : Processing by PlayerRulesController#update as HTML
+I, [2014-07-15T06:39:28.841392 #22624]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"2FDLWA1B4jNIu0XayEIFo2NewhZA6HqGLnj6qoUboNI=", "player_rule"=>{"user_id"=>"1", "rule_id"=>"3", "activated"=>"true"}, "commit.x"=>"62", "commit.y"=>"19", "commit"=>"activar", "id"=>"27"}
+I, [2014-07-15T06:39:28.853849 #22624]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-15T06:39:28.854199 #22624]  INFO -- : Completed 302 Found in 13ms (ActiveRecord: 6.1ms)
+I, [2014-07-15T06:39:29.014705 #22626]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:39:29 +0000
+I, [2014-07-15T06:39:29.017440 #22626]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:39:29.035812 #22626]  INFO -- :   Rendered home/index.html.erb within layouts/application (17.1ms)
+I, [2014-07-15T06:39:29.036846 #22626]  INFO -- : Completed 200 OK in 19ms (Views: 15.6ms | ActiveRecord: 2.9ms)
+I, [2014-07-15T06:39:29.235632 #22624]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 06:39:29 +0000
+I, [2014-07-15T06:39:29.248965 #22626]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-15 06:39:29 +0000
+I, [2014-07-15T06:39:29.254792 #22624]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-15 06:39:29 +0000
+I, [2014-07-15T06:39:41.524717 #22626]  INFO -- : Started GET "/home/visit/1" for 190.53.48.241 at 2014-07-15 06:39:41 +0000
+I, [2014-07-15T06:39:41.526856 #22626]  INFO -- : Processing by HomeController#visit as HTML
+I, [2014-07-15T06:39:41.530547 #22626]  INFO -- :   Parameters: {"id"=>"1"}
+I, [2014-07-15T06:39:41.541566 #22626]  INFO -- :   Rendered home/visit.html.erb within layouts/application (8.9ms)
+I, [2014-07-15T06:39:41.542963 #22626]  INFO -- : Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 1.7ms)
+I, [2014-07-15T06:39:41.752817 #22624]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 06:39:41 +0000
+I, [2014-07-15T06:52:25.584141 #22626]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:52:25 +0000
+I, [2014-07-15T06:52:25.587957 #22626]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:52:25.632079 #22626]  INFO -- :   Rendered home/index.html.erb within layouts/application (41.3ms)
+I, [2014-07-15T06:52:25.634072 #22626]  INFO -- : Completed 200 OK in 46ms (Views: 37.4ms | ActiveRecord: 6.6ms)
+I, [2014-07-15T06:52:25.817850 #22624]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 06:52:25 +0000
+I, [2014-07-15T06:52:25.829527 #22624]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-15 06:52:25 +0000
+I, [2014-07-15T06:52:25.839241 #22626]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-15 06:52:25 +0000
+I, [2014-07-15T06:52:32.569696 #22624]  INFO -- : Started GET "/signout" for 190.53.48.241 at 2014-07-15 06:52:32 +0000
+I, [2014-07-15T06:52:32.573347 #22624]  INFO -- : Processing by SessionsController#destroy as HTML
+I, [2014-07-15T06:52:32.574953 #22624]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-15T06:52:32.575242 #22624]  INFO -- : Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+I, [2014-07-15T06:52:32.736987 #22626]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:52:32 +0000
+I, [2014-07-15T06:52:32.738726 #22626]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:52:32.741630 #22626]  INFO -- :   Rendered home/index.html.erb within layouts/application (1.9ms)
+I, [2014-07-15T06:52:32.741797 #22626]  INFO -- : Completed 500 Internal Server Error in 3ms
+F, [2014-07-15T06:52:32.743930 #22626] FATAL -- : 
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    108:     <th>comentario juez 1</th>
+    109:     <th>comentario juez 2</th>
+    110:   </tr>
+    111:   <% Smackdown.where(:player1_id=>current_user.id).each do |smackdown| %>
+    112:     <tr>
+    113:       <td>
+    114:         <%= User.find_by_id(smackdown.player2_id).name %>
+  app/views/home/index.html.erb:111:in `_app_views_home_index_html_erb__943225077195585890_42143580'
+
+
+I, [2014-07-15T06:52:35.349867 #22624]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:52:35 +0000
+I, [2014-07-15T06:52:35.351884 #22624]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:52:35.355139 #22624]  INFO -- :   Rendered home/index.html.erb within layouts/application (2.0ms)
+I, [2014-07-15T06:52:35.355297 #22624]  INFO -- : Completed 500 Internal Server Error in 3ms
+F, [2014-07-15T06:52:35.357359 #22624] FATAL -- : 
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    108:     <th>comentario juez 1</th>
+    109:     <th>comentario juez 2</th>
+    110:   </tr>
+    111:   <% Smackdown.where(:player1_id=>current_user.id).each do |smackdown| %>
+    112:     <tr>
+    113:       <td>
+    114:         <%= User.find_by_id(smackdown.player2_id).name %>
+  app/views/home/index.html.erb:111:in `_app_views_home_index_html_erb__943225077195585890_42076520'
+
+
+I, [2014-07-15T06:52:38.301771 #22626]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:52:38 +0000
+I, [2014-07-15T06:52:38.303300 #22626]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:52:38.305921 #22626]  INFO -- :   Rendered home/index.html.erb within layouts/application (1.6ms)
+I, [2014-07-15T06:52:38.306109 #22626]  INFO -- : Completed 500 Internal Server Error in 3ms
+F, [2014-07-15T06:52:38.308020 #22626] FATAL -- : 
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    108:     <th>comentario juez 1</th>
+    109:     <th>comentario juez 2</th>
+    110:   </tr>
+    111:   <% Smackdown.where(:player1_id=>current_user.id).each do |smackdown| %>
+    112:     <tr>
+    113:       <td>
+    114:         <%= User.find_by_id(smackdown.player2_id).name %>
+  app/views/home/index.html.erb:111:in `_app_views_home_index_html_erb__943225077195585890_42143580'
+
+
+I, [2014-07-15T06:52:40.294304 #22624]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:52:40 +0000
+I, [2014-07-15T06:52:40.297083 #22624]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:52:40.301837 #22624]  INFO -- :   Rendered home/index.html.erb within layouts/application (2.9ms)
+I, [2014-07-15T06:52:40.302219 #22624]  INFO -- : Completed 500 Internal Server Error in 5ms
+F, [2014-07-15T06:52:40.306405 #22624] FATAL -- : 
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    108:     <th>comentario juez 1</th>
+    109:     <th>comentario juez 2</th>
+    110:   </tr>
+    111:   <% Smackdown.where(:player1_id=>current_user.id).each do |smackdown| %>
+    112:     <tr>
+    113:       <td>
+    114:         <%= User.find_by_id(smackdown.player2_id).name %>
+  app/views/home/index.html.erb:111:in `_app_views_home_index_html_erb__943225077195585890_42076520'
+
+
+I, [2014-07-15T06:54:52.788955 #22728]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:54:52 +0000
+I, [2014-07-15T06:54:52.803828 #22728]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:54:52.830145 #22728]  INFO -- :   Rendered home/index.html.erb within layouts/application (16.0ms)
+I, [2014-07-15T06:54:52.830411 #22728]  INFO -- : Completed 500 Internal Server Error in 26ms
+F, [2014-07-15T06:54:52.832629 #22728] FATAL -- : 
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    108:     <th>comentario juez 1</th>
+    109:     <th>comentario juez 2</th>
+    110:   </tr>
+    111:   <% Smackdown.where(:player1_id=>current_user.id).each do |smackdown| %>
+    112:     <tr>
+    113:       <td>
+    114:         <%= User.find_by_id(smackdown.player2_id).name %>
+  app/views/home/index.html.erb:111:in `_app_views_home_index_html_erb__3496377590877692015_37751620'
+
+
+I, [2014-07-15T06:55:39.633417 #22730]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:55:39 +0000
+I, [2014-07-15T06:55:39.662241 #22730]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:55:39.712619 #22730]  INFO -- :   Rendered home/index.html.erb within layouts/application (30.6ms)
+I, [2014-07-15T06:55:39.713083 #22730]  INFO -- : Completed 500 Internal Server Error in 50ms
+F, [2014-07-15T06:55:39.717681 #22730] FATAL -- : 
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    108:     <th>comentario juez 1</th>
+    109:     <th>comentario juez 2</th>
+    110:   </tr>
+    111:   <% Smackdown.where(:player1_id=>current_user.id).each do |smackdown| %>
+    112:     <tr>
+    113:       <td>
+    114:         <%= User.find_by_id(smackdown.player2_id).name %>
+  app/views/home/index.html.erb:111:in `_app_views_home_index_html_erb__3496377590877692015_37751200'
+
+
+I, [2014-07-15T06:55:40.565789 #22728]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:55:40 +0000
+I, [2014-07-15T06:55:40.568659 #22728]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:55:40.572240 #22728]  INFO -- :   Rendered home/index.html.erb within layouts/application (2.0ms)
+I, [2014-07-15T06:55:40.572403 #22728]  INFO -- : Completed 500 Internal Server Error in 4ms
+F, [2014-07-15T06:55:40.574478 #22728] FATAL -- : 
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    108:     <th>comentario juez 1</th>
+    109:     <th>comentario juez 2</th>
+    110:   </tr>
+    111:   <% Smackdown.where(:player1_id=>current_user.id).each do |smackdown| %>
+    112:     <tr>
+    113:       <td>
+    114:         <%= User.find_by_id(smackdown.player2_id).name %>
+  app/views/home/index.html.erb:111:in `_app_views_home_index_html_erb__3496377590877692015_37751620'
+
+
+I, [2014-07-15T06:57:43.941952 #22782]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:57:43 +0000
+I, [2014-07-15T06:57:43.959324 #22782]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:57:43.974759 #22782]  INFO -- :   Rendered home/index.html.erb within layouts/application (4.7ms)
+I, [2014-07-15T06:57:43.976496 #22782]  INFO -- : Completed 200 OK in 17ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+I, [2014-07-15T06:57:44.328401 #22785]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 06:57:44 +0000
+I, [2014-07-15T06:57:47.070763 #22782]  INFO -- : Started GET "/auth/facebook" for 190.53.48.241 at 2014-07-15 06:57:47 +0000
+I, [2014-07-15T06:57:47.072249 #22782]  INFO -- : (facebook) Request phase initiated.
+I, [2014-07-15T06:57:47.442734 #22785]  INFO -- : Started GET "/auth/facebook/callback?code=AQDTnLo5su6mLPX2anNEfseIV7ay7heU4fzaoQ5xDxkY2VrSC7Sn4TiAcLZUXjKIAkaKdSUCj5f-dtcPDFG_wykMYeeO-wil-uG2q9H1yrfeutgdJpE-YKPd7kZc96sthsP5V45eRQtG0UIPSFGyKmT8TTiAjNPdwc2iUhMCYY-JHt1mfIGhPGrqmUejEp5bO_26a5aN759p5D8BA-3zFzieduqvoEz183Sne6rB-NXrecurPpuz0q0P98VolI082oad2SJJrEEb4-aHZ3m4uO_nv4vPedMCylGin9vJeyL6902iiaImz3erEIs8H_cbhFI" for 190.53.48.241 at 2014-07-15 06:57:47 +0000
+I, [2014-07-15T06:57:47.443898 #22785]  INFO -- : (facebook) Callback phase initiated.
+I, [2014-07-15T06:57:47.861087 #22785]  INFO -- : Processing by SessionsController#create as HTML
+I, [2014-07-15T06:57:47.861316 #22785]  INFO -- :   Parameters: {"code"=>"AQDTnLo5su6mLPX2anNEfseIV7ay7heU4fzaoQ5xDxkY2VrSC7Sn4TiAcLZUXjKIAkaKdSUCj5f-dtcPDFG_wykMYeeO-wil-uG2q9H1yrfeutgdJpE-YKPd7kZc96sthsP5V45eRQtG0UIPSFGyKmT8TTiAjNPdwc2iUhMCYY-JHt1mfIGhPGrqmUejEp5bO_26a5aN759p5D8BA-3zFzieduqvoEz183Sne6rB-NXrecurPpuz0q0P98VolI082oad2SJJrEEb4-aHZ3m4uO_nv4vPedMCylGin9vJeyL6902iiaImz3erEIs8H_cbhFI", "provider"=>"facebook"}
+I, [2014-07-15T06:57:47.903680 #22785]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-15T06:57:47.904205 #22785]  INFO -- : Completed 302 Found in 43ms (ActiveRecord: 15.4ms)
+I, [2014-07-15T06:57:48.062476 #22782]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:57:48 +0000
+I, [2014-07-15T06:57:48.066116 #22782]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:57:48.247085 #22782]  INFO -- :   Rendered home/index.html.erb within layouts/application (179.3ms)
+I, [2014-07-15T06:57:48.248957 #22782]  INFO -- : Completed 200 OK in 183ms (Views: 168.6ms | ActiveRecord: 12.9ms)
+I, [2014-07-15T06:57:48.442544 #22785]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 06:57:48 +0000
+I, [2014-07-15T06:57:48.450767 #22785]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-15 06:57:48 +0000
+I, [2014-07-15T06:57:48.468710 #22782]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-15 06:57:48 +0000
+I, [2014-07-15T06:58:23.567319 #22822]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:58:23 +0000
+I, [2014-07-15T06:58:23.579952 #22819]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:58:23 +0000
+I, [2014-07-15T06:58:23.609499 #22822]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:58:23.621326 #22819]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:58:24.003575 #22822]  INFO -- :   Rendered home/index.html.erb within layouts/application (363.2ms)
+I, [2014-07-15T06:58:24.007984 #22819]  INFO -- :   Rendered home/index.html.erb within layouts/application (354.8ms)
+I, [2014-07-15T06:58:24.010095 #22822]  INFO -- : Completed 200 OK in 396ms (Views: 343.4ms | ActiveRecord: 29.2ms)
+I, [2014-07-15T06:58:24.012428 #22819]  INFO -- : Completed 200 OK in 391ms (Views: 329.1ms | ActiveRecord: 37.1ms)
+I, [2014-07-15T06:58:24.212006 #22822]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 06:58:24 +0000
+I, [2014-07-15T06:58:24.348158 #22819]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-15 06:58:24 +0000
+I, [2014-07-15T06:58:24.357146 #22822]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-15 06:58:24 +0000
+I, [2014-07-15T06:58:26.139117 #22819]  INFO -- : Started GET "/signout" for 190.53.48.241 at 2014-07-15 06:58:26 +0000
+I, [2014-07-15T06:58:26.142871 #22819]  INFO -- : Processing by SessionsController#destroy as HTML
+I, [2014-07-15T06:58:26.145037 #22819]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-15T06:58:26.145453 #22819]  INFO -- : Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+I, [2014-07-15T06:58:26.299339 #22822]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:58:26 +0000
+I, [2014-07-15T06:58:26.302733 #22822]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:58:26.304561 #22822]  INFO -- :   Rendered home/index.html.erb within layouts/application (0.1ms)
+I, [2014-07-15T06:58:26.305907 #22822]  INFO -- : Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+I, [2014-07-15T06:58:26.490976 #22819]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 06:58:26 +0000
+I, [2014-07-15T06:58:28.903169 #22822]  INFO -- : Started GET "/auth/facebook" for 190.53.48.241 at 2014-07-15 06:58:28 +0000
+I, [2014-07-15T06:58:28.906387 #22822]  INFO -- : (facebook) Request phase initiated.
+I, [2014-07-15T06:58:29.268695 #22819]  INFO -- : Started GET "/auth/facebook/callback?code=AQCZCRas5Sjq_MIGYCFX9jBfiO6jQ61F_3RAkhBzv9uFNeujLOv0t_vq2rvJkggOl-BJ5mnhQf1o4o9RQNTWyuAdR9rwJQ8jv3UqMva2wGnhy8ZkdjnGhIpX2OjgpKEpTtN5OpjIglVBZSkGkAfttQ9Og9yOQoIGyaEu7MiVyaroyAjR-lTzjYNPQbKuuiqj8R4jpFxBLmV80AtvQ9X2QSArKimpR0Ht3r0_EgOi-yAcrEGMv632JZXU6sJMMpwv6RINnGn5wQrdk1YN628f8FoOKF1v50cdX902mx8teOX_q33SE2atWmc2YF7CWvynIAo" for 190.53.48.241 at 2014-07-15 06:58:29 +0000
+I, [2014-07-15T06:58:29.269616 #22819]  INFO -- : (facebook) Callback phase initiated.
+I, [2014-07-15T06:58:29.658863 #22819]  INFO -- : Processing by SessionsController#create as HTML
+I, [2014-07-15T06:58:29.659052 #22819]  INFO -- :   Parameters: {"code"=>"AQCZCRas5Sjq_MIGYCFX9jBfiO6jQ61F_3RAkhBzv9uFNeujLOv0t_vq2rvJkggOl-BJ5mnhQf1o4o9RQNTWyuAdR9rwJQ8jv3UqMva2wGnhy8ZkdjnGhIpX2OjgpKEpTtN5OpjIglVBZSkGkAfttQ9Og9yOQoIGyaEu7MiVyaroyAjR-lTzjYNPQbKuuiqj8R4jpFxBLmV80AtvQ9X2QSArKimpR0Ht3r0_EgOi-yAcrEGMv632JZXU6sJMMpwv6RINnGn5wQrdk1YN628f8FoOKF1v50cdX902mx8teOX_q33SE2atWmc2YF7CWvynIAo", "provider"=>"facebook"}
+I, [2014-07-15T06:58:29.685046 #22819]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-15T06:58:29.685519 #22819]  INFO -- : Completed 302 Found in 26ms (ActiveRecord: 17.0ms)
+I, [2014-07-15T06:58:29.839234 #22822]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:58:29 +0000
+I, [2014-07-15T06:58:29.841856 #22822]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:58:29.868636 #22822]  INFO -- :   Rendered home/index.html.erb within layouts/application (25.1ms)
+I, [2014-07-15T06:58:29.870305 #22822]  INFO -- : Completed 200 OK in 28ms (Views: 22.8ms | ActiveRecord: 4.3ms)
+I, [2014-07-15T06:58:30.055220 #22819]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 06:58:30 +0000
+I, [2014-07-15T06:58:30.066969 #22819]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-15 06:58:30 +0000
+I, [2014-07-15T06:58:30.076020 #22822]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-15 06:58:30 +0000
+I, [2014-07-15T06:59:07.458625 #22857]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:59:07 +0000
+I, [2014-07-15T06:59:07.490454 #22857]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:59:07.699353 #22857]  INFO -- :   Rendered home/index.html.erb within layouts/application (190.3ms)
+I, [2014-07-15T06:59:07.701429 #22857]  INFO -- : Completed 200 OK in 211ms (Views: 171.7ms | ActiveRecord: 22.3ms)
+I, [2014-07-15T06:59:07.893409 #22860]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 06:59:07 +0000
+I, [2014-07-15T06:59:07.898566 #22857]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-15 06:59:07 +0000
+I, [2014-07-15T06:59:08.034708 #22857]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-15 06:59:08 +0000
+I, [2014-07-15T06:59:09.110657 #22857]  INFO -- : Started GET "/signout" for 190.53.48.241 at 2014-07-15 06:59:09 +0000
+I, [2014-07-15T06:59:09.115535 #22857]  INFO -- : Processing by SessionsController#destroy as HTML
+I, [2014-07-15T06:59:09.117165 #22857]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-15T06:59:09.117466 #22857]  INFO -- : Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+I, [2014-07-15T06:59:09.278860 #22860]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:59:09 +0000
+I, [2014-07-15T06:59:09.282207 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:59:09.297110 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (4.6ms)
+I, [2014-07-15T06:59:09.299321 #22860]  INFO -- : Completed 200 OK in 17ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+I, [2014-07-15T06:59:09.494936 #22857]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 06:59:09 +0000
+I, [2014-07-15T06:59:10.922608 #22860]  INFO -- : Started GET "/auth/facebook" for 190.53.48.241 at 2014-07-15 06:59:10 +0000
+I, [2014-07-15T06:59:10.923471 #22860]  INFO -- : (facebook) Request phase initiated.
+I, [2014-07-15T06:59:11.371016 #22857]  INFO -- : Started GET "/auth/facebook/callback?code=AQDkyxoYEUCZgFBvCu3p3Vxgj7kACyeIWE7XXD0qrvWGf3Wh5lDSa3OccEEHoleWfLZuEOo4NVZ2WZa4Bw_79-N8LM85nhiBYweMuJMu8o0Q6LYNx8guLJT7FWFzMvyEMDwCoUu9B8pht9qFHQ_5kHCQmDvE-AT2xYtVHqwou9AkTda3FVoteHHj519qXWXH1NkpqM-4gvdHwQafEYGp9izrxKXLr8--djPOBFCSUOyA29Cjd-MOd64_agXH5Ky-OWqM-S-F1XntOBYDTHgqhdsCBTA6g8aytWAfabBMbh-Vm_kJJIf9dl4IM06PvFT5jqE" for 190.53.48.241 at 2014-07-15 06:59:11 +0000
+I, [2014-07-15T06:59:11.371681 #22857]  INFO -- : (facebook) Callback phase initiated.
+I, [2014-07-15T06:59:11.783389 #22857]  INFO -- : Processing by SessionsController#create as HTML
+I, [2014-07-15T06:59:11.783585 #22857]  INFO -- :   Parameters: {"code"=>"AQDkyxoYEUCZgFBvCu3p3Vxgj7kACyeIWE7XXD0qrvWGf3Wh5lDSa3OccEEHoleWfLZuEOo4NVZ2WZa4Bw_79-N8LM85nhiBYweMuJMu8o0Q6LYNx8guLJT7FWFzMvyEMDwCoUu9B8pht9qFHQ_5kHCQmDvE-AT2xYtVHqwou9AkTda3FVoteHHj519qXWXH1NkpqM-4gvdHwQafEYGp9izrxKXLr8--djPOBFCSUOyA29Cjd-MOd64_agXH5Ky-OWqM-S-F1XntOBYDTHgqhdsCBTA6g8aytWAfabBMbh-Vm_kJJIf9dl4IM06PvFT5jqE", "provider"=>"facebook"}
+I, [2014-07-15T06:59:11.803181 #22857]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-15T06:59:11.803522 #22857]  INFO -- : Completed 302 Found in 20ms (ActiveRecord: 11.1ms)
+I, [2014-07-15T06:59:11.966675 #22860]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 06:59:11 +0000
+I, [2014-07-15T06:59:11.969919 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T06:59:12.098863 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (127.6ms)
+I, [2014-07-15T06:59:12.100326 #22860]  INFO -- : Completed 200 OK in 130ms (Views: 120.5ms | ActiveRecord: 8.9ms)
+I, [2014-07-15T06:59:12.298749 #22857]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 06:59:12 +0000
+I, [2014-07-15T06:59:12.302693 #22857]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-15 06:59:12 +0000
+I, [2014-07-15T06:59:12.310611 #22860]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-15 06:59:12 +0000
+I, [2014-07-15T07:00:15.891538 #22857]  INFO -- : Started PATCH "/user_playing_games/5" for 190.53.48.241 at 2014-07-15 07:00:15 +0000
+I, [2014-07-15T07:00:15.896619 #22857]  INFO -- : Processing by UserPlayingGamesController#update as HTML
+I, [2014-07-15T07:00:15.896787 #22857]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"2FDLWA1B4jNIu0XayEIFo2NewhZA6HqGLnj6qoUboNI=", "user_playing_game"=>{"user_id"=>"1", "game_id"=>"1", "is_playing"=>"false"}, "commit.x"=>"106", "commit.y"=>"8", "commit"=>"dejar de jugar", "id"=>"5"}
+I, [2014-07-15T07:00:15.913449 #22857]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-15T07:00:15.913879 #22857]  INFO -- : Completed 302 Found in 17ms (ActiveRecord: 7.6ms)
+I, [2014-07-15T07:00:16.071595 #22860]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 07:00:16 +0000
+I, [2014-07-15T07:00:16.074681 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T07:00:16.093543 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (16.5ms)
+I, [2014-07-15T07:00:16.095036 #22860]  INFO -- : Completed 200 OK in 20ms (Views: 15.4ms | ActiveRecord: 3.4ms)
+I, [2014-07-15T07:00:16.331407 #22857]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 07:00:16 +0000
+I, [2014-07-15T07:00:16.342904 #22860]  INFO -- : Started GET "/assets/switch/no_jugando.png" for 190.53.48.241 at 2014-07-15 07:00:16 +0000
+I, [2014-07-15T07:00:18.631276 #22857]  INFO -- : Started PATCH "/user_playing_games/5" for 190.53.48.241 at 2014-07-15 07:00:18 +0000
+I, [2014-07-15T07:00:18.634941 #22857]  INFO -- : Processing by UserPlayingGamesController#update as HTML
+I, [2014-07-15T07:00:18.635121 #22857]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"2FDLWA1B4jNIu0XayEIFo2NewhZA6HqGLnj6qoUboNI=", "user_playing_game"=>{"user_id"=>"1", "game_id"=>"1", "is_playing"=>"true"}, "commit.x"=>"45", "commit.y"=>"41", "commit"=>"jugar", "id"=>"5"}
+I, [2014-07-15T07:00:18.647979 #22857]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-15T07:00:18.648232 #22857]  INFO -- : Completed 302 Found in 13ms (ActiveRecord: 7.9ms)
+I, [2014-07-15T07:00:18.814845 #22860]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 07:00:18 +0000
+I, [2014-07-15T07:00:18.816944 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T07:00:18.837334 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (18.9ms)
+I, [2014-07-15T07:00:18.838555 #22860]  INFO -- : Completed 200 OK in 21ms (Views: 17.3ms | ActiveRecord: 3.2ms)
+I, [2014-07-15T07:00:19.058756 #22857]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 07:00:19 +0000
+I, [2014-07-15T07:00:19.062259 #22857]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-15 07:00:19 +0000
+I, [2014-07-15T07:00:19.218750 #22860]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-15 07:00:19 +0000
+I, [2014-07-15T07:00:28.566514 #22857]  INFO -- : Started GET "/home/visit/1" for 190.53.48.241 at 2014-07-15 07:00:28 +0000
+I, [2014-07-15T07:00:28.569373 #22857]  INFO -- : Processing by HomeController#visit as HTML
+I, [2014-07-15T07:00:28.569451 #22857]  INFO -- :   Parameters: {"id"=>"1"}
+I, [2014-07-15T07:00:28.580171 #22857]  INFO -- :   Rendered home/visit.html.erb within layouts/application (9.0ms)
+I, [2014-07-15T07:00:28.581495 #22857]  INFO -- : Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 1.7ms)
+I, [2014-07-15T07:00:28.771357 #22860]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 07:00:28 +0000
+I, [2014-07-15T07:00:44.314848 #22860]  INFO -- : Started GET "/" for 205.211.247.164 at 2014-07-15 07:00:44 +0000
+I, [2014-07-15T07:00:44.317476 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T07:00:44.319199 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (0.1ms)
+I, [2014-07-15T07:00:44.320720 #22860]  INFO -- : Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+I, [2014-07-15T07:00:44.651549 #22857]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 205.211.247.164 at 2014-07-15 07:00:44 +0000
+I, [2014-07-15T07:07:18.740242 #22860]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-15 07:07:18 +0000
+I, [2014-07-15T07:07:18.741846 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T07:07:18.759576 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (16.6ms)
+I, [2014-07-15T07:07:18.760774 #22860]  INFO -- : Completed 200 OK in 19ms (Views: 15.4ms | ActiveRecord: 2.7ms)
+I, [2014-07-15T07:07:19.033090 #22857]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 07:07:19 +0000
+I, [2014-07-15T07:07:19.039689 #22857]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-15 07:07:19 +0000
+I, [2014-07-15T07:07:19.191393 #22860]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-15 07:07:19 +0000
+I, [2014-07-15T07:09:02.636545 #22857]  INFO -- : Started GET "/home/visit/1" for 190.53.48.241 at 2014-07-15 07:09:02 +0000
+I, [2014-07-15T07:09:02.640077 #22857]  INFO -- : Processing by HomeController#visit as HTML
+I, [2014-07-15T07:09:02.640219 #22857]  INFO -- :   Parameters: {"id"=>"1"}
+I, [2014-07-15T07:09:02.657488 #22857]  INFO -- :   Rendered home/visit.html.erb within layouts/application (14.9ms)
+I, [2014-07-15T07:09:02.659504 #22857]  INFO -- : Completed 200 OK in 19ms (Views: 14.1ms | ActiveRecord: 3.5ms)
+I, [2014-07-15T07:09:02.906934 #22860]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-15 07:09:02 +0000
+I, [2014-07-15T10:21:57.862449 #22857]  INFO -- : Started GET "/render/hoteldiv.jsp?&__jscallback=XQScript_4" for 115.28.139.98 at 2014-07-15 10:21:57 +0000
+F, [2014-07-15T10:21:57.868044 #22857] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/render/hoteldiv.jsp"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-15T12:59:46.802279 #22857]  INFO -- : Started GET "/manager/html" for 191.180.57.86 at 2014-07-15 12:59:46 +0000
+F, [2014-07-15T12:59:46.807492 #22857] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/manager/html"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-15T16:35:02.436362 #22857]  INFO -- : Started GET "/?fb_locale=es_LA" for 173.252.101.115 at 2014-07-15 16:35:02 +0000
+I, [2014-07-15T16:35:02.440464 #22857]  INFO -- : Processing by HomeController#index as */*
+I, [2014-07-15T16:35:02.440611 #22857]  INFO -- :   Parameters: {"fb_locale"=>"es_LA"}
+I, [2014-07-15T16:35:02.453981 #22857]  INFO -- :   Rendered home/index.html.erb within layouts/application (7.9ms)
+I, [2014-07-15T16:35:02.456098 #22857]  INFO -- : Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+I, [2014-07-15T16:35:02.753239 #22860]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 173.252.101.115 at 2014-07-15 16:35:02 +0000
+I, [2014-07-15T16:35:03.141158 #22857]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 173.252.101.115 at 2014-07-15 16:35:03 +0000
+I, [2014-07-15T16:35:03.937025 #22860]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 173.252.113.117 at 2014-07-15 16:35:03 +0000
+I, [2014-07-15T19:35:14.408276 #22857]  INFO -- : Started GET "/web-console/ServerInfo.jsp" for 205.209.161.195 at 2014-07-15 19:35:14 +0000
+F, [2014-07-15T19:35:14.412843 #22857] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/web-console/ServerInfo.jsp"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-15T19:58:40.896775 #22860]  INFO -- : Started GET "/index.asp?request=Ch&index=0" for 95.211.138.10 at 2014-07-15 19:58:40 +0000
+F, [2014-07-15T19:58:40.898920 #22860] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/index.asp"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-15T22:30:09.999992 #22860]  INFO -- : Started GET "/" for 190.53.62.107 at 2014-07-15 22:30:09 +0000
+I, [2014-07-15T22:30:10.001558 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-15T22:30:10.002434 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (0.1ms)
+I, [2014-07-15T22:30:10.003272 #22860]  INFO -- : Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+I, [2014-07-15T22:30:10.349451 #22857]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.62.107 at 2014-07-15 22:30:10 +0000
+I, [2014-07-16T05:47:19.561815 #22857]  INFO -- : Started GET "/web-console/ServerInfo.jsp" for 67.229.56.34 at 2014-07-16 05:47:19 +0000
+F, [2014-07-16T05:47:19.563863 #22857] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/web-console/ServerInfo.jsp"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-16T06:21:29.139778 #22860]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-16 06:21:29 +0000
+I, [2014-07-16T06:21:29.141261 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-16T06:21:29.142068 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (0.1ms)
+I, [2014-07-16T06:21:29.142859 #22860]  INFO -- : Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+I, [2014-07-16T06:21:29.363545 #22857]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-16 06:21:29 +0000
+I, [2014-07-16T06:21:35.271074 #22857]  INFO -- : Started GET "/auth/facebook" for 190.53.48.241 at 2014-07-16 06:21:35 +0000
+I, [2014-07-16T06:21:35.271816 #22857]  INFO -- : (facebook) Request phase initiated.
+I, [2014-07-16T06:21:35.940235 #22860]  INFO -- : Started GET "/auth/facebook/callback?code=AQBh9WhfbVAi1pj8yOTuJDQi7BzUYhE0kw0QNCPqB_R8s9JrUL-J7oF-5-ROXlAqMG_HpV6sLUEnNzlSbN-s6vpsELdeJR-xqgL212bDl3lp-lEJxANP5vi7vLAApESt6qaLKy9THyki7wZwtRKI3ggjGevBP4r0WgCc86ybx1XCDvJMkQ2v-WuWFcMxlzagSkSjLH0KmS-WFbaUatlMVUoG4vVZN0itLQjpjTpUkBX2IyiUu-BlJS-8GVImBDpdMr43B8vnvi3kDy1465Z0tHjtnQJK76CCi10ha3PPqQXadKTEj5_5POTfzWLOy4bjtfkJP_VyFabOvz4koZsXAi-Z" for 190.53.48.241 at 2014-07-16 06:21:35 +0000
+I, [2014-07-16T06:21:35.940953 #22860]  INFO -- : (facebook) Callback phase initiated.
+I, [2014-07-16T06:21:36.332005 #22860]  INFO -- : Processing by SessionsController#create as HTML
+I, [2014-07-16T06:21:36.332166 #22860]  INFO -- :   Parameters: {"code"=>"AQBh9WhfbVAi1pj8yOTuJDQi7BzUYhE0kw0QNCPqB_R8s9JrUL-J7oF-5-ROXlAqMG_HpV6sLUEnNzlSbN-s6vpsELdeJR-xqgL212bDl3lp-lEJxANP5vi7vLAApESt6qaLKy9THyki7wZwtRKI3ggjGevBP4r0WgCc86ybx1XCDvJMkQ2v-WuWFcMxlzagSkSjLH0KmS-WFbaUatlMVUoG4vVZN0itLQjpjTpUkBX2IyiUu-BlJS-8GVImBDpdMr43B8vnvi3kDy1465Z0tHjtnQJK76CCi10ha3PPqQXadKTEj5_5POTfzWLOy4bjtfkJP_VyFabOvz4koZsXAi-Z", "provider"=>"facebook"}
+I, [2014-07-16T06:21:36.348235 #22860]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-16T06:21:36.348555 #22860]  INFO -- : Completed 302 Found in 16ms (ActiveRecord: 9.1ms)
+I, [2014-07-16T06:21:36.523375 #22857]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-16 06:21:36 +0000
+I, [2014-07-16T06:21:36.525287 #22857]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-16T06:21:36.545437 #22857]  INFO -- :   Rendered home/index.html.erb within layouts/application (18.8ms)
+I, [2014-07-16T06:21:36.546643 #22857]  INFO -- : Completed 200 OK in 21ms (Views: 17.4ms | ActiveRecord: 3.1ms)
+I, [2014-07-16T06:21:36.759752 #22860]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-16 06:21:36 +0000
+I, [2014-07-16T06:21:36.765508 #22860]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-16 06:21:36 +0000
+I, [2014-07-16T06:21:36.918615 #22857]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-16 06:21:36 +0000
+I, [2014-07-16T06:21:41.407859 #22860]  INFO -- : Started PATCH "/user_playing_games/5" for 190.53.48.241 at 2014-07-16 06:21:41 +0000
+I, [2014-07-16T06:21:41.411053 #22860]  INFO -- : Processing by UserPlayingGamesController#update as HTML
+I, [2014-07-16T06:21:41.411152 #22860]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"E9JcbxY0/MYXZIma07vBBJRpYXXrpO/TN9iOLotqLE4=", "user_playing_game"=>{"user_id"=>"1", "game_id"=>"1", "is_playing"=>"false"}, "commit.x"=>"113", "commit.y"=>"22", "commit"=>"dejar de jugar", "id"=>"5"}
+I, [2014-07-16T06:21:41.419894 #22860]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-16T06:21:41.420127 #22860]  INFO -- : Completed 302 Found in 9ms (ActiveRecord: 3.7ms)
+I, [2014-07-16T06:21:41.602011 #22857]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-16 06:21:41 +0000
+I, [2014-07-16T06:21:41.604728 #22857]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-16T06:21:41.629089 #22857]  INFO -- :   Rendered home/index.html.erb within layouts/application (21.9ms)
+I, [2014-07-16T06:21:41.630907 #22857]  INFO -- : Completed 200 OK in 26ms (Views: 19.3ms | ActiveRecord: 4.8ms)
+I, [2014-07-16T06:21:41.842325 #22860]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-16 06:21:41 +0000
+I, [2014-07-16T06:21:41.846361 #22857]  INFO -- : Started GET "/assets/switch/no_jugando.png" for 190.53.48.241 at 2014-07-16 06:21:41 +0000
+I, [2014-07-16T06:21:47.476533 #22860]  INFO -- : Started PATCH "/user_playing_games/5" for 190.53.48.241 at 2014-07-16 06:21:47 +0000
+I, [2014-07-16T06:21:47.479305 #22860]  INFO -- : Processing by UserPlayingGamesController#update as HTML
+I, [2014-07-16T06:21:47.479419 #22860]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"E9JcbxY0/MYXZIma07vBBJRpYXXrpO/TN9iOLotqLE4=", "user_playing_game"=>{"user_id"=>"1", "game_id"=>"1", "is_playing"=>"true"}, "commit.x"=>"77", "commit.y"=>"36", "commit"=>"jugar", "id"=>"5"}
+I, [2014-07-16T06:21:47.486561 #22860]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-16T06:21:47.486776 #22860]  INFO -- : Completed 302 Found in 7ms (ActiveRecord: 3.7ms)
+I, [2014-07-16T06:21:47.662100 #22857]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-16 06:21:47 +0000
+I, [2014-07-16T06:21:47.664595 #22857]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-16T06:21:47.700057 #22857]  INFO -- :   Rendered home/index.html.erb within layouts/application (33.5ms)
+I, [2014-07-16T06:21:47.702146 #22857]  INFO -- : Completed 200 OK in 37ms (Views: 30.1ms | ActiveRecord: 6.0ms)
+I, [2014-07-16T06:21:47.898258 #22860]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-16 06:21:47 +0000
+I, [2014-07-16T06:21:47.901353 #22857]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-16 06:21:47 +0000
+I, [2014-07-16T06:21:48.073129 #22860]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-16 06:21:48 +0000
+I, [2014-07-16T06:21:49.341422 #22857]  INFO -- : Started PATCH "/player_rules/27" for 190.53.48.241 at 2014-07-16 06:21:49 +0000
+I, [2014-07-16T06:21:49.344356 #22857]  INFO -- : Processing by PlayerRulesController#update as HTML
+I, [2014-07-16T06:21:49.344440 #22857]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"E9JcbxY0/MYXZIma07vBBJRpYXXrpO/TN9iOLotqLE4=", "player_rule"=>{"user_id"=>"1", "rule_id"=>"3", "activated"=>"false"}, "commit.x"=>"67", "commit.y"=>"28", "commit"=>"desactivar", "id"=>"27"}
+I, [2014-07-16T06:21:49.354430 #22857]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-16T06:21:49.354671 #22857]  INFO -- : Completed 302 Found in 10ms (ActiveRecord: 4.5ms)
+I, [2014-07-16T06:21:49.531158 #22860]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-16 06:21:49 +0000
+I, [2014-07-16T06:21:49.532927 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-16T06:21:49.552062 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (17.7ms)
+I, [2014-07-16T06:21:49.553217 #22860]  INFO -- : Completed 200 OK in 20ms (Views: 16.4ms | ActiveRecord: 2.9ms)
+I, [2014-07-16T06:21:49.744227 #22857]  INFO -- : Started GET "/assets/switch/off.png" for 190.53.48.241 at 2014-07-16 06:21:49 +0000
+I, [2014-07-16T06:21:49.764338 #22860]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-16 06:21:49 +0000
+I, [2014-07-16T06:21:49.765891 #22857]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-16 06:21:49 +0000
+I, [2014-07-16T06:21:49.904882 #22860]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-16 06:21:49 +0000
+I, [2014-07-16T06:21:51.380526 #22857]  INFO -- : Started PATCH "/player_rules/22" for 190.53.48.241 at 2014-07-16 06:21:51 +0000
+I, [2014-07-16T06:21:51.385508 #22857]  INFO -- : Processing by PlayerRulesController#update as HTML
+I, [2014-07-16T06:21:51.385684 #22857]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"E9JcbxY0/MYXZIma07vBBJRpYXXrpO/TN9iOLotqLE4=", "player_rule"=>{"user_id"=>"1", "rule_id"=>"4", "activated"=>"false"}, "commit.x"=>"57", "commit.y"=>"18", "commit"=>"desactivar", "id"=>"22"}
+I, [2014-07-16T06:21:51.399403 #22857]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-16T06:21:51.399753 #22857]  INFO -- : Completed 302 Found in 14ms (ActiveRecord: 7.7ms)
+I, [2014-07-16T06:21:51.576965 #22860]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-16 06:21:51 +0000
+I, [2014-07-16T06:21:51.579294 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-16T06:21:51.610320 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (29.4ms)
+I, [2014-07-16T06:21:51.611912 #22860]  INFO -- : Completed 200 OK in 32ms (Views: 26.0ms | ActiveRecord: 5.3ms)
+I, [2014-07-16T06:21:51.800263 #22857]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-16 06:21:51 +0000
+I, [2014-07-16T06:21:51.816905 #22860]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-16 06:21:51 +0000
+I, [2014-07-16T06:21:51.822430 #22857]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-16 06:21:51 +0000
+I, [2014-07-16T06:21:56.490071 #22857]  INFO -- : Started PATCH "/player_rules/27" for 190.53.48.241 at 2014-07-16 06:21:56 +0000
+I, [2014-07-16T06:21:56.492962 #22857]  INFO -- : Processing by PlayerRulesController#update as HTML
+I, [2014-07-16T06:21:56.493053 #22857]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"E9JcbxY0/MYXZIma07vBBJRpYXXrpO/TN9iOLotqLE4=", "player_rule"=>{"user_id"=>"1", "rule_id"=>"3", "activated"=>"true"}, "commit.x"=>"82", "commit.y"=>"24", "commit"=>"activar", "id"=>"27"}
+I, [2014-07-16T06:21:56.511082 #22857]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-16T06:21:56.511407 #22857]  INFO -- : Completed 302 Found in 18ms (ActiveRecord: 14.7ms)
+I, [2014-07-16T06:21:56.689289 #22860]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-16 06:21:56 +0000
+I, [2014-07-16T06:21:56.690989 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-16T06:21:56.709734 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (17.7ms)
+I, [2014-07-16T06:21:56.710759 #22860]  INFO -- : Completed 200 OK in 20ms (Views: 15.9ms | ActiveRecord: 3.0ms)
+I, [2014-07-16T06:21:56.919398 #22857]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-16 06:21:56 +0000
+I, [2014-07-16T06:21:56.921292 #22857]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-16 06:21:56 +0000
+I, [2014-07-16T06:21:56.931518 #22860]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-16 06:21:56 +0000
+I, [2014-07-16T06:21:58.396765 #22857]  INFO -- : Started PATCH "/player_rules/22" for 190.53.48.241 at 2014-07-16 06:21:58 +0000
+I, [2014-07-16T06:21:58.398458 #22857]  INFO -- : Processing by PlayerRulesController#update as HTML
+I, [2014-07-16T06:21:58.398566 #22857]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"E9JcbxY0/MYXZIma07vBBJRpYXXrpO/TN9iOLotqLE4=", "player_rule"=>{"user_id"=>"1", "rule_id"=>"4", "activated"=>"true"}, "commit.x"=>"64", "commit.y"=>"25", "commit"=>"activar", "id"=>"22"}
+I, [2014-07-16T06:21:58.407299 #22857]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-16T06:21:58.407488 #22857]  INFO -- : Completed 302 Found in 9ms (ActiveRecord: 5.9ms)
+I, [2014-07-16T06:21:58.580053 #22860]  INFO -- : Started GET "/" for 190.53.48.241 at 2014-07-16 06:21:58 +0000
+I, [2014-07-16T06:21:58.582850 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-16T06:21:58.618738 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (34.0ms)
+I, [2014-07-16T06:21:58.620799 #22860]  INFO -- : Completed 200 OK in 38ms (Views: 30.3ms | ActiveRecord: 6.1ms)
+I, [2014-07-16T06:21:58.824161 #22857]  INFO -- : Started GET "/assets/switch/jugando.png" for 190.53.48.241 at 2014-07-16 06:21:58 +0000
+I, [2014-07-16T06:21:58.827457 #22860]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 190.53.48.241 at 2014-07-16 06:21:58 +0000
+I, [2014-07-16T06:21:58.833673 #22857]  INFO -- : Started GET "/assets/switch/on.png" for 190.53.48.241 at 2014-07-16 06:21:58 +0000
+I, [2014-07-16T08:55:07.983867 #22857]  INFO -- : Started GET "/" for 192.81.131.15 at 2014-07-16 08:55:07 +0000
+I, [2014-07-16T08:55:07.985524 #22857]  INFO -- : Processing by HomeController#index as */*
+I, [2014-07-16T08:55:07.986761 #22857]  INFO -- :   Rendered home/index.html.erb within layouts/application (0.1ms)
+I, [2014-07-16T08:55:07.987807 #22857]  INFO -- : Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+I, [2014-07-16T13:20:17.724735 #22857]  INFO -- : Started GET "/w00tw00t.at.blackhats.romanian.anti-sec:)" for 69.174.245.163 at 2014-07-16 13:20:17 +0000
+F, [2014-07-16T13:20:17.729780 #22857] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/w00tw00t.at.blackhats.romanian.anti-sec:)"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-16T13:20:17.980698 #22860]  INFO -- : Started GET "/phpMyAdmin/scripts/setup.php" for 69.174.245.163 at 2014-07-16 13:20:17 +0000
+F, [2014-07-16T13:20:17.984835 #22860] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/phpMyAdmin/scripts/setup.php"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-16T13:20:18.233523 #22857]  INFO -- : Started GET "/phpmyadmin/scripts/setup.php" for 69.174.245.163 at 2014-07-16 13:20:18 +0000
+F, [2014-07-16T13:20:18.298918 #22857] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/phpmyadmin/scripts/setup.php"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-16T13:20:18.555569 #22860]  INFO -- : Started GET "/pma/scripts/setup.php" for 69.174.245.163 at 2014-07-16 13:20:18 +0000
+F, [2014-07-16T13:20:18.557650 #22860] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/pma/scripts/setup.php"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-16T13:20:18.807101 #22857]  INFO -- : Started GET "/myadmin/scripts/setup.php" for 69.174.245.163 at 2014-07-16 13:20:18 +0000
+F, [2014-07-16T13:20:18.812138 #22857] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/myadmin/scripts/setup.php"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-16T13:20:19.075084 #22860]  INFO -- : Started GET "/MyAdmin/scripts/setup.php" for 69.174.245.163 at 2014-07-16 13:20:19 +0000
+F, [2014-07-16T13:20:19.079946 #22860] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/MyAdmin/scripts/setup.php"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-16T17:49:16.626966 #22857]  INFO -- : Started HEAD "/rom-0" for 217.31.48.30 at 2014-07-16 17:49:16 +0000
+F, [2014-07-16T17:49:16.629118 #22857] FATAL -- : 
+ActionController::RoutingError (No route matches [HEAD] "/rom-0"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-17T00:06:27.224681 #22857]  INFO -- : Started GET "/" for 194.58.102.20 at 2014-07-17 00:06:27 +0000
+I, [2014-07-17T00:06:27.226694 #22857]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T00:06:27.228003 #22857]  INFO -- :   Rendered home/index.html.erb within layouts/application (0.1ms)
+I, [2014-07-17T00:06:27.229249 #22857]  INFO -- : Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+I, [2014-07-17T01:07:43.386307 #22860]  INFO -- : Started GET "/" for 200.107.211.100 at 2014-07-17 01:07:43 +0000
+I, [2014-07-17T01:07:43.388514 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T01:07:43.389656 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (0.1ms)
+I, [2014-07-17T01:07:43.391406 #22860]  INFO -- : Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+I, [2014-07-17T01:07:43.945504 #22857]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 200.107.211.100 at 2014-07-17 01:07:43 +0000
+I, [2014-07-17T01:07:47.083915 #22857]  INFO -- : Started GET "/auth/facebook" for 200.107.211.100 at 2014-07-17 01:07:47 +0000
+I, [2014-07-17T01:07:47.084736 #22857]  INFO -- : (facebook) Request phase initiated.
+I, [2014-07-17T01:07:47.780264 #22860]  INFO -- : Started GET "/auth/facebook/callback?code=AQAgaT3XF5p4Hmufn3Q0zsMEMJ9MMeZa1VDecWvDLJVrVLXlAtlf5cI8W2bjsYIIqa8fhYs4GjSgQLgxTLhLNZAq7ECiI_T2pqXG-6Q33BI8nHizAWx9zoXzHdxc8D5aYr35ZuCK0T1Wi6nsfauMTNQusiVGlhuE6Lx5LoT3Grn7ZKIwFIq3_C_51vHOUhg6exoG91eQFjDWy9rASaoxXIHWAZ0jUVQok4DmS1sesxfoZKrYytcCuSSWwSEUVGB7oCLyFDhOiGxJhhgWbA1ET4MgBp33FO3FqD2KZbvWFUuthcYqOpii50rRhZ_CkUEST9yQ09B8XFj7bDe-3PwOBnks" for 200.107.211.100 at 2014-07-17 01:07:47 +0000
+I, [2014-07-17T01:07:47.781665 #22860]  INFO -- : (facebook) Callback phase initiated.
+I, [2014-07-17T01:07:48.280227 #22860]  INFO -- : Processing by SessionsController#create as HTML
+I, [2014-07-17T01:07:48.280436 #22860]  INFO -- :   Parameters: {"code"=>"AQAgaT3XF5p4Hmufn3Q0zsMEMJ9MMeZa1VDecWvDLJVrVLXlAtlf5cI8W2bjsYIIqa8fhYs4GjSgQLgxTLhLNZAq7ECiI_T2pqXG-6Q33BI8nHizAWx9zoXzHdxc8D5aYr35ZuCK0T1Wi6nsfauMTNQusiVGlhuE6Lx5LoT3Grn7ZKIwFIq3_C_51vHOUhg6exoG91eQFjDWy9rASaoxXIHWAZ0jUVQok4DmS1sesxfoZKrYytcCuSSWwSEUVGB7oCLyFDhOiGxJhhgWbA1ET4MgBp33FO3FqD2KZbvWFUuthcYqOpii50rRhZ_CkUEST9yQ09B8XFj7bDe-3PwOBnks", "provider"=>"facebook"}
+I, [2014-07-17T01:07:48.292046 #22860]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-17T01:07:48.292380 #22860]  INFO -- : Completed 302 Found in 12ms (ActiveRecord: 6.8ms)
+I, [2014-07-17T01:07:48.489603 #22857]  INFO -- : Started GET "/" for 200.107.211.100 at 2014-07-17 01:07:48 +0000
+I, [2014-07-17T01:07:48.491677 #22857]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T01:07:48.519639 #22857]  INFO -- :   Rendered home/index.html.erb within layouts/application (26.5ms)
+I, [2014-07-17T01:07:48.521063 #22857]  INFO -- : Completed 200 OK in 29ms (Views: 23.7ms | ActiveRecord: 4.6ms)
+I, [2014-07-17T01:07:48.726580 #22860]  INFO -- : Started GET "/assets/switch/jugando.png" for 200.107.211.100 at 2014-07-17 01:07:48 +0000
+I, [2014-07-17T01:07:48.729528 #22860]  INFO -- : Started GET "/assets/switch/on.png" for 200.107.211.100 at 2014-07-17 01:07:48 +0000
+I, [2014-07-17T01:08:00.750762 #22857]  INFO -- : Started PATCH "/player_rules/25" for 200.107.211.100 at 2014-07-17 01:08:00 +0000
+I, [2014-07-17T01:08:00.752749 #22857]  INFO -- : Processing by PlayerRulesController#update as HTML
+I, [2014-07-17T01:08:00.752836 #22857]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"mS67oFYhKWaA4btiLVpMtfewXwUskBX1xm3qhwfezYk=", "player_rule"=>{"user_id"=>"2", "rule_id"=>"3", "activated"=>"false"}, "commit.x"=>"84", "commit.y"=>"26", "commit"=>"desactivar", "id"=>"25"}
+I, [2014-07-17T01:08:00.763642 #22857]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-17T01:08:00.763857 #22857]  INFO -- : Completed 302 Found in 11ms (ActiveRecord: 7.4ms)
+I, [2014-07-17T01:08:00.974658 #22860]  INFO -- : Started GET "/" for 200.107.211.100 at 2014-07-17 01:08:00 +0000
+I, [2014-07-17T01:08:00.976323 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T01:08:00.994921 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (17.5ms)
+I, [2014-07-17T01:08:00.995929 #22860]  INFO -- : Completed 200 OK in 19ms (Views: 15.8ms | ActiveRecord: 2.9ms)
+I, [2014-07-17T01:08:01.201121 #22857]  INFO -- : Started GET "/assets/switch/off.png" for 200.107.211.100 at 2014-07-17 01:08:01 +0000
+I, [2014-07-17T01:08:03.563320 #22857]  INFO -- : Started PATCH "/player_rules/25" for 200.107.211.100 at 2014-07-17 01:08:03 +0000
+I, [2014-07-17T01:08:03.564946 #22857]  INFO -- : Processing by PlayerRulesController#update as HTML
+I, [2014-07-17T01:08:03.565032 #22857]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"mS67oFYhKWaA4btiLVpMtfewXwUskBX1xm3qhwfezYk=", "player_rule"=>{"user_id"=>"2", "rule_id"=>"3", "activated"=>"true"}, "commit.x"=>"72", "commit.y"=>"19", "commit"=>"activar", "id"=>"25"}
+I, [2014-07-17T01:08:03.574779 #22857]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-17T01:08:03.574978 #22857]  INFO -- : Completed 302 Found in 10ms (ActiveRecord: 6.9ms)
+I, [2014-07-17T01:08:03.744526 #22860]  INFO -- : Started GET "/" for 200.107.211.100 at 2014-07-17 01:08:03 +0000
+I, [2014-07-17T01:08:03.746114 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T01:08:03.762853 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (15.7ms)
+I, [2014-07-17T01:08:03.763677 #22860]  INFO -- : Completed 200 OK in 17ms (Views: 14.1ms | ActiveRecord: 2.7ms)
+I, [2014-07-17T01:08:06.758298 #22857]  INFO -- : Started PATCH "/player_rules/25" for 200.107.211.100 at 2014-07-17 01:08:06 +0000
+I, [2014-07-17T01:08:06.759850 #22857]  INFO -- : Processing by PlayerRulesController#update as HTML
+I, [2014-07-17T01:08:06.759935 #22857]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"mS67oFYhKWaA4btiLVpMtfewXwUskBX1xm3qhwfezYk=", "player_rule"=>{"user_id"=>"2", "rule_id"=>"3", "activated"=>"false"}, "commit.x"=>"79", "commit.y"=>"20", "commit"=>"desactivar", "id"=>"25"}
+I, [2014-07-17T01:08:06.767164 #22857]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-17T01:08:06.767390 #22857]  INFO -- : Completed 302 Found in 7ms (ActiveRecord: 4.3ms)
+I, [2014-07-17T01:08:06.928761 #22860]  INFO -- : Started GET "/" for 200.107.211.100 at 2014-07-17 01:08:06 +0000
+I, [2014-07-17T01:08:06.930321 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T01:08:06.947382 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (16.0ms)
+I, [2014-07-17T01:08:06.948350 #22860]  INFO -- : Completed 200 OK in 18ms (Views: 14.4ms | ActiveRecord: 2.8ms)
+I, [2014-07-17T01:08:09.139346 #22857]  INFO -- : Started PATCH "/player_rules/25" for 200.107.211.100 at 2014-07-17 01:08:09 +0000
+I, [2014-07-17T01:08:09.140930 #22857]  INFO -- : Processing by PlayerRulesController#update as HTML
+I, [2014-07-17T01:08:09.141042 #22857]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"mS67oFYhKWaA4btiLVpMtfewXwUskBX1xm3qhwfezYk=", "player_rule"=>{"user_id"=>"2", "rule_id"=>"3", "activated"=>"true"}, "commit.x"=>"59", "commit.y"=>"17", "commit"=>"activar", "id"=>"25"}
+I, [2014-07-17T01:08:09.154683 #22857]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-17T01:08:09.154904 #22857]  INFO -- : Completed 302 Found in 14ms (ActiveRecord: 10.8ms)
+I, [2014-07-17T01:08:09.299062 #22860]  INFO -- : Started GET "/" for 200.107.211.100 at 2014-07-17 01:08:09 +0000
+I, [2014-07-17T01:08:09.300766 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T01:08:09.317277 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (15.5ms)
+I, [2014-07-17T01:08:09.318301 #22860]  INFO -- : Completed 200 OK in 17ms (Views: 13.9ms | ActiveRecord: 2.8ms)
+I, [2014-07-17T01:08:10.946707 #22857]  INFO -- : Started PATCH "/player_rules/25" for 200.107.211.100 at 2014-07-17 01:08:10 +0000
+I, [2014-07-17T01:08:10.948552 #22857]  INFO -- : Processing by PlayerRulesController#update as HTML
+I, [2014-07-17T01:08:10.948634 #22857]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"mS67oFYhKWaA4btiLVpMtfewXwUskBX1xm3qhwfezYk=", "player_rule"=>{"user_id"=>"2", "rule_id"=>"3", "activated"=>"false"}, "commit.x"=>"59", "commit.y"=>"17", "commit"=>"desactivar", "id"=>"25"}
+I, [2014-07-17T01:08:10.960792 #22857]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-17T01:08:10.961270 #22857]  INFO -- : Completed 302 Found in 12ms (ActiveRecord: 8.8ms)
+I, [2014-07-17T01:08:11.118503 #22860]  INFO -- : Started GET "/" for 200.107.211.100 at 2014-07-17 01:08:11 +0000
+I, [2014-07-17T01:08:11.120248 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T01:08:11.138635 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (17.1ms)
+I, [2014-07-17T01:08:11.139700 #22860]  INFO -- : Completed 200 OK in 19ms (Views: 15.5ms | ActiveRecord: 2.9ms)
+I, [2014-07-17T01:08:12.776758 #22857]  INFO -- : Started PATCH "/player_rules/25" for 200.107.211.100 at 2014-07-17 01:08:12 +0000
+I, [2014-07-17T01:08:12.778656 #22857]  INFO -- : Processing by PlayerRulesController#update as HTML
+I, [2014-07-17T01:08:12.778760 #22857]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"mS67oFYhKWaA4btiLVpMtfewXwUskBX1xm3qhwfezYk=", "player_rule"=>{"user_id"=>"2", "rule_id"=>"3", "activated"=>"true"}, "commit.x"=>"59", "commit.y"=>"17", "commit"=>"activar", "id"=>"25"}
+I, [2014-07-17T01:08:12.787183 #22857]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-17T01:08:12.787366 #22857]  INFO -- : Completed 302 Found in 8ms (ActiveRecord: 5.7ms)
+I, [2014-07-17T01:08:13.006967 #22860]  INFO -- : Started GET "/" for 200.107.211.100 at 2014-07-17 01:08:13 +0000
+I, [2014-07-17T01:08:13.008459 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T01:08:13.024773 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (15.3ms)
+I, [2014-07-17T01:08:13.025725 #22860]  INFO -- : Completed 200 OK in 17ms (Views: 13.8ms | ActiveRecord: 2.7ms)
+I, [2014-07-17T02:45:07.589836 #22860]  INFO -- : Started GET "/" for 192.81.131.15 at 2014-07-17 02:45:07 +0000
+I, [2014-07-17T02:45:07.591396 #22860]  INFO -- : Processing by HomeController#index as */*
+I, [2014-07-17T02:45:07.598287 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (4.1ms)
+I, [2014-07-17T02:45:07.599456 #22860]  INFO -- : Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+I, [2014-07-17T05:46:23.559778 #22857]  INFO -- : Started GET "/" for 192.81.131.15 at 2014-07-17 05:46:23 +0000
+I, [2014-07-17T05:46:23.561368 #22857]  INFO -- : Processing by HomeController#index as */*
+I, [2014-07-17T05:46:23.562331 #22857]  INFO -- :   Rendered home/index.html.erb within layouts/application (0.1ms)
+I, [2014-07-17T05:46:23.563150 #22857]  INFO -- : Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+I, [2014-07-17T08:05:39.877523 #22860]  INFO -- : Started HEAD "/" for 185.8.49.146 at 2014-07-17 08:05:39 +0000
+I, [2014-07-17T08:05:39.879653 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T08:05:39.880925 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (0.1ms)
+I, [2014-07-17T08:05:39.881838 #22860]  INFO -- : Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+I, [2014-07-17T08:10:58.848803 #22857]  INFO -- : Started GET "/" for 194.58.102.20 at 2014-07-17 08:10:58 +0000
+I, [2014-07-17T08:10:58.851426 #22857]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T08:10:58.852846 #22857]  INFO -- :   Rendered home/index.html.erb within layouts/application (0.1ms)
+I, [2014-07-17T08:10:58.854377 #22857]  INFO -- : Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+I, [2014-07-17T10:23:53.181323 #22860]  INFO -- : Started GET "/render/hoteldiv.jsp?&__jscallback=XQScript_4" for 114.232.19.117 at 2014-07-17 10:23:53 +0000
+F, [2014-07-17T10:23:53.184823 #22860] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/render/hoteldiv.jsp"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-17T13:24:38.981777 #22860]  INFO -- : Started GET "/web-console/ServerInfo.jsp" for 67.229.56.34 at 2014-07-17 13:24:38 +0000
+F, [2014-07-17T13:24:38.988415 #22860] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/web-console/ServerInfo.jsp"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-17T13:28:07.381736 #22857]  INFO -- : Started GET "/web-console/ServerInfo.jsp" for 67.229.56.34 at 2014-07-17 13:28:07 +0000
+F, [2014-07-17T13:28:07.385524 #22857] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/web-console/ServerInfo.jsp"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-17T13:28:37.816213 #22860]  INFO -- : Started GET "/web-console/ServerInfo.jsp" for 67.229.56.34 at 2014-07-17 13:28:37 +0000
+F, [2014-07-17T13:28:37.819258 #22860] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/web-console/ServerInfo.jsp"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-17T16:15:48.641977 #22860]  INFO -- : Started GET "/" for 60.173.14.66 at 2014-07-17 16:15:48 +0000
+I, [2014-07-17T16:15:48.643694 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T16:15:48.644603 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (0.1ms)
+I, [2014-07-17T16:15:48.645666 #22860]  INFO -- : Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+I, [2014-07-17T16:15:49.303056 #22857]  INFO -- : Started GET "/HNAP1/" for 60.173.14.66 at 2014-07-17 16:15:49 +0000
+F, [2014-07-17T16:15:49.307083 #22857] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/HNAP1"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-17T16:23:43.248629 #22860]  INFO -- : Started GET "/" for 204.12.247.219 at 2014-07-17 16:23:43 +0000
+I, [2014-07-17T16:23:43.250243 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T16:23:43.251081 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (0.1ms)
+I, [2014-07-17T16:23:43.251960 #22860]  INFO -- : Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+I, [2014-07-17T16:23:43.629393 #22857]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:23:43 +0000
+I, [2014-07-17T16:23:45.025199 #22860]  INFO -- : Started GET "/auth/facebook" for 204.12.247.219 at 2014-07-17 16:23:45 +0000
+I, [2014-07-17T16:23:45.025954 #22860]  INFO -- : (facebook) Request phase initiated.
+I, [2014-07-17T16:23:45.917711 #22857]  INFO -- : Started GET "/auth/facebook/callback?code=AQCORKAOy9Mu9rZGBZLWMjEEKxfnIOl2x1mkbv1GFzqFbLLWkkF5RAeB6iYzLRD2SfkijtcnTVABBFSS0mX4GTTL_CUly1lSc89vuqgWLxio8V1f7tUxaZnkHV1pkAnNHcUAQD3Eg0tl5Z5MSFU2O8q5yXnNhzn38DhZSgapP0RaZtanhDRLE4uBjzE70gZdbehwz_dhDDjEBHbU4cxI95bUDOp4a6cGBL152ZlD-yeCWi20DbydR1-NEeFkBFt_b-RYlUz6udaolXIvt3wNozNKy27Our3ek_bzrUQQWUa1Pm-huv5L2-V64wz5x7B9Ar5LNOooDErMgYCmdg-Rh3lm" for 204.12.247.219 at 2014-07-17 16:23:45 +0000
+I, [2014-07-17T16:23:45.918444 #22857]  INFO -- : (facebook) Callback phase initiated.
+I, [2014-07-17T16:23:46.309349 #22857]  INFO -- : Processing by SessionsController#create as HTML
+I, [2014-07-17T16:23:46.309532 #22857]  INFO -- :   Parameters: {"code"=>"AQCORKAOy9Mu9rZGBZLWMjEEKxfnIOl2x1mkbv1GFzqFbLLWkkF5RAeB6iYzLRD2SfkijtcnTVABBFSS0mX4GTTL_CUly1lSc89vuqgWLxio8V1f7tUxaZnkHV1pkAnNHcUAQD3Eg0tl5Z5MSFU2O8q5yXnNhzn38DhZSgapP0RaZtanhDRLE4uBjzE70gZdbehwz_dhDDjEBHbU4cxI95bUDOp4a6cGBL152ZlD-yeCWi20DbydR1-NEeFkBFt_b-RYlUz6udaolXIvt3wNozNKy27Our3ek_bzrUQQWUa1Pm-huv5L2-V64wz5x7B9Ar5LNOooDErMgYCmdg-Rh3lm", "provider"=>"facebook"}
+I, [2014-07-17T16:23:46.321000 #22857]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-17T16:23:46.321248 #22857]  INFO -- : Completed 302 Found in 12ms (ActiveRecord: 8.3ms)
+I, [2014-07-17T16:23:46.538657 #22860]  INFO -- : Started GET "/" for 204.12.247.219 at 2014-07-17 16:23:46 +0000
+I, [2014-07-17T16:23:46.540226 #22860]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T16:23:46.610628 #22860]  INFO -- :   Rendered home/index.html.erb within layouts/application (69.3ms)
+I, [2014-07-17T16:23:46.611840 #22860]  INFO -- : Completed 200 OK in 71ms (Views: 64.2ms | ActiveRecord: 6.5ms)
+I, [2014-07-17T16:23:46.848441 #22857]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:23:46 +0000
+I, [2014-07-17T16:23:46.850408 #22857]  INFO -- : Started GET "/assets/switch/on.png" for 204.12.247.219 at 2014-07-17 16:23:46 +0000
+I, [2014-07-17T16:23:46.888248 #22857]  INFO -- : Started GET "/assets/switch/jugando.png" for 204.12.247.219 at 2014-07-17 16:23:46 +0000
+I, [2014-07-17T16:32:09.340587 #27876]  INFO -- : Started GET "/respond_smackdown" for 204.12.247.219 at 2014-07-17 16:32:09 +0000
+F, [2014-07-17T16:32:09.357964 #27876] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/respond_smackdown"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-17T16:32:21.389454 #27879]  INFO -- : Started GET "/judge1_smackdown" for 204.12.247.219 at 2014-07-17 16:32:21 +0000
+F, [2014-07-17T16:32:21.404641 #27879] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/judge1_smackdown"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-17T16:33:39.646835 #27876]  INFO -- : Started GET "/send_smackdown" for 204.12.247.219 at 2014-07-17 16:33:39 +0000
+F, [2014-07-17T16:33:39.649242 #27876] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/send_smackdown"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-17T16:33:43.436906 #27879]  INFO -- : Started GET "/home/send_smackdown" for 204.12.247.219 at 2014-07-17 16:33:43 +0000
+I, [2014-07-17T16:33:43.441590 #27879]  INFO -- : Processing by HomeController#send_smackdown as HTML
+I, [2014-07-17T16:33:43.490421 #27879]  INFO -- : Completed 500 Internal Server Error in 49ms
+F, [2014-07-17T16:33:43.492125 #27879] FATAL -- : 
+NoMethodError (undefined method `each' for nil:NilClass):
+  app/controllers/home_controller.rb:22:in `send_smackdown'
+
+
+I, [2014-07-17T16:33:45.678598 #27876]  INFO -- : Started GET "/home/send_smackdown" for 204.12.247.219 at 2014-07-17 16:33:45 +0000
+I, [2014-07-17T16:33:45.682236 #27876]  INFO -- : Processing by HomeController#send_smackdown as HTML
+I, [2014-07-17T16:33:45.773621 #27876]  INFO -- : Completed 500 Internal Server Error in 91ms
+F, [2014-07-17T16:33:45.775716 #27876] FATAL -- : 
+NoMethodError (undefined method `each' for nil:NilClass):
+  app/controllers/home_controller.rb:22:in `send_smackdown'
+
+
+I, [2014-07-17T16:33:52.679246 #27879]  INFO -- : Started GET "/home/respond_smackdown" for 204.12.247.219 at 2014-07-17 16:33:52 +0000
+I, [2014-07-17T16:33:52.683830 #27879]  INFO -- : Processing by HomeController#respond_smackdown as HTML
+I, [2014-07-17T16:33:52.687142 #27879]  INFO -- :   Rendered home/respond_smackdown.html.erb within layouts/application (0.5ms)
+I, [2014-07-17T16:33:52.690362 #27879]  INFO -- : Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.2ms)
+I, [2014-07-17T16:33:53.035855 #27876]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:33:53 +0000
+I, [2014-07-17T16:34:05.172189 #27879]  INFO -- : Started GET "/home/judge1_smackdown" for 204.12.247.219 at 2014-07-17 16:34:05 +0000
+I, [2014-07-17T16:34:05.177574 #27879]  INFO -- : Processing by HomeController#judge1_smackdown as HTML
+I, [2014-07-17T16:34:05.179820 #27879]  INFO -- :   Rendered home/judge1_smackdown.html.erb within layouts/application (0.5ms)
+I, [2014-07-17T16:34:05.182877 #27879]  INFO -- : Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.2ms)
+I, [2014-07-17T16:34:05.473153 #27876]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:34:05 +0000
+I, [2014-07-17T16:34:09.380594 #27876]  INFO -- : Started GET "/home/judge2_smackdown" for 204.12.247.219 at 2014-07-17 16:34:09 +0000
+I, [2014-07-17T16:34:09.383774 #27876]  INFO -- : Processing by HomeController#judge2_smackdown as HTML
+I, [2014-07-17T16:34:09.387158 #27876]  INFO -- :   Rendered home/judge2_smackdown.html.erb within layouts/application (0.5ms)
+I, [2014-07-17T16:34:09.390290 #27876]  INFO -- : Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.2ms)
+I, [2014-07-17T16:34:09.651102 #27879]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:34:09 +0000
+I, [2014-07-17T16:34:17.256823 #27876]  INFO -- : Started GET "/home/judge3_smackdown" for 204.12.247.219 at 2014-07-17 16:34:17 +0000
+F, [2014-07-17T16:34:17.260635 #27876] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/home/judge3_smackdown"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-17T16:40:17.098197 #27879]  INFO -- : Started GET "/smackdowns" for 204.12.247.219 at 2014-07-17 16:40:17 +0000
+I, [2014-07-17T16:40:17.101353 #27879]  INFO -- : Processing by SmackdownsController#index as HTML
+I, [2014-07-17T16:40:17.120977 #27879]  INFO -- :   Rendered smackdowns/index.html.erb within layouts/application (5.6ms)
+I, [2014-07-17T16:40:17.123036 #27879]  INFO -- : Completed 200 OK in 22ms (Views: 19.6ms | ActiveRecord: 0.5ms)
+I, [2014-07-17T16:40:17.526258 #27876]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:40:17 +0000
+I, [2014-07-17T16:40:50.409529 #28060]  INFO -- : Started GET "/" for 204.12.247.219 at 2014-07-17 16:40:50 +0000
+I, [2014-07-17T16:40:50.426627 #28060]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T16:40:50.575933 #28060]  INFO -- :   Rendered home/index.html.erb within layouts/application (138.7ms)
+I, [2014-07-17T16:40:50.576225 #28060]  INFO -- : Completed 500 Internal Server Error in 149ms
+F, [2014-07-17T16:40:50.578503 #28060] FATAL -- : 
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    108:   <% Smackdown.where(:player1_id=>current_user.id).each do |smackdown| %>
+    109:     <tr>
+    110:       <td>
+    111:         <%= User.find_by_id(smackdown.player2_id).name %>
+    112:         <% if smackdown.player2_accepted == nil %>
+    113:           pendiente
+    114:         <% elsif smackdown.player2_accepted %>
+  app/views/home/index.html.erb:111:in `block in _app_views_home_index_html_erb__1898768763332648017_32902600'
+  app/views/home/index.html.erb:108:in `_app_views_home_index_html_erb__1898768763332648017_32902600'
+
+
+I, [2014-07-17T16:41:39.682406 #28057]  INFO -- : Started GET "/" for 204.12.247.219 at 2014-07-17 16:41:39 +0000
+I, [2014-07-17T16:41:39.699048 #28057]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T16:41:39.853139 #28057]  INFO -- :   Rendered home/index.html.erb within layouts/application (143.6ms)
+I, [2014-07-17T16:41:39.853452 #28057]  INFO -- : Completed 500 Internal Server Error in 154ms
+F, [2014-07-17T16:41:39.855707 #28057] FATAL -- : 
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    108:   <% Smackdown.where(:player1_id=>current_user.id).each do |smackdown| %>
+    109:     <tr>
+    110:       <td>
+    111:         <%= User.find_by_id(smackdown.player2_id).name %>
+    112:         <% if smackdown.player2_accepted == nil %>
+    113:           pendiente
+    114:         <% elsif smackdown.player2_accepted %>
+  app/views/home/index.html.erb:111:in `block in _app_views_home_index_html_erb__1898768763332648017_32902620'
+  app/views/home/index.html.erb:108:in `_app_views_home_index_html_erb__1898768763332648017_32902620'
+
+
+I, [2014-07-17T16:41:59.463365 #28060]  INFO -- : Started GET "/smackdowns" for 204.12.247.219 at 2014-07-17 16:41:59 +0000
+I, [2014-07-17T16:41:59.466808 #28060]  INFO -- : Processing by SmackdownsController#index as HTML
+I, [2014-07-17T16:41:59.475709 #28060]  INFO -- :   Rendered smackdowns/index.html.erb within layouts/application (5.8ms)
+I, [2014-07-17T16:41:59.478951 #28060]  INFO -- : Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.6ms)
+I, [2014-07-17T16:42:00.040817 #28057]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:42:00 +0000
+I, [2014-07-17T16:42:01.678230 #28060]  INFO -- : Started GET "/signout" for 204.12.247.219 at 2014-07-17 16:42:01 +0000
+I, [2014-07-17T16:42:01.681398 #28060]  INFO -- : Processing by SessionsController#destroy as HTML
+I, [2014-07-17T16:42:01.683040 #28060]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-17T16:42:01.683374 #28060]  INFO -- : Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+I, [2014-07-17T16:42:02.074733 #28057]  INFO -- : Started GET "/" for 204.12.247.219 at 2014-07-17 16:42:02 +0000
+I, [2014-07-17T16:42:02.077281 #28057]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T16:42:02.078624 #28057]  INFO -- :   Rendered home/index.html.erb within layouts/application (0.1ms)
+I, [2014-07-17T16:42:02.080340 #28057]  INFO -- : Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+I, [2014-07-17T16:42:02.361698 #28060]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:42:02 +0000
+I, [2014-07-17T16:42:04.293768 #28057]  INFO -- : Started GET "/auth/facebook" for 204.12.247.219 at 2014-07-17 16:42:04 +0000
+I, [2014-07-17T16:42:04.295587 #28057]  INFO -- : (facebook) Request phase initiated.
+I, [2014-07-17T16:42:05.082758 #28060]  INFO -- : Started GET "/auth/facebook/callback?code=AQD-dy_nnoDjywvr2CWdLUkfc1ZhgZ31CvlhGjihi3mxOO3cF2xCjXE1_LN5G_qAiafjtdY8_NHftidYBlT85YVAIYmi7v6kkOtOm-TQxX3BGXaMIvAwHWdtsHtSc4GZ1T3cf7ctKd5lbADjUFN8el2T5apXpbYo_0m5XmEXrEMByiuk6aL2jTteiQZftmtJYizH-tsMwfnGPmeDmz2OA7pLGbJk5Iamh3mmRuz4R0h8-Zac6cyj1RmJlYa2zz9n_IfoymxBd3MnIuohh03xT4ikJXQqtElXC5vF2tyrNXOYCTNvvm1OqoG3Q3x3BHIuLi6AfdtvZokO4r4BVCxtWEbZ" for 204.12.247.219 at 2014-07-17 16:42:05 +0000
+I, [2014-07-17T16:42:05.083521 #28060]  INFO -- : (facebook) Callback phase initiated.
+I, [2014-07-17T16:42:05.468233 #28060]  INFO -- : Processing by SessionsController#create as HTML
+I, [2014-07-17T16:42:05.468436 #28060]  INFO -- :   Parameters: {"code"=>"AQD-dy_nnoDjywvr2CWdLUkfc1ZhgZ31CvlhGjihi3mxOO3cF2xCjXE1_LN5G_qAiafjtdY8_NHftidYBlT85YVAIYmi7v6kkOtOm-TQxX3BGXaMIvAwHWdtsHtSc4GZ1T3cf7ctKd5lbADjUFN8el2T5apXpbYo_0m5XmEXrEMByiuk6aL2jTteiQZftmtJYizH-tsMwfnGPmeDmz2OA7pLGbJk5Iamh3mmRuz4R0h8-Zac6cyj1RmJlYa2zz9n_IfoymxBd3MnIuohh03xT4ikJXQqtElXC5vF2tyrNXOYCTNvvm1OqoG3Q3x3BHIuLi6AfdtvZokO4r4BVCxtWEbZ", "provider"=>"facebook"}
+I, [2014-07-17T16:42:05.484652 #28060]  INFO -- : Redirected to http://5.101.107.55/
+I, [2014-07-17T16:42:05.485035 #28060]  INFO -- : Completed 302 Found in 16ms (ActiveRecord: 8.5ms)
+I, [2014-07-17T16:42:05.942265 #28057]  INFO -- : Started GET "/" for 204.12.247.219 at 2014-07-17 16:42:05 +0000
+I, [2014-07-17T16:42:05.944548 #28057]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T16:42:05.962235 #28057]  INFO -- :   Rendered home/index.html.erb within layouts/application (16.2ms)
+I, [2014-07-17T16:42:05.962505 #28057]  INFO -- : Completed 500 Internal Server Error in 18ms
+F, [2014-07-17T16:42:05.964613 #28057] FATAL -- : 
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    108:   <% Smackdown.where(:player1_id=>current_user.id).each do |smackdown| %>
+    109:     <tr>
+    110:       <td>
+    111:         <%= User.find_by_id(smackdown.player2_id).name %>
+    112:         <% if smackdown.player2_accepted == nil %>
+    113:           pendiente
+    114:         <% elsif smackdown.player2_accepted %>
+  app/views/home/index.html.erb:111:in `block in _app_views_home_index_html_erb__1898768763332648017_32902620'
+  app/views/home/index.html.erb:108:in `_app_views_home_index_html_erb__1898768763332648017_32902620'
+
+
+I, [2014-07-17T16:42:27.097082 #28060]  INFO -- : Started GET "/home/visit" for 204.12.247.219 at 2014-07-17 16:42:27 +0000
+F, [2014-07-17T16:42:27.101064 #28060] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/home/visit"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-17T16:42:37.801638 #28057]  INFO -- : Started GET "/home/send_smackdown" for 204.12.247.219 at 2014-07-17 16:42:37 +0000
+I, [2014-07-17T16:42:37.803622 #28057]  INFO -- : Processing by HomeController#send_smackdown as HTML
+I, [2014-07-17T16:42:37.815253 #28057]  INFO -- : Completed 500 Internal Server Error in 11ms
+F, [2014-07-17T16:42:37.816824 #28057] FATAL -- : 
+NoMethodError (undefined method `each' for nil:NilClass):
+  app/controllers/home_controller.rb:22:in `send_smackdown'
+
+
+I, [2014-07-17T16:42:41.770837 #28060]  INFO -- : Started GET "/home/visit" for 204.12.247.219 at 2014-07-17 16:42:41 +0000
+F, [2014-07-17T16:42:41.772888 #28060] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/home/visit"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:580:in `process_client'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:660:in `worker_loop'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:527:in `spawn_missing_workers'
+  unicorn (4.7.0) lib/unicorn/http_server.rb:153:in `start'
+  unicorn (4.7.0) bin/unicorn:126:in `<top (required)>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `load'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/unicorn:23:in `<main>'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `eval'
+  /usr/local/rvm/gems/ruby-2.0.0-p353/bin/ruby_executable_hooks:15:in `<main>'
+
+
+I, [2014-07-17T16:42:54.081656 #28057]  INFO -- : Started GET "/rules" for 204.12.247.219 at 2014-07-17 16:42:54 +0000
+I, [2014-07-17T16:42:54.084682 #28057]  INFO -- : Processing by RulesController#index as HTML
+I, [2014-07-17T16:42:54.092841 #28057]  INFO -- :   Rendered rules/index.html.erb within layouts/application (4.4ms)
+I, [2014-07-17T16:42:54.094736 #28057]  INFO -- : Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.5ms)
+I, [2014-07-17T16:42:54.437076 #28060]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:42:54 +0000
+I, [2014-07-17T16:43:33.024659 #28147]  INFO -- : Started GET "/rules" for 204.12.247.219 at 2014-07-17 16:43:33 +0000
+I, [2014-07-17T16:43:33.040698 #28147]  INFO -- : Processing by RulesController#index as HTML
+I, [2014-07-17T16:43:33.063544 #28147]  INFO -- :   Rendered rules/index.html.erb within layouts/application (11.4ms)
+I, [2014-07-17T16:43:33.079068 #28147]  INFO -- : Completed 200 OK in 38ms (Views: 24.7ms | ActiveRecord: 3.9ms)
+I, [2014-07-17T16:43:33.593689 #28145]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:43:33 +0000
+I, [2014-07-17T16:43:35.310798 #28147]  INFO -- : Started GET "/" for 204.12.247.219 at 2014-07-17 16:43:35 +0000
+I, [2014-07-17T16:43:35.316333 #28147]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T16:43:35.555958 #28147]  INFO -- :   Rendered home/index.html.erb within layouts/application (233.2ms)
+I, [2014-07-17T16:43:35.556437 #28147]  INFO -- : Completed 500 Internal Server Error in 240ms
+F, [2014-07-17T16:43:35.560708 #28147] FATAL -- : 
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    108:   <% Smackdown.where(:player1_id=>current_user.id).each do |smackdown| %>
+    109:     <tr>
+    110:       <td>
+    111:         <%= User.find_by_id(smackdown.player2_id).name %>
+    112:         <% if smackdown.player2_accepted == nil %>
+    113:           pendiente
+    114:         <% elsif smackdown.player2_accepted %>
+  app/views/home/index.html.erb:111:in `block in _app_views_home_index_html_erb___1603080070470574317_41354400'
+  app/views/home/index.html.erb:108:in `_app_views_home_index_html_erb___1603080070470574317_41354400'
+
+
+I, [2014-07-17T16:46:43.665432 #28145]  INFO -- : Started GET "/smackdowns" for 204.12.247.219 at 2014-07-17 16:46:43 +0000
+I, [2014-07-17T16:46:43.671464 #28145]  INFO -- : Processing by SmackdownsController#index as HTML
+I, [2014-07-17T16:46:43.711796 #28145]  INFO -- :   Rendered smackdowns/index.html.erb within layouts/application (20.8ms)
+I, [2014-07-17T16:46:43.767837 #28145]  INFO -- : Completed 200 OK in 96ms (Views: 74.3ms | ActiveRecord: 4.3ms)
+I, [2014-07-17T16:46:44.026168 #28147]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:46:44 +0000
+I, [2014-07-17T16:46:50.578436 #28145]  INFO -- : Started DELETE "/smackdowns/5" for 204.12.247.219 at 2014-07-17 16:46:50 +0000
+I, [2014-07-17T16:46:50.583375 #28145]  INFO -- : Processing by SmackdownsController#destroy as HTML
+I, [2014-07-17T16:46:50.583520 #28145]  INFO -- :   Parameters: {"authenticity_token"=>"azGMCMDmb6nZD8ez9vvi6O1YHLaUgM+BFo26efCsh+I=", "id"=>"5"}
+I, [2014-07-17T16:46:50.596548 #28145]  INFO -- : Redirected to http://5.101.107.55/smackdowns
+I, [2014-07-17T16:46:50.597099 #28145]  INFO -- : Completed 302 Found in 13ms (ActiveRecord: 7.5ms)
+I, [2014-07-17T16:46:50.863031 #28147]  INFO -- : Started GET "/smackdowns" for 204.12.247.219 at 2014-07-17 16:46:50 +0000
+I, [2014-07-17T16:46:50.867170 #28147]  INFO -- : Processing by SmackdownsController#index as HTML
+I, [2014-07-17T16:46:50.878772 #28147]  INFO -- :   Rendered smackdowns/index.html.erb within layouts/application (7.5ms)
+I, [2014-07-17T16:46:50.881726 #28147]  INFO -- : Completed 200 OK in 14ms (Views: 11.6ms | ActiveRecord: 0.8ms)
+I, [2014-07-17T16:46:51.230494 #28145]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:46:51 +0000
+I, [2014-07-17T16:46:53.681428 #28147]  INFO -- : Started DELETE "/smackdowns/4" for 204.12.247.219 at 2014-07-17 16:46:53 +0000
+I, [2014-07-17T16:46:53.684525 #28147]  INFO -- : Processing by SmackdownsController#destroy as HTML
+I, [2014-07-17T16:46:53.684599 #28147]  INFO -- :   Parameters: {"authenticity_token"=>"azGMCMDmb6nZD8ez9vvi6O1YHLaUgM+BFo26efCsh+I=", "id"=>"4"}
+I, [2014-07-17T16:46:53.693959 #28147]  INFO -- : Redirected to http://5.101.107.55/smackdowns
+I, [2014-07-17T16:46:53.694318 #28147]  INFO -- : Completed 302 Found in 10ms (ActiveRecord: 5.5ms)
+I, [2014-07-17T16:46:53.924657 #28145]  INFO -- : Started GET "/smackdowns" for 204.12.247.219 at 2014-07-17 16:46:53 +0000
+I, [2014-07-17T16:46:53.926625 #28145]  INFO -- : Processing by SmackdownsController#index as HTML
+I, [2014-07-17T16:46:53.931500 #28145]  INFO -- :   Rendered smackdowns/index.html.erb within layouts/application (3.4ms)
+I, [2014-07-17T16:46:53.933192 #28145]  INFO -- : Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.6ms)
+I, [2014-07-17T16:46:54.229687 #28147]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:46:54 +0000
+I, [2014-07-17T16:46:56.020981 #28147]  INFO -- : Started DELETE "/smackdowns/6" for 204.12.247.219 at 2014-07-17 16:46:56 +0000
+I, [2014-07-17T16:46:56.022833 #28147]  INFO -- : Processing by SmackdownsController#destroy as HTML
+I, [2014-07-17T16:46:56.022902 #28147]  INFO -- :   Parameters: {"authenticity_token"=>"azGMCMDmb6nZD8ez9vvi6O1YHLaUgM+BFo26efCsh+I=", "id"=>"6"}
+I, [2014-07-17T16:46:56.031793 #28147]  INFO -- : Redirected to http://5.101.107.55/smackdowns
+I, [2014-07-17T16:46:56.031997 #28147]  INFO -- : Completed 302 Found in 9ms (ActiveRecord: 6.4ms)
+I, [2014-07-17T16:46:56.257141 #28145]  INFO -- : Started GET "/smackdowns" for 204.12.247.219 at 2014-07-17 16:46:56 +0000
+I, [2014-07-17T16:46:56.258898 #28145]  INFO -- : Processing by SmackdownsController#index as HTML
+I, [2014-07-17T16:46:56.262424 #28145]  INFO -- :   Rendered smackdowns/index.html.erb within layouts/application (2.4ms)
+I, [2014-07-17T16:46:56.263893 #28145]  INFO -- : Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.5ms)
+I, [2014-07-17T16:46:56.595829 #28147]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:46:56 +0000
+I, [2014-07-17T16:47:06.497654 #28147]  INFO -- : Started GET "/" for 204.12.247.219 at 2014-07-17 16:47:06 +0000
+I, [2014-07-17T16:47:06.500473 #28147]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T16:47:06.519729 #28147]  INFO -- :   Rendered home/index.html.erb within layouts/application (18.1ms)
+I, [2014-07-17T16:47:06.520926 #28147]  INFO -- : Completed 200 OK in 20ms (Views: 16.7ms | ActiveRecord: 2.9ms)
+I, [2014-07-17T16:47:06.806686 #28145]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:47:06 +0000
+I, [2014-07-17T16:47:06.808543 #28145]  INFO -- : Started GET "/assets/switch/jugando.png" for 204.12.247.219 at 2014-07-17 16:47:06 +0000
+I, [2014-07-17T16:47:06.811144 #28147]  INFO -- : Started GET "/assets/switch/on.png" for 204.12.247.219 at 2014-07-17 16:47:06 +0000
+I, [2014-07-17T16:47:15.701047 #28145]  INFO -- : Started GET "/home/respond_smackdown?judge_id=2&player2_accepted=false&commit=Enviar" for 204.12.247.219 at 2014-07-17 16:47:15 +0000
+I, [2014-07-17T16:47:15.704118 #28145]  INFO -- : Processing by HomeController#respond_smackdown as HTML
+I, [2014-07-17T16:47:15.704194 #28145]  INFO -- :   Parameters: {"judge_id"=>"2", "player2_accepted"=>"false", "commit"=>"Enviar"}
+I, [2014-07-17T16:47:15.707563 #28145]  INFO -- :   Rendered home/respond_smackdown.html.erb within layouts/application (0.4ms)
+I, [2014-07-17T16:47:15.710278 #28145]  INFO -- : Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.2ms)
+I, [2014-07-17T16:47:15.976844 #28147]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:47:15 +0000
+I, [2014-07-17T16:56:11.434785 #28433]  INFO -- : Started GET "/" for 204.12.247.219 at 2014-07-17 16:56:11 +0000
+I, [2014-07-17T16:56:11.450572 #28433]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T16:56:11.594488 #28433]  INFO -- :   Rendered home/index.html.erb within layouts/application (133.6ms)
+I, [2014-07-17T16:56:11.596529 #28433]  INFO -- : Completed 200 OK in 146ms (Views: 128.1ms | ActiveRecord: 9.2ms)
+I, [2014-07-17T16:56:11.900640 #28431]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:56:11 +0000
+I, [2014-07-17T16:56:11.985974 #28433]  INFO -- : Started GET "/assets/switch/jugando.png" for 204.12.247.219 at 2014-07-17 16:56:11 +0000
+I, [2014-07-17T16:56:11.989497 #28431]  INFO -- : Started GET "/assets/switch/on.png" for 204.12.247.219 at 2014-07-17 16:56:11 +0000
+I, [2014-07-17T16:56:18.443648 #28433]  INFO -- : Started GET "/home/respond_smackdown?judge_id=2&player2_accepted=false&smackdown_id=3&commit=Enviar" for 204.12.247.219 at 2014-07-17 16:56:18 +0000
+I, [2014-07-17T16:56:18.446666 #28433]  INFO -- : Processing by HomeController#respond_smackdown as HTML
+I, [2014-07-17T16:56:18.446738 #28433]  INFO -- :   Parameters: {"judge_id"=>"2", "player2_accepted"=>"false", "smackdown_id"=>"3", "commit"=>"Enviar"}
+I, [2014-07-17T16:56:18.452314 #28433]  INFO -- : Completed 500 Internal Server Error in 5ms
+F, [2014-07-17T16:56:18.456442 #28433] FATAL -- : 
+NameError (undefined local variable or method `judge_id' for #<HomeController:0x00000004889da8>):
+  app/controllers/home_controller.rb:38:in `respond_smackdown'
+
+
+I, [2014-07-17T16:57:45.789882 #28516]  INFO -- : Started GET "/" for 204.12.247.219 at 2014-07-17 16:57:45 +0000
+I, [2014-07-17T16:57:45.806494 #28516]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T16:57:45.952737 #28516]  INFO -- :   Rendered home/index.html.erb within layouts/application (135.9ms)
+I, [2014-07-17T16:57:45.954938 #28516]  INFO -- : Completed 200 OK in 148ms (Views: 130.7ms | ActiveRecord: 9.0ms)
+I, [2014-07-17T16:57:46.181876 #28513]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:57:46 +0000
+I, [2014-07-17T16:57:46.415937 #28516]  INFO -- : Started GET "/assets/switch/jugando.png" for 204.12.247.219 at 2014-07-17 16:57:46 +0000
+I, [2014-07-17T16:57:46.419202 #28513]  INFO -- : Started GET "/assets/switch/on.png" for 204.12.247.219 at 2014-07-17 16:57:46 +0000
+I, [2014-07-17T16:57:50.515031 #28516]  INFO -- : Started GET "/home/respond_smackdown?judge_id=2&player2_accepted=false&smackdown_id=3&commit=Enviar" for 204.12.247.219 at 2014-07-17 16:57:50 +0000
+I, [2014-07-17T16:57:50.518169 #28516]  INFO -- : Processing by HomeController#respond_smackdown as HTML
+I, [2014-07-17T16:57:50.518241 #28516]  INFO -- :   Parameters: {"judge_id"=>"2", "player2_accepted"=>"false", "smackdown_id"=>"3", "commit"=>"Enviar"}
+I, [2014-07-17T16:57:50.523892 #28516]  INFO -- : Completed 500 Internal Server Error in 6ms
+F, [2014-07-17T16:57:50.527897 #28516] FATAL -- : 
+NameError (undefined local variable or method `judge_id' for #<HomeController:0x00000005411cc0>):
+  app/controllers/home_controller.rb:38:in `respond_smackdown'
+
+
+I, [2014-07-17T16:58:38.616229 #28566]  INFO -- : Started GET "/" for 204.12.247.219 at 2014-07-17 16:58:38 +0000
+I, [2014-07-17T16:58:38.643731 #28566]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T16:58:38.915701 #28566]  INFO -- :   Rendered home/index.html.erb within layouts/application (253.7ms)
+I, [2014-07-17T16:58:38.917635 #28566]  INFO -- : Completed 200 OK in 274ms (Views: 237.9ms | ActiveRecord: 19.4ms)
+I, [2014-07-17T16:58:39.273773 #28568]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:58:39 +0000
+I, [2014-07-17T16:58:39.275389 #28566]  INFO -- : Started GET "/assets/switch/jugando.png" for 204.12.247.219 at 2014-07-17 16:58:39 +0000
+I, [2014-07-17T16:58:39.290265 #28566]  INFO -- : Started GET "/assets/switch/on.png" for 204.12.247.219 at 2014-07-17 16:58:39 +0000
+I, [2014-07-17T16:59:10.061184 #28566]  INFO -- : Started GET "/home/respond_smackdown?judge_id=2&player2_accepted=false&smackdown_id=3&commit=Enviar" for 204.12.247.219 at 2014-07-17 16:59:10 +0000
+I, [2014-07-17T16:59:10.064316 #28566]  INFO -- : Processing by HomeController#respond_smackdown as HTML
+I, [2014-07-17T16:59:10.064391 #28566]  INFO -- :   Parameters: {"judge_id"=>"2", "player2_accepted"=>"false", "smackdown_id"=>"3", "commit"=>"Enviar"}
+I, [2014-07-17T16:59:10.080789 #28566]  INFO -- :   Rendered home/respond_smackdown.html.erb within layouts/application (0.5ms)
+I, [2014-07-17T16:59:10.083053 #28566]  INFO -- : Completed 200 OK in 19ms (Views: 3.5ms | ActiveRecord: 9.1ms)
+I, [2014-07-17T16:59:10.632930 #28568]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:59:10 +0000
+I, [2014-07-17T16:59:17.121499 #28568]  INFO -- : Started GET "/smackdowns" for 204.12.247.219 at 2014-07-17 16:59:17 +0000
+I, [2014-07-17T16:59:17.124627 #28568]  INFO -- : Processing by SmackdownsController#index as HTML
+I, [2014-07-17T16:59:17.155972 #28568]  INFO -- :   Rendered smackdowns/index.html.erb within layouts/application (20.2ms)
+I, [2014-07-17T16:59:17.208335 #28568]  INFO -- : Completed 200 OK in 83ms (Views: 70.3ms | ActiveRecord: 3.9ms)
+I, [2014-07-17T16:59:17.525665 #28566]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:59:17 +0000
+I, [2014-07-17T16:59:46.355207 #28568]  INFO -- : Started GET "/" for 204.12.247.219 at 2014-07-17 16:59:46 +0000
+I, [2014-07-17T16:59:46.358591 #28568]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T16:59:46.433873 #28568]  INFO -- :   Rendered home/index.html.erb within layouts/application (72.5ms)
+I, [2014-07-17T16:59:46.435213 #28568]  INFO -- : Completed 200 OK in 76ms (Views: 69.3ms | ActiveRecord: 5.9ms)
+I, [2014-07-17T16:59:47.008447 #28566]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:59:47 +0000
+I, [2014-07-17T16:59:47.262303 #28566]  INFO -- : Started GET "/assets/switch/jugando.png" for 204.12.247.219 at 2014-07-17 16:59:47 +0000
+I, [2014-07-17T16:59:47.302765 #28568]  INFO -- : Started GET "/assets/switch/on.png" for 204.12.247.219 at 2014-07-17 16:59:47 +0000
+I, [2014-07-17T16:59:50.725448 #28566]  INFO -- : Started GET "/home/respond_smackdown?judge_id=2&player2_accepted=false&smackdown_id=3&commit=Enviar" for 204.12.247.219 at 2014-07-17 16:59:50 +0000
+I, [2014-07-17T16:59:50.727675 #28566]  INFO -- : Processing by HomeController#respond_smackdown as HTML
+I, [2014-07-17T16:59:50.727755 #28566]  INFO -- :   Parameters: {"judge_id"=>"2", "player2_accepted"=>"false", "smackdown_id"=>"3", "commit"=>"Enviar"}
+I, [2014-07-17T16:59:50.731941 #28566]  INFO -- :   Rendered home/respond_smackdown.html.erb within layouts/application (0.1ms)
+I, [2014-07-17T16:59:50.733512 #28566]  INFO -- : Completed 200 OK in 6ms (Views: 2.1ms | ActiveRecord: 0.8ms)
+I, [2014-07-17T16:59:51.009776 #28568]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:59:51 +0000
+I, [2014-07-17T16:59:56.630901 #28568]  INFO -- : Started GET "/" for 204.12.247.219 at 2014-07-17 16:59:56 +0000
+I, [2014-07-17T16:59:56.633452 #28568]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T16:59:56.652380 #28568]  INFO -- :   Rendered home/index.html.erb within layouts/application (17.7ms)
+I, [2014-07-17T16:59:56.653340 #28568]  INFO -- : Completed 200 OK in 20ms (Views: 16.2ms | ActiveRecord: 2.7ms)
+I, [2014-07-17T16:59:57.003424 #28566]  INFO -- : Started GET "/assets/switch/jugando.png" for 204.12.247.219 at 2014-07-17 16:59:57 +0000
+I, [2014-07-17T16:59:57.006798 #28568]  INFO -- : Started GET "/assets/switch/on.png" for 204.12.247.219 at 2014-07-17 16:59:57 +0000
+I, [2014-07-17T16:59:57.828987 #28566]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 16:59:57 +0000
+I, [2014-07-17T17:00:05.235924 #28566]  INFO -- : Started GET "/smackdowns" for 204.12.247.219 at 2014-07-17 17:00:05 +0000
+I, [2014-07-17T17:00:05.238598 #28566]  INFO -- : Processing by SmackdownsController#index as HTML
+I, [2014-07-17T17:00:05.245325 #28566]  INFO -- :   Rendered smackdowns/index.html.erb within layouts/application (4.0ms)
+I, [2014-07-17T17:00:05.247471 #28566]  INFO -- : Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 0.5ms)
+I, [2014-07-17T17:00:05.581197 #28568]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 17:00:05 +0000
+I, [2014-07-17T17:00:10.444364 #28568]  INFO -- : Started GET "/home/respond_smackdown?judge_id=2&player2_accepted=true&smackdown_id=3&commit=Enviar" for 204.12.247.219 at 2014-07-17 17:00:10 +0000
+I, [2014-07-17T17:00:10.446388 #28568]  INFO -- : Processing by HomeController#respond_smackdown as HTML
+I, [2014-07-17T17:00:10.446465 #28568]  INFO -- :   Parameters: {"judge_id"=>"2", "player2_accepted"=>"true", "smackdown_id"=>"3", "commit"=>"Enviar"}
+I, [2014-07-17T17:00:10.473306 #28568]  INFO -- :   Rendered home/respond_smackdown.html.erb within layouts/application (0.5ms)
+I, [2014-07-17T17:00:10.475754 #28568]  INFO -- : Completed 200 OK in 29ms (Views: 3.9ms | ActiveRecord: 19.6ms)
+I, [2014-07-17T17:00:10.832933 #28566]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 17:00:10 +0000
+I, [2014-07-17T17:00:14.670362 #28568]  INFO -- : Started GET "/" for 204.12.247.219 at 2014-07-17 17:00:14 +0000
+I, [2014-07-17T17:00:14.672389 #28568]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-07-17T17:00:14.691996 #28568]  INFO -- :   Rendered home/index.html.erb within layouts/application (18.3ms)
+I, [2014-07-17T17:00:14.692938 #28568]  INFO -- : Completed 200 OK in 20ms (Views: 16.7ms | ActiveRecord: 3.0ms)
+I, [2014-07-17T17:00:15.052395 #28566]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 17:00:15 +0000
+I, [2014-07-17T17:00:15.091891 #28566]  INFO -- : Started GET "/assets/switch/on.png" for 204.12.247.219 at 2014-07-17 17:00:15 +0000
+I, [2014-07-17T17:00:15.093924 #28568]  INFO -- : Started GET "/assets/switch/jugando.png" for 204.12.247.219 at 2014-07-17 17:00:15 +0000
+I, [2014-07-17T17:00:20.637975 #28566]  INFO -- : Started GET "/smackdowns" for 204.12.247.219 at 2014-07-17 17:00:20 +0000
+I, [2014-07-17T17:00:20.641499 #28566]  INFO -- : Processing by SmackdownsController#index as HTML
+I, [2014-07-17T17:00:20.645721 #28566]  INFO -- :   Rendered smackdowns/index.html.erb within layouts/application (2.6ms)
+I, [2014-07-17T17:00:20.647543 #28566]  INFO -- : Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.5ms)
+I, [2014-07-17T17:00:20.986038 #28568]  INFO -- : Started GET "/assets/bunker_ac_logo.png" for 204.12.247.219 at 2014-07-17 17:00:20 +0000

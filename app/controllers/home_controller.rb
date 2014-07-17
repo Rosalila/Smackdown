@@ -28,4 +28,22 @@ class HomeController < ApplicationController
     end
 
   end
+
+  def respond_smackdown
+    judge2_id = params["judge_id"]
+    player2_accepted = params["player2_accepted"]
+    smackdown_id = params["smackdown_id"]
+
+    smackdown = Smackdown.find_by_id(smackdown_id)
+    smackdown.judge2_id = judge2_id
+    smackdown.player2_accepted = player2_accepted
+    smackdown.save
+  end
+
+  def judge2_smackdown
+  end
+
+  def judge2_smackdown
+  end
+
 end
