@@ -146,7 +146,7 @@
       <td>
         <% if smackdown.judge1_winner_id == nil || smackdown.judge2_winner_id == nil %>
           pendiente
-        <% elsif smackdown.judge1_winnder_id != smackdown.judge2_winner_id %>
+        <% elsif smackdown.judge1_winner_id != smackdown.judge2_winner_id %>
           conflicto!
         <% else %>
           <%= User.find_by_id(smackdown.judge1_winner_id).name %>
@@ -162,7 +162,7 @@
 <h2>Smackdowns recibidos</h2>
 <table align="center">
   <tr>
-    <th>oponente</th>
+    <th>retador</th>
     <th>juez 1</th>
     <th>juez 2</th>
     <th>ganador<th>
@@ -172,14 +172,7 @@
   <% Smackdown.where(:player2_id=>current_user.id).each do |smackdown| %>
     <tr>
       <td>
-        <%= User.find_by_id(smackdown.player2_id).name %>
-        <% if smackdown.player2_accepted == nil %>
-          pendiente
-        <% elsif smackdown.player2_accepted %>
-          acceptada
-        <% else %>
-          rechazada
-        <% end %>
+        <%= User.find_by_id(smackdown.player1_id).name %>
       </td>
       <td>
         <%= User.find_by_id(smackdown.judge1_id).name %>
@@ -209,7 +202,7 @@
       <td>
         <% if smackdown.judge1_winner_id == nil || smackdown.judge2_winner_id == nil %>
           pendiente
-        <% elsif smackdown.judge1_winnder_id != smackdown.judge2_winner_id %>
+        <% elsif smackdown.judge1_winner_id != smackdown.judge2_winner_id %>
           conflicto!
         <% else %>
           <%= User.find_by_id(smackdown.judge1_winner_id).name %>
@@ -290,7 +283,7 @@
       <td>
         <% if smackdown.judge1_winner_id == nil || smackdown.judge2_winner_id == nil %>
           pendiente
-        <% elsif smackdown.judge1_winnder_id != smackdown.judge2_winner_id %>
+        <% elsif smackdown.judge1_winner_id != smackdown.judge2_winner_id %>
           conflicto!
         <% else %>
           <%= User.find_by_id(smackdown.judge1_winner_id).name %>
@@ -298,6 +291,23 @@
       </td>
       <td><%= smackdown.judge1_comment %><td>
       <td><%= smackdown.judge2_comment %><td>
+      <td>
+        <form accept-charset="UTF-8" action="/home/judge1_smackdown" method="get" class="nifty_form">
+          <span>Ganador: <span>
+          <select name="winner_id">
+            <option value="<%= smackdown.player1_id %>"><%= User.find_by_id(smackdown.player1_id).name %></option>
+            <option value="<%= smackdown.player2_id %>"><%= User.find_by_id(smackdown.player2_id).name %></option>
+          </select>
+          <select name="judge1_accepted">
+            <option value="true">Aceptar</option>
+            <option value="false">Rechazar</option>
+          </select>
+          <input name="judge1_comment">
+          <input name="smackdown_id" type="hidden" value="<%= smackdown.id %>" />
+          <input name="commit" type="submit" value="Enviar" />
+        </form>
+    </td>
+
     </tr>
   <% end %>
 
@@ -340,7 +350,7 @@
       <td>
         <% if smackdown.judge1_winner_id == nil || smackdown.judge2_winner_id == nil %>
           pendiente
-        <% elsif smackdown.judge1_winnder_id != smackdown.judge2_winner_id %>
+        <% elsif smackdown.judge1_winner_id != smackdown.judge2_winner_id %>
           conflicto!
         <% else %>
           <%= User.find_by_id(smackdown.judge1_winner_id).name %>
@@ -348,6 +358,23 @@
       </td>
       <td><%= smackdown.judge1_comment %><td>
       <td><%= smackdown.judge2_comment %><td>
+      <td>
+        <form accept-charset="UTF-8" action="/home/judge2_smackdown" method="get" class="nifty_form">
+          <span>Ganador: <span>
+          <select name="winner_id">
+            <option value="<%= smackdown.player1_id %>"><%= User.find_by_id(smackdown.player1_id).name %></option>
+            <option value="<%= smackdown.player2_id %>"><%= User.find_by_id(smackdown.player2_id).name %></option>
+          </select>
+          <select name="judge2_accepted">
+            <option value="true">Aceptar</option>
+            <option value="false">Rechazar</option>
+          </select>
+          <input name="judge2_comment">
+          <input name="smackdown_id" type="hidden" value="<%= smackdown.id %>" />
+          <input name="commit" type="submit" value="Enviar" />
+        </form>
+    </td>
+
     </tr>
   <% end %>
 

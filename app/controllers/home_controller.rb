@@ -40,10 +40,30 @@ class HomeController < ApplicationController
     smackdown.save
   end
 
-  def judge2_smackdown
+  def judge1_smackdown
+    smackdown_id = params["smackdown_id"]
+    judge1_accepted = params["judge1_accepted"]
+    winner_id = params["winner_id"]
+    judge1_comment = params["judge1_comment"]
+
+    smackdown = Smackdown.find_by_id(smackdown_id)
+    smackdown.judge1_accepted = judge1_accepted
+    smackdown.judge1_winner_id = winner_id
+    smackdown.judge1_comment = judge1_comment
+    smackdown.save
   end
 
   def judge2_smackdown
+    smackdown_id = params["smackdown_id"]
+    judge2_accepted = params["judge2_accepted"]
+    winner_id = params["winner_id"]
+    judge2_comment = params["judge2_comment"]
+
+    smackdown = Smackdown.find_by_id(smackdown_id)
+    smackdown.judge2_accepted = judge2_accepted
+    smackdown.judge2_winner_id = winner_id
+    smackdown.judge2_comment = judge2_comment  
+    smackdown.save
   end
 
 end

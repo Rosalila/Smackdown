@@ -1,9 +1,8 @@
 <% user = User.find_by_id(params[:id].to_i) %>
 <h2><%= user.name %></h2>
 
-<form accept-charset="UTF-8" action="/home/send_smackdown" method="get" class="nifty_form">
-
   <% Game.all.each do |game| %>
+    <form accept-charset="UTF-8" action="/home/send_smackdown" method="get" class="nifty_form">
     <% if userIsPlayingGame(user.id,game.id) %>
       <h2><%= game.name %> </h2>
       <% rule_group_count=0 %>
@@ -19,23 +18,22 @@
         <% rule_group_count+=1 %>
       <% end %>
     <% end %>
-  <% end %>
-  </select>
-  
-  </br>
-  
-  <h3>Elige el juez<h3>
-  <select name="judge_id">
-    <% User.all.each do |judge| %>
-      <% if judge.id != current_user.id %>
-        <option value="<%= judge.id %>"><%= judge.name %></option>
-      <% end %>
-    <% end %>
-  </select>
+    </br>
 
-  <input name="opponent_id" type="hidden" value="<%= user.id %>" />
-  
-  </br>
-  
-  <input name="commit" type="submit" value="Create" />
-</form>
+    <h3>Elige el juez<h3>
+    <select name="judge_id">
+      <% User.all.each do |judge| %>
+        <% if judge.id != current_user.id %>
+          <option value="<%= judge.id %>"><%= judge.name %></option>
+        <% end %>
+      <% end %>
+    </select>
+
+    <input name="opponent_id" type="hidden" value="<%= user.id %>" />
+
+    </br>
+
+    <input name="commit" type="submit" value="Create" />
+  </form>
+
+  <% end %>
