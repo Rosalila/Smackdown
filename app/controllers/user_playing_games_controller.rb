@@ -28,7 +28,7 @@ class UserPlayingGamesController < ApplicationController
 
     respond_to do |format|
       if @user_playing_game.save
-        format.html { redirect_to "/", notice: 'User playing game was successfully created.' }
+        format.html { redirect_to "/home/profile", notice: 'User playing game was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user_playing_game }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class UserPlayingGamesController < ApplicationController
   def update
     respond_to do |format|
       if @user_playing_game.update(user_playing_game_params)
-        format.html { redirect_to "/", notice: 'User playing game was successfully updated.' }
+        format.html { redirect_to "/home/profile", notice: 'User playing game was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

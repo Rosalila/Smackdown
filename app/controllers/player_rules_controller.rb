@@ -28,7 +28,7 @@ class PlayerRulesController < ApplicationController
 
     respond_to do |format|
       if @player_rule.save
-        format.html { redirect_to "/", notice: 'Player rule was successfully created.' }
+        format.html { redirect_to "/home/profile", notice: 'Player rule was successfully created.' }
         format.json { render action: 'show', status: :created, location: @player_rule }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class PlayerRulesController < ApplicationController
   def update
     respond_to do |format|
       if @player_rule.update(player_rule_params)
-        format.html { redirect_to "/", notice: 'Player rule was successfully updated.' }
+        format.html { redirect_to "/home/profile", notice: 'Player rule was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

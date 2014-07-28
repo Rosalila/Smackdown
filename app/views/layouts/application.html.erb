@@ -8,14 +8,20 @@
 </head>
 <body>
 
-<div id="user-widget">
-  <% if current_user %>
-    Welcome <strong><%= current_user.name %></strong>!
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-  <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-  <% end %>
-</div>
+<ul>
+  <div id="user-widget">
+    <% if current_user %>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/home/users">Enviar!</a></li>
+      <li><a href="/home/respond_smackdown_list">Responder!</a></li>
+      <li><a href="/home/judge_smackdown_list">Juzgar!</a></li>
+      <li><a href="/home/profile"><%= current_user.name %></a></li>
+      <li><a href="<%= signout_path %>">Cerrar sesión</a></li>
+    <% else %>
+      <li><a href="/auth/facebook">Iniciar sesión</a></li>
+    <% end %>
+  </div>
+<ul>
 
 <img src="/assets/bunker_ac_logo.png"/>
 <%= yield %>

@@ -1,0 +1,75 @@
+rece
+
+<h2>Smackdowns recibidos</h2>
+<table align="center">
+  <tr>
+    <th>retador</th>
+    <th>juez 1</th>
+    <th>juez 2</th>
+    <th>ganador<th>
+    <th>comentario juez 1</th>
+    <th>comentario juez 2</th>
+  </tr>
+  <% Smackdown.where(:player2_id=>current_user.id).each do |smackdown| %>
+    <tr>
+      <td>
+        <%= User.find_by_id(smackdown.player1_id).name %>
+      </td>
+      <td>
+        <%= User.find_by_id(smackdown.judge1_id).name %>
+        <% if smackdown.judge1_accepted == nil %>
+          pendiente
+        <% elsif smackdown.judge1_accepted %>
+          acceptada
+        <% else %>
+          rechazada
+        <% end %>
+      </td>
+      <td>
+        <% if smackdown.judge2_id == nil %>
+          pendiente
+        <% else %>
+          <%= User.find_by_id(smackdown.judge2_id).name %>
+          <% if smackdown.judge2_accepted == nil %>
+            pendiente
+          <% elsif smackdown.judge2_accepted %>
+            acceptada
+          <% else %>
+            rechazada
+          <% end %>
+        <% end %>
+      </td>
+      <td>
+        <% if smackdown.judge1_winner_id == nil || smackdown.judge2_winner_id == nil %>
+          pendiente
+
+        <% elsif smackdown.judge1_winner_id != smackdown.judge2_winner_id %>
+          conflicto!
+        <% else %>
+          <%= User.find_by_id(smackdown.judge1_winner_id).name %>
+        <% end %>
+      </td>
+      <td><%= smackdown.judge1_comment %><td>
+      <td><%= smackdown.judge2_comment %><td>
+      <td>
+        <form accept-charset="UTF-8" action="/home/respond_smackdown" method="get" class="nifty_form">
+          <span>Juez: <span>
+          <select name="judge_id">
+            <% User.all.each do |judge| %>
+              <% if judge.id != current_user.id %>
+                <option value="<%= judge.id %>"><%= judge.name %></option>
+              <% end %>
+            <% end %>
+          </select>
+          <select name="player2_accepted">
+
+            <option value="true">Aceptar</option>
+            <option value="false">Rechazar</option>
+          </select>
+          <input name="smackdown_id" type="hidden" value="<%= smackdown.id %>" />
+          <input name="commit" type="submit" value="Enviar" />
+        </form>
+      </td>
+    </tr>
+  <% end %>
+</table>

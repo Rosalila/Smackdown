@@ -1,0 +1,9 @@
+<h2>Seleciona el usuario</h2>
+<table>
+  <% User.all.each do |user| %>
+  <tr>
+    <td><a href="/home/visit/<%= user.id %>"><%= user.name%></a>
+  </tr>
+  <% end %>
+</table>
+

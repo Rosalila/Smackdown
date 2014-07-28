@@ -1,0 +1,65 @@
+sent
+
+
+<h2>Smackdowns enviados</h2>
+<table align="center">
+  <tr>
+    <th>oponente</th>
+    <th>juez 1</th>
+    <th>juez 2</th>
+    <th>ganador<th>
+    <th>comentario juez 1</th>
+    <th>comentario juez 2</th>
+  </tr>
+  <% Smackdown.where(:player1_id=>current_user.id).each do |smackdown| %>
+    <tr>
+      <td>
+        <%= User.find_by_id(smackdown.player2_id).name %>
+        <% if smackdown.player2_accepted == nil %>
+          pendiente
+        <% elsif smackdown.player2_accepted %>
+          acceptada
+        <% else %>
+          rechazada
+        <% end %>
+      </td>
+      <td>
+        <%= User.find_by_id(smackdown.judge1_id).name %>
+        <% if smackdown.judge1_accepted == nil %>
+          pendiente
+        <% elsif smackdown.judge1_accepted %>
+          acceptada
+        <% else %>
+          rechazada
+        <% end %>
+      </td>
+      <td>
+        <% if smackdown.judge2_id == nil %>
+          pendiente
+        <% else %>
+          <%= User.find_by_id(smackdown.judge2_id).name %>
+
+          <% if smackdown.judge2_accepted == nil %>
+            pendiente
+          <% elsif smackdown.judge2_accepted %>
+            acceptada
+          <% else %>
+            rechazada
+          <% end %>
+        <% end %>
+      </td>
+      <td>
+        <% if smackdown.judge1_winner_id == nil || smackdown.judge2_winner_id == nil %>
+          pendiente
+        <% elsif smackdown.judge1_winner_id != smackdown.judge2_winner_id %>
+          conflicto!
+        <% else %>
+          <%= User.find_by_id(smackdown.judge1_winner_id).name %>
+        <% end %>
+      </td>
+      <td><%= smackdown.judge1_comment %><td>
+      <td><%= smackdown.judge2_comment %><td>
+    </tr>
+  <% end %>
+</table>
+

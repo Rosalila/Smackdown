@@ -66,4 +66,26 @@ class HomeController < ApplicationController
     smackdown.save
   end
 
+  def users
+  end
+
+  def sent_smackdowns
+  end
+
+  def received_smackdowns
+  end
+
+  def profile
+  end
+
+  def judged_smackdowns
+  end
+
+  def respond_smackdowns_list
+  end
+
+  def judge_smackdowns_list
+    @judge1_smackdowns = Smackdown.where(:judge1_id=>current_user.id)
+  end
+
 end

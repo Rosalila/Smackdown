@@ -1,6 +1,70 @@
 <% user = User.find_by_id(params[:id].to_i) %>
 <h2><%= user.name %></h2>
 
+<% ganadas = 0 %>
+<% perdidas = 0 %>
+<% conflictos = 0 %>
+<% pendientes = 0 %>
+<% errores = 0 %>
+<% totales = 0 %>
+
+<% Smackdown.where(:player1_id=>current_user.id, :player2_id=>user.id).each do |smackdown| %>
+  <% if smackdown.judge1_winner_id == current_user.id && smackdown.judge2_winner_id == current_user.id %>
+    <% ganadas+=1 %>
+  <% elsif smackdown.judge1_winner_id == user.id && smackdown.judge2_winner_id == user.id %>
+    <% perdidas+=1 %>
+  <% elsif smackdown.judge1_winner_id == nil || smackdown.judge2_winner_id == nil %>
+    <% pendientes+=1 %>
+  <% elsif smackdown.judge1_winner_id != smackdown.judge2_winner_id %>
+    <% conflictos+=1 %>
+  <% else %>
+    <% errores+=1 %>
+  <% end %>
+<% end %>
+
+<% Smackdown.where(:player2_id=>current_user.id, :player1_id=>user.id).each do |smackdown| %>
+  <% if smackdown.judge1_winner_id == current_user.id && smackdown.judge2_winner_id == current_user.id %>
+    <% ganadas+=1 %>
+  <% elsif smackdown.judge1_winner_id == user.id && smackdown.judge2_winner_id == user.id %>
+    <% perdidas+=1 %>
+  <% elsif smackdown.judge1_winner_id == nil || smackdown.judge2_winner_id == nil %>
+    <% pendientes+=1 %>
+  <% elsif smackdown.judge1_winner_id != smackdown.judge2_winner_id %>
+    <% conflictos+=1 %>
+  <% else %>
+    <% errores+=1 %>
+  <% end %>
+<% end %>
+
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Smackdowns', 'Totales'],
+      ['Ganados',       <%= ganadas %>],
+      ['Perdidos',      <%= perdidas %>],
+      ['Conflictos',    <%= conflictos %>],
+      ['Pendientes',    <%= pendientes %>],
+      ['Errores',       <%= errores %>]
+    ]);
+
+    var options = {
+      title: 'Historial',
+      is3D: false,
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+    chart.draw(data, options);
+  }
+</script>
+<body>
+  <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+</body>
+
+
   <% Game.all.each do |game| %>
     <form accept-charset="UTF-8" action="/home/send_smackdown" method="get" class="nifty_form">
     <% if userIsPlayingGame(user.id,game.id) %>

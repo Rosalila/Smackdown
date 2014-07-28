@@ -1,0 +1,69 @@
+profile
+
+
+
+    <% Game.all.each do |g| %>
+      <% upg = UserPlayingGame.where(:user_id=>current_user.id, :game_id=>g.id)[0] %>
+      <% if upg==nil %>
+        <% upg = UserPlayingGame.new %>
+        <% upg.is_playing = false %>
+      <% end %>
+      <% if userIsPlayingGame(current_user.id,g.id) %>
+        <h2><%= g.name %>: jugando
+          <%= form_for(upg) do |f| %>
+            <%= hidden_field_tag "user_playing_game[user_id]", current_user.id %>
+            <%= hidden_field_tag "user_playing_game[game_id]", g.id %>
+            <%= hidden_field_tag "user_playing_game[is_playing]", !upg.is_playing %>
+            <div class="actions">
+                <%= f.submit "dejar de jugar", :type => :image, :src => "/assets/switch/jugando.png" %>
+            </div>
+          <%end%>
+        </h2>
+        <% g.rule_groups.each do |rule_group| %>
+          <h3><%= rule_group.name %></h3>
+          <table align="center">
+            <tr>
+            <% rule_group.rules.each do |rule| %>
+              <td><%= rule.name %></td>
+              <% player_rule = PlayerRule.where(:user_id=>current_user.id, :rule_id=>rule.id)[0] %>
+              <% if player_rule==nil %>
+                <% player_rule = PlayerRule.new %>
+              <% end %>
+              <td>
+              <%= form_for(player_rule) do |f| %>
+                <%= hidden_field_tag "player_rule[user_id]", current_user.id %>
+                <%= hidden_field_tag "player_rule[rule_id]", rule.id %>
+                <%= hidden_field_tag "player_rule[activated]", !player_rule.activated %>
+                <div class="actions">
+                  <% if player_rule.activated %>
+                    <%= f.submit "desactivar", :type => :image, :src => "/assets/switch/on.png"%>
+                  <% else %>
+                    <%= f.submit "activar", :type => :image, :src => "/assets/switch/off.png"%>
+                  <% end %>
+                </div>
+              <%end%>
+              </td>
+            <% end %>
+            </tr>
+          </table>
+        <% end %>
+      <%else%>
+        <h2><%= g.name %>: no jugando
+          <%= form_for(upg) do |f| %>
+            <%= hidden_field_tag "user_playing_game[user_id]", current_user.id %>
+            <%= hidden_field_tag "user_playing_game[game_id]", g.id %>
+            <%= hidden_field_tag "user_playing_game[is_playing]", !upg.is_playing %>
+            <div class="actions">
+                <%= f.submit "jugar", :type => :image, :src => "/assets/switch/no_jugando.png" %>
+            </div>
+          <%end%>
+        </h2>
+      <%end%>
+
+    <% end %>
+
+
+<h2>Historial</h2>
+<a href="/home/sent_smackdowns">Enviados</a>
+<a href="/home/received_smackdowns">Recibidos</a>
+<a href="/home/judged_smackdowns">Juzgados</a>
