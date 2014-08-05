@@ -1,1 +1,15 @@
-terst respond
+<h1>Acabas de responder el siguiente smackdown</h1>
+
+<% smackdown = Smackdown.find_by_id(params["smackdown_id"]) %>
+
+<p>Oponente: <%= User.find_by_id(smackdown.player1_id).name %></p>
+<p>
+  Respuesta:
+  <% if smackdown.player2_accepted %>
+    Aceptado
+  <% else %>
+    Rechazado
+  <% end %>
+</p>
+<p>Juez oponente: <%= User.find_by_id(smackdown.judge1_id).name %></p>
+<p>Tu juez: <%= User.find_by_id(smackdown.judge2_id).name %></p>

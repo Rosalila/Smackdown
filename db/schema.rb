@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140715020529) do
+ActiveRecord::Schema.define(version: 20140805223644) do
+
+  create_table "game_modes", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "games", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "meta_images", force: true do |t|
+    t.string   "path"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

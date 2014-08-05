@@ -88,4 +88,7 @@ class HomeController < ApplicationController
     @judge1_smackdowns = Smackdown.where(:judge1_id=>current_user.id)
   end
 
+  def watch
+  end
+
 end

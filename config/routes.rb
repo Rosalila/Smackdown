@@ -1,4 +1,6 @@
 Myapp::Application.routes.draw do
+  resources :meta_images
+
   resources :smackdown_rules
 
   resources :smackdowns
@@ -14,7 +16,9 @@ Myapp::Application.routes.draw do
   resources :games
 
   get "home/index"
+#  get '/home/visit/:id', to: 'home#visit', as: 'visit'
   get '/home/visit/:id', to: 'home#visit', as: 'visit'
+  get '/home/watch/:id1/:id2/:meta_image', to: 'home#watch', as: 'watch'
 #  post '/home/send_smackdown', to: 'home#send_smackdown', as: 'send_smackdown'
   get '/home/send_smackdown', to: 'home#send_smackdown', as: 'send_smackdown'
   get '/home/respond_smackdown', to: 'home#respond_smackdown', as: 'respond_smackdown'

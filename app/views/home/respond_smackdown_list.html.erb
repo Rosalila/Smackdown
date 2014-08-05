@@ -1,5 +1,8 @@
-<h2>Responder!</h2>
+<h2>¡Responder!</h2>
+
+<% smackdown_pending = false %>
 <% Smackdown.where(:player2_id=>current_user.id, :player2_accepted=>nil).each do |smackdown| %>
+  <% smackdown_pending = true %>
   <table>
     <tr>
       <td>
@@ -39,3 +42,11 @@
   </ul>
   </br>
 <% end %>
+
+<% if !smackdown_pending %>
+  <p>No tienes smackdowns por responder. Pero puedes <a href="/home/users">Visitar</a> a otros usuarios y enviarles uno.</p>
+  <% if !playingAtLeastAGame current_user %>
+    <p>Todavía no has seleccionado tus juegos y reglas. ¡Ve a <a href="/home/profile">Mi Perfil</a> y selecionalos!</p>
+  <% end %>
+<% end %>
+

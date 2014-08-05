@@ -1,9 +1,16 @@
 <h2>Seleciona el usuario</h2>
 <table>
   <% User.all.each do |user| %>
-  <tr>
-    <td><a href="/home/visit/<%= user.id %>"><%= user.name%></a>
-  </tr>
+    <% if user.id!=current_user.id %>
+      <tr>
+        <td>
+          <a href="/home/visit/<%= user.id %>">
+            <img src="http://graph.facebook.com/<%= user.uid %>/picture"/>
+          </a>
+        </td>
+        <td><a href="/home/visit/<%= user.id %>"><%= user.name%></a>
+      </tr>
+    <% end %>
   <% end %>
 </table>
 

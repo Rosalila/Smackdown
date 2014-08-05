@@ -1,0 +1,27 @@
+<h1>Listing meta_images</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Path</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @meta_images.each do |meta_image| %>
+      <tr>
+        <td><%= meta_image.path %></td>
+        <td><%= link_to 'Show', meta_image %></td>
+        <td><%= link_to 'Edit', edit_meta_image_path(meta_image) %></td>
+        <td><%= link_to 'Destroy', meta_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Meta image', new_meta_image_path %>

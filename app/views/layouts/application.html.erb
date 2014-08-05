@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DigitalOcean Rails Application</title>
+  <title>Smackdown!</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -9,15 +9,31 @@
   <link rel="stylesheet" type="text/css" href="/assets/test.css">
 -->
   <%= stylesheet_link_tag "test.css" %>
+
+  <% if content_for?(:head) %>
+    <%= yield(:head) %>
+  <% end %>
+
 </head>
 <body>
+
+<!-- FACEBOOK SHARE -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=672588699490076&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- END FACEBOOK SHARE -->
 
 <ul class="egmenu">
   <% if current_user %>
     <li><a href="/">Inicio</a></li>
     <li><a href="/home/users">Visitar</a></li>
-    <li><a href="/home/respond_smackdown_list">Responder</a></li>
-    <li><a href="/home/judge_smackdown_list">Juzgar</a></li>
+    <li><a href="/home/respond_smackdown_list">Responder (<%= pendingRespond %>)</a></li>
+    <li><a href="/home/judge_smackdown_list">Juzgar (<%= pendingJudge %>)</a></li>
     <li><a href="/home/profile">Mi Perfil</a></li>
     <li><a href="<%= signout_path %>">Cerrar sesion</a></li>
 
@@ -26,7 +42,7 @@
   <% end %>
 </ul>
 
-<img src="/assets/bunker_ac_logo.png"/>
+<img src="/assets/smackdown_logo.png"/>
 <%= yield %>
 
 
