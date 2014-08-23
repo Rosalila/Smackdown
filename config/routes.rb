@@ -1,4 +1,6 @@
 Myapp::Application.routes.draw do
+  resources :feedbacks
+
   resources :meta_images
 
   resources :smackdown_rules

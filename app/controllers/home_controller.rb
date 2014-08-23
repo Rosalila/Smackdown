@@ -49,6 +49,9 @@ class HomeController < ApplicationController
     smackdown = Smackdown.find_by_id(smackdown_id)
     smackdown.judge1_accepted = judge1_accepted
     smackdown.judge1_winner_id = winner_id
+    if smackdown.judge1_id == smackdown.judge2_id
+      smackdown.judge2_winner_id = winner_id
+    end
     smackdown.judge1_comment = judge1_comment
     smackdown.save
   end

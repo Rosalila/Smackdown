@@ -6,6 +6,12 @@
   <table>
     <tr>
       <td>
+        <span><b>Enviado en: </b><span>
+        <%= l smackdown.created_at.in_time_zone("America/Tegucigalpa"), format: :short %>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <span><b>Retador: </b><span>
         <%= User.find_by_id(smackdown.player1_id).name %>
       </td>

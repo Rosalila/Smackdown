@@ -9,7 +9,7 @@ module ApplicationHelper
 
   def pendingJudge
     j1 = Smackdown.where(:judge1_id=>current_user.id, :judge1_accepted => nil).count
-    j2 = Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => nil).count
+    j2 = Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => nil).where.not(:judge1_id=>current_user.id).count
     return j1+j2
   end
 
@@ -39,8 +39,49 @@ module ApplicationHelper
     return at_least_a_game
   end
 
-  def getStats
-    hash = {'uno' => 1, 'dos' => 2}
+  def getStats user1, user2
+    user1_rechazadas = 0
+    user2_rechazadas = 0
+    user1_ganadas = 0
+    user2_ganadas = 0
+    conflictos = 0
+    pendientes = 0
+    errores = 0
+    totales = 0
+
+    Smackdown.where(:player1_id=>user1.id, :player2_id=>user2.id).each do |smackdown|
+      if smackdown.player2_accepted == false
+        user2_rechazadas+=1
+      elsif smackdown.judge1_winner_id == user1.id && smackdown.judge2_winner_id == user1.id
+        user1_ganadas+=1
+      elsif smackdown.judge1_winner_id == user2.id && smackdown.judge2_winner_id == user2.id
+        user2_ganadas+=1
+      elsif smackdown.judge1_winner_id == nil || smackdown.judge2_winner_id == nil
+        pendientes+=1
+      elsif smackdown.judge1_winner_id != smackdown.judge2_winner_id
+        conflictos+=1
+      else
+        errores+=1
+      end
+    end
+
+    Smackdown.where(:player2_id=>user1.id, :player1_id=>user2.id).each do |smackdown|
+      if smackdown.player2_accepted == false
+        user1_rechazadas+=1
+      elsif smackdown.judge1_winner_id == user1.id && smackdown.judge2_winner_id == user1.id
+        user1_ganadas+=1
+      elsif smackdown.judge1_winner_id == user2.id && smackdown.judge2_winner_id == user2.id
+        user2_ganadas+=1
+      elsif smackdown.judge1_winner_id == nil || smackdown.judge2_winner_id == nil
+        pendientes+=1
+      elsif smackdown.judge1_winner_id != smackdown.judge2_winner_id
+        conflictos+=1
+      else
+        errores+=1
+      end
+    end
+
+    return {'user1_rechazadas' => user1_rechazadas, 'user2_rechazadas' => user2_rechazadas, 'user1_ganadas' => user1_ganadas, 'user2_ganadas' => user2_ganadas, 'conflictos'=>conflictos, 'pendientes'=>pendientes, 'errores' => errores, 'totales'=>totales}
   end
 
 end

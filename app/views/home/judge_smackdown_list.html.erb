@@ -5,6 +5,12 @@
   <table>
     <tr>
       <td>
+        <span><b>Enviado en: </b><span>
+        <%= l smackdown.created_at.in_time_zone("America/Tegucigalpa"), format: :short %>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <span><b>Jugador 1: </b></span>
         <%= User.find_by_id(smackdown.player1_id).name %>
       </td>
@@ -58,7 +64,14 @@
 <% end %>
 
 <% Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => nil).each do |smackdown| %>
+  <% next if smackdown.judge1_id==smackdown.judge2_id %>
   <table>
+    <tr>
+      <td>
+        <span><b>Enviado en: </b><span>
+        <%= l smackdown.created_at.in_time_zone("America/Tegucigalpa"), format: :short %>
+      </td>
+    </tr>
     <tr>
       <td>
         <span><b>Jugador 1: </b></span>
