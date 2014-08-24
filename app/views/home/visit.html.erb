@@ -1,5 +1,6 @@
 <% user = User.find_by_id(params[:id].to_i) %>
 <h2><%= user.name %></h2>
+<%= annotationChartScript(current_user,user).html_safe %>
 
 <% stats_hash = getStats(current_user,user) %>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
