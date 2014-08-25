@@ -1,6 +1,5 @@
 <% user = User.find_by_id(params[:id].to_i) %>
 <h2><%= user.name %></h2>
-<%= annotationChartScript(current_user,user).html_safe %>
 
 <% stats_hash = getStats(current_user,user) %>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -29,6 +28,8 @@
 <body>
   <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
 </body>
+
+<%= annotationChartScript(current_user,user).html_safe %>
 
 <% MetaImage.all.each do |meta_image| %>
   <img width="200" src="<%= meta_image.path %>"/>
