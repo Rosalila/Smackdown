@@ -37,6 +37,8 @@
   <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
 </body>
 
+<%= annotationChartScript(user1,user2).html_safe %>
+
 <div class="fb-share-button"
   data-href="http://smackdown.club/home/watch/<%= user1.id %>/<%= user2.id %>/<%= params[:meta_image] %>" data-width="500">
 </div>

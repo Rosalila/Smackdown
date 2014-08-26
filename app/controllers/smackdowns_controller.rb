@@ -54,6 +54,7 @@ class SmackdownsController < ApplicationController
   # DELETE /smackdowns/1
   # DELETE /smackdowns/1.json
   def destroy
+    SmackdownRule.where(:smackdown_id => @smackdown.id).destroy_all
     @smackdown.destroy
     respond_to do |format|
       format.html { redirect_to smackdowns_url }

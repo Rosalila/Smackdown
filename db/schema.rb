@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807162706) do
+ActiveRecord::Schema.define(version: 20140825191349) do
 
   create_table "feedbacks", force: true do |t|
     t.integer  "user_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140807162706) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_path"
   end
 
   create_table "meta_images", force: true do |t|
