@@ -14,13 +14,14 @@
         <% upg.is_playing = false %>
       <% end %>
       <% if userIsPlayingGame(current_user.id,g.id) %>
-        <table>
+        <table class="resizable_table" align="center">
           <tr>
             <td>
-              <h3><%= g.name %></h3>
-              <img src="<%= g.image_path %>"/>
+              <img class="resizable_image" src="<%= g.image_path %>"/>
             </td>
-            <td>
+          </tr>
+          <tr>
+            <td align="center">
               <%= form_for(upg) do |f| %>
                 <%= hidden_field_tag "user_playing_game[user_id]", current_user.id %>
                 <%= hidden_field_tag "user_playing_game[game_id]", g.id %>
@@ -38,18 +39,29 @@
           </tr>
         </table>
         <% g.rule_groups.each do |rule_group| %>
-          <table>
+          <table align="center">
             <tr>
-              <td>
+              <td align="center" colspan="10">
                 <b><%= rule_group.name %></b>
               </td>
+            </tr>
+            <tr>
             <% rule_group.rules.each do |rule| %>
-              <td><%= rule.name %></td>
+<td align="center" valign="bottom">
+<table>
+  <tr>
+    <td align="center">
+              <%= rule.name %>
               <% player_rule = PlayerRule.where(:user_id=>current_user.id, :rule_id=>rule.id)[0] %>
               <% if player_rule==nil %>
                 <% player_rule = PlayerRule.new %>
               <% end %>
-              <td>
+
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+
               <%= form_for(player_rule) do |f| %>
                 <%= hidden_field_tag "player_rule[user_id]", current_user.id %>
                 <%= hidden_field_tag "player_rule[rule_id]", rule.id %>
@@ -76,18 +88,26 @@
                   <% end %>
                 </div>
               <%end%>
+
+    </td>
+  </tr>
+</table>
+</td>
+
               </td>
             <% end %>
             </tr>
           </table>
         <% end %>
       <%else%>
-        <table>
+        <table align="center" class="resizable_table">
           <tr>
-            <td>
-              <h3><%= g.name %></h3>
+            <td align="center">
+              <img class="resizable_image" src="<%= g.image_path.split('.')[0] %>_grey.png"/>
             </td>
-            <td>
+          </tr>
+          <tr>
+            <td align="center">
               <%= form_for(upg) do |f| %>
                 <%= hidden_field_tag "user_playing_game[user_id]", current_user.id %>
                 <%= hidden_field_tag "user_playing_game[game_id]", g.id %>
@@ -107,15 +127,6 @@
       <%end%>
     <% end %>
 
-
-<h2>Historial</h2>
-<a href="/home/sent_smackdowns">Enviados</a>
-<a href="/home/received_smackdowns">Recibidos</a>
-<a href="/home/judged_smackdowns">Juzgados</a>
-
-
-
-
 <script>
 <% for i in 0..switch_cont-1 %>
   $( "#myonoffswitch<%= i %>" ).click(function() {
@@ -132,4 +143,3 @@
 $( 'form' ).submit(function() {
 });
 </script>
-
