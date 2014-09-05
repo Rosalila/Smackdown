@@ -30,10 +30,41 @@
 
 <ul class="egmenu">
   <% if current_user %>
+
+    <% pending_respond = pendingRespond %>
+    <% pending_judge = pendingJudge %>
+
     <li><a href="/">Inicio</a></li>
-    <li><a href="/home/users">Visitar</a></li>
-    <li><a href="/home/respond_smackdown_list">Responder (<%= pendingRespond %>)</a></li>
-    <li><a href="/home/judge_smackdown_list">Juzgar (<%= pendingJudge %>)</a></li>
+    <li>
+      <a href="/home/users" class="has-sub">Visitar</a>
+    </li>
+    <li>
+      <a href="#" class="has-sub">Recibidos (<%= pending_respond + pending_judge %>)</a>
+      <ul>
+        <li><a href="/home/respond_smackdown_list">Smackdowns (<%= pending_respond %>)</a></li>
+        <li><a href="/home/judge_smackdown_list">Juicios (<%= pending_judge %>)</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#" class="has-sub">Esperando (<%= pending_respond + pending_judge %>)</a>
+      <ul>
+        <li><a href="#">Smackdowns</a></li>
+        <li><a href="#">Juicios</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#" class="has-sub">Historial</a>
+      <ul>
+        <li><a href="/home/sent_smackdowns">Enviados</a></li>
+        <li><a href="/home/received_smackdowns">Recibidos</a></li>
+        <li><a href="/home/judged_smackdowns">Juzgados</a></li>
+      </ul>
+    </li>
+
+<!--
+    <li><a href="/home/respond_smackdown_list">Responder (<%= pending_respond %>)</a></li>
+    <li><a href="/home/judge_smackdown_list">Juzgar (<%= pending_judge %>)</a></li>
+-->
     <li><a href="/home/profile">Mi Perfil</a></li>
     <li><a href="/feedbacks/new">Tu opinión</a></li>
     <li><a href="<%= signout_path %>">Cerrar sesion</a></li>
@@ -43,7 +74,7 @@
   <% end %>
 </ul>
 
-<img src="/assets/smackdown_logo.png"/>
+<img class="resizable_image" src="/assets/smackdown_logo.png"/>
 <%= yield %>
 
 

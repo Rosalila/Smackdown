@@ -29,29 +29,9 @@ ul.egmenu li { list-style: none; }
 ul.egmenu li:hover { background: #555;  }
 ul.egmenu li:hover ul { display: block;  }
 
-@media all and (max-width: 1000px) {
-    ul.egmenu {  height: auto; }
-    ul.egmenu > li {  float: none; width: 100%; }
-    ul.egmenu a { line-height: 40px; }
-    ul.egmenu ul { position: relative; }
-
-    ul.egmenu li.tap { background: #555;  }
-    ul.egmenu li.tap ul { display: block;  }
-    ul.egmenu a { font-size: 80px; padding-top: 80px; }
-}
-
 @media all and (min-width: 1001px) {
-    ul.egmenu li:hover { background: #555;  }
-    ul.egmenu li:hover ul { display: block;  }
-}
-
-
-
-
 
 /* on off switch */
-
-
 .onoffswitch {
     position: relative; width: 90px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
@@ -61,7 +41,7 @@ ul.egmenu li:hover ul { display: block;  }
 }
 .onoffswitch-label {
     display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #999999; border-radius: 20px;
+    border: 2px solid #999999; border-radius: 0px;
 }
 .onoffswitch-inner {
     display: block; width: 200%; margin-left: -100%;
@@ -69,26 +49,27 @@ ul.egmenu li:hover ul { display: block;  }
     -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
 }
 .onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 26px;
     font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
     -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+    border: 2px solid transparent;
+    background-clip: padding-box;
 }
 .onoffswitch-inner:before {
-    content: "ON";
+    content: "SÍ";
     padding-left: 10px;
-    background-color: #2FCCFF; color: #FFFFFF;
+    background-color: #666666; color: #FFFFFF;
 }
 .onoffswitch-inner:after {
-    content: "OFF";
+    content: "NO";
     padding-right: 10px;
-    background-color: #EEEEEE; color: #999999;
+    background-color: #CCCCCC; color: #333333;
     text-align: right;
 }
 .onoffswitch-switch {
-    display: block; width: 18px; margin: 6px;
-    background: #FFFFFF;
-    border: 2px solid #999999; border-radius: 20px;
-    position: absolute; top: 0; bottom: 0; right: 56px;
+    display: block; width: 25px; margin: 0px;
+    background: #000000;
+    position: absolute; top: 0; bottom: 0; right: 65px;
     -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
     -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
 }
@@ -98,3 +79,81 @@ ul.egmenu li:hover ul { display: block;  }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
 }
+/* end on off switch */
+
+}
+
+@media all and (max-width: 1000px) {
+    ul.egmenu {  height: auto; }
+    ul.egmenu > li {  float: none; width: 100%; }
+    ul.egmenu a { line-height: 100px; }
+    ul.egmenu ul { position: relative; }
+
+    ul.egmenu li.tap { background: #555;  }
+    ul.egmenu li.tap ul { display: block;  }
+    ul.egmenu a { font-size: 80px; padding-top: 0px; }
+    body { font-size: 50px; }
+
+    .resizable_image {
+      width: 100%;
+      height: auto;
+    }
+
+    .resizable_table {
+      width: 100%;
+      height: auto;
+    }
+
+
+/* on off switch */
+.onoffswitch {
+    position: relative; width: 180px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 0px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 60px; padding: 0; line-height: 56px;
+    font-size: 28px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+.onoffswitch-inner:before {
+    content: "SÍ";
+    padding-left: 20px;
+    background-color: #666666; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "NO";
+    padding-right: 20px;
+    background-color: #CCCCCC; color: #333333;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 50px; margin: 0px;
+    background: #000000;
+    position: absolute; top: 0; bottom: 0; right: 130px;
+    -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+/* end on off switch */
+
+}
+
