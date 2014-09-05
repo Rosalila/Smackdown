@@ -1,7 +1,9 @@
 <h2>Historial de Smackdowns juzgados</h2>
 <% judge_pending = false %>
+<hr>
 <% Smackdown.where(:judge1_id=>current_user.id, :judge1_accepted => [true,false]).each do |smackdown| %>
   <% judge_pending = true %>
+  <%= vsTable(User.find_by_id(smackdown.player1_id),User.find_by_id(smackdown.player2_id)).html_safe %>
   <table>
     <tr>
       <td>
@@ -60,11 +62,13 @@
       <li><b><%= sr.rule.rule_group.name %>: </b><%= sr.rule.name %></li>
     <% end %>
   </ul>
+  <hr>
   </br>
 <% end %>
 
 <% Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => [true,false]).each do |smackdown| %>
   <% next if smackdown.judge1_id==smackdown.judge2_id %>
+  <%= vsTable(User.find_by_id(smackdown.player1_id),User.find_by_id(smackdown.player2_id)).html_safe %>
   <table>
     <tr>
       <td>
@@ -119,6 +123,7 @@
       <li><b><%= sr.rule.rule_group.name %>: </b><%= sr.rule.name %></li>
     <% end %>
   </ul>
+  <hr>
   </br>
 <% end %>
 

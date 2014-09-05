@@ -138,4 +138,21 @@ module ApplicationHelper
     return str
   end
 
+  def vsTable user1, user2
+    str = "<table class='resizable_table'>"+
+      "<tr>"+
+        "<td>"+
+          "<img class='resizable_image' src='http://graph.facebook.com/"+user1.uid+"/picture?type=normal'/>"+
+        "</td>"+
+        "<td>"+
+          "<img class='resizable_image' src='/assets/Smackdown_150px/vs.png' />"+
+        "</td>"+
+        "<td>"+
+          "<img class='resizable_image' src='http://graph.facebook.com/"+user2.uid+"/picture?type=normal'/>"+
+        "</td>"+
+      "</tr>"+
+    "<table>"
+    return str
+  end
+
 end
