@@ -40,8 +40,11 @@ class PlayerRulesController < ApplicationController
   # PATCH/PUT /player_rules/1
   # PATCH/PUT /player_rules/1.json
   def update
+    new_activated = !@player_rule.activated
     respond_to do |format|
       if @player_rule.update(player_rule_params)
+        @player_rule.activated = new_activated
+        @player_rule.save
         format.html { redirect_to "/home/profile", notice: 'Player rule was successfully updated.' }
         format.json { head :no_content }
       else

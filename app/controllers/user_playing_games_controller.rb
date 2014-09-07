@@ -40,8 +40,11 @@ class UserPlayingGamesController < ApplicationController
   # PATCH/PUT /user_playing_games/1
   # PATCH/PUT /user_playing_games/1.json
   def update
+    new_is_playing = !@user_playing_game.is_playing
     respond_to do |format|
       if @user_playing_game.update(user_playing_game_params)
+        @user_playing_game.is_playing = new_is_playing
+        @user_playing_game.save
         format.html { redirect_to "/home/profile", notice: 'User playing game was successfully updated.' }
         format.json { head :no_content }
       else

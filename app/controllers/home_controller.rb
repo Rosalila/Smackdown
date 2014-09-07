@@ -99,4 +99,8 @@ class HomeController < ApplicationController
 
   def wating_judges
   end
+
+  def ajax_test
+    render :js => "alert('Bola')"
+  end
 end

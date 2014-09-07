@@ -1,6 +1,6 @@
 ul.egmenu {  
     background: #333; 
-    height: 30px;
+    height: 40px;
     width: 100%; 
 }
 
@@ -22,6 +22,7 @@ ul.egmenu a {
     color: white; 
     line-height: 30px; 
     padding: 0 10px; 
+    font-size: 25px;
 }
 
 ul.egmenu li { list-style: none; }

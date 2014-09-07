@@ -35,7 +35,7 @@ Myapp::Application.routes.draw do
   get '/home/profile', to: 'home#profile', as: 'profile'
   get '/home/wating_opponent', to: 'home#wating_opponent', as: 'wating_opponent'
   get '/home/wating_judges', to: 'home#wating_judges', as: 'wating_judges'
-
+  get '/home/ajax_test', to: 'home#ajax_test', as: 'ajax_test'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
