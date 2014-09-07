@@ -25,11 +25,9 @@
     chart.draw(data, options);
   }
 </script>
-<body>
+<div align="center">
   <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
-</body>
-
-<%= annotationChartScript(current_user,user).html_safe %>
+  <%= annotationChartScript(current_user,user).html_safe %>
 
 <!--
 <% MetaImage.all.each do |meta_image| %>
@@ -40,11 +38,13 @@
 <% end %>
 -->
 
+</br>
+</br>
+
 <% Game.all.each do |game| %>
   <% receiving_smackdown = true %>
   <% if userIsPlayingGame(user.id,game.id) %>
-    <h2><%= game.name %></h2>
-    <img src="<%= game.image_path %>"/>
+    <img align="center" class="resizable_image" src="<%= game.image_path %>"/>
     <script>
     $(document).ready(function(){
       $("#button_game_<%=game.id%>").click(function(){
@@ -67,6 +67,7 @@
 
 
     </script>
+    </br>
     <button id="button_game_<%=game.id%>">Mostrar</button>
     <form id="form_game_<%=game.id%>" style="display:none;" accept-charset="UTF-8" action="/home/send_smackdown" method="get" class="nifty_form">
       <% rule_group_count=0 %>
@@ -89,7 +90,7 @@
       <% end %>
       <% receiving_smackdown = true %>
       <% if rules_ok %>
-        <h3>Elige el juez</h3>
+        <h3>Juez:</h3>
         <select name="judge_id">
           <% User.all.each do |judge| %>
             <% if judge.id != current_user.id %>
@@ -99,14 +100,20 @@
         </select>
         <input name="opponent_id" type="hidden" value="<%= user.id %>" />
         </br>
+        </br>
         <input name="commit" type="submit" value="Enviar Smackdown!" />
+        </br>
       <% else %>
         <p><%= user.name %> no ha seleccionado al menos una regla de cada grupo para poder jugar <%= game.name %>.</p>
       <% end %>
     </form>
   <% end %>
+  </br>
 <% end %>
 
 <% if !playingAtLeastAGame user %>
   <p><%= user.name %> todavía no está listo para recibir Smackdowns. Dile que seleccione al menos un juego y una regla de cada grupo.</p>
 <% end %>
+
+</div>
+

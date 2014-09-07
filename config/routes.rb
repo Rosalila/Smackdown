@@ -33,6 +33,8 @@ Myapp::Application.routes.draw do
   get '/home/received_smackdowns', to: 'home#received_smackdowns', as: 'received_smackdowns'
   get '/home/judged_smackdowns', to: 'home#judged_smackdowns', as: 'judged_smackdowns'
   get '/home/profile', to: 'home#profile', as: 'profile'
+  get '/home/wating_opponent', to: 'home#wating_opponent', as: 'wating_opponent'
+  get '/home/wating_judges', to: 'home#wating_judges', as: 'wating_judges'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -22,6 +22,15 @@ module ApplicationHelper
     return Smackdown.where(:player2_id=>current_user.id, :player2_accepted=>nil).count
   end
 
+  def watingOpponentCount
+    return Smackdown.where(:player1_id=>current_user.id, :player2_accepted=>nil).count
+  end
+
+  def watingJudgesCount
+    smackdown_table = Smackdown.arel_table
+    return Smackdown.where(:player1_id=>current_user.id).where(smackdown_table[:judge1_accepted].eq(nil).or(smackdown_table[:judge2_accepted].eq(nil))).count
+  end
+
   def playingAtLeastAGame user
     at_least_a_game = false
     Game.all.each do |game|

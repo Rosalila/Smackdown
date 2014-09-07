@@ -94,4 +94,9 @@ class HomeController < ApplicationController
   def watch
   end
 
+  def wating_opponent
+  end
+
+  def wating_judges
+  end
 end
