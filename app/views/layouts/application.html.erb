@@ -33,6 +33,8 @@
 
     <% pending_respond = pendingRespond %>
     <% pending_judge = pendingJudge %>
+    <% wating_opponent_count = watingOpponentCount; %>
+    <% wating_judges_count = watingJudgesCount %>
 
     <li><a href="/">Inicio</a></li>
     <li>
@@ -41,15 +43,15 @@
     <li>
       <a href="#" class="has-sub">Recibidos (<%= pending_respond + pending_judge %>)</a>
       <ul>
-        <li><a href="/home/respond_smackdown_list">Smackdowns (<%= pending_respond %>)</a></li>
-        <li><a href="/home/judge_smackdown_list">Juicios (<%= pending_judge %>)</a></li>
+        <li><a href="/home/respond_smackdown_list"><nobr>Smackdowns (<%= pending_respond %>)</nobr></a></li>
+        <li><a href="/home/judge_smackdown_list"><nobr>Juicios (<%= pending_judge %>)</nobr></a></li>
       </ul>
     </li>
     <li>
-      <a href="#" class="has-sub">Esperando (<%= pending_respond + pending_judge %>)</a>
+      <a href="#" class="has-sub">Esperando (<%= wating_opponent_count + wating_judges_count %>)</a>
       <ul>
-        <li><a href="#">Smackdowns</a></li>
-        <li><a href="#">Juicios</a></li>
+        <li><a href="/home/wating_opponent"><nobr>Oponente (<%= wating_opponent_count %>)</nobr></a></li>
+        <li><a href="/home/wating_judges">Jueces (<%= wating_judges_count %>)</a></li>
       </ul>
     </li>
     <li>

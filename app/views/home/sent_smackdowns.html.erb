@@ -2,9 +2,10 @@
 <h2>Historial de Smackdowns enviados</h2>
 
 <% smackdown_pending = false %>
+<hr>
 <% Smackdown.where(:player1_id=>current_user.id).each do |smackdown| %>
   <% smackdown_pending = true %>
-  <table>
+    <%= vsTable(User.find_by_id(smackdown.player1_id),User.find_by_id(smackdown.player2_id)).html_safe %>
     <tr>
       <td>
         <span><b>Enviado en: </b><span>
@@ -78,6 +79,7 @@
       <li><b><%= sr.rule.rule_group.name %>: </b><%= sr.rule.name %></li>
     <% end %>
   </ul>
+<HR> 
   </br>
 <% end %>
 

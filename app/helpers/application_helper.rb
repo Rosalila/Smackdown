@@ -22,6 +22,15 @@ module ApplicationHelper
     return Smackdown.where(:player2_id=>current_user.id, :player2_accepted=>nil).count
   end
 
+  def watingOpponentCount
+    return Smackdown.where(:player1_id=>current_user.id, :player2_accepted=>nil).count
+  end
+
+  def watingJudgesCount
+    smackdown_table = Smackdown.arel_table
+    return Smackdown.where(:player1_id=>current_user.id).where(smackdown_table[:judge1_accepted].eq(nil).or(smackdown_table[:judge2_accepted].eq(nil))).count
+  end
+
   def playingAtLeastAGame user
     at_least_a_game = false
     Game.all.each do |game|
@@ -135,6 +144,23 @@ module ApplicationHelper
     "<body>"+
     "  <div id='annotation_div' style='width: 900px; height: 500px;'></div>"+
     "</body>"
+    return str
+  end
+
+  def vsTable user1, user2
+    str = "<table class='resizable_table'>"+
+      "<tr>"+
+        "<td>"+
+          "<img class='resizable_image' src='http://graph.facebook.com/"+user1.uid+"/picture?type=normal'/>"+
+        "</td>"+
+        "<td>"+
+          "<img class='resizable_image' src='/assets/Smackdown_150px/vs.png' />"+
+        "</td>"+
+        "<td>"+
+          "<img class='resizable_image' src='http://graph.facebook.com/"+user2.uid+"/picture?type=normal'/>"+
+        "</td>"+
+      "</tr>"+
+    "<table>"
     return str
   end
 

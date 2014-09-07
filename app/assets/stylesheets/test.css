@@ -91,8 +91,12 @@ ul.egmenu li:hover ul { display: block;  }
 
     ul.egmenu li.tap { background: #555;  }
     ul.egmenu li.tap ul { display: block;  }
-    ul.egmenu a { font-size: 80px; padding-top: 0px; }
+    ul.egmenu a { font-size: 50px; padding-top: 0px; }
     body { font-size: 50px; }
+    textarea { font-size: 50px; }
+    input { font-size: 50px; }
+    select { font-size: 50px; }
+    button { font-size: 50px; }
 
     .resizable_image {
       width: 100%;
