@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    redirect_to 'http://smackdown.club/home/index' if url_for(:only_path => false) == 'http://www.smackdown.club/home/index'
   end
 
   def visit

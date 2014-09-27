@@ -7,3 +7,7 @@
 <% else %>
 
 <% end %>
+
+<% Smackdown.find(:all, :order => "created_at desc", :limit => 5).reverse.each do |smackdown| %>
+  <%= render 'uneditable_smackdown', :locals => {:smackdown=> smackdown} %>
+<% end %>

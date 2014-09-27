@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def pendingJudge
-    j1 = Smackdown.where(:judge1_id=>current_user.id, :judge1_accepted => nil).count
+    j1 = Smackdown.where(:judge1_id=>current_user.id, :judge1_accepted => nil).where.not(:judge2_id=>current_user.id).count
     j2 = Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => nil).where.not(:judge1_id=>current_user.id).count
     return j1+j2
   end
@@ -26,10 +26,14 @@ module ApplicationHelper
     return Smackdown.where(:player1_id=>current_user.id, :player2_accepted=>nil).count
   end
 
-  def watingJudgesCount
+  def getWatingJudge
     smackdown_table = Smackdown.arel_table
-    return Smackdown.where(:player1_id=>current_user.id).where(smackdown_table[:judge1_accepted].eq(nil).or(smackdown_table[:judge2_accepted].eq(nil))).count
+    user_smackdowns=Smackdown.where(smackdown_table[:player1_id].eq(current_user.id).or(smackdown_table[:player2_id].eq(current_user.id)))
+    different_judges = user_smackdowns.where("smackdowns.judge1_id != smackdowns.judge2_id").where(smackdown_table[:judge1_accepted].eq(nil).or(smackdown_table[:judge2_accepted].eq(nil)))
+    same_judges = user_smackdowns.where("smackdowns.judge1_id == smackdowns.judge2_id").where(judge1_accepted: nil).where(judge2_accepted: nil)
+    return different_judges + same_judges
   end
+
 
   def playingAtLeastAGame user
     at_least_a_game = false
