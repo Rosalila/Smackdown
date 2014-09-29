@@ -64,7 +64,7 @@ class HomeController < ApplicationController
     smackdown.save
 
     respond_to do |format|
-      format.html { redirect_to "/home/judged_smackdowns", notice: '¡Has juzgado un Smackdown!' }
+      format.html { redirect_to "/home/history_judged_smackdowns", notice: '¡Has juzgado un Smackdown!' }
     end
   end
 
@@ -81,23 +81,23 @@ class HomeController < ApplicationController
     smackdown.save
 
     respond_to do |format|
-      format.html { redirect_to "/home/judged_smackdowns", notice: '¡Has juzgado un Smackdown!' }
+      format.html { redirect_to "/home/history_judged_smackdowns", notice: '¡Has juzgado un Smackdown!' }
     end
   end
 
   def users
   end
 
-  def sent_smackdowns
+  def history_sent_smackdowns
   end
 
-  def received_smackdowns
+  def history_received_smackdowns
+  end
+
+  def history_judged_smackdowns
   end
 
   def profile
-  end
-
-  def judged_smackdowns
   end
 
   def respond_smackdowns_list

@@ -18,10 +18,8 @@ Myapp::Application.routes.draw do
   resources :games
 
   get "home/index"
-#  get '/home/visit/:id', to: 'home#visit', as: 'visit'
   get '/home/visit/:id', to: 'home#visit', as: 'visit'
   get '/home/watch/:id1/:id2/:meta_image', to: 'home#watch', as: 'watch'
-#  post '/home/send_smackdown', to: 'home#send_smackdown', as: 'send_smackdown'
   get '/home/send_smackdown', to: 'home#send_smackdown', as: 'send_smackdown'
   get '/home/respond_smackdown', to: 'home#respond_smackdown', as: 'respond_smackdown'
   get '/home/judge1_smackdown', to: 'home#judge1_smackdown', as: 'judge1_smackdown'
@@ -29,9 +27,12 @@ Myapp::Application.routes.draw do
   get '/home/respond_smackdown_list', to: 'home#respond_smackdown_list', as: 'respond_smackdown_list'
   get '/home/judge_smackdown_list', to: 'home#judge_smackdown_list', as: 'judge_smackdown_list'
   get '/home/users', to: 'home#users', as: 'users'
-  get '/home/sent_smackdowns', to: 'home#sent_smackdowns', as: 'sent_smackdowns'
-  get '/home/received_smackdowns', to: 'home#received_smackdowns', as: 'received_smackdowns'
-  get '/home/judged_smackdowns', to: 'home#judged_smackdowns', as: 'judged_smackdowns'
+
+  #History
+  get '/home/history_sent_smackdowns', to: 'home#history_sent_smackdowns', as: 'history_sent_smackdowns'
+  get '/home/history_received_smackdowns', to: 'home#history_received_smackdowns', as: 'history_received_smackdowns'
+  get '/home/history_judged_smackdowns', to: 'home#history_judged_smackdowns', as: 'history_judged_smackdowns'
+
   get '/home/profile', to: 'home#profile', as: 'profile'
   get '/home/wating_opponent', to: 'home#wating_opponent', as: 'wating_opponent'
   get '/home/wating_judges', to: 'home#wating_judges', as: 'wating_judges'
