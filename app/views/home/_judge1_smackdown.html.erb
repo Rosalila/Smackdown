@@ -1,0 +1,61 @@
+<% smackdown=locals[:smackdown] %>
+
+  <%= vsTable(User.find_by_id(smackdown.player1_id),User.find_by_id(smackdown.player2_id)).html_safe %>
+  <table>
+    <tr>
+      <td>
+        <span><b>Enviado en: </b><span>
+        <%= l smackdown.created_at.in_time_zone(getCurrentTimeZone), format: :short %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span><b>Jugador 1: </b></span>
+        <%= User.find_by_id(smackdown.player1_id).name %>
+      </td>
+      <td>
+        <span><b>Jugador 2: </b></span>
+        <%= User.find_by_id(smackdown.player2_id).name %>
+      </td>
+      <td>
+        <span><b>Otro juez:</b></span>
+        <% if smackdown.judge2_id == nil %>
+          pendiente
+        <% else %>
+          <%= User.find_by_id(smackdown.judge2_id).name %>
+        <% end %>
+      </td>
+    <tr>
+    </tr>
+      <td>
+        <span><b>Comentario del otro juez:</b></span>
+        <%= smackdown.judge1_comment %>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td>
+        <form accept-charset="UTF-8" action="/home/judge1_smackdown" method="get" class="nifty_form">
+          <span>Ganador: <span>
+          <select name="winner_id">
+            <option <%= "selected=\"selected\"" if smackdown.player1_id == smackdown.judge1_winner_id %> value="<%= smackdown.player1_id %>"><%= User.find_by_id(smackdown.player1_id).name %></option>
+            <option <%= "selected=\"selected\"" if smackdown.player2_id == smackdown.judge1_winner_id %> value="<%= smackdown.player2_id %>"><%= User.find_by_id(smackdown.player2_id).name %></option>
+          </select>
+          <select name="judge1_accepted">
+            <option <%= "selected=\"selected\"" if smackdown.judge1_accepted %> value="true">Aceptar</option>
+            <option <%= "selected=\"selected\"" if !smackdown.judge1_accepted %> value="false">Rechazar</option>
+          </select>
+          <input name="judge1_comment" value="<%= smackdown.judge1_comment %>"/>
+          <input name="smackdown_id" type="hidden" value="<%= smackdown.id %>" />
+          <input name="commit" type="submit" value="Enviar" />
+        </form>
+      <td>
+    <tr>
+  <table>
+  <ul>
+    <li><b>Juego: </b><%= smackdown.smackdown_rules.first.rule.rule_group.game.name %></li>
+    <% smackdown.smackdown_rules.each do |sr| %>
+      <li><b><%= sr.rule.rule_group.name %>: </b><%= sr.rule.name %></li>
+    <% end %>
+  </ul>
