@@ -100,10 +100,10 @@ class HomeController < ApplicationController
   def profile
   end
 
-  def respond_smackdowns_list
+  def pending_respond_smackdowns
   end
 
-  def judge_smackdowns_list
+  def pending_judge_smackdowns
     @judge1_smackdowns = Smackdown.where(:judge1_id=>current_user.id)
   end
 

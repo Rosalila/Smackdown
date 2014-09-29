@@ -24,9 +24,11 @@ Myapp::Application.routes.draw do
   get '/home/respond_smackdown', to: 'home#respond_smackdown', as: 'respond_smackdown'
   get '/home/judge1_smackdown', to: 'home#judge1_smackdown', as: 'judge1_smackdown'
   get '/home/judge2_smackdown', to: 'home#judge2_smackdown', as: 'judge2_smackdown'
-  get '/home/respond_smackdown_list', to: 'home#respond_smackdown_list', as: 'respond_smackdown_list'
-  get '/home/judge_smackdown_list', to: 'home#judge_smackdown_list', as: 'judge_smackdown_list'
   get '/home/users', to: 'home#users', as: 'users'
+
+  #Pending
+  get '/home/pending_respond_smackdown', to: 'home#pending_respond_smackdown', as: 'pending_respond_smackdown'
+  get '/home/pending_judge_smackdown', to: 'home#pending_judge_smackdown', as: 'pending_judge_smackdown'
 
   #History
   get '/home/history_sent_smackdowns', to: 'home#history_sent_smackdowns', as: 'history_sent_smackdowns'
