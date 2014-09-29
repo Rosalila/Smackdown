@@ -27,7 +27,9 @@ class HomeController < ApplicationController
       smackdown_rule.rule_id = rule_id
       smackdown_rule.save
     end
-
+    respond_to do |format|
+      format.html { redirect_to "/home/wating_opponent", notice: '¡Has enviado un Smackdown!' }
+    end
   end
 
   def respond_smackdown
@@ -39,6 +41,11 @@ class HomeController < ApplicationController
     smackdown.judge2_id = judge2_id
     smackdown.player2_accepted = player2_accepted
     smackdown.save
+
+    respond_to do |format|
+      format.html { redirect_to "/home/wating_judges", notice: '¡Has respondido un Smackdown!' }
+    end
+
   end
 
   def judge1_smackdown
@@ -55,6 +62,10 @@ class HomeController < ApplicationController
     end
     smackdown.judge1_comment = judge1_comment
     smackdown.save
+
+    respond_to do |format|
+      format.html { redirect_to "/home/judged_smackdowns", notice: '¡Has juzgado un Smackdown!' }
+    end
   end
 
   def judge2_smackdown
@@ -68,6 +79,10 @@ class HomeController < ApplicationController
     smackdown.judge2_winner_id = winner_id
     smackdown.judge2_comment = judge2_comment  
     smackdown.save
+
+    respond_to do |format|
+      format.html { redirect_to "/home/judged_smackdowns", notice: '¡Has juzgado un Smackdown!' }
+    end
   end
 
   def users
