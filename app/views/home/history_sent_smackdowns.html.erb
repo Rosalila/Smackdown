@@ -1,0 +1,15 @@
+
+<h2>Historial de Smackdowns enviados</h2>
+
+<% smackdown_pending = false %>
+<hr>
+<% Smackdown.where(:player1_id=>current_user.id).each do |smackdown| %>
+  <% smackdown_pending = true %>
+  <%= render 'uneditable_smackdown', :locals => {:smackdown=> smackdown} %>
+  <HR> 
+  </br>
+<% end %>
+
+<% if !smackdown_pending %>
+  <p>Todavia no has completado ningún Smackdown.</p>
+<% end %>

@@ -27,7 +27,9 @@ class HomeController < ApplicationController
       smackdown_rule.rule_id = rule_id
       smackdown_rule.save
     end
-
+    respond_to do |format|
+      format.html { redirect_to "/home/wating_opponent", notice: '¡Has enviado un Smackdown!' }
+    end
   end
 
   def respond_smackdown
@@ -39,6 +41,11 @@ class HomeController < ApplicationController
     smackdown.judge2_id = judge2_id
     smackdown.player2_accepted = player2_accepted
     smackdown.save
+
+    respond_to do |format|
+      format.html { redirect_to "/home/wating_judges", notice: '¡Has respondido un Smackdown!' }
+    end
+
   end
 
   def judge1_smackdown
@@ -55,6 +62,10 @@ class HomeController < ApplicationController
     end
     smackdown.judge1_comment = judge1_comment
     smackdown.save
+
+    respond_to do |format|
+      format.html { redirect_to "/home/history_judged_smackdowns", notice: '¡Has juzgado un Smackdown!' }
+    end
   end
 
   def judge2_smackdown
@@ -68,27 +79,31 @@ class HomeController < ApplicationController
     smackdown.judge2_winner_id = winner_id
     smackdown.judge2_comment = judge2_comment  
     smackdown.save
+
+    respond_to do |format|
+      format.html { redirect_to "/home/history_judged_smackdowns", notice: '¡Has juzgado un Smackdown!' }
+    end
   end
 
   def users
   end
 
-  def sent_smackdowns
+  def history_sent_smackdowns
   end
 
-  def received_smackdowns
+  def history_received_smackdowns
+  end
+
+  def history_judged_smackdowns
   end
 
   def profile
   end
 
-  def judged_smackdowns
+  def pending_respond_smackdowns
   end
 
-  def respond_smackdowns_list
-  end
-
-  def judge_smackdowns_list
+  def pending_judge_smackdowns
     @judge1_smackdowns = Smackdown.where(:judge1_id=>current_user.id)
   end
 
