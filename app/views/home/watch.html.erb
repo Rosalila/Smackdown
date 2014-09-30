@@ -1,5 +1,5 @@
 <% content_for :head do %>
-  <meta property="og:image" content="<%= MetaImage.find_by_id(params[:meta_image].to_i).path %>"/>
+  <meta property="og:image" content="http://smackdown.club<%= MetaImage.find_by_id(params[:meta_image].to_i).path.split('.')[0] %>.png"/>
 <% end %>
 
 <img width="200" src="<%= MetaImage.find_by_id(params[:meta_image].to_i).path %>"/>

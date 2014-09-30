@@ -1,5 +1,5 @@
 <% user = User.find_by_id(params[:id].to_i) %>
-<h2><%= user.name %></h2>
+<h1 align="center">Visitando a <%= user.name %></h1>
 
 <% stats_hash = getStats(current_user,user) %>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>

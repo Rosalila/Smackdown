@@ -37,9 +37,11 @@
     <% wating_judges_count = getWatingJudge.count %>
 
     <li><a href="/"><img height="35px" class="resizable_image" src="/assets/Smackdown_bw/500px.png"/></a></li>
-    <li><a href="/">Inicio</a></li>
     <li>
-      <a href="/home/users" class="has-sub">Visitar</a>
+      <a href="/home/users">Visitar</a>
+    </li>
+    <li>
+      <a href="/smackdown_creator/select_user">Enviar Smackdown</a>
     </li>
     <li>
       <a href="#" class="has-sub">Recibidos (<%= pending_respond + pending_judge %>)</a>
@@ -64,12 +66,7 @@
       </ul>
     </li>
 
-<!--
-    <li><a href="/home/respond_smackdown_list">Responder (<%= pending_respond %>)</a></li>
-    <li><a href="/home/judge_smackdown_list">Juzgar (<%= pending_judge %>)</a></li>
--->
     <li><a href="/home/profile">Mi Perfil</a></li>
-    <li><a href="/feedbacks/new">Tu opinión</a></li>
     <li><a href="<%= signout_path %>">Cerrar sesion</a></li>
 
   <% else %>

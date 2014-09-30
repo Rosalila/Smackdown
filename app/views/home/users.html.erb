@@ -1,5 +1,6 @@
-<h2>Seleciona el usuario</h2>
-<table>
+<h1 align="center">Seleciona el usuario</h1>
+
+<table align="center">
   <% User.all.each do |user| %>
     <% if user.id!=current_user.id %>
       <tr>

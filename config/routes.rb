@@ -35,6 +35,11 @@ Myapp::Application.routes.draw do
   get '/home/history_received_smackdowns', to: 'home#history_received_smackdowns', as: 'history_received_smackdowns'
   get '/home/history_judged_smackdowns', to: 'home#history_judged_smackdowns', as: 'history_judged_smackdowns'
 
+  #Smackdown creator
+  get '/smackdown_creator/select_user', to: 'smackdown_creator#select_user', as: 'select_user'
+  get '/smackdown_creator/select_game', to: 'smackdown_creator#select_game', as: 'select_games'
+  get '/smackdown_creator/select_rules', to: 'smackdown_creator#select_rules', as: 'select_rules'
+
   get '/home/profile', to: 'home#profile', as: 'profile'
   get '/home/wating_opponent', to: 'home#wating_opponent', as: 'wating_opponent'
   get '/home/wating_judges', to: 'home#wating_judges', as: 'wating_judges'
