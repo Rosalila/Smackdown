@@ -1,0 +1,20 @@
+<h1 align="center">¡Juzgar!</h1>
+
+<%= render 'toggle_all_smackdowns', :locals => {:smackdowns=> (@judge1_smackdowns + @judge2_smackdowns)} if (@judge1_smackdowns + @judge2_smackdowns).count > 0%>
+
+<hr>
+<% @judge1_smackdowns.each do |smackdown| %>
+  <%= render 'judge1_smackdown', :locals => {:smackdown=> smackdown} %>
+  <hr>
+  </br>
+<% end %>
+
+<% Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => nil).each do |smackdown| %>
+  <%= render 'judge2_smackdown', :locals => {:smackdown=> smackdown} %>
+  <hr>
+  </br>
+<% end %>
+
+<% if (@judge1_smackdowns+@judge2_smackdowns).count == 0 %>
+  <p>No tienes ninguna partida por juzgar pendiente.</p>
+<% end %>

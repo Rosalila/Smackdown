@@ -93,25 +93,44 @@ class HomeController < ApplicationController
   end
 
   def history_received_smackdowns
+    @smackdowns = Smackdown.where(:player2_id=>current_user.id, :player2_accepted=>[true,false])
   end
 
   def history_judged_smackdowns
+    @judge1_smackdowns = Smackdown.where(:judge1_id=>current_user.id, :judge1_accepted => [true,false])
+    @judge2_smackdowns = []
+    Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => [true,false]).each do |smackdown|
+      next if smackdown.judge1_id==smackdown.judge2_id
+      @judge2_smackdowns.push(smackdown)
+    end
   end
 
   def profile
   end
 
   def pending_respond_smackdowns
+    @smackdowns = Smackdown.where(:player2_id=>current_user.id, :player2_accepted=>nil)
   end
 
   def pending_judge_smackdowns
-    @judge1_smackdowns = Smackdown.where(:judge1_id=>current_user.id)
+    @judge1_smackdowns = Smackdown.where(:judge1_id=>current_user.id, :judge1_accepted => nil)
+    @judge2_smackdowns = []
+    Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => nil).each do |smackdown|
+      next if smackdown.judge1_id==smackdown.judge2_id
+      @judge2_smackdowns.push(smackdown)
+    end
   end
 
   def wating_opponent
+    @smackdowns = Smackdown.where(:player1_id=>current_user.id).where(:player2_accepted=>nil)
   end
 
   def wating_judges
+    smackdown_table = Smackdown.arel_table
+    user_smackdowns=Smackdown.where(smackdown_table[:player1_id].eq(current_user.id).or(smackdown_table[:player2_id].eq(current_user.id)))
+    different_judges = user_smackdowns.where("smackdowns.judge1_id != smackdowns.judge2_id").where(smackdown_table[:judge1_accepted].eq(nil).or(smackdown_table[:judge2_accepted].eq(nil)))
+    same_judges = user_smackdowns.where("smackdowns.judge1_id == smackdowns.judge2_id").where(judge1_accepted: nil).where(judge2_accepted: nil)
+    @smackdowns = different_judges + same_judges
   end
 
   def ajax_test

@@ -2,15 +2,15 @@
 
 <p id="notice"><%= notice %></p>
 
-<% smackdown_pending = false %>
+<%= render 'toggle_all_smackdowns', :locals => {:smackdowns=> @smackdowns} if @smackdowns.count > 0 %>
+
 <hr>
-<% Smackdown.where(:player2_id=>current_user.id, :player2_accepted=>[true,false]).each do |smackdown| %>
-  <% smackdown_pending = true %>
+<% @smackdowns.each do |smackdown| %>
   <%= render 'received_smackdown', :locals => {:smackdown=> smackdown} %>
   <hr>
   </br>
 <% end %>
 
-<% if !smackdown_pending %>
+<% if @smackdowns.count == 0 %>
   <p>Todavia no has completado ningún Smackdown.</p>
 <% end %>

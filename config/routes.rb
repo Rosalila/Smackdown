@@ -26,8 +26,8 @@ Myapp::Application.routes.draw do
   get '/home/users', to: 'home#users', as: 'users'
 
   #Pending
-  get '/home/pending_respond_smackdown', to: 'home#pending_respond_smackdown', as: 'pending_respond_smackdown'
-  get '/home/pending_judge_smackdown', to: 'home#pending_judge_smackdown', as: 'pending_judge_smackdown'
+  get '/home/pending_respond_smackdowns', to: 'home#pending_respond_smackdowns', as: 'pending_respond_smackdowns'
+  get '/home/pending_judge_smackdowns', to: 'home#pending_judge_smackdowns', as: 'pending_judge_smackdowns'
 
   #History
   get '/home/history_sent_smackdowns', to: 'home#history_sent_smackdowns', as: 'history_sent_smackdowns'

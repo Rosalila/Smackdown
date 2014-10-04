@@ -13,9 +13,13 @@ module ApplicationHelper
   end
 
   def pendingJudge
-    j1 = Smackdown.where(:judge1_id=>current_user.id, :judge1_accepted => nil).where.not(:judge2_id=>current_user.id).count
-    j2 = Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => nil).where.not(:judge1_id=>current_user.id).count
-    return j1+j2
+    judge1_smackdowns = Smackdown.where(:judge1_id=>current_user.id, :judge1_accepted => nil)
+    judge2_smackdowns = []
+    Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => nil).each do |smackdown|
+      next if smackdown.judge1_id==smackdown.judge2_id
+      judge2_smackdowns.push(smackdown)
+    end
+    return judge1_smackdowns.count + judge2_smackdowns.count
   end
 
   def pendingRespond

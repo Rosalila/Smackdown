@@ -1,0 +1,56 @@
+<% smackdown=locals[:smackdown] %>
+
+  <%= vsTable(User.find_by_id(smackdown.player1_id),User.find_by_id(smackdown.player2_id)).html_safe %>
+  <img class="resizable_image" src="<%= smackdown.smackdown_rules.first.rule.rule_group.game.image_path %>"/>
+  </br>
+  <span><b>Enviado en: </b><span>
+  <%= l smackdown.created_at.in_time_zone(getCurrentTimeZone), format: :short %>
+  </br>
+  <div id="div_show_smackdown<%= smackdown.id %>" style="display:none;">
+    <span><b>Retador: </b><span>
+    <%= User.find_by_id(smackdown.player1_id).name %>
+    </br>
+    <span><b>Oponente: </b><span>
+    <%= User.find_by_id(smackdown.player2_id).name %>
+    <% if smackdown.player2_accepted %>
+       (aceptado)
+    <% elsif smackdown.player2_accepted==false %>
+       (rechazado)
+    <% else %>
+       (pendiente)
+    <% end %>
+    </br>
+    <span><b>Juez 1: </b><span>
+    <%= User.find_by_id(smackdown.judge1_id).name %>
+    <% if smackdown.judge1_accepted %>
+      (aceptado)
+    <% elsif smackdown.judge1_accepted==false %>
+      (rechazado)
+    <% else %>
+      (pendiente)
+    <% end %>
+    </br>
+    <span><b>Juez 2: </b><span>
+    <%= User.find_by_id(smackdown.judge2_id).name if smackdown.judge2_id!=nil %>
+    <% if smackdown.judge2_accepted %>
+      (aceptado)
+    <% elsif smackdown.judge2_accepted==false %>
+      (rechazado)
+    <% else %>
+      (pendiente)
+    <% end %>
+    </br>
+
+    <span><b>Ganador según el juez 1: </b><span>
+    <%= User.find_by_id(smackdown.judge1_winner_id).name if smackdown.judge1_winner_id!=nil %>
+    </br>
+    <span><b>Ganador según el juez 2: </b><span>
+    <%= User.find_by_id(smackdown.judge2_winner_id).name if smackdown.judge2_winner_id!=nil %>
+    </br>
+    <span><b>Comentario del juez 1: </b><span>
+    <%= smackdown.judge1_comment %>
+    </br>
+    <span><b>Comentario del juez 2: </b><span>
+    <%= smackdown.judge2_comment %>
+    </br>
+  </div>

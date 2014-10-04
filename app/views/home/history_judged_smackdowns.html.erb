@@ -2,22 +2,21 @@
 
 <p id="notice"><%= notice %></p>
 
-<% judge_pending = false %>
+<%= render 'toggle_all_smackdowns', :locals => {:smackdowns=> (@judge1_smackdowns + @judge2_smackdowns)} if (@judge1_smackdowns + @judge2_smackdowns).count %>
+
 <hr>
-<% Smackdown.where(:judge1_id=>current_user.id, :judge1_accepted => [true,false]).each do |smackdown| %>
-  <% judge_pending = true %>
+<% @judge1_smackdowns.each do |smackdown| %>
   <%= render 'judge1_smackdown', :locals => {:smackdown=> smackdown} %>
   <hr>
   </br>
 <% end %>
 
-<% Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => [true,false]).each do |smackdown| %>
-  <% next if smackdown.judge1_id==smackdown.judge2_id %>
+<% @judge2_smackdowns.each do |smackdown| %>
   <%= render 'judge2_smackdown', :locals => {:smackdown=> smackdown} %>
   <hr>
   </br>
 <% end %>
 
-<% if !judge_pending %>
+<% if (@judge1_smackdowns + @judge2_smackdowns).count == 0 %>
   <p>No tienes ninguna partida por juzgar pendiente.</p>
 <% end %>

@@ -1,0 +1,21 @@
+<% smackdowns=locals[:smackdowns] %>
+
+<button id="button_show_smackdown_all">Ver todos</button>
+
+<script>
+    $(document).ready(function(){
+      $("#button_show_smackdown_all").click(function(){
+        <% smackdowns.each do |smackdown| %>
+          $("#ul_show_smackdown<%=smackdown.id%>").slideToggle("slow");
+          $("#div_show_smackdown<%=smackdown.id%>").slideToggle("slow");
+        <% end %>
+        if($("#button_show_smackdown_all").text()=="Ver todos")
+        {
+          $("#button_show_smackdown_all").text("Ocultar todos");
+        }else
+        {
+          $("#button_show_smackdown_all").text("Ver todos");
+        }
+      });
+    });
+</script>
