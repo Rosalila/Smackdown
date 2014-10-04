@@ -19,7 +19,6 @@ Myapp::Application.routes.draw do
 
   get "home/index"
   get '/home/visit/:id', to: 'home#visit', as: 'visit'
-  get '/home/watch/:id1/:id2/:meta_image', to: 'home#watch', as: 'watch'
   get '/home/send_smackdown', to: 'home#send_smackdown', as: 'send_smackdown'
   get '/home/respond_smackdown', to: 'home#respond_smackdown', as: 'respond_smackdown'
   get '/home/judge1_smackdown', to: 'home#judge1_smackdown', as: 'judge1_smackdown'
@@ -39,6 +38,10 @@ Myapp::Application.routes.draw do
   get '/smackdown_creator/select_user', to: 'smackdown_creator#select_user', as: 'select_user'
   get '/smackdown_creator/select_game', to: 'smackdown_creator#select_game', as: 'select_games'
   get '/smackdown_creator/select_rules', to: 'smackdown_creator#select_rules', as: 'select_rules'
+
+  #Shareables
+  get '/shareables/versus/:id1/:id2/:meta_image', to: 'shareables#versus', as: 'shareable_versus'
+  get '/shareables/smackdown/:id/:meta_image', to: 'shareables#smackdown', as: 'shareable_smackdown'
 
   get '/home/profile', to: 'home#profile', as: 'profile'
   get '/home/wating_opponent', to: 'home#wating_opponent', as: 'wating_opponent'

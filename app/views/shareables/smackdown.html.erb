@@ -1,0 +1,47 @@
+<% if params[:meta_image]!="0" %>
+  <% content_for :head do %>
+    <meta property="og:image" content="http://smackdown.club<%= MetaImage.find_by_id(params[:meta_image].to_i).path.split('.')[0] %>.png"/>
+  <% end %>
+
+  <div align="center">
+    <img src="<%= MetaImage.find_by_id(params[:meta_image].to_i).path %>"/>
+  </div>
+<% end %>
+
+<%= render 'home/uneditable_complete_smackdown', :locals => {:smackdown=> @smackdown} %>
+
+<div align="center">
+
+<h2>Comparte este Smackdown</h2>
+
+<table class="resizable_table">
+<tbody>
+<% i=0 %>
+<% MetaImage.all.each do |meta_image| %>
+  <%= "<tr>".html_safe if i%3==0 %>
+    <td>
+      <table>
+      <tbody>
+        <tr>
+          <td>
+            <img src="<%= meta_image.path %>"/>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" valign="bottom">
+            <div class="fb-share-button"
+              data-href="http://smackdown.club/shareables/smackdown/<%= @smackdown.id %>/<%= meta_image.id %>" data-width="20" data-layout="button">
+            </div>
+            </br> </br> </br>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+    </td>
+  <%= "</tr>".html_safe if i%3==2 %>
+  <% i+=1 %>
+<% end %>
+</tbody>
+</table>
+
+</div>

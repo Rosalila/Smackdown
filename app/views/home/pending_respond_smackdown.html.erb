@@ -4,50 +4,7 @@
 <hr>
 <% Smackdown.where(:player2_id=>current_user.id, :player2_accepted=>nil).each do |smackdown| %>
   <% smackdown_pending = true %>
-  <%= vsTable(User.find_by_id(smackdown.player1_id),User.find_by_id(smackdown.player2_id)).html_safe %>
-  <table>
-    <tr>
-      <td>
-        <span><b>Enviado en: </b><span>
-        <%= l smackdown.created_at.in_time_zone(getCurrentTimeZone), format: :short %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span><b>Retador: </b><span>
-        <%= User.find_by_id(smackdown.player1_id).name %>
-      </td>
-      <td>
-        <span><b>Juez 1: </b><span>
-        <%= User.find_by_id(smackdown.judge1_id).name %>
-      </td>
-      <td>
-        <form accept-charset="UTF-8" action="/home/respond_smackdown" method="get" class="nifty_form">
-          <span><b>Juez 2: </b><span>
-          <select name="judge_id">
-            <% User.all.each do |judge| %>
-              <% if judge.id != current_user.id %>
-                  <option value="<%= judge.id %>"><%= judge.name %></option>
-              <% end %>
-            <% end %>
-          </select>
-          <span><b>Respuesta: </b><span>
-          <select name="player2_accepted">
-            <option value="true">Aceptar</option>
-            <option value="false">Rechazar</option>
-          </select>
-          <input name="smackdown_id" type="hidden" value="<%= smackdown.id %>" />
-          <input name="commit" type="submit" value="Enviar" />
-        </form>
-      </td>
-    </tr>
-  </table>
-  <ul>
-    <li><b>Juego: </b><%= smackdown.smackdown_rules.first.rule.rule_group.game.name %></li>
-    <% smackdown.smackdown_rules.each do |sr| %>
-      <li><b><%= sr.rule.rule_group.name %>: </b><%= sr.rule.name %></li>
-    <% end %>
-  </ul>
+  <%= render 'received_smackdown', :locals => {:smackdown=> smackdown} %>
   <hr>
   </br>
 <% end %>

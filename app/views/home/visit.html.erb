@@ -45,7 +45,7 @@
         <tr>
           <td align="center" valign="bottom">
             <div class="fb-share-button"
-              data-href="http://smackdown.club/home/watch/<%= current_user.id %>/<%= user.id %>/<%= meta_image.id %>" data-width="20" data-layout="button">
+              data-href="http://smackdown.club/shareables/versus/<%= current_user.id %>/<%= user.id %>/<%= meta_image.id %>" data-width="20" data-layout="button">
             </div>
             </br> </br> </br>
           </td>
@@ -62,79 +62,9 @@
 </br>
 </br>
 
-<% Game.all.each do |game| %>
-  <% receiving_smackdown = true %>
-  <% if userIsPlayingGame(user.id,game.id) %>
-    <img align="center" class="resizable_image" src="<%= game.image_path %>"/>
-    <script>
-    $(document).ready(function(){
-      $("#button_game_<%=game.id%>").click(function(){
-        $("#form_game_<%=game.id%>").slideToggle("slow");
-        if($("#button_game_<%=game.id%>").text()=="Mostrar")
-        {
-          $("#button_game_<%=game.id%>").text("Ocultar");
-        }else
-        {
-          $("#button_game_<%=game.id%>").text("Mostrar");
-        }
-      }); 
-
-      $("#form_game_<%=game.id%>").on("submit", function(){
-        $("input:submit").prop("disabled", true);
-      });
-
-    });
-
-
-
-    </script>
-    </br>
-    <button id="button_game_<%=game.id%>">Mostrar</button>
-    <form id="form_game_<%=game.id%>" style="display:none;" accept-charset="UTF-8" action="/home/send_smackdown" method="get" class="nifty_form">
-      <% rule_group_count=0 %>
-      <% rules_ok = true %>
-      <% game.rule_groups.each do |rule_group| %>
-        <h3><%= rule_group.name %></h3>
-        <select name="rule[<%= rule_group_count %>]">
-          <% at_least_a_rule = false %>
-          <% rule_group.rules.each do |rule| %>
-            <% if PlayerRule.where(:user_id=>user.id,:rule_id=>rule.id,:activated=>true)[0]!=nil %>
-              <% at_least_a_rule = true %>
-              <option value="<%= rule.id %>"><%= rule.name %></option>
-            <% end %>
-          <% end %>
-          <% if !at_least_a_rule %>
-            <% rules_ok=false %>
-          <% end %>
-        </select>
-        <% rule_group_count+=1 %>
-      <% end %>
-      <% receiving_smackdown = true %>
-      <% if rules_ok %>
-        <h3>Juez:</h3>
-        <select name="judge_id">
-          <% User.all.each do |judge| %>
-            <% if judge.id != current_user.id %>
-              <option value="<%= judge.id %>"><%= judge.name %></option>
-            <% end %>
-          <% end %>
-        </select>
-        <input name="opponent_id" type="hidden" value="<%= user.id %>" />
-        </br>
-        </br>
-        <input name="commit" type="submit" value="Enviar Smackdown!" />
-        </br>
-      <% else %>
-        <p><%= user.name %> no ha seleccionado al menos una regla de cada grupo para poder jugar <%= game.name %>.</p>
-      <% end %>
-    </form>
-  <% end %>
-  </br>
-<% end %>
-
-<% if !playingAtLeastAGame user %>
-  <p><%= user.name %> todavía no está listo para recibir Smackdowns. Dile que seleccione al menos un juego y una regla de cada grupo.</p>
-<% end %>
+<h2 align="center">Envía un Smackdown a <%= user.name %></h2>
+<%= link_to "Enviar!", 
+{:controller => "smackdown_creator", :action => "select_game", :user_id =>user.id }%>
 
 </div>
 

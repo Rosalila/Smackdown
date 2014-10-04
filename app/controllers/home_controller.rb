@@ -89,6 +89,7 @@ class HomeController < ApplicationController
   end
 
   def history_sent_smackdowns
+    @smackdowns = Smackdown.where(:player1_id=>current_user.id)
   end
 
   def history_received_smackdowns
@@ -105,9 +106,6 @@ class HomeController < ApplicationController
 
   def pending_judge_smackdowns
     @judge1_smackdowns = Smackdown.where(:judge1_id=>current_user.id)
-  end
-
-  def watch
   end
 
   def wating_opponent

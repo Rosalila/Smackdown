@@ -1,0 +1,63 @@
+<% content_for :head do %>
+  <meta property="og:image" content="http://smackdown.club<%= MetaImage.find_by_id(params[:meta_image].to_i).path.split('.')[0] %>.png"/>
+<% end %>
+
+<%user1 = User.find_by_id(params[:id1])%>
+<%user2 = User.find_by_id(params[:id2])%>
+
+<div align="center">
+
+<h1><%=user1.name%> vs <%=user2.name%></h2>
+
+<table align="center">
+  <tr>
+    <td>
+      <img class="resizable_image" src="http://graph.facebook.com/<%= user1.uid %>/picture?type=large"/>
+    </td>
+    <td>
+      <img class="resizable_image" src="/assets/Smackdown_150px/vs.png"/>
+    </td>
+    <td>
+      <img class="resizable_image" src="http://graph.facebook.com/<%= user2.uid %>/picture?type=large"/>
+    </td>
+  </tr>
+</table>
+
+<img src="<%= MetaImage.find_by_id(params[:meta_image].to_i).path %>"/>
+
+<% stats_hash = getStats(user1,user2) %>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Smackdowns', 'Totales'],
+      ['<%= user1.name %> ganadas',       <%= stats_hash['user1_ganadas'] %>],
+      ['<%= user2.name %> ganadas',      <%= stats_hash['user2_ganadas'] %>],
+      ['Pendientes',    <%= stats_hash['pendientes'] %>],
+      ['<%= user1.name %> rechazadas',    <%= stats_hash['user1_rechazadas'] %>],
+      ['<%= user2.name %> rechazadas',    <%= stats_hash['user2_rechazadas'] %>],
+      ['Conflictos',    <%= stats_hash['conflictos'] %>],
+      ['Errores',       <%= stats_hash['errores'] %>]
+    ]);
+    var options = {
+      title: 'Historial',
+      is3D: false,
+    };
+    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+    chart.draw(data, options);
+  }
+</script>
+<body>
+  <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+</body>
+
+<%= annotationChartScript(user1,user2).html_safe %>
+
+<div class="fb-share-button"
+  data-href="http://smackdown.club/shareables/versus/<%= user1.id %>/<%= user2.id %>/<%= params[:meta_image] %>" data-width="500">
+</div>
+
+
+</div>
