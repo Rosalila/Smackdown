@@ -9,7 +9,7 @@
   </br>
 <% end %>
 
-<% Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => nil).each do |smackdown| %>
+<% @judge2_smackdowns.each do |smackdown| %>
   <%= render 'judge2_smackdown', :locals => {:smackdown=> smackdown} %>
   <hr>
   </br>
