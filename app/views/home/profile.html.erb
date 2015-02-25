@@ -10,6 +10,7 @@
     <% if upg==nil %>
       <% upg = UserPlayingGame.new %>
       <% upg.is_playing = false %>
+      <% upg.save %>
     <% end %>
     <table class="resizable_table" align="center">
       <tr>
