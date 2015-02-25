@@ -1,5 +1,5 @@
 <% smackdown=locals[:smackdown] %>
-
+<% if smackdown != nil %>
   <%= vsTable(User.find_by_id(smackdown.player1_id),User.find_by_id(smackdown.player2_id)).html_safe %>
   <img class="resizable_image" src="<%= smackdown.smackdown_rules.first.rule.rule_group.game.image_path %>"/>
   </br>
@@ -54,3 +54,6 @@
     <%= smackdown.judge2_comment %>
     </br>
   </div>
+<% else %>
+  <p>Error</p>
+<% end %>
