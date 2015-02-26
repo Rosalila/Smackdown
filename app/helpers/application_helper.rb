@@ -12,7 +12,7 @@ module ApplicationHelper
     return upg.is_playing
   end
 
-  def pendingJudge
+  def pendingJudgeCount
     judge1_smackdowns = Smackdown.where(:judge1_id=>current_user.id, :judge1_accepted => nil)
     judge2_smackdowns = []
     Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => nil).each do |smackdown|
@@ -22,7 +22,7 @@ module ApplicationHelper
     return judge1_smackdowns.count + judge2_smackdowns.count
   end
 
-  def pendingRespond
+  def pendingRespondCount
     return Smackdown.where(:player2_id=>current_user.id, :player2_accepted=>nil).count
   end
 
