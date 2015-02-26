@@ -140,6 +140,11 @@ folder instead of downloading all of them to reduce the load. -->
           <ul class="sidebar-menu">
             <li class="header">Main menu</li>                  
               <% if current_user %>
+
+                <% pending_respond_count = pendingRespondCount %>
+                <% pending_judge_count = pendingJudgeCount %>
+                <% wating_opponent_count = watingOpponentCount; %>
+                <% wating_judges_count = getWatingJudge.count %>
             <li>
               <a href="/home/users">
                 <i class="fa fa-th"></i> <span>Visitar</span> <small class="label pull-right bg-green">new</small>
@@ -155,8 +160,8 @@ folder instead of downloading all of them to reduce the load. -->
                 <i class="fa fa-dashboard"></i> <span>Recibidos</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li class="active"><a href="/home/pending_respond_smackdowns"><i class="fa fa-circle-o"></i>Smackdowns</a></li>              
-                <li class="active"><a href="/home/pending_judge_smackdowns"><i class="fa fa-circle-o"></i>Juicios</a></li>              
+                <li class="active"><a href="/home/pending_respond_smackdowns"><i class="fa fa-circle-o"></i>Smackdowns (<%= pending_respond_count %>)</a></li>              
+                <li class="active"><a href="/home/pending_judge_smackdowns"><i class="fa fa-circle-o"></i>Juicios (<%= pending_judge_count %>)</a></li>              
               </ul>
             </li>  
             <li class="active treeview">
@@ -164,8 +169,8 @@ folder instead of downloading all of them to reduce the load. -->
                 <i class="fa fa-dashboard"></i> <span>Esperando</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li class="active"><a href="/home/wating_opponent"><i class="fa fa-circle-o"></i>Oponente</a></li>              
-                <li class="active"><a href="/home/wating_judges"><i class="fa fa-circle-o"></i>Jueces</a></li>              
+                <li class="active"><a href="/home/wating_opponent"><i class="fa fa-circle-o"></i>Oponente (<%= wating_opponent_count %>)</a></li>              
+                <li class="active"><a href="/home/wating_judges"><i class="fa fa-circle-o"></i>Jueces (<%= wating_judges_count %>)</a></li>              
               </ul>
             </li>  
             <li class="active treeview">
