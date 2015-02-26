@@ -21,19 +21,22 @@
       <% rule_group_count=0 %>
       <% rules_ok = true %>
       <% @game.rule_groups.each do |rule_group| %>
-        <h3><%= rule_group.name %></h3>
-        <select name="rule[<%= rule_group_count %>]">
-          <% at_least_a_rule = false %>
-          <% rule_group.rules.each do |rule| %>
-            <% if PlayerRule.where(:user_id=>@user.id,:rule_id=>rule.id,:activated=>true)[0]!=nil %>
-              <% at_least_a_rule = true %>
-              <option value="<%= rule.id %>"><%= rule.name %></option>
+
+        <div class="form-group">
+          <label><%= rule_group.name %></label>
+            <select class="form-control" name="rule[<%= rule_group_count %>]">
+              <% at_least_a_rule = false %>
+              <% rule_group.rules.each do |rule| %>
+                <% if PlayerRule.where(:user_id=>@user.id,:rule_id=>rule.id,:activated=>true)[0]!=nil %>
+                  <% at_least_a_rule = true %>
+                  <option value="<%= rule.id %>"><%= rule.name %></option>
+                <% end %>
+              <% end %>
+            <% if !at_least_a_rule %>
+              <% rules_ok=false %>
             <% end %>
-          <% end %>
-          <% if !at_least_a_rule %>
-            <% rules_ok=false %>
-          <% end %>
-        </select>
+          </select>
+        </div>
         <% rule_group_count+=1 %>
       <% end %>
       <% receiving_smackdown = true %>
