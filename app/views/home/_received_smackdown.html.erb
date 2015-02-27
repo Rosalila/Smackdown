@@ -19,25 +19,29 @@
 </td>
 
 <td>
-  <span><b>Responde este Smackdown: </b><span>
   <form role="form" accept-charset="UTF-8" action="/home/respond_smackdown" method="get" class="nifty_form">
-<div class="form-group">
-    <label>Juez 2</label>
-    <select class="form-control" name="judge_id">
-      <% User.all.each do |judge| %>
-        <% if judge.id != current_user.id %>
-          <option <%= "selected=\"selected\"" if smackdown.judge2_id == judge.id %> value="<%= judge.id %>"><%= judge.name %></option>
+    <div class="form-group">
+      <label>Juez 2</label>
+      <select class="form-control" name="judge_id">
+        <% User.all.each do |judge| %>
+          <% if judge.id != current_user.id %>
+            <option <%= "selected=\"selected\"" if smackdown.judge2_id == judge.id %> value="<%= judge.id %>"><%= judge.name %></option>
+          <% end %>
         <% end %>
-      <% end %>
-    </select>
-</div>
+      </select>
+    </div>
     <span><b>Respuesta: </b><span>
-    <select name="player2_accepted">
-      <option <%= "selected=\"selected\"" if smackdown.player2_accepted %> value="true">Aceptar</option>
-      <option <%= "selected=\"selected\"" if smackdown.player2_accepted == false %> value="false">Rechazar</option>
-    </select>
+    <div class="form-group">
+      <label>Respuesta</label>
+      <select class="form-control" name="player2_accepted">
+        <option <%= "selected=\"selected\"" if smackdown.player2_accepted %> value="true">Aceptar</option>
+        <option <%= "selected=\"selected\"" if smackdown.player2_accepted == false %> value="false">Rechazar</option>
+      </select>
+    </div>
     <input name="smackdown_id" type="hidden" value="<%= smackdown.id %>" />
-    <input name="commit" type="submit" value="Enviar" />
+    <div class="box-footer">
+      <button type="submit" class="btn btn-primary">Responder</button>
+    </div>
   </form>
 </td>
 
