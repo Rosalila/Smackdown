@@ -19,20 +19,19 @@
 </td>
 
 <td>
-  <span><b>Juzga este smackdown: </b><span>
   <form role="form" accept-charset="UTF-8" action="/home/judge1_smackdown" method="get" class="nifty_form">
     <div class="form-group">
       <label>Respuesta<label>
       <select class="form-control" name="judge1_accepted">
-        <option <%= "selected=\"selected\"" if smackdown.judge1_accepted %> value="true">Aceptar</option>
-        <option <%= "selected=\"selected\"" if !smackdown.judge1_accepted %> value="false">Rechazar</option>
+        <option <%= "selected=\"selected\"" if smackdown.judge1_accepted %>.html_safe value="true">Aceptar</option>
+        <option <%= "selected=\"selected\"" if !smackdown.judge1_accepted %>.html_safe value="false">Rechazar</option>
       </select>
     </div>
     <div class="form-group">
       <label>Ganador<label>
       <select class="form-control" name="winner_id">
-        <option <%= "selected=\"selected\"" if smackdown.player1_id == smackdown.judge1_winner_id %> value="<%= smackdown.player1_id %>"><%= User.find_by_id(smackdown.player1_id).name %></option>
-        <option <%= "selected=\"selected\"" if smackdown.player2_id == smackdown.judge1_winner_id %> value="<%= smackdown.player2_id %>"><%= User.find_by_id(smackdown.player2_id).name %></option>
+        <option <%= "selected=\"selected\"" if smackdown.player1_id == smackdown.judge1_winner_id %>.html_safe value="<%= smackdown.player1_id %>"><%= User.find_by_id(smackdown.player1_id).name %></option>
+        <option <%= "selected=\"selected\"" if smackdown.player2_id == smackdown.judge1_winner_id %>.html_safe value="<%= smackdown.player2_id %>"><%= User.find_by_id(smackdown.player2_id).name %></option>
       </select>
     </div>
     <input name="judge1_comment" value="<%= smackdown.judge1_comment %>"/>
