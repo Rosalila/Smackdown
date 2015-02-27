@@ -1,9 +1,16 @@
 <% smackdown=locals[:smackdown] %>
+
 <td>
-  <%= render 'smackdown_info', :locals => {:smackdown=> smackdown} %>
+  <% user1 = User.find_by_id(smackdown.player1_id) %>
+  <% user2 = User.find_by_id(smackdown.player2_id) %>
+  <img class="resizable_image" src="<%= smackdown.smackdown_rules.first.rule.rule_group.game.image_path.split('.')[0] %>_100.png"/>
+  <img class='resizable_image' src='http://graph.facebook.com/"+user1.uid+"/picture?type=normal'/>
+  <img class='resizable_image' src='/assets/Smackdown_150px/vs.png' />
+  <img class='resizable_image' src='http://graph.facebook.com/"+user2.uid+"/picture?type=normal'/>
 </td>
 
 <td>
+  <%= render 'smackdown_info', :locals => {:smackdown=> smackdown} %>
   <%= render 'smackdown_rules', :locals => {:smackdown=> smackdown} %>
   <button id="button_show_smackdown<%= smackdown.id %>">Ver más</button>
 </td>
