@@ -10,19 +10,6 @@
 
 <%= render 'toggle_all_smackdowns', :locals => {:smackdowns=> @smackdowns} if @smackdowns.count > 0 %>
 
-<hr>
-
-  
-  <HR> 
-  </br>
-
-
-<% if @smackdowns.count == 0 %>
-  <p>Todavia no has completado ningún Smackdown.</p>
-<% end %>
-
-
-
 <div class="box">
   <div class="box-header">
     <h3 class="box-title">Haz click para visitar a un usuario</h3>
@@ -34,6 +21,7 @@
           <th>Juego</th>
           <th>Jugadores</th>
           <th>Informacion</th>
+          <th>Compartir</th>
         </tr>
       </thead>
       <tbody>
@@ -48,8 +36,13 @@
           <th>Juego</th>
           <th>Jugadores</th>
           <th>Informacion</th>
+          <th>Compartir</th>
         </tr>
       </tfoot>
     </table>
   </div><!-- /.box-body -->
 </div><!-- /.box -->
+
+<% if @smackdowns.count == 0 %>
+  <p>Todavia no has completado ningún Smackdown.</p>
+<% end %>
