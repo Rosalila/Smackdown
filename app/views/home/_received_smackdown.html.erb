@@ -20,15 +20,17 @@
 
 <td>
   <span><b>Responde este Smackdown: </b><span>
-  <form accept-charset="UTF-8" action="/home/respond_smackdown" method="get" class="nifty_form">
-    <span><b>Juez 2: </b><span>
-    <select name="judge_id">
+  <form role="form" accept-charset="UTF-8" action="/home/respond_smackdown" method="get" class="nifty_form">
+<div class="form-group">
+    <label>Juez 2</label>
+    <select class="form-control" name="judge_id">
       <% User.all.each do |judge| %>
         <% if judge.id != current_user.id %>
           <option <%= "selected=\"selected\"" if smackdown.judge2_id == judge.id %> value="<%= judge.id %>"><%= judge.name %></option>
         <% end %>
       <% end %>
     </select>
+</div>
     <span><b>Respuesta: </b><span>
     <select name="player2_accepted">
       <option <%= "selected=\"selected\"" if smackdown.player2_accepted %> value="true">Aceptar</option>
