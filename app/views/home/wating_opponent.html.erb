@@ -10,12 +10,38 @@
 
 <%= render 'toggle_all_smackdowns', :locals => {:smackdowns=> @smackdowns} if @smackdowns.count > 0 %>
 
-<hr>
-<% @smackdowns.each do |smackdown| %>
-  <%= render 'uneditable_smackdown', :locals => {:smackdown=> smackdown} %>
-  <hr>
-  </br>
-<% end %>
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">Haz click para visitar a un usuario</h3>
+  </div><!-- /.box-header -->
+  <div class="box-body">
+    <table id="example1" class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Juego</th>
+          <th>Jugadores</th>
+          <th>Informacion</th>
+          <th>Compartir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @smackdowns.each do |smackdown| %>
+          <tr>
+            <%= render 'uneditable_smackdown', :locals => {:smackdown=> smackdown} %>
+          </tr>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Juego</th>
+          <th>Jugadores</th>
+          <th>Informacion</th>
+          <th>Compartir</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div><!-- /.box-body -->
+</div><!-- /.box -->
 
 <% if @smackdowns.count == 0 %>
   <p>Todavia no has completado ningún Smackdown.</p>
