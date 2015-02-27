@@ -1,18 +1,23 @@
-<h1 align="center">¡Responder!</h1>
+<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+<section class="content-header">
+  <h1>
+    Pendientes
+    <small>responde los siguientes smackdowns</small>
+  </h1>
+</section>
 
 <%= render 'toggle_all_smackdowns', :locals => {:smackdowns=> @smackdowns} if @smackdowns.count > 0 %>
-
 <hr>
 <% @smackdowns.each do |smackdown| %>
   <%= render 'received_smackdown', :locals => {:smackdown=> smackdown} %>
-  <hr>
-  </br>
+    <hr>
+    </br>
 <% end %>
-
 <% if @smackdowns.count == 0 %>
   <p>No tienes smackdowns por responder. Pero puedes <a href="/home/users">Visitar</a> a otros usuarios y enviarles uno.</p>
   <% if !playingAtLeastAGame current_user %>
     <p>Todavía no has seleccionado tus juegos y reglas. ¡Ve a <a href="/home/profile">Mi Perfil</a> y selecionalos!</p>
   <% end %>
 <% end %>
-

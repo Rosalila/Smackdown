@@ -1,4 +1,9 @@
-<h1 align="center">Enviar un Smackdown paso 3/3</h1>
+<section class="content-header">
+  <h1>
+    Enviar un Smackdown paso 3/3
+    <small>selecciona las reglas</small>
+  </h1>
+</section>
 
 <table align="center">
   <tr>
@@ -16,69 +21,60 @@
 </br>
 
 <h2 align="center">Selecciona las reglas</h2>
-
-
-        <section class="content">
-          <div class="row">
-            <!-- left column -->
-            <div class="col-md-6">
-              <!-- general form elements -->
-              <div class="box box-primary">
-                <div class="box-header">
-                  <h3 class="box-title">Quick Example</h3>
-                </div><!-- /.box-header -->
-
-
-    <form accept-charset="UTF-8" action="/home/send_smackdown" method="get" class="nifty_form" align="center">
-<div class="box-body">
-      <% rule_group_count=0 %>
-      <% rules_ok = true %>
-      <% @game.rule_groups.each do |rule_group| %>
-
-        <div class="form-group">
-          <label><%= rule_group.name %></label>
-            <select class="form-control" name="rule[<%= rule_group_count %>]">
-              <% at_least_a_rule = false %>
-              <% rule_group.rules.each do |rule| %>
-                <% if PlayerRule.where(:user_id=>@user.id,:rule_id=>rule.id,:activated=>true)[0]!=nil %>
-                  <% at_least_a_rule = true %>
-                  <option value="<%= rule.id %>"><%= rule.name %></option>
-                <% end %>
-              <% end %>
-            <% if !at_least_a_rule %>
-              <% rules_ok=false %>
-            <% end %>
-          </select>
-        </div>
-        <% rule_group_count+=1 %>
-      <% end %>
-
-      <% receiving_smackdown = true %>
-
-      <% if rules_ok %>
-        <h3>Juez:</h3>
-        <div class="form-group">
-          <select class="form-control" name="judge_id">
-            <% User.all.each do |judge| %>
-              <% if judge.id != current_user.id %>
-                <option value="<%= judge.id %>"><%= judge.name %></option>
-              <% end %>
-            <% end %>
-          </select>
-        </div>
-        <input name="opponent_id" type="hidden" value="<%= @user.id %>" />
-        </br>
-        </br>
-        <input name="commit" type="submit" value="Enviar Smackdown!" />
-        </br>
-      <% else %>
-        <p><%= @user.name %> no ha seleccionado al menos una regla de cada grupo para poder jugar <%= @game.name %>.</p>
-      <% end %>
-</div>
-    </form>
-
-
+<section class="content">
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-6">
+      <!-- general form elements -->
+      <div class="box box-primary">
+        <div class="box-header">
+          <h3 class="box-title">Selecciona las reglas</h3>
+        </div><!-- /.box-header -->
+        <form accept-charset="UTF-8" action="/home/send_smackdown" method="get" class="nifty_form" align="center">
+          <div class="box-body">
+            <% rule_group_count=0 %>
+            <% rules_ok = true %>
+            <% @game.rule_groups.each do |rule_group| %>
+              <div class="form-group">
+                <label><%= rule_group.name %></label>
+                <select class="form-control" name="rule[<%= rule_group_count %>]">
+                  <% at_least_a_rule = false %>
+                  <% rule_group.rules.each do |rule| %>
+                    <% if PlayerRule.where(:user_id=>@user.id,:rule_id=>rule.id,:activated=>true)[0]!=nil %>
+                      <% at_least_a_rule = true %>
+                      <option value="<%= rule.id %>"><%= rule.name %></option>
+                    <% end %>
+                  <% end %>
+                  <% if !at_least_a_rule %>
+                   <% rules_ok=false %>
+                  <% end %>
+                </select>
               </div>
-            </div>
+              <% rule_group_count+=1 %>
+            <% end %>
+            <% receiving_smackdown = true %>
+            <% if rules_ok %>
+              <label>Juez</label>
+              <div class="form-group">
+                <select class="form-control" name="judge_id">
+                  <% User.all.each do |judge| %>
+                    <% if judge.id != current_user.id %>
+                      <option value="<%= judge.id %>"><%= judge.name %></option>
+                    <% end %>
+                  <% end %>
+                </select>
+              </div>
+              <input name="opponent_id" type="hidden" value="<%= @user.id %>" />
+              <input name="commit" type="submit" value="Enviar Smackdown!" />
+            <% else %>
+              <p><%= @user.name %> no ha seleccionado al menos una regla de cada grupo para poder jugar <%= @game.name %>.</p>
+            <% end %>
           </div>
-        </section>
+          <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
