@@ -20,7 +20,7 @@
 
 <td>
   <span><b>Juzga este smackdown: </b><span>
-  <form accept-charset="UTF-8" action="/home/judge1_smackdown" method="get" class="nifty_form">
+  <form role="form" accept-charset="UTF-8" action="/home/judge1_smackdown" method="get" class="nifty_form">
     <span>Ganador: <span>
     <select name="winner_id">
       <option <%= "selected=\"selected\"" if smackdown.player1_id == smackdown.judge1_winner_id %> value="<%= smackdown.player1_id %>"><%= User.find_by_id(smackdown.player1_id).name %></option>
