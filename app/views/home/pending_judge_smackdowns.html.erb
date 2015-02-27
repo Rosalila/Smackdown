@@ -10,18 +10,45 @@
 
 <%= render 'toggle_all_smackdowns', :locals => {:smackdowns=> (@judge1_smackdowns + @judge2_smackdowns)} if (@judge1_smackdowns + @judge2_smackdowns).count > 0%>
 
-<hr>
-<% @judge1_smackdowns.each do |smackdown| %>
-  <%= render 'judge1_smackdown', :locals => {:smackdown=> smackdown} %>
-  <hr>
-  </br>
-<% end %>
-
-<% @judge2_smackdowns.each do |smackdown| %>
-  <%= render 'judge2_smackdown', :locals => {:smackdown=> smackdown} %>
-  <hr>
-  </br>
-<% end %>
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">Haz click para visitar a un usuario</h3>
+  </div><!-- /.box-header -->
+  <div class="box-body">
+    <table id="example1" class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Juego</th>
+          <th>Jugadores</th>
+          <th>Informacion</th>
+          <th>Juzgar</th>
+          <th>Compartir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @judge1_smackdowns.each do |smackdown| %>
+          <tr>
+            <%= render 'judge1_smackdown', :locals => {:smackdown=> smackdown} %>
+          </tr>
+        <% end %>
+        <% @judge2_smackdowns.each do |smackdown| %>
+          <tr>
+            <%= render 'judge2_smackdown', :locals => {:smackdown=> smackdown} %>
+          </tr>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Juego</th>
+          <th>Jugadores</th>
+          <th>Informacion</th>
+          <th>Responder</th>
+          <th>Compartir</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div><!-- /.box-body -->
+</div><!-- /.box -->
 
 <% if (@judge1_smackdowns+@judge2_smackdowns).count == 0 %>
   <p>No tienes ninguna partida por juzgar pendiente.</p>
