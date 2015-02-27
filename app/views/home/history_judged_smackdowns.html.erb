@@ -21,14 +21,19 @@
           <th>Juego</th>
           <th>Jugadores</th>
           <th>Informacion</th>
-          <th>Responder</th>
+          <th>Juzgar</th>
           <th>Compartir</th>
         </tr>
       </thead>
       <tbody>
-        <% @smackdowns.each do |smackdown| %>
+        <% @judge1_smackdowns.each do |smackdown| %>
           <tr>
-            <%= render 'received_smackdown', :locals => {:smackdown=> smackdown} %>
+            <%= render 'judge1_smackdown', :locals => {:smackdown=> smackdown} %>
+          </tr>
+        <% end %>
+        <% @judge2_smackdowns.each do |smackdown| %>
+          <tr>
+            <%= render 'judge2_smackdown', :locals => {:smackdown=> smackdown} %>
           </tr>
         <% end %>
       </tbody>
