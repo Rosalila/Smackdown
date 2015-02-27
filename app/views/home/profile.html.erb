@@ -1,5 +1,12 @@
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+<section class="content-header">
+  <h1>
+    Perfil
+    <small>selecciona los juegos y las reglas con los que te gustaría competir</small>
+  </h1>
+</section>
 
 <% if !playingAtLeastAGame current_user %>
   <p>Todavía no estás listo para recibir Smackdowns. Selecciona al menos un juego y una regla de cada grupo.</p>

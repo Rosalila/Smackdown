@@ -1,7 +1,12 @@
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 
-<h1 align="center">¡Juzgar!</h1>
+<section class="content-header">
+  <h1>
+    Pendientes
+    <small>juzga los siguientes smackdowns</small>
+  </h1>
+</section>
 
 <%= render 'toggle_all_smackdowns', :locals => {:smackdowns=> (@judge1_smackdowns + @judge2_smackdowns)} if (@judge1_smackdowns + @judge2_smackdowns).count > 0%>
 

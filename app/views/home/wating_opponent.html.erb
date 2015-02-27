@@ -1,9 +1,12 @@
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 
-<h1 align="center">Esperando oponente</h1>
-
-<p id="notice"><%= notice %></p>
+<section class="content-header">
+  <h1>
+    Esperando oponente
+    <small>avisale a tus oponentes que les enviaste un smackdown</small>
+  </h1>
+</section>
 
 <%= render 'toggle_all_smackdowns', :locals => {:smackdowns=> @smackdowns} if @smackdowns.count > 0 %>
 

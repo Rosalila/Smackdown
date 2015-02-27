@@ -1,5 +1,10 @@
-<% user = User.find_by_id(params[:id].to_i) %>
-<h1 align="center">Visitando a <%= user.name %></h1>
+<section class="content-header">
+  <h1>
+    <% user = User.find_by_id(params[:id].to_i) %>
+    Visitando a <%= user.name %>
+    <small>envia un smackdown o compártelos en facebook</small>
+  </h1>
+</section>
 
 <% stats_hash = getStats(current_user,user) %>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
