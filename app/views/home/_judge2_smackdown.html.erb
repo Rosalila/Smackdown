@@ -21,18 +21,25 @@
 <td>
   <span><b>Juzga este smackdown: </b><span>
   <form role="form" accept-charset="UTF-8" action="/home/judge2_smackdown" method="get" class="nifty_form">
-    <span>Ganador: <span>
-    <select name="winner_id">
-      <option <%= "selected=\"selected\"" if smackdown.player1_id == smackdown.judge2_winner_id %> value="<%= smackdown.player1_id %>"><%= User.find_by_id(smackdown.player1_id).name %></option>
-      <option <%= "selected=\"selected\"" if smackdown.player2_id == smackdown.judge2_winner_id %> value="<%= smackdown.player2_id %>"><%= User.find_by_id(smackdown.player2_id).name %></option>
-    </select>
-    <select name="judge2_accepted">
-      <option <%= "selected=\"selected\"" if smackdown.judge2_accepted %> value="true">Aceptar</option>
-      <option <%= "selected=\"selected\"" if !smackdown.judge2_accepted %> value="false">Rechazar</option>
-    </select>
+    <div class="form-group">
+      <label>Respuesta<label>
+      <select class="form-control" name="judge2_accepted">
+        <option <%= "selected=\"selected\"" if smackdown.judge2_accepted %> value="true">Aceptar</option>
+        <option <%= "selected=\"selected\"" if !smackdown.judge2_accepted %> value="false">Rechazar</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Ganador<label>
+      <select class="form-control" name="winner_id">
+        <option <%= "selected=\"selected\"" if smackdown.player1_id == smackdown.judge2_winner_id %> value="<%= smackdown.player1_id %>"><%= User.find_by_id(smackdown.player1_id).name %></option>
+        <option <%= "selected=\"selected\"" if smackdown.player2_id == smackdown.judge2_winner_id %> value="<%= smackdown.player2_id %>"><%= User.find_by_id(smackdown.player2_id).name %></option>
+      </select>
+    </div>
     <input name="judge2_comment" value="<%= smackdown.judge2_comment %>"/>
     <input name="smackdown_id" type="hidden" value="<%= smackdown.id %>" />
-    <input name="commit" type="submit" value="Enviar" />
+    <div class="box-footer">
+      <button type="submit" class="btn btn-primary">Juzgar</button>
+    </div>
   </form>
 </td>
 
