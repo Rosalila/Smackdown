@@ -1,13 +1,16 @@
 <% smackdown=locals[:smackdown] %>
+<td>
+  <%= render 'smackdown_info', :locals => {:smackdown=> smackdown} %>
+</td>
 
-<%= render 'smackdown_info', :locals => {:smackdown=> smackdown} %>
+<td>
+  <%= render 'smackdown_rules', :locals => {:smackdown=> smackdown} %>
+  <button id="button_show_smackdown<%= smackdown.id %>">Ver más</button>
+</td>
 
-<%= render 'smackdown_rules', :locals => {:smackdown=> smackdown} %>
-
-<button id="button_show_smackdown<%= smackdown.id %>">Ver más</button>
-</br>
-</br>
-<%= link_to "Compartir en Facebook", "/shareables/smackdown/"+smackdown.id.to_s+"/0" %>
+<td>
+  <%= link_to "Compartir en Facebook", "/shareables/smackdown/"+smackdown.id.to_s+"/0" %>
+</td>
 
 <script>
     $(document).ready(function(){
