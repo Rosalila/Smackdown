@@ -1,10 +1,5 @@
 <% smackdown=locals[:smackdown] %>
 <% if smackdown != nil %>
-  <img class="resizable_image" src="<%= smackdown.smackdown_rules.first.rule.rule_group.game.image_path %>_100"/>
-  <img class='resizable_image' src='http://graph.facebook.com/"+user1.uid+"/picture?type=normal'/>
-  <img class='resizable_image' src='/assets/Smackdown_150px/vs.png' />
-  <img class='resizable_image' src='http://graph.facebook.com/"+user2.uid+"/picture?type=normal'/>
-  </br>
   <span><b>Enviado en: </b><span>
   <%= l smackdown.created_at.in_time_zone(getCurrentTimeZone), format: :short %>
   </br>
