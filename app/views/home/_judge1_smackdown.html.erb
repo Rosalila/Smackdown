@@ -21,8 +21,9 @@
 <td>
   <form role="form" accept-charset="UTF-8" action="/home/judge1_smackdown" method="get" class="nifty_form">
     <div class="form-group">
-      <label>Respuesta</label>
+      <label>¿Aceptas juzgar este Smackdown?</label>
       <select class="form-control" name="judge1_accepted">
+        <% smackdown.judge1_accepted=true if smackdown.judge1_accepted==nil %>
         <option <%= "selected" if smackdown.judge1_accepted %> value="true">Aceptar</option>
         <option <%= "selected" if !smackdown.judge1_accepted %> value="false">Rechazar</option>
       </select>
