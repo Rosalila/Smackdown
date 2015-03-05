@@ -40,11 +40,15 @@ module ApplicationHelper
     return Smackdown.where(:player2_id=>current_user.id, :player2_accepted=>nil).count
   end
 
-  def watingOpponentCount
-    return Smackdown.where(:player1_id=>current_user.id, :player2_accepted=>nil).count
+  def waitingOpponent
+    return Smackdown.where(:player1_id=>current_user.id, :player2_accepted=>nil)
   end
 
-  def getWatingJudge
+  def waitingOpponentCount
+    waitingOpponent.count
+  end
+
+  def waitingJudges
     smackdown_table = Smackdown.arel_table
     user_smackdowns=Smackdown.where(smackdown_table[:player1_id].eq(current_user.id).or(smackdown_table[:player2_id].eq(current_user.id)))
     different_judges = user_smackdowns.where("smackdowns.judge1_id != smackdowns.judge2_id").where(smackdown_table[:judge1_accepted].eq(nil).or(smackdown_table[:judge2_accepted].eq(nil)))

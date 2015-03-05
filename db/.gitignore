@@ -1,1 +1,4 @@
 development.sqlite3
+/development.sqlite3
+*.sqlite3
+/*.sqlite3
