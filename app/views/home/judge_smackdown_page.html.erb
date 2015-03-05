@@ -1,0 +1,5 @@
+<% if @smackdown.judge1_id == current_user.id %>
+  <%= render 'judge1_smackdown', :locals => {:smackdown=> @smackdown} %>
+<% else %>
+  <%= render 'judge2_smackdown', :locals => {:smackdown=> @smackdown} %>
+<% end %>

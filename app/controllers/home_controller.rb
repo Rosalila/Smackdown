@@ -136,4 +136,20 @@ class HomeController < ApplicationController
   def ajax_test
     render :js => "alert('Bola')"
   end
+
+  def respond_smackdown_page
+    @smackdown = Smackdown.find_by_id(params[:smackdown_id].to_i)
+  end
+
+  def judge_smackdown_page
+    @smackdown = Smackdown.find_by_id(params[:smackdown_id].to_i)
+  end
+
+  def waiting_opponent_page
+    @smackdown = Smackdown.find_by_id(params[:smackdown_id].to_i)
+  end
+
+  def waiting_judge_page
+    @smackdown = Smackdown.find_by_id(params[:smackdown_id].to_i)
+  end
 end
