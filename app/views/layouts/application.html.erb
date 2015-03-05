@@ -109,63 +109,64 @@ folder instead of downloading all of them to reduce the load. -->
             <span class="sr-only">Toggle navigation</span>
           </a>
           <!-- Navigation notificacions todo -->
+          <%if current_user%>
+            <div class="navbar-custom-menu">
+              <ul class="nav navbar-nav">
+                <!-- Messages: style can be found in dropdown.less-->
+                <li class="dropdown messages-menu">
+                  <% @pending_respond = pendingRespond %>
+                  <% @pending_judge = pendingJudge %>
+                  <% @pending = @pending_respond + @pending_judge %>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="label label-success"><%= @pending.count %></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li class="header">Tienes <%= @pending.count %> notificaciones</li>
+                    <li>
+                      <!-- inner menu: contains the actual data -->
+                      <ul class="menu">
+                        <% @pending_respond.each do |smackdown| %>
+                          <li><!-- start message -->
+                            <a href="#">
+                              <div class="pull-left">
+                                <img src="http://graph.facebook.com/<%= User.find_by_id(smackdown.player1_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
+                              </div>
+                              <h4>
+                                Smackdown!
+                                <small><i class="fa fa-clock-o"></i><%= time_ago_in_words(smackdown.created_at) %> ago</small>
+                              </h4>
+                              <p><%= User.find_by_id(smackdown.player1_id).name %> te envio un smackdown.</p>
+                            </a>
+                          </li><!-- end message -->
+                        <% end %>
+                        <% @pending_judge.each do |smackdown| %>
+                          <li><!-- start message -->
+                            <a href="#">
+                              <div class="pull-left">
+                                <img src="http://graph.facebook.com/<%= User.find_by_id(smackdown.player1_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
+                              </div>
+                              <h4>
+                                Juicio!
+                                <small><i class="fa fa-clock-o"></i><%= time_ago_in_words(smackdown.created_at) %> ago</small>
+                              </h4>
+                              <% if smackdown.judge1_id == current_user.id && smackdown.judge2_id == current_user.id %>
+                                <p><%= User.find_by_id(smackdown.player1_id).name %> y <%= User.find_by_id(smackdown.player2_id).name %> te solicitaron ser juez.</p>
+                              <% elsif smackdown.judge1_id == current_user.id %>
+                                <p><%= User.find_by_id(smackdown.player1_id).name %> te solocitó ser juez.</p>
+                              <% else %>
+                                <p><%= User.find_by_id(smackdown.player2_id).name %> te solocitó ser juez.</p>
+                              <% end %>
+                            </a>
+                          </li><!-- end message -->
+                        <% end %>
+                      </ul>
+                    </li>
+                    <!--<li class="footer"><a href="#">See All Messages</a></li>-->
+                  </ul>
+                </li>
 
 
-<%if current_user%>
-<div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-              <!-- Messages: style can be found in dropdown.less-->
-              <li class="dropdown messages-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-envelope-o"></i>
-                  <span class="label label-success">4</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="header">You have 4 messages</li>
-                  <li>
-                    <!-- inner menu: contains the actual data -->
-                    <ul class="menu">
-<% @smackdowns = pendingRespond %>
-<% @smackdowns.each do |smackdown| %>
-                      <li><!-- start message -->
-                        <a href="#">
-                          <div class="pull-left">
-                            <img src="http://graph.facebook.com/<%= User.find_by_id(smackdown.player1_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
-                          </div>
-                          <h4>
-                            Smackdown!
-                            <small><i class="fa fa-clock-o"></i><%= time_ago_in_words(smackdown.created_at) %> ago</small>
-                          </h4>
-                          <p><%= User.find_by_id(smackdown.player1_id).name %> te envio un smackdown.</p>
-                        </a>
-                      </li><!-- end message -->
-<% end %>
-<% @smackdowns = pendingJudge %>
-<% @smackdowns.each do |smackdown| %>
-                      <li><!-- start message -->
-                        <a href="#">
-                          <div class="pull-left">
-                            <img src="http://graph.facebook.com/<%= User.find_by_id(smackdown.player1_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
-                          </div>
-                          <h4>
-                            Juicio!
-                            <small><i class="fa fa-clock-o"></i><%= time_ago_in_words(smackdown.created_at) %> ago</small>
-                          </h4>
-                          <% if smackdown.judge1_id == current_user.id && smackdown.judge2_id == current_user.id %>
-                            <p><%= User.find_by_id(smackdown.player1_id).name %> y <%= User.find_by_id(smackdown.player2_id).name %> te solicitaron ser juez.</p>
-                          <% elsif smackdown.judge1_id == current_user.id %>
-                            <p><%= User.find_by_id(smackdown.player1_id).name %> te solocitó ser juez.</p>
-                          <% else %>
-                            <p><%= User.find_by_id(smackdown.player2_id).name %> te solocitó ser juez.</p>
-                          <% end %>
-                        </a>
-                      </li><!-- end message -->
-<% end %>
-                    </ul>
-                  </li>
-                  <li class="footer"><a href="#">See All Messages</a></li>
-                </ul>
-              </li>
               <!-- Notifications: style can be found in dropdown.less -->
               <li class="dropdown notifications-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -281,19 +282,20 @@ folder instead of downloading all of them to reduce the load. -->
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-                  <span class="hidden-xs">Alexander Pierce</span>
+                  <img src="http://graph.facebook.com/<%= current_user.uid %>/picture?type=small" class="user-image" alt="User Image"/>
+                  <span class="hidden-xs"><%=current_user.name%></span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                    <img src="http://graph.facebook.com/<%= current_user.uid %>/picture?type=small" class="img-circle" alt="User Image" />
                     <p>
-                      Alexander Pierce - Web Developer
-                      <small>Member since Nov. 2012</small>
+                      <%= current_user.name %>
+                      <!--<small>Todo</small>-->
                     </p>
                   </li>
                   <!-- Menu Body -->
+                  <!--
                   <li class="user-body">
                     <div class="col-xs-4 text-center">
                       <a href="#">Followers</a>
@@ -305,20 +307,22 @@ folder instead of downloading all of them to reduce the load. -->
                       <a href="#">Friends</a>
                     </div>
                   </li>
+                  -->
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="#" class="btn btn-default btn-flat">Profile</a>
+                      <a href="/home/profile" class="btn btn-default btn-flat">Mis juegos</a>
                     </div>
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="<%= signout_path %>" class="btn btn-default btn-flat">Cerrar sesion</a>
                     </div>
                   </li>
                 </ul>
               </li>
             </ul>
           </div>
-<%end%>
+
+          <%end%>
 
 
 
