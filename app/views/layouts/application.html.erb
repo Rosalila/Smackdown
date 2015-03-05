@@ -188,7 +188,7 @@ folder instead of downloading all of them to reduce the load. -->
                           <li><!-- start message -->
                             <a href="#">
                               <div class="pull-left">
-                                <img src="http://graph.facebook.com/<%= User.find_by_id(smackdown.player1_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
+                                <img src="http://graph.facebook.com/<%= User.find_by_id(smackdown.player2_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
                               </div>
                               <h4>
                                 Oponente!
@@ -271,7 +271,7 @@ folder instead of downloading all of them to reduce the load. -->
                           <li><!-- start message -->
                             <a href="#">
                               <div class="pull-left">
-                                <img src="<%= game.image_path %>" class="img-circle" alt="User Image"/>
+                                <img src="<%= game.image_path.split('.')[0] %>_100_square.png" class="img-circle" alt="User Image"/>
                               </div>
                               <h4>
                                 <%= game.name %>
