@@ -129,7 +129,7 @@ folder instead of downloading all of them to reduce the load. -->
                       <ul class="menu">
                         <% @pending_respond.each do |smackdown| %>
                           <li><!-- start message -->
-                            <a href="#">
+                            <a href="/home/respond_smackdown_page/<%= smackdown.id %>">
                               <div class="pull-left">
                                 <img src="http://graph.facebook.com/<%= User.find_by_id(smackdown.player1_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
                               </div>
@@ -143,7 +143,7 @@ folder instead of downloading all of them to reduce the load. -->
                         <% end %>
                         <% @pending_judge.each do |smackdown| %>
                           <li><!-- start message -->
-                            <a href="#">
+                            <a href="/home/judge_smackdown_page/<%= smackdown.id %>">
                               <div class="pull-left">
                                 <img src="http://graph.facebook.com/<%= User.find_by_id(smackdown.player1_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
                               </div>
@@ -186,7 +186,7 @@ folder instead of downloading all of them to reduce the load. -->
                       <ul class="menu">
                         <% @waiting_opponent.each do |smackdown| %>
                           <li><!-- start message -->
-                            <a href="#">
+                            <a href="/home/waiting_opponent_page/<%= smackdown.id %>">
                               <div class="pull-left">
                                 <img src="http://graph.facebook.com/<%= User.find_by_id(smackdown.player2_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
                               </div>
@@ -200,7 +200,7 @@ folder instead of downloading all of them to reduce the load. -->
                         <% end %>
                         <% @waiting_judges.each do |smackdown| %>
                           <li><!-- start message -->
-                            <a href="#">
+                            <a href="/home/waiting_judge_page/<%= smackdown.id %>">
                               <% if smackdown.judge1_id == smackdown.judge2_id %>
                                 <div class="pull-left">
                                   <img src="http://graph.facebook.com/<%= User.find_by_id(smackdown.judge1_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
@@ -269,7 +269,7 @@ folder instead of downloading all of them to reduce the load. -->
                       <ul class="menu">
                         <% @games.each do |game| %>
                           <li><!-- start message -->
-                            <a href="#">
+                            <a href="/home/profile">
                               <div class="pull-left">
                                 <img src="<%= game.image_path.split('.')[0] %>_100_square.png" class="img-circle" alt="User Image"/>
                               </div>

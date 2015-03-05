@@ -24,6 +24,10 @@ Myapp::Application.routes.draw do
   get '/home/judge1_smackdown', to: 'home#judge1_smackdown', as: 'judge1_smackdown'
   get '/home/judge2_smackdown', to: 'home#judge2_smackdown', as: 'judge2_smackdown'
   get '/home/users', to: 'home#users', as: 'users'
+  get '/home/respond_smackdown_page/:smackdown_id', to: 'home#respond_smackdown_page', as: 'respond_smackdown_page'
+  get '/home/judge_smackdown_page/:smackdown_id', to: 'home#judge_smackdown_page', as: 'judge_smackdown_page'
+  get '/home/waiting_opponent_page/:smackdown_id', to: 'home#waiting_opponent_page', as: 'waiting_opponent_page'
+  get '/home/waiting_judge_page/:smackdown_id', to: 'home#waiting_judge_page', as: 'waiting_judge_page'
 
   #Pending
   get '/home/pending_respond_smackdowns', to: 'home#pending_respond_smackdowns', as: 'pending_respond_smackdowns'
@@ -51,7 +55,7 @@ Myapp::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-root to: 'home#index'
+  root to: 'home#index'
 
   #facebook
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
