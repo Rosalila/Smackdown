@@ -1,3 +1,10 @@
+<section class="content-header">
+  <h1>
+    Juzgar
+    <small>Juzga este Smackdown</small>
+  </h1>
+</section>
+
 <% if @smackdown.judge1_id == current_user.id %>
   <%= render 'judge1_smackdown', :locals => {:smackdown=> @smackdown} %>
 <% else %>

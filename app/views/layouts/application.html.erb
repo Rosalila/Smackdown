@@ -381,24 +381,6 @@ folder instead of downloading all of them to reduce the load. -->
             </li>
             <li class="active treeview">
               <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Recibidos</span> <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li class="active"><a href="/home/pending_respond_smackdowns"><i class="fa fa-circle-o"></i>Smackdowns (<%= pending_respond_count %>)</a></li>              
-                <li class="active"><a href="/home/pending_judge_smackdowns"><i class="fa fa-circle-o"></i>Juicios (<%= pending_judge_count %>)</a></li>              
-              </ul>
-            </li>  
-            <li class="active treeview">
-              <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Esperando</span> <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li class="active"><a href="/home/wating_opponent"><i class="fa fa-circle-o"></i>Oponente (<%= waiting_opponent_count %>)</a></li>              
-                <li class="active"><a href="/home/wating_judges"><i class="fa fa-circle-o"></i>Jueces (<%= waiting_judges_count %>)</a></li>              
-              </ul>
-            </li>  
-            <li class="active treeview">
-              <a href="#">
                 <i class="fa fa-dashboard"></i> <span>Historial</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
@@ -407,16 +389,6 @@ folder instead of downloading all of them to reduce the load. -->
                 <li class="active"><a href="/home/history_judged_smackdowns"><i class="fa fa-circle-o"></i>Juzgados</a></li>              
               </ul>
             </li>  
-             <li>
-              <a href="/home/profile">
-                <i class="fa fa-th"></i> <span>Mi perfil</span> <small class="label pull-right bg-green">new</small>
-              </a>
-            </li>
-             <li>
-              <a href="<%= signout_path %>">
-                <i class="fa fa-th"></i> <span>Cerrar sesion</span> <small class="label pull-right bg-green">new</small>
-              </a>
-            </li>
             <% else %>
               <li>
                 <a href="/auth/facebook">

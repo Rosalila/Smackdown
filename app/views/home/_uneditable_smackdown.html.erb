@@ -1,38 +1,11 @@
 <% smackdown=locals[:smackdown] %>
-<td>
-  <img class="resizable_image" src="<%= smackdown.smackdown_rules.first.rule.rule_group.game.image_path.split('.')[0] %>_100.png"/>
-</td>
-
-<td>
-  <% user1 = User.find_by_id(smackdown.player1_id) %>
-  <% user2 = User.find_by_id(smackdown.player2_id) %>
-  <img class='resizable_image' src='http://graph.facebook.com/<%= user1.uid %>/picture?type=normal'/>
-  <img class='resizable_image' src='/assets/Smackdown_150px/vs.png' />
-  <img class='resizable_image' src='http://graph.facebook.com/<%= user2.uid %>/picture?type=normal'/>
-</td>
-
-<td>
-  <%= render 'smackdown_info', :locals => {:smackdown=> smackdown} %>
-  <%= render 'smackdown_rules', :locals => {:smackdown=> smackdown} %>
-  <button id="button_show_smackdown<%= smackdown.id %>">Ver más</button>
-</td>
-
-<td>
-  <%= link_to "Compartir en Facebook", "/shareables/smackdown/"+smackdown.id.to_s+"/0" %>
-</td>
-
-<script>
-    $(document).ready(function(){
-      $("#button_show_smackdown<%= smackdown.id %>").click(function(){
-        $("#ul_show_smackdown<%= smackdown.id %>").slideToggle("slow");
-        $("#div_show_smackdown<%= smackdown.id %>").slideToggle("slow");
-        if($("#button_show_smackdown<%= smackdown.id %>").text()=="Ver más")
-        {
-          $("#button_show_smackdown<%= smackdown.id %>").text("Ocultar");
-        }else
-        {
-          $("#button_show_smackdown<%= smackdown.id %>").text("Ver más");
-        }
-      }); 
-    });
-</script>
+<section class="content">
+  <div class="row">
+    <%= render 'smackdown_header', :locals => {:smackdown=> smackdown} %>
+  </div>
+  <div class="row">
+    <%= render 'smackdown_info', :locals => {:smackdown=> smackdown} %>
+    <%= render 'smackdown_rules', :locals => {:smackdown=> smackdown} %>
+    <%= render 'share_smackdown', :locals => {:smackdown=> smackdown} %>
+  </div>
+</section>

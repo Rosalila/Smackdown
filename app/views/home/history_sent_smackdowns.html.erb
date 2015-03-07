@@ -1,6 +1,3 @@
-<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-
 <section class="content-header">
   <h1>
     Historial
@@ -8,12 +5,7 @@
   </h1>
 </section>
 
-<%= render 'toggle_all_smackdowns', :locals => {:smackdowns=> @smackdowns} if @smackdowns.count > 0 %>
-
 <div class="box">
-  <div class="box-header">
-    <h3 class="box-title">Haz click para visitar a un usuario</h3>
-  </div><!-- /.box-header -->
   <div class="box-body">
     <table id="example1" class="table table-bordered table-striped">
       <thead>

@@ -1,64 +1,43 @@
 <% smackdown=locals[:smackdown] %>
-
-<td>
-  <img class="resizable_image" src="<%= smackdown.smackdown_rules.first.rule.rule_group.game.image_path.split('.')[0] %>_100.png"/>
-</td>
-
-<td>
-  <% user1 = User.find_by_id(smackdown.player1_id) %>
-  <% user2 = User.find_by_id(smackdown.player2_id) %>
-  <img class='resizable_image' src='http://graph.facebook.com/<%= user1.uid %>/picture?type=normal'/>
-  <img class='resizable_image' src='/assets/Smackdown_150px/vs.png' />
-  <img class='resizable_image' src='http://graph.facebook.com/<%= user2.uid %>/picture?type=normal'/>
-</td>
-
-<td>
-  <%= render 'smackdown_info', :locals => {:smackdown=> smackdown} %>
-  <%= render 'smackdown_rules', :locals => {:smackdown=> smackdown} %>
-  <button id="button_show_smackdown<%= smackdown.id %>">Ver más</button>
-</td>
-
-<td>
-  <form role="form" accept-charset="UTF-8" action="/home/judge1_smackdown" method="get" class="nifty_form">
-    <div class="form-group">
-      <label>¿Aceptas juzgar este Smackdown?</label>
-      <select class="form-control" name="judge1_accepted">
-        <% smackdown.judge1_accepted=true if smackdown.judge1_accepted==nil %>
-        <option <%= "selected" if smackdown.judge1_accepted %> value="true">Aceptar</option>
-        <option <%= "selected" if !smackdown.judge1_accepted %> value="false">Rechazar</option>
-      </select>
+<section class="content">
+  <div class="row">
+    <%= render 'smackdown_header', :locals => {:smackdown=> smackdown} %>
+  </div>
+  <div class="row">
+    <%= render 'smackdown_info', :locals => {:smackdown=> smackdown} %>
+    <%= render 'smackdown_rules', :locals => {:smackdown=> smackdown} %>
+    <%= render 'share_smackdown', :locals => {:smackdown=> smackdown} %>
+    <div class="col-lg-4 col-xs-6">
+      <div class="box box-primary">
+        <div class="box-header">
+          <h3 class="box-title">Tu juicio</h3>
+        </div>
+        <form role="form" accept-charset="UTF-8" action="/home/judge1_smackdown" method="get" class="nifty_form">
+          <div class="form-group">
+            <label>¿Aceptas juzgar este Smackdown?</label>
+            <select class="form-control" name="judge1_accepted">
+              <% smackdown.judge1_accepted=true if smackdown.judge1_accepted==nil %>
+                <option <%= "selected" if smackdown.judge1_accepted %> value="true">Aceptar</option>
+                <option <%= "selected" if !smackdown.judge1_accepted %> value="false">Rechazar</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Ganador</label>
+              <select class="form-control" name="winner_id">
+                <option <%= "selected" if smackdown.player1_id == smackdown.judge1_winner_id %> value="<%= smackdown.player1_id %>"><%= User.find_by_id(smackdown.player1_id).name %></option>
+                <option <%= "selected" if smackdown.player2_id == smackdown.judge1_winner_id %> value="<%= smackdown.player2_id %>"><%= User.find_by_id(smackdown.player2_id).name %></option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tu comentario</label>
+            <textarea name="judge1_comment" class="form-control" rows="3" placeholder="Enter ..."><%= smackdown.judge1_comment %></textarea>
+            </div>
+            <input name="smackdown_id" type="hidden" value="<%= smackdown.id %>" />
+            <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Juzgar</button>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="form-group">
-      <label>Ganador</label>
-      <select class="form-control" name="winner_id">
-        <option <%= "selected" if smackdown.player1_id == smackdown.judge1_winner_id %> value="<%= smackdown.player1_id %>"><%= User.find_by_id(smackdown.player1_id).name %></option>
-        <option <%= "selected" if smackdown.player2_id == smackdown.judge1_winner_id %> value="<%= smackdown.player2_id %>"><%= User.find_by_id(smackdown.player2_id).name %></option>
-      </select>
-    </div>
-    <input name="judge1_comment" value="<%= smackdown.judge1_comment %>"/>
-    <input name="smackdown_id" type="hidden" value="<%= smackdown.id %>" />
-    <div class="box-footer">
-      <button type="submit" class="btn btn-primary">Juzgar</button>
-    </div>
-  </form>
-</td>
-
-<td>
-  <%= link_to "Compartir en Facebook", "/shareables/smackdown/"+smackdown.id.to_s+"/0" %>
-</td>
-
-<script>
-    $(document).ready(function(){
-      $("#button_show_smackdown<%= smackdown.id %>").click(function(){
-        $("#ul_show_smackdown<%= smackdown.id %>").slideToggle("slow");
-        $("#div_show_smackdown<%= smackdown.id %>").slideToggle("slow");
-        if($("#button_show_smackdown<%= smackdown.id %>").text()=="Ver más")
-        {
-          $("#button_show_smackdown<%= smackdown.id %>").text("Ocultar");
-        }else
-        {
-          $("#button_show_smackdown<%= smackdown.id %>").text("Ver más");
-        }
-      });
-    });
-</script>
+  </div>
+</section>
