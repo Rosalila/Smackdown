@@ -347,6 +347,7 @@ folder instead of downloading all of them to reduce the load. -->
         </nav>
       </header>
       <!-- Left side column. contains the logo and sidebar -->
+      <% if current_user %>
       <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
@@ -362,16 +363,13 @@ folder instead of downloading all of them to reduce the load. -->
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
             -->
-            <% if current_user %>
               <div class="pull-left info">
                 <p>Bienvenido <%= current_user.name %></p>
               </div>
-            <% end %>
           </div>
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">Main menu</li>                  
-              <% if current_user %>
 
                 <% pending_respond_count = pendingRespondCount %>
                 <% pending_judge_count = pendingJudgeCount %>
@@ -397,19 +395,13 @@ folder instead of downloading all of them to reduce the load. -->
                 <li class="active"><a href="/home/history_judged_smackdowns"><i class="fa fa-circle-o"></i>Juzgados</a></li>              
               </ul>
             </li>  
-            <% else %>
-              <li>
-                <a href="/auth/facebook">
-                  <i class="fa fa-th"></i> <span>Iniciar sesion</span> <small class="label pull-right bg-green">new</small>
-                </a>
-              </li>
-            <% end %>
 
           </ul>
         </section>
         <!-- /.sidebar -->
       </aside>
-
+            <% else %>
+            <% end %>
       <!-- Right side column. Contains the navbar and content of the page -->
       
         <div class="content-wrapper">
