@@ -109,10 +109,14 @@ folder instead of downloading all of them to reduce the load. -->
             <span class="sr-only">Toggle navigation</span>
           </a>
           <!-- Navigation notificacions todo -->
-          <%if current_user%>
+
 
             <div class="navbar-custom-menu">
+
               <ul class="nav navbar-nav">
+
+              <%if current_user%>
+
                 <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
                   <% @pending_respond = pendingRespond %>
@@ -329,12 +333,17 @@ folder instead of downloading all of them to reduce the load. -->
                   </li>
                 </ul>
               </li>
+          <% else %>
+              <li class="dropdown user user-menu">
+                <a href="/auth/facebook" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="fds" class="user-image" alt="User Image"/>
+                  <span class="hidden-xs">Iniciar sesión</span>
+                </a>
+              </li>
+          <% end %>
+
             </ul>
           </div>
-
-          <%end%>
-
-
 
         </nav>
       </header>
@@ -371,12 +380,12 @@ folder instead of downloading all of them to reduce the load. -->
                 <% waiting_judges_count = waitingJudges.count %>
             <li>
               <a href="/home/users">
-                <i class="fa fa-th"></i> <span>Visitar</span> <small class="label pull-right bg-green">new</small>
+                <i class="fa fa-th"></i> <span>Visitar</span>
               </a>
             </li>
              <li>
               <a href="/smackdown_creator/select_user">
-                <i class="fa fa-th"></i> <span>Enviar smackdown</span> <small class="label pull-right bg-green">new</small>
+                <i class="fa fa-th"></i> <span>Enviar smackdown</span>
               </a>
             </li>
             <li class="active treeview">
