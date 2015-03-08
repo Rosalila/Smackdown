@@ -193,7 +193,7 @@ module ApplicationHelper
   def streak user1_id, user2_id
     streak=0
     Smackdown.where("player1_id = ? or player2_id = ?", user1_id, user1_id).order('created_at DESC').each do |smackdown| 
-      if smackdown.player1_id == 2 || smackdown.player2_id == 2 
+      if smackdown.player1_id == user2_id || smackdown.player2_id == user2_id
         if smackdown.player2_accepted == false #Rejected
           if smackdown.player2_id == user1_id
             break 
