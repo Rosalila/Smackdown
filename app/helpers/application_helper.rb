@@ -308,12 +308,12 @@ module ApplicationHelper
   def streakGlobalByGameList game_id
     streak_global_list=[]
     User.all.each do |user|
-      user_streak = streakGlobalByGame(user.id,game.id)
+      user_streak = streakGlobalByGame(user.id,game_id)
       if user_streak > 0
-        streak_global_list.push([user,user_streak,game_id])
+        streak_global_list.push([user,user_streak])
       end
     end
-    return streak_global_list.sort_by { |user, streak, game| streak }.reverse
+    return streak_global_list.sort_by { |user, streak| streak }.reverse
   end
 
 end
