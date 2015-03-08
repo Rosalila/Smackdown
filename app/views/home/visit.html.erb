@@ -16,31 +16,33 @@
       <% if current_user_streak > user_streak %>
         <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
         <div class="info-box-content">
-        <table>
-          <tr>
-            <td>
-              <img height="90" src='http://graph.facebook.com/<%= current_user.uid %>/picture?type=normal'/>
-            </td>
-            <td>
-              <span class="info-box-text">Racha</span>
-              <span class="info-box-number"><%= current_user_streak %></span>
-            </td>
-          </tr>
-        </table>
+          <table>
+            <tr>
+              <td>
+                <img height="90" src='http://graph.facebook.com/<%= current_user.uid %>/picture?type=normal'/>
+              </td>
+              <td>
+                <span class="info-box-text">Racha</span>
+                <span class="info-box-number"><%= current_user_streak %></span>
+              </td>
+            </tr>
+          </table>
+        </div>
       <% else %>
         <span class="info-box-icon bg-red"><i class="fa fa-angle-double-down"></i></span>
         <div class="info-box-content">
-        <table>
-          <tr>
-            <td>
-              <img height="90" src='http://graph.facebook.com/<%= user.uid %>/picture?type=normal'/>
-            </td>
-            <td>
-              <span class="info-box-text">Racha</span>
-              <span class="info-box-number"><%= user_streak %></span>
-            </td>
-          </tr>
-        </table>
+          <table>
+            <tr>
+              <td>
+                <img height="90" src='http://graph.facebook.com/<%= user.uid %>/picture?type=normal'/>
+              </td>
+              <td>
+                <span class="info-box-text">Racha</span>
+                <span class="info-box-number"><%= user_streak %></span>
+              </td>
+            </tr>paw
+          </table>
+        </div>
       <% end %>
     </div>
   </div>
