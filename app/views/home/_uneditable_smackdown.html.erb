@@ -4,8 +4,8 @@
     <%= render 'smackdown_header', :locals => {:smackdown=> smackdown} %>
   </div>
   <div class="row">
-    <%= render 'smackdown_info', :locals => {:smackdown=> smackdown} %>
-    <%= render 'smackdown_rules', :locals => {:smackdown=> smackdown} %>
-    <%= render 'share_smackdown', :locals => {:smackdown=> smackdown} %>
+    <%= render '/home/smackdown_info', :locals => {:smackdown=> smackdown} %>
+    <%= render '/home/smackdown_rules', :locals => {:smackdown=> smackdown} %>
+    <%= render '/home/share_smackdown', :locals => {:smackdown=> smackdown} %>
   </div>
 </section>
