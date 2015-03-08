@@ -317,7 +317,7 @@ module ApplicationHelper
        end
       end
     end
-    return streak_global_list.sort_by { |user, streak, game| streak }.reverse
+    return streak_global_list.sort_by { |user, streak, game| game, streak }.reverse
   end
 
 end
