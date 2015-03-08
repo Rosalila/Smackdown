@@ -268,4 +268,56 @@ module ApplicationHelper
     return streak
   end
 
+  def streakGlobalByGame user_id, game_id
+    streak=0
+    Smackdown.where("player1_id = ? or player2_id = ?", user_id, user_id).order('created_at DESC').each do |smackdown| 
+      if smackdown.smackdown_rules.first.rule.rule_group.game_id == game_id
+        if smackdown.player2_accepted == false #Rejected
+          if smackdown.player2_id == user_id
+            break 
+          end 
+        elsif smackdown.judge1_winner_id == smackdown.player1_id && smackdown.judge2_winner_id == smackdown.player1_id #Player 1
+          if smackdown.player1_id == user_id #User 1 wins
+            streak+=1 
+          else #User 1 looses
+            break 
+          end 
+        elsif smackdown.judge1_winner_id == smackdown.player2_id && smackdown.judge2_winner_id == smackdown.player2_id #Player 2
+          if smackdown.player2_id == user_id #User 1 wins
+            streak+=1
+          else #User 1 looses
+            break 
+          end 
+        end
+      end
+    end
+    return streak
+  end
+
+  def streakGlobalList
+    streak_global_list=[]
+    User.all.each do |user|
+      user_streak = streakGlobal(user.id)
+      if user_streak > 0
+        streak_global_list.push([user,user_streak])
+       else
+     end
+    end
+    return streak_global_list.sort_by { |user, streak| streak }.reverse
+  end
+
+  def streakGlobalByGameList
+    streak_global_list=[]
+    User.all.each do |user|
+      Game.all.each do |game|
+        user_streak = streakGlobalByGame(user.id,game.id)
+        if user_streak > 0
+          streak_global_list.push([user,user_streak,game])
+         else
+       end
+      end
+    end
+    return streak_global_list.sort_by { |user, streak, game| streak }.reverse
+  end
+
 end
