@@ -33,8 +33,8 @@
 <%end%>
 
 <% Game.all.each do |game| %>
-<% streakGlobalByGameList(game.id).each do |streak|%>
 <img class="resizable_image" src="<%= game.image_path.split('.')[0] %>_100.png"/>
+<% streakGlobalByGameList(game.id).each do |streak|%>
 <div class="row">
   <div class="col-md-3 col-sm-6 col-xs-12">
     <div class="info-box">
