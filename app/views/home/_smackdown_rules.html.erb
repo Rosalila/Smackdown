@@ -5,6 +5,8 @@
     </div>
     <div class="box-body">
       <% smackdown=locals[:smackdown] %>
+      <img class="resizable_image" src="<%= smackdown.smackdown_rules.first.rule.rule_group.game.image_path.split('.')[0] %>_100.png"/>
+      <br>
       <ul id="ul_show_smackdown<%= smackdown.id %>">
         <% smackdown.smackdown_rules.each do |sr| %>
           <li><b><%= sr.rule.rule_group.name %>: </b><%= sr.rule.name %></li>
