@@ -6,6 +6,39 @@
   </h1>
 </section>
 
+<% current_user_streak = streak(current_user.id,user.id) %>
+<% user_streak = streak(user.id,current_user.id) %>
+
+
+<div class="row">
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <% if current_user_streak > user_streak %>
+        <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
+        <div class="info-box-content">
+        <table>
+          <tr>
+            <td>
+              <img height="90" src='http://graph.facebook.com/<%= current_user.uid %>/picture?type=small'/>
+            </td>
+            <td>
+              <span class="info-box-text">Racha</span>
+              <span class="info-box-number"><%= current_user_streak %></span>
+            </td>
+          </tr>
+        </table>
+      <% else %>
+        <span class="info-box-icon bg-red"><i class="fa fa-angle-double-down"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Racha</span>
+          <span class="info-box-number"><%= user_streak %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
+
 <% stats_hash = getStats(current_user,user) %>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
@@ -30,6 +63,7 @@
     chart.draw(data, options);
   }
 </script>
+
 <div align="center">
   <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
   <%= annotationChartScript(current_user,user).html_safe %>
@@ -72,4 +106,3 @@
 {:controller => "smackdown_creator", :action => "select_game", :user_id =>user.id }%>
 
 </div>
-
