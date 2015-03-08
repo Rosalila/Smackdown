@@ -49,6 +49,57 @@
 </div>
 <%end%>
 
+
+<% Game.all.each do |game| %>
+<% current_user_streak_game = streakInGame(current_user.id,user.id,game.id) %>
+<% user_streak_game = streakInGame(user.id,current_user.id,game.id) %>
+<% if current_user_streak_game!=0 || user_streak_game!=0 %>
+<div class="row">
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <% if current_user_streak_game > user_streak_game %>
+        <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
+        <div class="info-box-content">
+          <table>
+            <tr>
+              <td>
+                <img height="90" src="<%= game.image_path.split('.')[0] %>_100.png"/>
+              </td>
+              <td>
+                <img height="90" src='http://graph.facebook.com/<%= current_user.uid %>/picture?type=normal'/>
+              </td>
+              <td>
+                <span class="info-box-text">Racha</span>
+                <span class="info-box-number"><%= current_user_streak_game %></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <% else %>
+        <span class="info-box-icon bg-red"><i class="fa fa-angle-double-down"></i></span>
+        <div class="info-box-content">
+          <table>
+            <tr>
+              <td>
+                <img height="90" src="<%= game.image_path.split('.')[0] %>_100.png"/>
+              </td>
+              <td>
+                <img height="90" src='http://graph.facebook.com/<%= user.uid %>/picture?type=normal'/>
+              </td>
+              <td>
+                <span class="info-box-text">Racha</span>
+                <span class="info-box-number"><%= user_streak_game %></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%end%>
+<%end%>
+
 <% stats_hash = getStats(current_user,user) %>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
