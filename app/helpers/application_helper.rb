@@ -190,4 +190,30 @@ module ApplicationHelper
     return str
   end
 
+  def streak user1_id, user2_id
+    streak=0
+    Smackdown.where("player1_id = ? or player2_id = ?", user1_id, user1_id).order('created_at DESC').each do |smackdown| 
+      if smackdown.player1_id == 2 || smackdown.player2_id == 2 
+        if smackdown.player2_accepted == false #Rejected
+          if smackdown.player2_id == user1_id
+            break 
+          end 
+        elsif smackdown.judge1_winner_id == smackdown.player1_id && smackdown.judge2_winner_id == smackdown.player1_id #Player 1
+          if smackdown.player1_id == user1_id #User 1 wins
+            streak+=1 
+          else #User 1 looses
+            break 
+          end 
+        elsif smackdown.judge1_winner_id == smackdown.player2_id && smackdown.judge2_winner_id == smackdown.player2_id #Player 2
+          if smackdown.player2_id == user1_id #User 1 wins
+            streak+=1 
+          else #User 1 looses
+            break 
+          end 
+        end
+      end 
+    end
+    return streak
+  end
+
 end
