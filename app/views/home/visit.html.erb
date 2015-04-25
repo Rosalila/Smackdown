@@ -6,6 +6,61 @@
   </h1>
 </section>
 
+<% current_user_difference = difference(current_user.id,user.id) %>
+
+<div class="row">
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <% if current_user_difference > 0 %>
+        <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
+        <div class="info-box-content">
+          <table>
+            <tr>
+              <td>
+                <img height="90" src='http://graph.facebook.com/<%= current_user.uid %>/picture?type=normal'/>
+              </td>
+              <td>
+                <span class="info-box-text">Racha</span>
+                <span class="info-box-number"><%= current_user_difference %></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <% elseif current_user_difference < 0 %>
+        <span class="info-box-icon bg-red"><i class="fa fa-angle-double-down"></i></span>
+        <div class="info-box-content">
+          <table>
+            <tr>
+              <td>
+                <img height="90" src='http://graph.facebook.com/<%= user.uid %>/picture?type=normal'/>
+              </td>
+              <td>
+                <span class="info-box-text">Racha</span>
+                <span class="info-box-number"><%= current_user_difference %></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <% else %>
+        <span class="info-box-icon bg-red"><i class="fa fa-angle-double-down"></i></span>
+        <div class="info-box-content">
+          <table>
+            <tr>
+              <td>
+                <img height="90" src='http://graph.facebook.com/<%= user.uid %>/picture?type=normal'/>
+              </td>
+              <td>
+                <span class="info-box-text">Racha</span>
+                <span class="info-box-number"><%= current_user_difference %></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <% current_user_streak = streak(current_user.id,user.id) %>
 <% user_streak = streak(user.id,current_user.id) %>
 
