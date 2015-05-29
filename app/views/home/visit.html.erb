@@ -16,8 +16,8 @@
 <div class="row">
   <div class="col-md-8 col-sm-10 col-xs-12">
     <div class="info-box">
+      <span class="info-box-icon bg-blue"><i class="fa fa-globe"></i></span>
       <% if current_user_streak > user_streak %>
-        <span class="info-box-icon bg-blue"><i class="fa fa-globe"></i></span>
         <div class="info-box-content" align="center">
           <table align="center">
             <tr>
@@ -35,21 +35,20 @@
               </td>
             </tr>
             <tr>
-              <td align="center">
-                <span class="info-box-text" align="center">Racha</span>
-                <span class="info-box-number" align="center"><%= current_user_streak %></span>
+              <td>
               </td>
               <td align="center">
                 <span colspan="2" class="info-box-text" align="center">Diferencia</span>
                 <span colspan="2" class="info-box-number" align="center"><%= current_user_difference %></span>
               </td>
-              <td>
+              <td align="center">
+                <span class="info-box-text" align="center">Racha</span>
+                <span class="info-box-number" align="center"><%= current_user_streak %></span>
               </td>
             </tr>
           </table>
         </div>
       <% else %>
-        <span class="info-box-icon bg-red"><i class="fa fa-angle-double-down"></i></span>
         <div class="info-box-content" align="center">
           <table align="center">
             <tr>
@@ -67,15 +66,15 @@
               </td>
             </tr>
             <tr>
-              <td>
+              <td align="center">
+                <span class="info-box-text" align="center">Racha</span>
+                <span class="info-box-number" align="center"><%= current_user_streak %></span>
               </td>
               <td align="center">
                 <span colspan="2" class="info-box-text" align="center">Diferencia</span>
                 <span colspan="2" class="info-box-number" align="center"><%= current_user_difference %></span>
               </td>
-              <td align="center">
-                <span class="info-box-text" align="center">Racha</span>
-                <span class="info-box-number" align="center"><%= current_user_streak %></span>
+              <td>
               </td>
             </tr>
             </tr>
