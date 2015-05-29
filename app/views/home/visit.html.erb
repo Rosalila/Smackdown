@@ -14,12 +14,12 @@
 
 <% if current_user_streak!=0 || user_streak!=0 %>
 <div class="row">
-  <div class="col-md-6 col-sm-6 col-xs-12">
+  <div class="col-md-8 col-sm-10 col-xs-12">
     <div class="info-box">
       <% if current_user_streak > user_streak %>
-        <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
-        <div class="info-box-content">
-          <table>
+        <span class="info-box-icon bg-blue"><i class="fa fa-globe"></i></span>
+        <div class="info-box-content" align="center">
+          <table align="center">
             <tr>
               <td>
                 <span class="info-box-icon bg-red"><i class="fa fa-angle-double-down"></i></span>
@@ -33,21 +33,25 @@
               <td>
                 <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
               </td>
-              <td>
-                <span class="info-box-text">Racha</span>
-                <span class="info-box-number"><%= current_user_streak %></span>
+            </tr>
+            <tr>
+              <td align="center">
+                <span class="info-box-text" align="center">Racha</span>
+                <span class="info-box-number" align="center"><%= current_user_streak %></span>
+              </td>
+              <td align="center">
+                <span colspan="2" class="info-box-text" align="center">Diferencia</span>
+                <span colspan="2" class="info-box-number" align="center"><%= current_user_difference %></span>
               </td>
               <td>
-                <span class="info-box-text">Diferencia</span>
-                <span class="info-box-number"><%= current_user_difference %></span>
               </td>
             </tr>
           </table>
         </div>
       <% else %>
         <span class="info-box-icon bg-red"><i class="fa fa-angle-double-down"></i></span>
-        <div class="info-box-content">
-          <table>
+        <div class="info-box-content" align="center">
+          <table align="center">
             <tr>
               <td>
                 <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
@@ -61,14 +65,19 @@
               <td>
                 <span class="info-box-icon bg-red"><i class="fa fa-angle-double-down"></i></span>
               </td>
+            </tr>
+            <tr>
               <td>
-                <span class="info-box-text">Racha</span>
-                <span class="info-box-number"><%= user_streak %></span>
               </td>
-              <td>
-                <span class="info-box-text">Diferencia</span>
-                <span class="info-box-number"><%= current_user_difference %></span>
+              <td align="center">
+                <span colspan="2" class="info-box-text" align="center">Diferencia</span>
+                <span colspan="2" class="info-box-number" align="center"><%= current_user_difference %></span>
               </td>
+              <td align="center">
+                <span class="info-box-text" align="center">Racha</span>
+                <span class="info-box-number" align="center"><%= current_user_streak %></span>
+              </td>
+            </tr>
             </tr>
           </table>
         </div>
@@ -93,7 +102,7 @@
 
 <!-- STREAK IN GAME -->
 <div class="row">
-  <div class="col-md-6 col-sm-12 col-xs-12">
+  <div class="col-md-8 col-sm-10 col-xs-12">
     <div class="info-box">
       <span class="info-box-icon"><img width="90" src="<%= game.image_path.split('.')[0] %>_100.png"/></span>
       <% if current_user_streak_game > user_streak_game %>
@@ -120,9 +129,9 @@
                 <span class="info-box-text" align="center">Diferencia</span>
                 <span class="info-box-number" align="center"><%= difference_game %></span>
               </td>
-              <td>
-                <span class="info-box-text">Racha</span>
-                <span class="info-box-number"><%= current_user_streak_game %></span>
+              <td align="center">
+                <span class="info-box-text" align="center">Racha</span>
+                <span class="info-box-number" align="center"><%= current_user_streak_game %></span>
               </td>
             </tr>
           </table>
@@ -145,9 +154,9 @@
               </td>
             </tr>
             <tr>
-              <td>
-                <span class="info-box-text">Racha</span>
-                <span class="info-box-number"><%= user_streak_game %></span>
+              <td align="center">
+                <span class="info-box-text" align="center">Racha</span>
+                <span class="info-box-number" ><%= user_streak_game %></span>
               </td>
               <td colspan="2" align="center">
                 <span class="info-box-text" align="center">Diferencia</span>
