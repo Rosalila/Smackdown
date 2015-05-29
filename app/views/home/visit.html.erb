@@ -22,7 +22,19 @@
           <table>
             <tr>
               <td>
+                <span class="info-box-icon bg-red"><i class="fa fa-angle-double-down"></i></span>
+              </td>
+              <td>
+                <img height="90" src='http://graph.facebook.com/<%= user.uid %>/picture?type=normal'/>
+              </td>
+              <td>
+                <img height="90" src="<%= game.image_path.split('.')[0] %>_100.png"/>
+              </td>
+              <td>
                 <img height="90" src='http://graph.facebook.com/<%= current_user.uid %>/picture?type=normal'/>
+              </td>
+              <td>
+                <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
               </td>
               <td>
                 <span class="info-box-text">Racha</span>
@@ -41,7 +53,19 @@
           <table>
             <tr>
               <td>
+                <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
+              </td>
+              <td>
                 <img height="90" src='http://graph.facebook.com/<%= user.uid %>/picture?type=normal'/>
+              </td>
+              <td>
+                <img height="90" src="<%= game.image_path.split('.')[0] %>_100.png"/>
+              </td>
+              <td>
+                <img height="90" src='http://graph.facebook.com/<%= current_user.uid %>/picture?type=normal'/>
+              </td>
+              <td>
+                <span class="info-box-icon bg-red"><i class="fa fa-angle-double-down"></i></span>
               </td>
               <td>
                 <span class="info-box-text">Racha</span>
