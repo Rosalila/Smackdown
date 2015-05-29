@@ -6,63 +6,11 @@
   </h1>
 </section>
 
-<% current_user_difference = difference(current_user.id,user.id) %>
-
-<div class="row">
-  <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="info-box">
-      <% if current_user_difference > 0 %>
-        <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
-        <div class="info-box-content">
-          <table>
-            <tr>
-              <td>
-                <img height="90" src='http://graph.facebook.com/<%= current_user.uid %>/picture?type=normal'/>
-              </td>
-              <td>
-                <span class="info-box-text">Racha</span>
-                <span class="info-box-number"><%= current_user_difference %></span>
-              </td>
-            </tr>
-          </table>
-        </div>
-      <% elseif current_user_difference < 0 %>
-        <span class="info-box-icon bg-red"><i class="fa fa-angle-double-down"></i></span>
-        <div class="info-box-content">
-          <table>
-            <tr>
-              <td>
-                <img height="90" src='http://graph.facebook.com/<%= user.uid %>/picture?type=normal'/>
-              </td>
-              <td>
-                <span class="info-box-text">Racha</span>
-                <span class="info-box-number"><%= current_user_difference %></span>
-              </td>
-            </tr>
-          </table>
-        </div>
-      <% else %>
-        <span class="info-box-icon bg-red"><i class="fa fa-angle-double-down"></i></span>
-        <div class="info-box-content">
-          <table>
-            <tr>
-              <td>
-                <img height="90" src='http://graph.facebook.com/<%= user.uid %>/picture?type=normal'/>
-              </td>
-              <td>
-                <span class="info-box-text">Racha</span>
-                <span class="info-box-number"><%= current_user_difference %></span>
-              </td>
-            </tr>
-          </table>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-
+<!-- GLOBAL STREAK -->
 <% current_user_streak = streak(current_user.id,user.id) %>
 <% user_streak = streak(user.id,current_user.id) %>
+<!-- GLOBAL DIFFERENCE -->
+<% current_user_difference = difference(current_user.id,user.id) %>
 
 <% if current_user_streak!=0 || user_streak!=0 %>
 <div class="row">
@@ -80,6 +28,10 @@
                 <span class="info-box-text">Racha</span>
                 <span class="info-box-number"><%= current_user_streak %></span>
               </td>
+              <td>
+                <span class="info-box-text">Diferencia</span>
+                <span class="info-box-number"><%= current_user_difference %></span>
+              </td>
             </tr>
           </table>
         </div>
@@ -95,6 +47,10 @@
                 <span class="info-box-text">Racha</span>
                 <span class="info-box-number"><%= user_streak %></span>
               </td>
+              <td>
+                <span class="info-box-text">Diferencia</span>
+                <span class="info-box-number"><%= current_user_difference %></span>
+              </td>
             </tr>
           </table>
         </div>
@@ -105,10 +61,15 @@
 <%end%>
 
 
+<!-- GAME DIFFERENCE AND STEAK -->
 <% Game.all.each do |game| %>
+<%if userIsPlayingGame(current_user.id,game.id)%>
+
 <% current_user_streak_game = streakInGame(current_user.id,user.id,game.id) %>
 <% user_streak_game = streakInGame(user.id,current_user.id,game.id) %>
 <% if current_user_streak_game!=0 || user_streak_game!=0 %>
+
+<!-- STREAK IN GAME -->
 <div class="row">
   <div class="col-md-6 col-sm-6 col-xs-12">
     <div class="info-box">
@@ -152,6 +113,67 @@
     </div>
   </div>
 </div>
+<%end%>
+
+<!-- DIFFERENCE IN GAME -->
+<% difference_game = differenceInGame(current_user.id,user.id,game.id) %>
+
+<div class="row">
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <% if difference_game > 0 %>
+        <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
+        <div class="info-box-content">
+          <table>
+            <tr>
+              <td>
+                <img height="90" src="<%= game.image_path.split('.')[0] %>_100.png"/>
+              </td>
+              <td>
+                <img height="90" src='http://graph.facebook.com/<%= current_user.uid %>/picture?type=normal'/>
+              </td>
+              <td>
+                <span class="info-box-text">Diferencia</span>
+                <span class="info-box-number"><%= difference_game %></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <% elsif difference_game < 0 %>
+        <span class="info-box-icon bg-red"><i class="fa fa-angle-double-down"></i></span>
+        <div class="info-box-content">
+          <table>
+            <tr>
+              <td>
+                <img height="90" src='http://graph.facebook.com/<%= user.uid %>/picture?type=normal'/>
+              </td>
+              <td>
+                <span class="info-box-text">Diferencia</span>
+                <span class="info-box-number"><%= difference_game %></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <% else %>
+        <span class="info-box-icon bg-red"><i class="fa fa-angle-double-down"></i></span>
+        <div class="info-box-content">
+          <table>
+            <tr>
+              <td>
+                <img height="90" src='http://graph.facebook.com/<%= user.uid %>/picture?type=normal'/>
+              </td>
+              <td>
+                <span class="info-box-text">Diferencia</span>
+                <span class="info-box-number"><%= difference_game %></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <%end%>
 <%end%>
 
