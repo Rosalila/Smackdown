@@ -95,10 +95,10 @@
 <div class="row">
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="info-box">
+      <span class="info-box-icon bg-green"><img height="90" src="<%= game.image_path.split('.')[0] %>_100.png"/></span>
       <% if current_user_streak_game > user_streak_game %>
-        <img height="90" src="<%= game.image_path.split('.')[0] %>_100.png"/>
-        <div class="info-box-content">
-          <table>
+        <div class="info-box-content" align="center">
+          <table align="center">
             <tr>
               <td>
                 <span class="info-box-icon bg-red"><i class="fa fa-angle-double-down"></i></span>
@@ -126,8 +126,8 @@
           </table>
         </div>
       <% else %>
-        <div class="info-box-content">
-          <table>
+        <div class="info-box-content" align="center">
+          <table align="center">
             <tr>
               <td>
                 <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
