@@ -387,12 +387,22 @@ folder instead of downloading all of them to reduce the load. -->
             </li>
             <li class="active treeview">
               <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Historial</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-dashboard"></i> <span>Mi historial</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li class="active"><a href="/home/history_sent_smackdowns"><i class="fa fa-circle-o"></i>Enviados</a></li>              
                 <li class="active"><a href="/home/history_received_smackdowns"><i class="fa fa-circle-o"></i>Recibidos</a></li>              
                 <li class="active"><a href="/home/history_judged_smackdowns"><i class="fa fa-circle-o"></i>Juzgados</a></li>              
+              </ul>
+            </li>  
+            <li class="active treeview">
+              <a href="#">
+                <i class="fa fa-dashboard"></i> <span>Ranking</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <%Game.all.each do |game|%>
+                  <li class="active"><a href="/games/<%= game.id %>"><i class="fa fa-circle-o"></i><%=game.name%></a></li>              
+                <%end%>
               </ul>
             </li>  
 

@@ -5,5 +5,31 @@
   <%= @game.name %>
 </p>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+<img class="resizable_image" src="<%= @game.image_path.split('.')[0] %>_100.png"/>
+<% streakGlobalByGameList(@game.id).each do |streak|%>
+<div class="row">
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box">
+        <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
+        <div class="info-box-content">
+          <table>
+            <tr>
+              <td>
+                <img height="90" src='http://graph.facebook.com/<%= streak[0].uid %>/picture?type=normal'/>
+              </td>
+              <td>
+                <span class="info-box-text">Racha</span>
+                <span class="info-box-number"><%= streak[1] %></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+    </div>
+  </div>
+</div>
+<%end%>
+
+<%if userIsAdmin%>
+  <%= link_to 'Edit', edit_game_path(@game) %> |
+  <%= link_to 'Back', games_path %>
+<%end%>
