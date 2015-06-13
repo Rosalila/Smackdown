@@ -330,12 +330,12 @@ module ApplicationHelper
       if smackdown.smackdown_rules.first.rule.rule_group.game_id == game_id
         if smackdown.isFinished
           if smackdown.rejected
-            if smackdown.player2_id == user1_id
+            if smackdown.player2_id == user_id
               diff-=1
             else
               diff+=1
             end
-          elsif smackdown.playerWins user1_id
+          elsif smackdown.playerWins user_id
             diff+=1
           else
             diff-=1
