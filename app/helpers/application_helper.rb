@@ -357,6 +357,17 @@ module ApplicationHelper
     return streak_global_list.sort_by { |user, streak| streak }.reverse
   end
 
+  def differenceGlobalList
+    diff_global_list=[]
+    User.all.each do |user|
+      user_diff = differenceGlobal(user.id)
+      if user_diff > 0
+        diff_global_list.push([user,user_diff])
+      end
+    end
+    return diff_global_list.sort_by { |user, diff| diff }.reverse
+  end
+
   def streakGlobalByGameList game_id
     streak_global_list=[]
     User.all.each do |user|
