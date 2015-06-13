@@ -214,24 +214,18 @@ module ApplicationHelper
     diff=0
     Smackdown.where("player1_id = ? or player2_id = ?", user1_id, user1_id).each do |smackdown| 
       if smackdown.player1_id == user2_id || smackdown.player2_id == user2_id
-        if smackdown.player2_accepted == false #Rejected
-          if smackdown.player2_id == user1_id
-            diff-=1
+        if smackdown.isFinished
+          if smackdown.rejected
+            if smackdown.player2_id == user1_id
+              diff-=1
+            else
+              diff+=1
+            end
+          elsif smackdown.playerWins user1_id
+            diff+=1
           else
-            diff+=1
+            diff-=1
           end
-        elsif smackdown.judge1_winner_id == smackdown.player1_id && smackdown.judge2_winner_id == smackdown.player1_id #Player 1
-          if smackdown.player1_id == user1_id #User 1 wins
-            diff+=1
-          else #User 1 looses
-            diff-=1
-          end 
-        elsif smackdown.judge1_winner_id == smackdown.player2_id && smackdown.judge2_winner_id == smackdown.player2_id #Player 2
-          if smackdown.player2_id == user1_id #User 1 wins
-            diff+=1
-          else #User 1 looses
-            diff-=1
-          end 
         end
       end 
     end
@@ -271,24 +265,18 @@ module ApplicationHelper
     Smackdown.where("player1_id = ? or player2_id = ?", user1_id, user1_id).order('created_at DESC').each do |smackdown|
       if smackdown.smackdown_rules.first.rule.rule_group.game_id == game_id
         if smackdown.player1_id == user2_id || smackdown.player2_id == user2_id
-          if smackdown.player2_accepted == false #Rejected
-            if smackdown.player2_id == user1_id
-              diff-=1
+          if smackdown.isFinished
+            if smackdown.rejected
+              if smackdown.player2_id == user1_id
+                diff-=1
+              else
+                diff+=1
+              end
+            elsif smackdown.playerWins user1_id
+              diff+=1
             else
-              diff+=1
+              diff-=1
             end
-          elsif smackdown.judge1_winner_id == smackdown.player1_id && smackdown.judge2_winner_id == smackdown.player1_id #Player 1
-            if smackdown.player1_id == user1_id #User 1 wins
-              diff+=1
-            else #User 1 looses
-              diff-=1
-            end 
-          elsif smackdown.judge1_winner_id == smackdown.player2_id && smackdown.judge2_winner_id == smackdown.player2_id #Player 2
-            if smackdown.player2_id == user1_id #User 1 wins
-              diff+=1
-            else #User 1 looses
-              diff-=1
-            end 
           end
         end 
       end
