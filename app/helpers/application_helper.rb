@@ -205,7 +205,7 @@ module ApplicationHelper
             break
           end
         end
-      end 
+      end
     end
     return streak
   end
@@ -227,7 +227,7 @@ module ApplicationHelper
             diff-=1
           end
         end
-      end 
+      end
     end
     return diff
   end
@@ -237,20 +237,10 @@ module ApplicationHelper
     Smackdown.where("player1_id = ? or player2_id = ?", user1_id, user1_id).order('created_at DESC').each do |smackdown|
       if smackdown.smackdown_rules.first.rule.rule_group.game_id == game_id
         if smackdown.player1_id == user2_id || smackdown.player2_id == user2_id
-          if smackdown.player2_accepted == false #Rejected
-            if smackdown.player2_id == user1_id
-              break
-            end
-          elsif smackdown.judge1_winner_id == smackdown.player1_id && smackdown.judge2_winner_id == smackdown.player1_id #Player 1
-            if smackdown.player1_id == user1_id #User 1 wins
+          if smackdown.isFinished
+            if smackdown.playerWins user1_id
               streak+=1
-            else #User 1 looses
-              break
-            end
-          elsif smackdown.judge1_winner_id == smackdown.player2_id && smackdown.judge2_winner_id == smackdown.player2_id #Player 2
-            if smackdown.player2_id == user1_id #User 1 wins
-              streak+=1
-            else #User 1 looses
+            else
               break
             end
           end
@@ -287,59 +277,73 @@ module ApplicationHelper
   def streakGlobal user_id
     streak=0
     Smackdown.where("player1_id = ? or player2_id = ?", user_id, user_id).order('created_at DESC').each do |smackdown| 
-      if smackdown.player2_accepted == false #Rejected
-        if smackdown.player2_id == user_id
-          break 
-        end 
-      elsif smackdown.judge1_winner_id == smackdown.player1_id && smackdown.judge2_winner_id == smackdown.player1_id #Player 1
-        if smackdown.player1_id == user_id #User 1 wins
-          streak+=1 
-        else #User 1 looses
-          break 
-        end 
-      elsif smackdown.judge1_winner_id == smackdown.player2_id && smackdown.judge2_winner_id == smackdown.player2_id #Player 2
-        if smackdown.player2_id == user_id #User 1 wins
+      if smackdown.isFinished
+        if smackdown.playerWins user_id
           streak+=1
-        else #User 1 looses
-          break 
-        end 
+        else
+          break
+        end
       end
     end
     return streak
   end
 
   def differenceGlobal user_id
-    #diff=0
-    #Smackdown.where("player1_id = ? or player2_id = ?", user_id, user_id).order('created_at DESC').each do |smackdown| 
-
-    ##end
-    ##return diff
+    diff=0
+    Smackdown.where("player1_id = ? or player2_id = ?", user_id, user_id).order('created_at DESC').each do |smackdown| 
+      if smackdown.isFinished
+        if smackdown.rejected
+          if smackdown.player2_id == user1_id
+            diff-=1
+          else
+            diff+=1
+          end
+        elsif smackdown.playerWins user1_id
+          diff+=1
+        else
+          diff-=1
+        end
+      end
+    end
+    return diff
   end
 
   def streakGlobalByGame user_id, game_id
     streak=0
     Smackdown.where("player1_id = ? or player2_id = ?", user_id, user_id).order('created_at DESC').each do |smackdown| 
       if smackdown.smackdown_rules.first.rule.rule_group.game_id == game_id
-        if smackdown.player2_accepted == false #Rejected
-          if smackdown.player2_id == user_id
-            break 
-          end 
-        elsif smackdown.judge1_winner_id == smackdown.player1_id && smackdown.judge2_winner_id == smackdown.player1_id #Player 1
-          if smackdown.player1_id == user_id #User 1 wins
-            streak+=1 
-          else #User 1 looses
-            break 
-          end 
-        elsif smackdown.judge1_winner_id == smackdown.player2_id && smackdown.judge2_winner_id == smackdown.player2_id #Player 2
-          if smackdown.player2_id == user_id #User 1 wins
+        if smackdown.isFinished
+          if smackdown.playerWins user_id
             streak+=1
-          else #User 1 looses
-            break 
-          end 
+          else
+            break
+          end
         end
       end
     end
     return streak
+  end
+
+  def differenceGlobalByGame user_id, game_id
+    diff=0
+    Smackdown.where("player1_id = ? or player2_id = ?", user_id, user_id).order('created_at DESC').each do |smackdown| 
+      if smackdown.smackdown_rules.first.rule.rule_group.game_id == game_id
+        if smackdown.isFinished
+          if smackdown.rejected
+            if smackdown.player2_id == user1_id
+              diff-=1
+            else
+              diff+=1
+            end
+          elsif smackdown.playerWins user1_id
+            diff+=1
+          else
+            diff-=1
+          end
+        end
+      end
+    end
+    return diff
   end
 
   def streakGlobalList
