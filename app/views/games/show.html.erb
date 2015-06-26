@@ -12,7 +12,7 @@
 <h2>Racha</h2>
     <% streakGlobalByGameList(@game.id).each do |streak|%>
       <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="info-box">
             <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
             <div class="info-box-content">
@@ -40,7 +40,7 @@
     <% differenceGlobalByGameList(@game.id).each do |diff|%>
       <% if diff[2]>0 %>
         <div class="row">
-          <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="info-box">
               <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
               <div class="info-box-content">
@@ -50,12 +50,10 @@
                       <img height="90" src='http://graph.facebook.com/<%= diff[0].uid %>/picture?type=normal'/>
                     </td>
                     <td>
-                      <span class="info-box-text">Diferencia</span>
-                      <span class="info-box-number"><%= diff[1] %></span>
-                    </td>
-                    <td>
-                      <span class="info-box-text">Smackdowns jugados</span>
-                      <span class="info-box-number"><%= diff[2] %></span>
+                      <span class="info-box-text">Diferencia: <b><%= diff[1] %></b></span>
+                      <!--<span class="info-box-number"><%= diff[1] %></span>-->
+                      <span class="info-box-text">Smackdowns jugados: <b><%= diff[2] %></b></span>
+                      <!--<span class="info-box-number"><%= diff[2] %></span>-->
                     </td>
                   </tr>
                 </table>
