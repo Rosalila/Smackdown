@@ -4,26 +4,44 @@ class RulesController < ApplicationController
   # GET /rules
   # GET /rules.json
   def index
+    if !userIsAdmin
+      redirect_to "/"
+    end
+
     @rules = Rule.all
   end
 
   # GET /rules/1
   # GET /rules/1.json
   def show
+    if !userIsAdmin
+      redirect_to "/"
+    end
   end
 
   # GET /rules/new
   def new
+    if !userIsAdmin
+      redirect_to "/"
+    end
+
     @rule = Rule.new
   end
 
   # GET /rules/1/edit
   def edit
+    if !userIsAdmin
+      redirect_to "/"
+    end
   end
 
   # POST /rules
   # POST /rules.json
   def create
+    if !userIsAdmin
+      redirect_to "/"
+    end
+
     @rule = Rule.new(rule_params)
 
     respond_to do |format|
@@ -40,6 +58,10 @@ class RulesController < ApplicationController
   # PATCH/PUT /rules/1
   # PATCH/PUT /rules/1.json
   def update
+    if !userIsAdmin
+      redirect_to "/"
+    end
+
     respond_to do |format|
       if @rule.update(rule_params)
         format.html { redirect_to @rule, notice: 'Rule was successfully updated.' }
@@ -54,6 +76,10 @@ class RulesController < ApplicationController
   # DELETE /rules/1
   # DELETE /rules/1.json
   def destroy
+    if !userIsAdmin
+      redirect_to "/"
+    end
+
     @rule.destroy
     respond_to do |format|
       format.html { redirect_to rules_url }

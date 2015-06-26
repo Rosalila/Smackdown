@@ -4,26 +4,42 @@ class PlayerRulesController < ApplicationController
   # GET /player_rules
   # GET /player_rules.json
   def index
+    if !userIsAdmin
+      redirect_to "/"
+    end
     @player_rules = PlayerRule.all
   end
 
   # GET /player_rules/1
   # GET /player_rules/1.json
   def show
+    if !userIsAdmin
+      redirect_to "/"
+    end
   end
 
   # GET /player_rules/new
   def new
+    if !userIsAdmin
+      redirect_to "/"
+    end
     @player_rule = PlayerRule.new
   end
 
   # GET /player_rules/1/edit
   def edit
+    if !userIsAdmin
+      redirect_to "/"
+    end
   end
 
   # POST /player_rules
   # POST /player_rules.json
   def create
+    if !userIsAdmin
+      redirect_to "/"
+    end
+
     @player_rule = PlayerRule.new(player_rule_params)
 
     respond_to do |format|
@@ -40,6 +56,10 @@ class PlayerRulesController < ApplicationController
   # PATCH/PUT /player_rules/1
   # PATCH/PUT /player_rules/1.json
   def update
+    if !userIsAdmin
+      redirect_to "/"
+    end
+
     new_activated = !@player_rule.activated
     respond_to do |format|
       if @player_rule.update(player_rule_params)
@@ -57,6 +77,10 @@ class PlayerRulesController < ApplicationController
   # DELETE /player_rules/1
   # DELETE /player_rules/1.json
   def destroy
+    if !userIsAdmin
+      redirect_to "/"
+    end
+
     @player_rule.destroy
     respond_to do |format|
       format.html { redirect_to player_rules_url }

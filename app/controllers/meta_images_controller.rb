@@ -4,16 +4,25 @@ class MetaImagesController < ApplicationController
   # GET /meta_images
   # GET /meta_images.json
   def index
+    if !userIsAdmin
+      redirect_to "/"
+    end
     @meta_images = MetaImage.all
   end
 
   # GET /meta_images/1
   # GET /meta_images/1.json
   def show
+    if !userIsAdmin
+      redirect_to "/"
+    end
   end
 
   # GET /meta_images/new
   def new
+    if !userIsAdmin
+      redirect_to "/"
+    end
     @meta_image = MetaImage.new
   end
 
@@ -24,6 +33,9 @@ class MetaImagesController < ApplicationController
   # POST /meta_images
   # POST /meta_images.json
   def create
+    if !userIsAdmin
+      redirect_to "/"
+    end
     @meta_image = MetaImage.new(meta_image_params)
 
     respond_to do |format|
@@ -40,6 +52,9 @@ class MetaImagesController < ApplicationController
   # PATCH/PUT /meta_images/1
   # PATCH/PUT /meta_images/1.json
   def update
+    if !userIsAdmin
+      redirect_to "/"
+    end
     respond_to do |format|
       if @meta_image.update(meta_image_params)
         format.html { redirect_to @meta_image, notice: 'Meta image was successfully updated.' }
@@ -54,6 +69,9 @@ class MetaImagesController < ApplicationController
   # DELETE /meta_images/1
   # DELETE /meta_images/1.json
   def destroy
+    if !userIsAdmin
+      redirect_to "/"
+    end
     @meta_image.destroy
     respond_to do |format|
       format.html { redirect_to meta_images_url }
