@@ -50,10 +50,14 @@
                       <img height="90" src='http://graph.facebook.com/<%= diff[0].uid %>/picture?type=normal'/>
                     </td>
                     <td>
-                      <span class="info-box-text">Diferencia: <b><%= diff[1] %></b></span>
-                      <!--<span class="info-box-number"><%= diff[1] %></span>-->
+                      <% if diff[1]>0 %>
+                        <span class="info-box-text" style="color: green">Diferencia: <b>+<%= diff[1] %></b></span>
+                      <% elsif diff[1]<0 %>
+                        <span class="info-box-text" style="color: red">Diferencia: <b><%= diff[1] %></b></span>
+                      <% else %>
+                        <span class="info-box-text">Diferencia: <b><%= diff[1] %></b></span>
+                      <% end %>
                       <span class="info-box-text">Smackdowns jugados: <b><%= diff[2] %></b></span>
-                      <!--<span class="info-box-number"><%= diff[2] %></span>-->
                     </td>
                   </tr>
                 </table>
