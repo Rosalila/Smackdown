@@ -1,5 +1,10 @@
 class Smackdown < ActiveRecord::Base
   has_many :smackdown_rules
+
+  def game_id
+    smackdown_rules.first.rule.rule_group.game_id
+  end
+
   def sa
     if judge1_id == judge2_id
       return true

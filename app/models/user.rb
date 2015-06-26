@@ -12,4 +12,16 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def smackdownsPlayedByGame game_id
+    games_played=0
+    Smackdown.where("player1_id = ? or player2_id = ?", id, id).order('created_at DESC').each do |smackdown| 
+      if smackdown.isFinished
+        if smackdown.game_id == game_id
+          games_played+=1
+        end
+      end
+    end
+    return games_played
+  end
 end
