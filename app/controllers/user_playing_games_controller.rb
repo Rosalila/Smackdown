@@ -4,26 +4,44 @@ class UserPlayingGamesController < ApplicationController
   # GET /user_playing_games
   # GET /user_playing_games.json
   def index
+    if !userIsAdmin
+      redirect_to "/"
+    end
+
     @user_playing_games = UserPlayingGame.all
   end
 
   # GET /user_playing_games/1
   # GET /user_playing_games/1.json
   def show
+    if !userIsAdmin
+      redirect_to "/"
+    end
   end
 
   # GET /user_playing_games/new
   def new
+    if !userIsAdmin
+      redirect_to "/"
+    end
+
     @user_playing_game = UserPlayingGame.new
   end
 
   # GET /user_playing_games/1/edit
   def edit
+    if !userIsAdmin
+      redirect_to "/"
+    end
   end
 
   # POST /user_playing_games
   # POST /user_playing_games.json
   def create
+    if !userIsAdmin
+      redirect_to "/"
+    end
+
     @user_playing_game = UserPlayingGame.new(user_playing_game_params)
 
     respond_to do |format|
@@ -40,6 +58,10 @@ class UserPlayingGamesController < ApplicationController
   # PATCH/PUT /user_playing_games/1
   # PATCH/PUT /user_playing_games/1.json
   def update
+    if !userIsAdmin
+      redirect_to "/"
+    end
+
     new_is_playing = !@user_playing_game.is_playing
     respond_to do |format|
       if @user_playing_game.update(user_playing_game_params)
@@ -57,6 +79,10 @@ class UserPlayingGamesController < ApplicationController
   # DELETE /user_playing_games/1
   # DELETE /user_playing_games/1.json
   def destroy
+    if !userIsAdmin
+      redirect_to "/"
+    end
+
     @user_playing_game.destroy
     respond_to do |format|
       format.html { redirect_to user_playing_games_url }
