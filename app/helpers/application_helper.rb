@@ -311,7 +311,7 @@ module ApplicationHelper
   def streakGlobalByGame user_id, game_id
     streak=0
     Smackdown.where("player1_id = ? or player2_id = ?", user_id, user_id).order('created_at DESC').each do |smackdown| 
-      if smackdown.smackdown_rules.first.rule.rule_group.game_id == game_id
+      if smackdown.game_id == game_id
         if smackdown.isFinished
           if smackdown.playerWins user_id
             streak+=1
@@ -361,7 +361,7 @@ module ApplicationHelper
     diff_global_list=[]
     User.all.each do |user|
       user_diff = differenceGlobal(user.id)
-      diff_global_list.push([user,user_diff])
+      diff_global_list.push([user,user_diff,gamesPlayed(user)])
     end
     return diff_global_list.sort_by { |user, diff| diff }.reverse
   end
@@ -381,7 +381,7 @@ module ApplicationHelper
     diff_global_list=[]
     User.all.each do |user|
       user_diff = differenceGlobalByGame(user.id,game_id)
-      diff_global_list.push([user,user_diff])
+      diff_global_list.push([user,user_diff,user.smackdownsPlayedByGame(game_id)])
     end
     return diff_global_list.sort_by { |user, diff| diff }.reverse
   end
