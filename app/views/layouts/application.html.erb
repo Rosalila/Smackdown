@@ -71,6 +71,8 @@ folder instead of downloading all of them to reduce the load. -->
     <!-- AdminLTE for demo purposes -->
     <script src="/backend/dist/js/demo.js" type="text/javascript"></script>
 
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
     <!-- MyLegacy -->
     <% if content_for?(:head) %>
       <%= yield(:head) %>

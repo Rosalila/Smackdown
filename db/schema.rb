@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825191349) do
+ActiveRecord::Schema.define(version: 20150713211037) do
+
+  create_table "dojos", force: true do |t|
+    t.string   "name"
+    t.string   "main_image"
+    t.string   "badge_image"
+    t.text     "about"
+    t.string   "motto"
+    t.text     "schedule"
+    t.text     "public_address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "feedbacks", force: true do |t|
     t.integer  "user_id"

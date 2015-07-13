@@ -1,4 +1,6 @@
 Myapp::Application.routes.draw do
+  resources :dojos
+
   resources :feedbacks
 
   resources :meta_images

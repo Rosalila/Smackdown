@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @dojo.name %>
+</p>
+
+<p>
+  <strong>Main image:</strong>
+  <%= @dojo.main_image %>
+</p>
+
+<p>
+  <strong>Badge image:</strong>
+  <%= @dojo.badge_image %>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= @dojo.about %>
+</p>
+
+<p>
+  <strong>Motto:</strong>
+  <%= @dojo.motto %>
+</p>
+
+<p>
+  <strong>Schedule:</strong>
+  <%= @dojo.schedule %>
+</p>
+
+<p>
+  <strong>Public address:</strong>
+  <%= @dojo.public_address %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @dojo.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @dojo.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_dojo_path(@dojo) %> |
+<%= link_to 'Back', dojos_path %>
