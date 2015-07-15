@@ -79,13 +79,18 @@
     ]);
         google.maps.event.addListener(handler.map.serviceObject, "click", function( evt ) {
           markers[0].serviceObject.setPosition(evt.latLng);
-var elem_latitude = document.getElementById("dojo_latitude");
-elem_latitude.value = evt.latLng.lat();
-var elem_longitude = document.getElementById("dojo_longitude");
-elem_longitude.value = evt.latLng.lng();
+          var elem_latitude = document.getElementById("dojo_latitude");
+          elem_latitude.value = evt.latLng.lat();
+          var elem_longitude = document.getElementById("dojo_longitude");
+          elem_longitude.value = evt.latLng.lng();
         });
-    //handler.bounds.extendWith(markers);
-    //handler.fitMapToBounds();
     handler.map.serviceObject.setCenter(new google.maps.LatLng(<%= @dojo.latitude %>, <%= @dojo.longitude %>));
+    navigator.geolocation.getCurrentPosition(function(pos){
+          markers[0].serviceObject.setPosition(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+          var elem_latitude = document.getElementById("dojo_latitude");
+          elem_latitude.value = pos.coords.latitude;
+          var elem_longitude = document.getElementById("dojo_longitude");
+          elem_longitude.value = longitude;
+    });
   });
 </script>
