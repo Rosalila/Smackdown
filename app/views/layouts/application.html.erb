@@ -111,7 +111,9 @@ folder instead of downloading all of them to reduce the load. -->
             <span class="sr-only">Toggle navigation</span>
           </a>
           <!-- Navigation notificacions todo -->
-
+          <a href="/smackdown_creator/select_user">
+            <img style="position: absolute;top: 0; bottom:0; left: 0; right:0;margin: auto;" height="50px" src="/logo.png"/>
+          </a>
 
             <div class="navbar-custom-menu">
 
@@ -371,20 +373,9 @@ folder instead of downloading all of them to reduce the load. -->
           </div>
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
-            <li class="header">Main menu</li>                  
-
-                <% pending_respond_count = pendingRespondCount %>
-                <% pending_judge_count = pendingJudgeCount %>
-                <% waiting_opponent_count = waitingOpponentCount %>
-                <% waiting_judges_count = waitingJudges.count %>
             <li>
               <a href="/home/users">
-                <i class="fa fa-th"></i> <span>Visitar</span>
-              </a>
-            </li>
-             <li>
-              <a href="/smackdown_creator/select_user">
-                <i class="fa fa-th"></i> <span>Enviar smackdown</span>
+                <i class="fa fa-th"></i> <span>Explorar</span>
               </a>
             </li>
             <li class="active treeview">
@@ -396,17 +387,7 @@ folder instead of downloading all of them to reduce the load. -->
                 <li class="active"><a href="/home/history_received_smackdowns"><i class="fa fa-circle-o"></i>Recibidos</a></li>              
                 <li class="active"><a href="/home/history_judged_smackdowns"><i class="fa fa-circle-o"></i>Juzgados</a></li>              
               </ul>
-            </li>  
-            <li class="active treeview">
-              <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Ranking</span> <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <%Game.all.each do |game|%>
-                  <li class="active"><a href="/games/<%= game.id %>"><i class="fa fa-circle-o"></i><%=game.name%></a></li>              
-                <%end%>
-              </ul>
-            </li>  
+            </li> 
 
           </ul>
         </section>

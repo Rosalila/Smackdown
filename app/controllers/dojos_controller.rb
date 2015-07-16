@@ -29,6 +29,9 @@ class DojosController < ApplicationController
   def create
     @dojo = Dojo.new(dojo_params)
 
+    @dojo.main_image = params[:main_image]
+    @dojo.badge_image = params[:badge_image]
+
     respond_to do |format|
       if @dojo.save
         format.html { redirect_to @dojo, notice: 'Dojo was successfully created.' }

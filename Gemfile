@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'carrierwave'
+
 gem 'geocoder'
 gem 'gmaps4rails'
 
