@@ -9,6 +9,18 @@
   <div class="box-header">
     <h3 class="box-title">Haz click para visitar a un usuario</h3>
   </div><!-- /.box-header -->
+
+
+        <form role="form" accept-charset="UTF-8" action="/home/users" method="get" class="nifty_form">
+          <div class="form-group">
+            <label>Buscar usario</label>
+            <input name="like_param" class="form-control" placeholder="Escribe el nombre del usuario aqui."></input>
+            <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+          </div>
+        </form>
+
+
   <div class="box-body">
     <table id="example1" class="table table-bordered table-striped">
       <thead>
@@ -18,7 +30,7 @@
         </tr>
       </thead>
       <tbody>
-        <% User.all.each do |user| %>
+        <% @users.each do |user| %>
           <% if user.id!=current_user.id %>
             <tr>
               <td>

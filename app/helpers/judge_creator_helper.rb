@@ -1,0 +1,2 @@
+module JudgeCreatorHelper
+end

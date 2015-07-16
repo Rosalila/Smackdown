@@ -23,6 +23,7 @@ Myapp::Application.routes.draw do
   get '/home/visit/:id', to: 'home#visit', as: 'visit'
   get '/home/send_smackdown', to: 'home#send_smackdown', as: 'send_smackdown'
   get '/home/respond_smackdown', to: 'home#respond_smackdown', as: 'respond_smackdown'
+  get '/home/judge_smackdown', to: 'home#judge_smackdown', as: 'judge_smackdown'
   get '/home/judge1_smackdown', to: 'home#judge1_smackdown', as: 'judge1_smackdown'
   get '/home/judge2_smackdown', to: 'home#judge2_smackdown', as: 'judge2_smackdown'
   get '/home/users', to: 'home#users', as: 'users'
@@ -44,6 +45,11 @@ Myapp::Application.routes.draw do
   get '/smackdown_creator/select_user', to: 'smackdown_creator#select_user', as: 'select_user'
   get '/smackdown_creator/select_game', to: 'smackdown_creator#select_game', as: 'select_games'
   get '/smackdown_creator/select_rules', to: 'smackdown_creator#select_rules', as: 'select_rules'
+
+  #Smackdown creator
+  get '/judge_creator/select_accept', to: 'judge_creator#select_accept', as: 'select_accept'
+  get '/judge_creator/select_winner', to: 'judge_creator#select_winner', as: 'select_winner'
+  get '/judge_creator/select_comment', to: 'judge_creator#select_comment', as: 'select_comment'
 
   #Shareables
   get '/shareables/versus/:id1/:id2/:meta_image', to: 'shareables#versus', as: 'shareable_versus'
