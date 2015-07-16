@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'carrierwave'
+
+gem 'geocoder'
+gem 'gmaps4rails'
+
 #facebook login
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
