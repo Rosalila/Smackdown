@@ -256,46 +256,6 @@ folder instead of downloading all of them to reduce the load. -->
                 </li>
 
 
-
-                <!-- Messages: style can be found in dropdown.less-->
-                <li class="dropdown messages-menu">
-                  <% @games=[] %>
-                  <% Game.all.each do |game| %>
-                    <% receiving_smackdown = true %>
-                    <% if userIsPlayingGame(current_user.id,game.id) %>
-                      <% @games.push(game) %>
-                    <% end %>
-                  <% end %>
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-gamepad"></i>
-                    <span class="label label-success"><%= @games.count %></span>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li class="header">Tú estás participando en <%= @games.count %> juegos</li>
-                    <li>
-                      <!-- inner menu: contains the actual data -->
-                      <ul class="menu">
-                        <% @games.each do |game| %>
-                          <li><!-- start message -->
-                            <a href="/home/profile">
-                              <div class="pull-left">
-                                <img src="<%= game.image_path.split('.')[0] %>_100_square.png" class="img-circle" alt="User Image"/>
-                              </div>
-                              <h4>
-                                <%= game.name %>
-                              </h4>
-                            </a>
-                          </li><!-- end message -->
-                        <% end %>
-                      </ul>
-                    </li>
-                    <li class="footer"><a href="/home/profile">Administrar mis juegos</a></li>
-                  </ul>
-                </li>
-
-
-
-
               
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
