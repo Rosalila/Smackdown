@@ -55,16 +55,8 @@
             <% receiving_smackdown = true %>
             <% if rules_ok %>
               <label>Juez</label>
-              <div class="form-group">
-                <select class="form-control" name="judge_id">
-                  <% User.all.each do |judge| %>
-                    <% if judge.id != current_user.id %>
-                      <option value="<%= judge.id %>"><%= judge.name %></option>
-                    <% end %>
-                  <% end %>
-                </select>
-              </div>
               <input name="opponent_id" type="hidden" value="<%= @user.id %>" />
+              <input name="judge_id" type="hidden" value="<%= @judge.id %>" />
               <input name="commit" type="submit" value="Enviar Smackdown!" />
             <% else %>
               <p><%= @user.name %> no ha seleccionado al menos una regla de cada grupo para poder jugar <%= @game.name %>.</p>

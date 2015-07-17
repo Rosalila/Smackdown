@@ -18,6 +18,6 @@ class SmackdownCreatorController < ApplicationController
   def select_rules
     @user = User.find(params[:user_id])
     @game = Game.find(params[:game_id])
-    @judge1_id = params[:judge1_id]
+    @judge = User.find(params[:judge_id])
   end
 end
