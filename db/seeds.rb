@@ -41,6 +41,41 @@ g3 = Game.create(name: "Persona 4", image_path: "/assets/game_logos/persona4_are
     r321 = Rule.create(rule_group: rg32, name: "1 round")
     r322 = Rule.create(rule_group: rg32, name: "2 rounds")
 
+#User rules
+upg1 = UserPlayingGame.create(user: u1, game: g1, is_playing: true)
+upg2 = UserPlayingGame.create(user: u1, game: g2, is_playing: true)
+
+upg3 = UserPlayingGame.create(user: u2, game: g1, is_playing: true)
+upg4 = UserPlayingGame.create(user: u2, game: g2, is_playing: true)
+
+upg5 = UserPlayingGame.create(user: u3, game: g1, is_playing: true)
+upg6 = UserPlayingGame.create(user: u3, game: g3, is_playing: true)
+
+upg6 = UserPlayingGame.create(user: u3, game: g3, is_playing: true)
+
+
+pr1 = PlayerRule.create(rule: r111, user: u1, activated: true)
+pr2 = PlayerRule.create(rule: r112, user: u1, activated: true)
+pr3 = PlayerRule.create(rule: r121, user: u1, activated: true)
+pr4 = PlayerRule.create(rule: r131, user: u1, activated: true)
+
+pr5 = PlayerRule.create(rule: r111, user: u2, activated: true)
+pr6 = PlayerRule.create(rule: r112, user: u2, activated: true)
+pr7 = PlayerRule.create(rule: r121, user: u2, activated: true)
+pr8 = PlayerRule.create(rule: r131, user: u2, activated: true)
+
+pr9 = PlayerRule.create(rule: r211, user: u2, activated: true)
+pr10 = PlayerRule.create(rule: r212, user: u2, activated: true)
+pr11 = PlayerRule.create(rule: r221, user: u2, activated: true)
+
+pr12 = PlayerRule.create(rule: r111, user: u3, activated: true)
+pr13 = PlayerRule.create(rule: r112, user: u3, activated: true)
+pr14 = PlayerRule.create(rule: r113, user: u3, activated: true)
+pr15 = PlayerRule.create(rule: r121, user: u3, activated: true)
+pr16 = PlayerRule.create(rule: r122, user: u3, activated: true)
+pr17 = PlayerRule.create(rule: r131, user: u3, activated: true)
+pr18 = PlayerRule.create(rule: r132, user: u3, activated: true)
+
 #Historial enviados
 s1 = Smackdown.create(player1_id: u1.id, player2_id: u2.id, judge1_id: u3.id, judge2_id: u3.id, judge1_winner_id: u1.id, judge2_winner_id: u1.id, player2_accepted: true, judge1_accepted: true, judge2_accepted: true)
   sr11 = SmackdownRule.create(smackdown: s1, rule: r111)
