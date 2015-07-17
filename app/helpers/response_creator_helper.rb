@@ -1,0 +1,2 @@
+module ResponseCreatorHelper
+end

@@ -47,6 +47,10 @@ Myapp::Application.routes.draw do
   get '/smackdown_creator/select_judge', to: 'smackdown_creator#select_judge', as: 'select_judge'
   get '/smackdown_creator/select_rules', to: 'smackdown_creator#select_rules', as: 'select_rules'
 
+  #Response creator
+  get '/response_creator/select_accept', to: 'response_creator#select_accept', as: 'response_select_accept'
+  get '/response_creator/select_judge', to: 'response_creator#select_judge', as: 'response_select_judge'
+
   #Judge creator
   get '/judge_creator/select_accept', to: 'judge_creator#select_accept', as: 'select_accept'
   get '/judge_creator/select_winner', to: 'judge_creator#select_winner', as: 'select_winner'

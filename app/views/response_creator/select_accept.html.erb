@@ -1,0 +1,20 @@
+<section class="content-header">
+  <h1>
+    Responder
+    <small>Responde este Smackdown</small>
+  </h1>
+</section>
+
+  <div class="row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="box box-primary">
+        <div class="box-header">
+          <h3 class="box-title">Aceptas este smackdown?</h3>
+          <a href="/response_creator/select_judge?smackdown_id=<%=@smackdown.id%>&accepted='true'">Si</a>
+          <a href="/response_creator/select_judge?smackdown_id=<%=@smackdown.id%>&accepted='false'">No</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= render '/home/uneditable_smackdown', :locals => {:smackdown=> @smackdown} %>
