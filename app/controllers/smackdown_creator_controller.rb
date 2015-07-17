@@ -1,5 +1,7 @@
 class SmackdownCreatorController < ApplicationController
   def select_user
+    @like_param = params["like_param"]
+    @users=User.where("name LIKE ?" , "%#{@like_param}%")
   end
 
   def select_game
