@@ -48,6 +48,38 @@ class HomeController < ApplicationController
 
   end
 
+  def judge_smackdown
+    smackdown_id = params["smackdown_id"].to_i
+    judge_accepted = params["judge_accepted"]=="true"
+    winner_id = params["winner_id"].to_i
+    judge_comment = params["judge_comment"]
+
+    smackdown = Smackdown.find_by_id(smackdown_id)
+    correct = false
+    if smackdown.judge1_id == current_user.id
+      smackdown.judge1_accepted = judge_accepted
+      smackdown.judge1_winner_id = winner_id
+      smackdown.judge1_comment = judge_comment
+      correct = true
+    end
+    if smackdown.judge2_id == current_user.id
+      smackdown.judge2_accepted = judge_accepted
+      smackdown.judge2_winner_id = winner_id
+      smackdown.judge2_comment = judge_comment
+      correct = true
+    end
+
+    if correct && smackdown.save
+      respond_to do |format|
+        format.html { redirect_to "/home/history_judged_smackdowns", notice: '¡Has juzgado un Smackdown!' }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to "/home/history_judged_smackdowns", notice: '¡Ocurrio un error!' }
+      end
+    end
+  end
+
   def judge1_smackdown
     smackdown_id = params["smackdown_id"]
     judge1_accepted = params["judge1_accepted"]
@@ -86,6 +118,8 @@ class HomeController < ApplicationController
   end
 
   def users
+    @like_param = params["like_param"]
+    @users=User.where("name LIKE ?" , "%#{@like_param}%")
   end
 
   def history_sent_smackdowns
