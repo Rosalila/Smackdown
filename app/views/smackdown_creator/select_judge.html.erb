@@ -11,23 +11,21 @@
 </div>
 </section>
 
+<div class="box">
+  <div class="box-body">
         <form role="form" accept-charset="UTF-8" action="/smackdown_creator/select_judge" method="get" class="nifty_form">
           <div class="form-group">
-            <label>Buscar usuario</label>
             <input name="user_id" type="hidden" value="<%= @user.id %>" />
             <input name="game_id" type="hidden" value="<%= @game.id %>" />
-            <input name="like_param" class="form-control" placeholder="Escribe el nombre del usuario aqui."></input>
-            <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Buscar</button>
+            <div class="input-group input-group-sm">
+              <input name="like_param" placeholder="Escribe el nombre del juez aqui." type="text" class="form-control">
+              <span class="input-group-btn">
+                <button class="btn btn-info btn-flat" type="submit">Buscar!</button>
+              </span>
+            </div>
           </div>
         </form>
-
-
-<div class="box">
-  <div class="box-header">
-    <h3 class="box-title">Has click para seleccionar el usuario</h3>
-  </div><!-- /.box-header -->
-  <div class="box-body">
+<%if @judges.count>0%>
     <table id="example1" class="table table-bordered table-striped">
       <thead>
         <tr>
@@ -58,6 +56,7 @@
         </tr>
       </tfoot>
     </table>
+<%end%>
   </div><!-- /.box-body -->
 </div><!-- /.box -->
 
