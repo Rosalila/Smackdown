@@ -151,7 +151,11 @@ folder instead of downloading all of them to reduce the load. -->
                           <li><!-- start message -->
                             <a href="/judge_creator/select_accept?smackdown_id=<%= smackdown.id %>">
                               <div class="pull-left">
-                                <img src="http://graph.facebook.com/<%= User.find_by_id(smackdown.player1_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
+                                <% if smackdown.judge1_id == current_user.id %>
+                                  <img src="http://graph.facebook.com/<%= User.find_by_id(smackdown.player1_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
+                                <%else%>
+                                  <img src="http://graph.facebook.com/<%= User.find_by_id(smackdown.player2_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
+                                <%end%>
                               </div>
                               <h4>
                                 Juicio!
