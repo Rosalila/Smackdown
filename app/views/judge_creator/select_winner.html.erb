@@ -1,13 +1,24 @@
-<section class="content">
-  <div class="row">
-    <div class="col-lg-12 col-xs-12">
-      <div class="box box-solid box-success">
-        <% user1 = User.find_by_id(@smackdown.player1_id) %>
-        <% user2 = User.find_by_id(@smackdown.player2_id) %>
-        <a href="/judge_creator/select_comment?smackdown_id=<%=@smackdown.id%>&accepted=true&winner_id=<%=user1.id%>"><img class='resizable_image' src='http://graph.facebook.com/<%= user1.uid %>/picture?type=normal'/></a>
-        <img class='resizable_image' src='/assets/Smackdown_150px/vs.png' />
-        <a href="/judge_creator/select_comment?smackdown_id=<%=@smackdown.id%>&accepted=true&winner_id=<%=user2.id%>"><img class='resizable_image' src='http://graph.facebook.com/<%= user2.uid %>/picture?type=normal'/></a>
-      </div>
-    </div>
-  </div>
+<section class="content-header">
+  <h1>
+    Selecciona al ganador
+    <small>juzgar un smackdown</small>
+  </h1>
 </section>
+
+<div class="box">
+  <div class="box-body">
+    <section class="content">
+      <div class="row">
+        <div class="col-lg-12 col-xs-12">
+          <div class="box box-solid box-success">
+            <% user1 = User.find_by_id(@smackdown.player1_id) %>
+            <% user2 = User.find_by_id(@smackdown.player2_id) %>
+            <a href="/judge_creator/select_comment?smackdown_id=<%=@smackdown.id%>&accepted=true&winner_id=<%=user1.id%>"><img class='resizable_image' src='http://graph.facebook.com/<%= user1.uid %>/picture?type=normal'/></a>
+            <img class='resizable_image' src='/assets/Smackdown_150px/vs.png' />
+            <a href="/judge_creator/select_comment?smackdown_id=<%=@smackdown.id%>&accepted=true&winner_id=<%=user2.id%>"><img class='resizable_image' src='http://graph.facebook.com/<%= user2.uid %>/picture?type=normal'/></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
