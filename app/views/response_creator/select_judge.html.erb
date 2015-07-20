@@ -32,7 +32,7 @@
               <tr>
                 <td>
                   <% if user.uid!= nil %>
-                    <%= link_to image_tag("http://graph.facebook.com/" + user.uid + "/picture?type=large", :class => "resizable_image"), {:controller => "smackdown_creator", :action => "respond_smackdown", :judge_id => user.id, :player2_accepted => true, :smackdown_id => @smackdown.id }%>
+                    <%= link_to image_tag("http://graph.facebook.com/" + user.uid + "/picture?type=large", :class => "resizable_image"), {:controller => "home", :action => "respond_smackdown", :judge_id => user.id, :player2_accepted => true, :smackdown_id => @smackdown.id }%>
                   <% end %>
                 </td>
                 <td>
