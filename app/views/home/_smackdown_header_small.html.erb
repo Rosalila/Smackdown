@@ -1,0 +1,11 @@
+<% smackdown=locals[:smackdown] %>
+<div class="box box-solid box-success" align="center">
+  <a href="/shareables/smackdown/<%=smackdown.id%>/0">
+    <h5><%= time_ago_in_words(smackdown.created_at) %> ago<h5>
+    <% user1 = User.find_by_id(smackdown.player1_id) %>
+    <% user2 = User.find_by_id(smackdown.player2_id) %>
+    <img height="75" class='resizable_image' src='http://graph.facebook.com/<%= user1.uid %>/picture?type=normal'/>
+    <img height="75" class='resizable_image' src='/assets/Smackdown_150px/vs.png' />
+    <img height="75" class='resizable_image' src='http://graph.facebook.com/<%= user2.uid %>/picture?type=normal'/>
+  </a>
+</div>
