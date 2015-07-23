@@ -7,41 +7,18 @@
 
 <div class="box">
   <div class="box-body">
-    <table id="example1" class="table table-bordered table-striped">
-      <thead>
-        <tr>
-          <th>Juego</th>
-          <th>Jugadores</th>
-          <th>Informacion</th>
-          <th>Juzgar</th>
-          <th>Compartir</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @judge1_smackdowns.each do |smackdown| %>
-          <tr>
-            <%= render 'judge1_smackdown', :locals => {:smackdown=> smackdown} %>
-          </tr>
-        <% end %>
-        <% @judge2_smackdowns.each do |smackdown| %>
-          <tr>
-            <%= render 'judge2_smackdown', :locals => {:smackdown=> smackdown} %>
-          </tr>
-        <% end %>
-      </tbody>
-      <tfoot>
-        <tr>
-          <th>Juego</th>
-          <th>Jugadores</th>
-          <th>Informacion</th>
-          <th>Responder</th>
-          <th>Compartir</th>
-        </tr>
-      </tfoot>
-    </table>
+    <% @judge_smackdowns.each do |smackdown| %>
+      <%if smackdown.judge1_id == current_user.id%>
+        <h3>j1</h3>
+        <%= render 'judge1_smackdown', :locals => {:smackdown=> smackdown} %>
+      <%else%>
+        <h3>j2</h3>
+        <%= render 'judge2_smackdown', :locals => {:smackdown=> smackdown} %>
+      <%end%>
+    <% end %>
   </div><!-- /.box-body -->
 </div><!-- /.box -->
 
-<% if (@judge1_smackdowns + @judge2_smackdowns).count == 0 %>
+<% if @judge_smackdowns.count == 0 %>
   <p>No tienes ninguna partida por juzgar pendiente.</p>
 <% end %>
