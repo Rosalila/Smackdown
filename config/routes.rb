@@ -1,4 +1,6 @@
 Myapp::Application.routes.draw do
+  resources :favorites
+
   resources :dojos
 
   resources :feedbacks
