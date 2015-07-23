@@ -152,12 +152,13 @@ class HomeController < ApplicationController
   end
 
   def history_judged_smackdowns
-    @judge_smackdowns = Smackdown.where(:judge1_id=>current_user.id, :judge1_accepted => [true,false])
-    Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => [true,false]).each do |smackdown|
-      next if smackdown.judge1_id==smackdown.judge2_id
-      @judge_smackdowns.push(smackdown)
-    end
-    @judge_smackdowns.paginate(:page => params[:page], :per_page => 5)
+    @judge_smackdowns = Smackdown.where("(judge1_id = ? AND (judge1_accepted = ? OR judge1_accepted = ?)) OR (judge1_id = ? AND (judge1_accepted = ? OR judge1_accepted = ?))", current_user.id,true,false,current_user.id,true,false).paginate(:page => params[:page], :per_page => 5)
+    #@judge_smackdowns = Smackdown.where(:judge1_id=>current_user.id, :judge1_accepted => [true,false])
+    #Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => [true,false]).each do |smackdown|
+    #  next if smackdown.judge1_id==smackdown.judge2_id
+    #  @judge_smackdowns.push(smackdown)
+    #end
+    #@judge_smackdowns.paginate(:page => params[:page], :per_page => 5)
 
     #@judge2_smackdowns = []
     #Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => [true,false]).each do |smackdown|
