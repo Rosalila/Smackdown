@@ -19,11 +19,17 @@ class SmackdownCreatorController < ApplicationController
   end
 
   def select_judge
-    @user = User.find(params[:user_id])
-    @game = Game.find(params[:game_id])
+    @user = User.find(params["user_id"])
+    @game = Game.find(params["game_id"])
+    @favorite_id = params["favorite_id"]
+
+    if @favorite_id != "" && @favorite_id != nil
+      current_user.toggleFavorite @favorite_id
+    end
+
     @like_param = params["like_param"]
     if @like_param=="" || @like_param == nil
-      @judges=[]
+      @judges=current_user.getFavorites
     else
       @judges=User.where("name LIKE ?" , "%#{@like_param}%")
     end
