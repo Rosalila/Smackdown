@@ -9,10 +9,8 @@
   <div class="box-body">
     <% @judge_smackdowns.each do |smackdown| %>
       <%if smackdown.judge1_id == current_user.id%>
-        <h3>j1</h3>
         <%= render 'judge1_smackdown', :locals => {:smackdown=> smackdown} %>
       <%else%>
-        <h3>j2</h3>
         <%= render 'judge2_smackdown', :locals => {:smackdown=> smackdown} %>
       <%end%>
     <% end %>
