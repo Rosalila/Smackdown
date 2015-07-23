@@ -128,7 +128,7 @@ class HomeController < ApplicationController
     if @like_param == "" || @like_param == nil
       if current_user
         @users = current_user.getFavorites
-        if @users.favorites.count == 0
+        if @users.count == 0
           @users = User.all.shuffle[0..5]
         end
       else
