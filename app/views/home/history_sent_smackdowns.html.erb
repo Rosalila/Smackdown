@@ -7,31 +7,10 @@
 
 <div class="box">
   <div class="box-body">
-    <table id="example1" class="table table-bordered table-striped">
-      <thead>
-        <tr>
-          <th>Juego</th>
-          <th>Jugadores</th>
-          <th>Informacion</th>
-          <th>Compartir</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @smackdowns.each do |smackdown| %>
-          <tr>
-            <%= render 'uneditable_smackdown', :locals => {:smackdown=> smackdown} %>
-          </tr>
-        <% end %>
-      </tbody>
-      <tfoot>
-        <tr>
-          <th>Juego</th>
-          <th>Jugadores</th>
-          <th>Informacion</th>
-          <th>Compartir</th>
-        </tr>
-      </tfoot>
-    </table>
+    <% @smackdowns.each do |smackdown| %>
+      <%= render 'uneditable_smackdown', :locals => {:smackdown=> smackdown} %>
+    <% end %>
+    <%= will_paginate @smackdowns %>
   </div><!-- /.box-body -->
 </div><!-- /.box -->
 

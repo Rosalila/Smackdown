@@ -1,7 +1,12 @@
 source 'https://rubygems.org'
 
+# Pagination
+gem 'will_paginate', '~> 3.0.6'
+
+# File upload
 gem 'carrierwave'
 
+# Geolocation and maps
 gem 'geocoder'
 gem 'gmaps4rails'
 
