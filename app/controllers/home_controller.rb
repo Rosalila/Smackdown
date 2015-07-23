@@ -117,9 +117,27 @@ class HomeController < ApplicationController
     end
   end
 
-  def users
+  def explore
     @like_param = params["like_param"]
-    @users=User.where("name LIKE ?" , "%#{@like_param}%")
+    @favorite_id = params["favorite_id"]
+
+    if @favorite_id != "" && @favorite_id != nil
+      current_user.toggleFavorite @favorite_id
+    end
+
+    if @like_param == "" || @like_param == nil
+      if current_user
+        @users = current_user.getFavorites
+      else
+        @users = User.all.shuffle[0..1]
+      end
+    else
+      if current_user
+        @users=User.where("name LIKE ?" , "%#{@like_param}%").where.not(user_id: current_user.id)
+      else
+        @users=User.where("name LIKE ?" , "%#{@like_param}%")
+      end
+    end
   end
 
   def history_sent_smackdowns

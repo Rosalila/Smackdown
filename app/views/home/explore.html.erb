@@ -7,8 +7,8 @@
 
 <div class="box">
   <div class="row">
-    <div class="col-md-6">
-      <form role="form" accept-charset="UTF-8" action="/home/users" method="get" class="nifty_form">
+    <div class="col-md-7">
+      <form role="form" accept-charset="UTF-8" action="/home/explore" method="get" class="nifty_form">
         <div class="input-group input-group-sm">
           <input name="like_param" placeholder="Escribe el nombre del usuario aqui." type="text" class="form-control">
           <span class="input-group-btn">
@@ -26,7 +26,6 @@
           </thead>
           <tbody>
             <% @users.each do |user| %>
-              <% if user.id!=current_user.id %>
                 <tr>
                   <td>
                     <a href="/home/visit/<%= user.id %>">
@@ -35,9 +34,17 @@
                   </td>
                   <td>
                     <a href="/home/visit/<%= user.id %>"><%= user.name%></a>
+<%if current_user %>
+                  <a href="/home/users?like_param=<%=@like_param%>&favorite_id=<%=user.id%>">
+                    <% if Favorite.where(user: current_user, favorited_id: user.id).count>0 %>
+                      <i style="color: #e74c3c" class="fa fa-heart"></i>
+                    <% else %>
+                      <i style="color: #e74c3c" class="fa fa-heart-o"></i>
+                    <% end %>
+                  </a>
+<%end %>
                   </td>
                 </tr>
-              <% end %>
             <% end %>
           </tbody>
           <tfoot>
@@ -50,7 +57,7 @@
       </div>
     </div>
 
-    <div class="col-md-6" align="center">
+    <div class="col-md-5" align="center">
        <table>
        <% Smackdown.find(:all, :order => "created_at desc", :limit => 5).reverse.each do |smackdown| %>
          <tr>
