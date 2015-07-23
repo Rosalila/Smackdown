@@ -128,8 +128,11 @@ class HomeController < ApplicationController
     if @like_param == "" || @like_param == nil
       if current_user
         @users = current_user.getFavorites
+        if @users.favorites.count == 0
+          @users = User.all.shuffle[0..5]
+        end
       else
-        @users = User.all.shuffle[0..1]
+        @users = User.all.shuffle[0..5]
       end
     else
       if current_user
@@ -149,12 +152,18 @@ class HomeController < ApplicationController
   end
 
   def history_judged_smackdowns
-    @judge1_smackdowns = Smackdown.where(:judge1_id=>current_user.id, :judge1_accepted => [true,false])
-    @judge2_smackdowns = []
+    @judge_smackdowns = Smackdown.where(:judge1_id=>current_user.id, :judge1_accepted => [true,false])
     Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => [true,false]).each do |smackdown|
       next if smackdown.judge1_id==smackdown.judge2_id
-      @judge2_smackdowns.push(smackdown)
+      @judge_smackdowns.push(smackdown)
     end
+    @judge_smackdowns.paginate(:page => params[:page], :per_page => 5)
+
+    #@judge2_smackdowns = []
+    #Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => [true,false]).each do |smackdown|
+    #  next if smackdown.judge1_id==smackdown.judge2_id
+    #  @judge2_smackdowns.push(smackdown)
+    #end
   end
 
   def profile
