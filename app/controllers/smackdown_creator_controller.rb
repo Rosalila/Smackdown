@@ -1,8 +1,14 @@
 class SmackdownCreatorController < ApplicationController
   def select_user
     @like_param = params["like_param"]
-    if @like_param=="" || @like_param == nil
-      @users=[]
+    @favorite_id = params["favorite_id"]
+
+    if @favorite_id != "" && @favorite_id != nil
+      current_user.toggleFavorite @favorite_id
+    end
+
+    if @like_param == "" || @like_param == nil
+      @users=current_user.getFavorites
     else
       @users=User.where("name LIKE ?" , "%#{@like_param}%")
     end

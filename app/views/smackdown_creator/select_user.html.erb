@@ -20,7 +20,11 @@
         <form role="form" accept-charset="UTF-8" action="/smackdown_creator/select_user" method="get" class="nifty_form">
           <div class="form-group">
                   <div class="input-group input-group-sm">
-                    <input name="like_param" placeholder="Escribe el nombre del usuario aqui." type="text" class="form-control">
+                    <% if @like_param!= "" && @like_param!= nil%>
+                      <input name="like_param" placeholder="<%=@like_param%>" type="text" class="form-control">
+                    <% else %>
+                      <input name="like_param" placeholder="Escribe el nombre del usuario aqui." type="text" class="form-control">
+                    <% end %>
                     <span class="input-group-btn">
                       <button class="btn btn-info btn-flat" type="submit">Buscar!</button>
                     </span>
@@ -47,6 +51,13 @@
                 </td>
                 <td>
                   <%= link_to user.name,{:controller => "smackdown_creator", :action => "select_game", :user_id => user.id }%>
+                  <a href="/smackdown_creator/select_user/?like_param=<%=@like_param%>&favorite_id=<%=user.id%>">
+                    <% if Favorite.where(user: current_user, favorited_id: user.id).count>0 %>
+                      <i class="fa fa-heart"></i>
+                    <% else %>
+                      <i class="fa fa-heart-o"></i>
+                    <% end %>
+                  </a>
                 </td>
               </tr>
             <% end %>

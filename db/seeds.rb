@@ -10,6 +10,12 @@ u1 = User.create(name: 'Daigo')
 u2 = User.create(name: 'Momochi')
 u3 = User.create(name: 'Fuddo')
 
+#Favorites
+
+Favorite.create(user: u1, favorited_id: u3.id)
+Favorite.create(user: u2, favorited_id: u1.id)
+Favorite.create(user: u2, favorited_id: u3.id)
+
 g1 = Game.create(name: "Street Fighter", image_path: "/assets/game_logos/ultra.png")
   rg11 = RuleGroup.create(game: g1, name: "Modo de juego")
     r111 = Rule.create(rule_group: rg11, name: "El que gane 2 de 3")
