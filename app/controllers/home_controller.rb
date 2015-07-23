@@ -141,11 +141,11 @@ class HomeController < ApplicationController
   end
 
   def history_sent_smackdowns
-    @smackdowns = Smackdown.where(:player1_id=>current_user.id)
+    @smackdowns = Smackdown.where(:player1_id=>current_user.id).paginate(:page => params[:page], :per_page => 5)
   end
 
   def history_received_smackdowns
-    @smackdowns = Smackdown.where(:player2_id=>current_user.id, :player2_accepted=>[true,false])
+    @smackdowns = Smackdown.where(:player2_id=>current_user.id, :player2_accepted=>[true,false]).paginate(:page => params[:page], :per_page => 5)
   end
 
   def history_judged_smackdowns
