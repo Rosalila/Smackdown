@@ -34,6 +34,11 @@ class DojosController < ApplicationController
 
     respond_to do |format|
       if @dojo.save
+        @user_in_dojo = UserInDojo.new
+        @user_in_dojo.user = current_user
+        @user_in_dojo.dojo = @dojo
+        @user_in_dojo.is_admin = true
+        @user_in_dojo.save
         format.html { redirect_to @dojo, notice: 'Dojo was successfully created.' }
         format.json { render action: 'show', status: :created, location: @dojo }
       else

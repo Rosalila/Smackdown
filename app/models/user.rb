@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :user_playing_games
   has_many :feedbacks
   has_many :favorites
+  has_many :dojos, through: :user_in_dojos
+  has_many :user_in_dojos
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

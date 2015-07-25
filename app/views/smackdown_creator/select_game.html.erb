@@ -31,7 +31,7 @@
   <% receiving_smackdown = true %>
   <% if userIsPlayingGame(@user.id,game.id) %>
     <div align="center">
-      <%= link_to image_tag(game.image_path, :class => "resizable_image", :align => "center"), {:controller => "smackdown_creator", :action => "select_judge", :game_id => game.id, :user_id =>@user.id }%>
+      <%= link_to image_tag(game.image_path, :class => "resizable_image", :align => "center"), {:controller => "smackdown_creator", :action => "select_judge", :game_id => game.id, :user_id =>@user.id, :dojo_id => @dojo.id }%>
     </div>
     </br>
   <% end %>

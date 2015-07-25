@@ -16,10 +16,12 @@ class SmackdownCreatorController < ApplicationController
 
   def select_game
     @user = User.find(params[:user_id])
+    @dojo = Dojo.find(params[:dojo_id])
   end
 
   def select_judge
     @user = User.find(params["user_id"])
+    @dojo = Dojo.find(params[:dojo_id])
     @game = Game.find(params["game_id"])
     @favorite_id = params["favorite_id"]
 
@@ -37,6 +39,7 @@ class SmackdownCreatorController < ApplicationController
 
   def select_rules
     @user = User.find(params[:user_id])
+    @dojo = Dojo.find(params[:dojo_id])
     @game = Game.find(params[:game_id])
     @judge = User.find(params[:judge_id])
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722234216) do
+ActiveRecord::Schema.define(version: 20150725022556) do
 
   create_table "dojos", force: true do |t|
     t.string   "name"
@@ -101,6 +101,14 @@ ActiveRecord::Schema.define(version: 20150722234216) do
     t.boolean  "judge2_accepted"
     t.text     "judge1_comment"
     t.text     "judge2_comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_in_dojos", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "dojo_id"
+    t.boolean  "is_admin"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

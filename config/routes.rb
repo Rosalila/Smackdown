@@ -1,4 +1,6 @@
 Myapp::Application.routes.draw do
+  resources :user_in_dojos
+
   resources :favorites
 
   resources :dojos
