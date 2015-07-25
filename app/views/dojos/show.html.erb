@@ -56,7 +56,7 @@
         <div class="box box-primary">
           <%@dojo.users.each do |user|%>
             <a href="/smackdown_creator/select_game?user_id=<%=user.id%>&dojo_id=<%=@dojo.id%>">
-              <img height="90" src='http://graph.facebook.com/<%= @dojo.users.first.uid %>/picture?type=normal'/>
+              <img height="90" src='http://graph.facebook.com/<%= user.uid %>/picture?type=normal'/>
             </a>
           <%end%>
           <div class="box-footer">
