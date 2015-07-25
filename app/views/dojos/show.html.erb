@@ -35,28 +35,11 @@
       </div>
       <div class="col-md-9" align="center">
         <div class="box box-primary">
-          <table>
-            <tr>
-              <td>
-                <p>a<p>
-              </td>
-              <td>
-                <p>a<p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="/dojos/<%=@dojo.id%>/edit">
-                  <button type="submit" class="btn btn-primary">Enviar smackdown!</button>
-                </a>
-              </td>
-              <td>
-                <a href="/dojos/<%=@dojo.id%>/edit">
-                  <button type="submit" class="btn btn-primary">Enviar smackdown!</button>
-                </a>
-              </td>
-            </tr>
-          </table>
+          <%@dojo.users.each do |user|%>
+            <a href="/smackdown_creator/select_game?user_id=<%=user.id%>&dojo_id=<%=@dojo.id%>">
+              <img height="90" src='http://graph.facebook.com/<%= @dojo.users.first.uid %>/picture?type=normal'/>
+            </a>
+          <%end%>
         </div>
       </div>
       <div class="col-md-12" align="center">

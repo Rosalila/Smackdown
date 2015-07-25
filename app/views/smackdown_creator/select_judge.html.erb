@@ -17,6 +17,7 @@
           <div class="form-group">
             <input name="user_id" type="hidden" value="<%= @user.id %>" />
             <input name="game_id" type="hidden" value="<%= @game.id %>" />
+            <input name="dojo_id" type="hidden" value="<%= @dojo.id %>" />
             <div class="input-group input-group-sm">
               <input name="like_param" placeholder="Escribe el nombre del juez aqui." type="text" class="form-control">
               <span class="input-group-btn">
@@ -39,12 +40,12 @@
             <tr>
               <td>
                 <% if user.uid!= nil %>
-                  <%= link_to image_tag("http://graph.facebook.com/" + user.uid + "/picture?type=large", :class => "resizable_image"), {:controller => "smackdown_creator", :action => "select_rules", :user_id => @user.id, :game_id => @game.id, :judge_id => user.id }%>
+                  <%= link_to image_tag("http://graph.facebook.com/" + user.uid + "/picture?type=large", :class => "resizable_image"), {:controller => "smackdown_creator", :action => "select_rules", :user_id => @user.id, :dojo_id => @dojo.id, :game_id => @game.id, :judge_id => user.id }%>
                 <% end %>
               </td>
               <td>
-                <%= link_to user.name,{:controller => "smackdown_creator", :action => "select_rules", :user_id => @user.id, :game_id => @game.id, :judge_id => user.id }%>
-                  <a href="/smackdown_creator/select_judge?game_id=<%=@game.id%>&user_id=<%=@user.id%>&like_param=<%=@like_param%>&favorite_id=<%=user.id%>">
+                <%= link_to user.name,{:controller => "smackdown_creator", :action => "select_rules", :user_id => @user.id,:dojo_id => @dojo.id, :game_id => @game.id, :judge_id => user.id }%>
+                  <a href="/smackdown_creator/select_judge?game_id=<%=@game.id%>&user_id=<%=@user.id%>&dojo_id=<%=@dojo.id%>&like_param=<%=@like_param%>&favorite_id=<%=user.id%>">
                     <% if Favorite.where(user: current_user, favorited_id: user.id).count>0 %>
                       <i style="color: #e74c3c" class="fa fa-heart"></i>
                     <% else %>

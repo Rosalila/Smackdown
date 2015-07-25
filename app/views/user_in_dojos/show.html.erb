@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_in_dojo.user_id %>
+</p>
+
+<p>
+  <strong>Dojo:</strong>
+  <%= @user_in_dojo.dojo_id %>
+</p>
+
+<p>
+  <strong>Is admin:</strong>
+  <%= @user_in_dojo.is_admin %>
+</p>
+
+<%= link_to 'Edit', edit_user_in_dojo_path(@user_in_dojo) %> |
+<%= link_to 'Back', user_in_dojos_path %>

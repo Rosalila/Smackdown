@@ -1,0 +1,31 @@
+<h1>Listing user_in_dojos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Dojo</th>
+      <th>Is admin</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_in_dojos.each do |user_in_dojo| %>
+      <tr>
+        <td><%= user_in_dojo.user_id %></td>
+        <td><%= user_in_dojo.dojo_id %></td>
+        <td><%= user_in_dojo.is_admin %></td>
+        <td><%= link_to 'Show', user_in_dojo %></td>
+        <td><%= link_to 'Edit', edit_user_in_dojo_path(user_in_dojo) %></td>
+        <td><%= link_to 'Destroy', user_in_dojo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User in dojo', new_user_in_dojo_path %>
