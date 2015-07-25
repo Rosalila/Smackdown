@@ -72,6 +72,51 @@ class DojosController < ApplicationController
     end
   end
 
+  def manage_users
+    @dojo = Dojo.find_by_id(params[:dojo_id])
+    @like_param = params["like_param"]
+    @remove_admin = params["remove_admin"]
+    @invite_user = params["invite_user"]
+    @kick = params["kick"]
+    if @like_param=="" || @like_param == nil
+      @users=[]
+    else
+      @users=User.where("name LIKE ?" , "%#{@like_param}%")
+    end
+    if @remove_admin!="" && @remove_admin != nil
+      @user_in_dojo = UserInDojo.where(user: User.find_by_id(@remove_admin),dojo: @dojo)[0]
+      @user_in_dojo.is_admin = false
+      @user_in_dojo.save
+    end
+    if @make_admin!="" && @make_admin != nil
+      @user_in_dojo = UserInDojo.where(user: User.find_by_id(@make_admin),dojo: @dojo)[0]
+      @user_in_dojo.is_admin = true
+      @user_in_dojo.save
+    end
+    if @invite_user!="" && @invite_user != nil
+      @dojo_invitation = DojoInvitation.create(user: User.find_by_id(@invite_user),dojo: @dojo,admin_id: current_user.id)
+      @dojo_invitation.save
+    end
+    if @kick!="" && @kick != nil
+      @user_in_dojo = UserInDojo.where(user: User.find_by_id(@kick),dojo: @dojo)[0]
+      @user_in_dojo.destroy
+    end
+  end
+
+  def accept_invitation
+    @dojo_invitation = DojoInvitation.find_by_id(params["dojo_invitation_id"])
+    @dojo = @dojo_invitation.dojo
+    @user_in_dojo = UserInDojo.create(user: current_user,dojo: @dojo_invitation.dojo,is_admin: false)
+    @dojo_invitation.destroy
+    @user_in_dojo.save
+    redirect_to @dojo
+  end
+
+  def decline_invitation
+    @dojo_invitation = DojoInvitation.find_by_id(params["dojo_invitation_id"])
+    @dojo_invitation.destroy
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dojo

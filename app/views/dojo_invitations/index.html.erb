@@ -1,0 +1,31 @@
+<h1>Listing dojo_invitations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Dojo</th>
+      <th>Admin</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dojo_invitations.each do |dojo_invitation| %>
+      <tr>
+        <td><%= dojo_invitation.user_id %></td>
+        <td><%= dojo_invitation.dojo_id %></td>
+        <td><%= dojo_invitation.admin_id %></td>
+        <td><%= link_to 'Show', dojo_invitation %></td>
+        <td><%= link_to 'Edit', edit_dojo_invitation_path(dojo_invitation) %></td>
+        <td><%= link_to 'Destroy', dojo_invitation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dojo invitation', new_dojo_invitation_path %>

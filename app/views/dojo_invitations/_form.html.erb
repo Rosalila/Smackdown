@@ -1,0 +1,29 @@
+<%= form_for(@dojo_invitation) do |f| %>
+  <% if @dojo_invitation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dojo_invitation.errors.count, "error") %> prohibited this dojo_invitation from being saved:</h2>
+
+      <ul>
+      <% @dojo_invitation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :dojo_id %><br>
+    <%= f.number_field :dojo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :admin_id %><br>
+    <%= f.number_field :admin_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
