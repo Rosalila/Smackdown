@@ -106,7 +106,7 @@ class DojosController < ApplicationController
   def accept_invitation
     @dojo_invitation = DojoInvitation.find_by_id(params["dojo_invitation_id"])
     @dojo = @dojo_invitation.dojo
-    @user_in_dojo = UserInDojo.create(user: @dojo_invitation.user,dojo: @dojo_invitation.dojo,is_admin: false)
+    @user_in_dojo = UserInDojo.create(user: current_user,dojo: @dojo_invitation.dojo,is_admin: false)
     @dojo_invitation.destroy
     @user_in_dojo.save
     redirect_to @dojo
