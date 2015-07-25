@@ -30,19 +30,19 @@
                   <td>
                     <a href="/home/visit/<%= user.id %>">
                       <img class="resizable_image" src="http://graph.facebook.com/<%= user.uid %>/picture?type=large"/>
-                   </a>
+                    </a>
                   </td>
                   <td>
                     <a href="/home/visit/<%= user.id %>"><%= user.name%></a>
-<%if current_user %>
-                  <a href="/home/users?like_param=<%=@like_param%>&favorite_id=<%=user.id%>">
-                    <% if Favorite.where(user: current_user, favorited_id: user.id).count>0 %>
-                      <i style="color: #e74c3c" class="fa fa-heart"></i>
-                    <% else %>
-                      <i style="color: #e74c3c" class="fa fa-heart-o"></i>
-                    <% end %>
-                  </a>
-<%end %>
+                    <%if current_user %>
+                      <a href="/home/users?like_param=<%=@like_param%>&favorite_id=<%=user.id%>">
+                        <% if Favorite.where(user: current_user, favorited_id: user.id).count>0 %>
+                          <i style="color: #e74c3c" class="fa fa-heart"></i>
+                        <% else %>
+                          <i style="color: #e74c3c" class="fa fa-heart-o"></i>
+                        <% end %>
+                      </a>
+                    <%end %>
                   </td>
                 </tr>
             <% end %>

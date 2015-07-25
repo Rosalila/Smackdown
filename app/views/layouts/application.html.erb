@@ -126,13 +126,27 @@ folder instead of downloading all of them to reduce the load. -->
                   <% @pending = @pending_respond + @pending_judge %>
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-bell-o"></i>
-                    <span class="label label-danger"><%= @pending.count %></span>
+                    <span class="label label-danger"><%= @pending.count + current_user.dojo_invitations.count %></span>
                   </a>
                   <ul class="dropdown-menu">
-                    <li class="header">Tú tienes <%= @pending.count %> notificaciones</li>
+                    <li class="header">Tú tienes <%= @pending.count + current_user.dojo_invitations.count %> notificaciones</li>
                     <li>
                       <!-- inner menu: contains the actual data -->
                       <ul class="menu">
+                        <% current_user.dojo_invitations.each do |dojo_invitation| %>
+                          <li><!-- start message -->
+                            <a href="/dojos/<%= dojo_invitation.dojo.id %>">
+                              <div class="pull-left">
+                                <img src="http://graph.facebook.com/<%= User.find_by_id(dojo_invitation.admin_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
+                              </div>
+                              <h4>
+                                Invitación a un dojo!
+                                <small><i class="fa fa-clock-o"></i><%= time_ago_in_words(dojo_invitation.created_at) %> ago</small>
+                              </h4>
+                              <p><%= User.find_by_id(dojo_invitation.admin_id).name %> te invitó a <%=dojo_invitation.dojo.name%>.</p>
+                            </a>
+                          </li><!-- end message -->
+                        <% end %>
                         <% @pending_respond.each do |smackdown| %>
                           <li><!-- start message -->
                             <a href="/response_creator/select_accept?smackdown_id=<%= smackdown.id %>">
@@ -143,7 +157,7 @@ folder instead of downloading all of them to reduce the load. -->
                                 Smackdown!
                                 <small><i class="fa fa-clock-o"></i><%= time_ago_in_words(smackdown.created_at) %> ago</small>
                               </h4>
-                              <p><%= User.find_by_id(smackdown.player1_id).name %> te envio un smackdown.</p>
+                              <p><%= User.find_by_id(smackdown.player1_id).name %> te envió un smackdown.</p>
                             </a>
                           </li><!-- end message -->
                         <% end %>
