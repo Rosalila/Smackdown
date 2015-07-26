@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es:
+
   Send: "Enviar"
   Welcome: "Bienvenido"
   Explore: "Explorar"
@@ -59,6 +60,7 @@ es:
   Select_the_rules: "Selecciona las reglas"
   Information: "Información"
   Judge: "Juez"
+  Judge_verb: "Juzgar"
   Challenger: "Retador"
   Judge_1_winner: "Ganador según el juez #1"
   Judge_2_winner: "Ganador según el juez #2"
@@ -97,6 +99,24 @@ es:
   Motto: "Motto"
   Badge: "Medalla"
   enter_information: "ingresa la información"
+  example_dojo_name: "example: Los amigos de Ryu"
+  example_dojo_motto: "example: El que llora pierde"
+  explanation_dojo_image: "Selecciona la imagen principal de tu dojo"
+  explanation_dojo_badge: "Selecciona la medalla y marcador en el mapa de tu dojo"
+  example_dojo_about: "example: Contáctanos para más información."
+  example_dojo_schedule: "example: Todos los fines de semana por las noches."
+  example_dojo_address: "example: Cerca del parque."
+  Click_the_map_to_place_your_dojo: "Haz click en el mapa para ubicar tu dojo"
+  Add_your_dojo: "Agregar tu dojo"
+  Edit_your_dojo: "Editar tu dojo"
+  Do_you_accept_this_Smackdown: "Aceptas este Smackdown"
+  respond_a_smackdown: "responde un smackdown"
+  Do_you_accept_to_judge_this_Smackdown: "Aceptas juzgar este Smackdown"
+  judge_a_smackdown: "juzgar un smackdown"
+  Select_the_winner: "Selecciona al ganador"
+  Select: "Seleccionar"
+  Write_a_comment: "Escribe un comentario"
+  Write_your_comment_ here: "Escribe tu comentario aquí."
 
   time:
      formats:

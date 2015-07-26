@@ -1,7 +1,7 @@
 <section class="content-header">
   <h1>
-    Escribe un comentario
-    <small>juzgar un smackdown</small>
+    <%=t('Write_a_comment')%>
+    <small><%=t('judge_a_smackdown')%></small>
   </h1>
 </section>
 <div class="box">
@@ -14,12 +14,12 @@
             </div>
             <form role="form" accept-charset="UTF-8" action="/home/judge_smackdown" method="get" class="nifty_form">
               <div class="form-group">
-                <textarea name="judge_comment" class="form-control" rows="3" placeholder="Escribe tu comentario aquí..."></textarea>
+                <textarea name="judge_comment" class="form-control" rows="3" placeholder="<%=t('Write_your_comment_here')%>"></textarea>
                 <input name="smackdown_id" type="hidden" value="<%= @smackdown.id %>" />
                 <input name="judge_accepted" type="hidden" value="<%= @accepted %>" />
                 <input name="winner_id" type="hidden" value="<%= @winner.id %>" />
                 <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Juzgar!</button>
+                <button type="submit" class="btn btn-primary"><%=t('Judge_verb')%>!</button>
               </div>
             </form>
           </div>
