@@ -1,7 +1,7 @@
 <section class="content-header">
   <h1>
-    ¿Aceptas este smackdown?
-    <small>responder un smackdown</small>
+    <%=t('Do_you_accept_this_Smackdown')%>?
+    <small><%=t('respond_a_smackdown')%></small>
   </h1>
 </section>
 <div class="box">
@@ -12,10 +12,10 @@
           <div class="box-header" align="center">
             <div class="box-footer">
               <a href="/response_creator/select_judge?smackdown_id=<%=@smackdown.id%>&accepted=true">
-                <button type="submit" class="btn btn-primary">Acceptar</button>
+                <button type="submit" class="btn btn-primary"><%=t('Accept')%></button>
               </a>
               <a href="/response_creator/select_judge?smackdown_id=<%=@smackdown.id%>&accepted=false">
-                <button type="submit" class="btn btn-primary">Rechazar</button>
+                <button type="submit" class="btn btn-primary"><%=t('Reject')%></button>
               </a>
             </div>
           </div>

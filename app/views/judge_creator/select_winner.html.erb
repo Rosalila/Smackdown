@@ -1,7 +1,7 @@
 <section class="content-header">
   <h1>
-    Selecciona al ganador
-    <small>juzgar un smackdown</small>
+    <%=t('Select_the_winner')%>
+    <small><%=t('judge_a_smackdown')%></small>
   </h1>
 </section>
 
@@ -33,7 +33,7 @@
                 <td align="center">
                   <a href="/judge_creator/select_comment?smackdown_id=<%=@smackdown.id%>&accepted=true&winner_id=<%=user1.id%>">
                     <span class="input-group-btn">
-                      <button class="btn btn-info btn-flat" type="submit">Seleccionar!</button>
+                      <button class="btn btn-info btn-flat" type="submit"><%=t('Select')%>!</button>
                     </span>
                   </a>
                 </td>
@@ -42,7 +42,7 @@
                 <td  align="center">
                   <a href="/judge_creator/select_comment?smackdown_id=<%=@smackdown.id%>&accepted=true&winner_id=<%=user2.id%>">
                     <span class="input-group-btn">
-                      <button class="btn btn-info btn-flat" type="submit">Seleccionar!</button>
+                      <button class="btn btn-info btn-flat" type="submit"><%=t('Select')%>!</button>
                     </span>
                   </a>
                 </td>

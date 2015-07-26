@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+
   Send: "Send"
   Welcome: "Welcome"
   Explore: "Explore"
@@ -59,6 +60,7 @@ en:
   Select_the_rules: "Select the rules"
   Information: "Information"
   Judge: "Judge"
+  Judge_verb: "Judge"
   Challenger: "Challenger"
   Judge_1_winner: "Judge #1 winner"
   Judge_2_winner: "Judge #2 winner"
@@ -97,3 +99,21 @@ en:
   Motto: "Motto"
   Badge: "Badge"
   enter_information: "enter information"
+  example_dojo_name: "example: The World Warriors"
+  example_dojo_motto: "example: Salty boys"
+  explanation_dojo_image: "Your dojo\'s main image"
+  explanation_dojo_badge: "Your dojo\'s badge and map marker"
+  example_dojo_about: "example: Contact us for more information."
+  example_dojo_schedule: "example: Every friday night."
+  example_dojo_address: "example: Near the central park."
+  Click_the_map_to_place_your_dojo: "Click the map to place your dojo"
+  Add_your_dojo: "Add your dojo"
+  Edit_your_dojo: "Edit your dojo"
+  Do_you_accept_this_Smackdown: "Do you accept this Smackdown"
+  respond_a_smackdown: "respond a smackdown"
+  Do_you_accept_to_judge_this_Smackdown: "Do you accept to judge this Smackdown"
+  judge_a_smackdown: "judge a smackdown"
+  Select_the_winner: "Select the winner"
+  Select: "Select"
+  Write_a_comment: "Write a comment"
+  Write_your_comment_here: "Write your comment here"
