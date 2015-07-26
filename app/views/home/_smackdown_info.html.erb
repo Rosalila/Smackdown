@@ -1,19 +1,19 @@
 <div class="col-lg-4 col-xs-6">
   <div class="box box-solid box-success">
     <div class="box-header">
-      <h3 class="box-title">Información</h3>
+      <h3 class="box-title"><%=t('Information')%></h3>
     </div>
     <div class="box-body">
       <% smackdown=locals[:smackdown] %>
       <% if smackdown != nil %>
-        <span><b>Enviado en: </b><span>
+        <span><b><%=t('Sent')%>: </b><span>
         <%= l smackdown.created_at.in_time_zone(getCurrentTimeZone), format: :short %>
         </br>
         <div id="div_show_smackdown<%= smackdown.id %>">
-          <span><b>Retador: </b><span>
+          <span><b><%=t('Challenger')%>: </b><span>
           <%= User.find_by_id(smackdown.player1_id).name %>
           </br>
-          <span><b>Oponente: </b><span>
+          <span><b><%=t('Opponent')%>: </b><span>
           <%= User.find_by_id(smackdown.player2_id).name %>
           <% if smackdown.player2_accepted %>
              (aceptado)
@@ -23,7 +23,7 @@
              (pendiente)
           <% end %>
           </br>
-          <span><b>Juez 1: </b><span>
+          <span><b><%=t('Judge')%> #1: </b><span>
           <%= User.find_by_id(smackdown.judge1_id).name %>
           <% if smackdown.judge1_accepted %>
             (aceptado)
@@ -33,7 +33,7 @@
             (pendiente)
           <% end %>
           </br>
-          <span><b>Juez 2: </b><span>
+          <span><b><%=t('Judge')%> #2: </b><span>
           <%= User.find_by_id(smackdown.judge2_id).name if smackdown.judge2_id!=nil %>
           <% if smackdown.judge2_accepted %>
             (aceptado)
@@ -44,16 +44,16 @@
           <% end %>
           </br>
       
-          <span><b>Ganador según el juez 1: </b><span>
+          <span><b><%=t('Judge_1_winner')%>: </b><span>
           <%= User.find_by_id(smackdown.judge1_winner_id).name if smackdown.judge1_winner_id!=nil %>
           </br>
-          <span><b>Ganador según el juez 2: </b><span>
+          <span><b><%=t('Judge_2_winner')%>: </b><span>
           <%= User.find_by_id(smackdown.judge2_winner_id).name if smackdown.judge2_winner_id!=nil %>
           </br>
-          <span><b>Comentario del juez 1: </b><span>
+          <span><b><%=t('Judge_1_comment')%>: </b><span>
           <%= smackdown.judge1_comment %>
           </br>
-          <span><b>Comentario del juez 2: </b><span>
+          <span><b><%=t('Judge_2_comment')%>: </b><span>
           <%= smackdown.judge2_comment %>
           </br>
         </div>

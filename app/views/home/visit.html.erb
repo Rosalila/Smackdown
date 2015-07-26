@@ -1,19 +1,18 @@
 <section class="content-header">
   <h1>
     <% user = User.find_by_id(params[:id].to_i) %>
-    Tú estás visitando a <%= user.name %>
-    <small>envíale un smackdown o compártelos en facebook</small>
+    <%=t('You_are_visiting_a')%> <%= user.name %>
+    <small><%= t('send_a_smackdown_or_share_them_on_facebook') %></small>
   </h1>
 </section>
 
 <div class="box">
   <div class="col-md-12" align="center">
-    <!-- AREA CHART -->
     <div class="box box-primary">
       <a href="/smackdown_creator/select_game?user_id=<%=user.id%>">
-        <button style="background-color: #e74c3c;" type="submit" class="btn btn-primary">Envía un Smackdown a <%=user.name%>!</button>
+        <button style="background-color: #e74c3c;" type="submit" class="btn btn-primary"> <%=t('Send_a_Smackdown_to')%> <%=user.name%>!</button>
       </a>
-    </div><!-- /.box -->
+    </div>
     </br>
   </div><!-- /.col (LEFT) -->           
   <!-- GLOBAL STREAK -->
@@ -24,8 +23,8 @@
 
   <% if current_user_streak!=0 || user_streak!=0 %>
     <div class="row" align="center">
-      <%= render '/home/visit_piechart', :locals => {:user => user} %>
       <%= render '/home/visit_linechart', :locals => {:player1 => current_user,:player2 => user} %>
+      <%= render '/home/visit_piechart', :locals => {:user => user} %>
       <div class="col-md-8 col-sm-10 col-xs-12" align="center">
         <div class="info-box">
           <span class="info-box-icon bg-blue"><i class="fa fa-globe"></i></span>
@@ -49,12 +48,12 @@
                 <tr>
                   <td>
                   </td>
-                  <td colspan="2" align="center">
-                    <span class="info-box-text" align="center">Diferencia</span>
+                  <td colspan="2" align="center" style="<%= current_user_difference>=0 ? 'color: #00A65A' : 'color: #DD4B39' %>">
+                    <span class="info-box-text" align="center"><%=t('Difference')%>fsd</span>
                     <span class="info-box-number" align="center"><%= current_user_difference %></span>
                   </td>
                   <td align="center">
-                    <span class="info-box-text" align="center">Racha</span>
+                    <span class="info-box-text" align="center"><%=t('Streak')%></span>
                     <span class="info-box-number" align="center"><%= current_user_streak %></span>
                   </td>
                 </tr>
@@ -79,12 +78,12 @@
                 </tr>
                 <tr>
                   <td align="center">
-                    <span class="info-box-text" align="center">Racha</span>
+                    <span class="info-box-text" align="center"><%=t('Streak')%></span>
                     <span class="info-box-number" align="center"><%= user_streak %></span>
                   </td>
-                  <td colspan="2" align="center">
-                    <span class="info-box-text" align="center">Diferencia</span>
-                    <span class="info-box-number" align="center"><%= current_user_difference %></span>
+                  <td colspan="2" align="center" style="<%= current_user_difference>=0 ? 'color: #00A65A' : 'color: #DD4B39' %>">
+                      <span class="info-box-text" align="center"><%=t('Difference')%></span>
+                      <span class="info-box-number" align="center"><%= current_user_difference %></span>
                   </td>
                   <td>
                   </td>
@@ -133,12 +132,12 @@
                 <tr>
                   <td>
                   </td>
-                  <td colspan="2" align="center">
-                    <span class="info-box-text" align="center">Diferencia</span>
+                  <td colspan="2" align="center" style="<%= current_user_difference>=0 ? 'color: #00A65A' : 'color: #DD4B39' %>">
+                    <span class="info-box-text" align="center"><%=t('Difference')%></span>
                     <span class="info-box-number" align="center"><%= difference_game %></span>
                   </td>
                   <td align="center">
-                    <span class="info-box-text" align="center">Racha</span>
+                    <span class="info-box-text" align="center"><%=t('Streak')%></span>
                     <span class="info-box-number" align="center"><%= current_user_streak_game %></span>
                   </td>
                 </tr>
@@ -163,11 +162,11 @@
                 </tr>
                 <tr>
                   <td align="center">
-                    <span class="info-box-text" align="center">Racha</span>
+                    <span class="info-box-text" align="center"><%=t('Streak')%></span>
                     <span class="info-box-number" ><%= user_streak_game %></span>
                   </td>
-                  <td colspan="2" align="center">
-                    <span class="info-box-text" align="center">Diferencia</span>
+                  <td colspan="2" align="center" style="<%= current_user_difference>=0 ? 'color: #00A65A' : 'color: #DD4B39' %>">
+                    <span class="info-box-text" align="center"><%=t('Difference')%></span>
                     <span class="info-box-number" align="center"><%= difference_game %></span>
                   </td>
                   <td>
