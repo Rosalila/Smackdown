@@ -23,7 +23,7 @@
                     <% if @like_param!= "" && @like_param!= nil%>
                       <input name="like_param" placeholder="<%=@like_param%>" type="text" class="form-control">
                     <% else %>
-                      <input name="like_param" placeholder="Escribe el nombre del usuario aqui." type="text" class="form-control">
+                      <input name="like_param" placeholder="<%=t('Type_the_opponent_name_here')%>." type="text" class="form-control">
                     <% end %>
                     <span class="input-group-btn">
                       <button class="btn btn-info btn-flat" type="submit"><%=t('Search')%>!</button>
