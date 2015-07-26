@@ -109,9 +109,11 @@ folder instead of downloading all of them to reduce the load. -->
             <span class="sr-only">Toggle navigation</span>
           </a>
           <!-- Navigation notificacions todo -->
-          <a href="/smackdown_creator/select_user">
-            <button style="background-color: #e74c3c;position: absolute;top: 0; bottom:0; left: 0; right:0;margin: auto;" type="submit" class="btn btn-primary"><%= t('Send') %> Smackdown!</button>
-          </a>
+          <%if current_user%>
+            <a href="/smackdown_creator/select_user">
+              <button style="background-color: #e74c3c;position: absolute;top: 0; bottom:0; left: 0; right:0;margin: auto;" type="submit" class="btn btn-primary"><%= t('Send') %> Smackdown!</button>
+            </a>
+          <%end%>
 
             <div class="navbar-custom-menu">
 
