@@ -1,8 +1,8 @@
 <section class="content-header">
   <h1>
     <% user = User.find_by_id(params[:id].to_i) %>
-    Miembros de <%= @dojo.name %>
-    <small>administra los usuarios</small>
+    <%=t('Miembros_de_es_only')%> <%= @dojo.name %> <%=t('members_en_only')%>
+    <small><%=t('manage_the_members')%></small>
   </h1>
 </section>
 <div class="box">
@@ -11,8 +11,8 @@
       <table id="example1" class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th>Imagen</th>
-            <th>Nombre</th>
+            <th><%=t('Image')%></th>
+            <th><%=t('Name')%></th>
           </tr>
         </thead>
         <tbody>
@@ -29,15 +29,15 @@
                   </a>
                   <% if UserInDojo.where(user: user,dojo: @dojo)[0].is_admin %>
                     <a href="/dojos/manage_users?dojo_id=<%=@dojo.id%>&remove_admin=<%=user.id%>">
-                      <button type="submit" class="btn btn-primary">Quitar admin</button>
+                      <button type="submit" class="btn btn-primary"><%=t('Remove_administrator')%></button>
                     </a>
                   <%else%>
                     <a href="/dojos/manage_users?dojo_id=<%=@dojo.id%>&make_admin=<%=user.id%>">
-                      <button type="submit" class="btn btn-primary">Hacer admin</button>
+                      <button type="submit" class="btn btn-primary"><%=t('Make_administrator')%></button>
                     </a>
                   <%end%>
               <a href="/dojos/manage_users?dojo_id=<%=@dojo.id%>&kick=<%=user.id%>">
-                <button type="submit" class="btn btn-primary">Desterrar</button>
+                <button type="submit" class="btn btn-primary"><%=t('Kick')%></button>
               </a>
                 </td>
               </tr>
@@ -45,22 +45,22 @@
         </tbody>
         <tfoot>
           <tr>
-            <th>Imagen</th>
-            <th>Nombre</th>
+            <th><%=t('Image')%></th>
+            <th><%=t('Name')%></th>
           </tr>
         </tfoot>
       </table>
     </div>
-
-
-<h2>Agrega nuevos miembros</h2>
+    <div class="col-md-12">
+      <h2><%=t('Add_new_members')%></h2>
+    </div>
     <div class="col-md-12">
       <form role="form" accept-charset="UTF-8" action="/dojos/manage_users" method="get" class="nifty_form">
         <div class="input-group input-group-sm">
-          <input name="dojo_id" value="<%=@dojo.id%>" placeholder="Escribe el nombre del usuario aqui." type="hidden" class="form-control">
-          <input name="like_param" placeholder="Escribe el nombre del usuario aqui." type="text" class="form-control">
+          <input name="dojo_id" value="<%=@dojo.id%>" type="hidden" class="form-control">
+          <input name="like_param" placeholder="<%=t('Type_the_user_name_here')%>." type="text" class="form-control">
           <span class="input-group-btn">
-            <button class="btn btn-info btn-flat" type="submit">Buscar!</button>
+            <button class="btn btn-info btn-flat" type="submit"><%=t('Search')%>!</button>
           </span>
         </div>
       </form>
@@ -72,8 +72,8 @@
       <table id="example1" class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th>Imagen</th>
-            <th>Nombre</th>
+            <th><%=t('Image')%></th>
+            <th><%=t('Name')%></th>
           </tr>
         </thead>
         <tbody>
@@ -89,7 +89,7 @@
                   <%= link_to user.name,{:controller => "home", :action => "respond_smackdown" }%>
 
               <a href="/dojos/manage_users?dojo_id=<%=@dojo.id%>&invite_user=<%=user.id%>">
-                <button type="submit" class="btn btn-primary">Agregar</button>
+                <button type="submit" class="btn btn-primary"><%=t('Add')%></button>
               </a>
 
 
@@ -100,8 +100,8 @@
         </tbody>
         <tfoot>
           <tr>
-            <th>Imagen</th>
-            <th>Nombre</th>
+            <th><%=t('Image')%></th>
+            <th><%=t('Name')%></th>
           </tr>
         </tfoot>
       </table>

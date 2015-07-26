@@ -4,7 +4,7 @@
 <section class="content-header">
   <h1>
     <%= @dojo.name %> "<%= @dojo.motto %>"<img src="<%= @dojo.badge_image %>"/>
-    <small>tú estás visitando un dojo</small>
+    <small><%=t('you_are_visiting_a_dojo')%></small>
   </h1>
 </section>
 
@@ -17,14 +17,15 @@
       <div class="col-lg-12 col-xs-12">
         <div class="box box-primary">
           <div class="box-header" align="center">
-            <div class="box-footer">
-              <a href="/dojos/accept_invitation?dojo_invitation_id=<%=dojo_invitation.id%>">
-                <button type="submit" class="btn btn-primary">Acceptar</button>
-              </a>
-              <a href="/dojos/decline_invitation?dojo_invitation_id=<%=dojo_invitation.id%>">
-                <button type="submit" class="btn btn-primary">Rechazar</button>
-              </a>
-            </div>
+            <h2><%=t('Do_you_want_to_join_this_dojo')%>?</h2>
+          </div>
+          <div class="box-footer" align="center">
+            <a href="/dojos/accept_invitation?dojo_invitation_id=<%=dojo_invitation.id%>">
+              <button type="submit" class="btn btn-primary"><%=t('Accept')%></button>
+            </a>
+            <a href="/dojos/decline_invitation?dojo_invitation_id=<%=dojo_invitation.id%>">
+              <button type="submit" class="btn btn-primary"><%=t('Reject')%></button>
+            </a>
           </div>
         </div>
       </div>
@@ -39,15 +40,15 @@
       <div class="col-md-3" align="center">
         <div class="box box-primary">
           <p>
-            <strong>Descripción:</strong>
+            <strong><%=t('About')%>:</strong>
             <%= @dojo.about %>
           </p>
           <p>
-            <strong>Horario:</strong>
+            <strong><%=t('Schedule')%>:</strong>
             <%= @dojo.schedule %>
           </p>
           <p>
-            <strong>Dirección:</strong>
+            <strong><%=t('Address')%>:</strong>
             <%= @dojo.public_address %>
           </p>
         </div>
@@ -61,7 +62,7 @@
           <%end%>
           <div class="box-footer">
             <a href="/dojos/manage_users?dojo_id=<%=@dojo.id%>">
-              <button type="submit" class="btn btn-primary">Administrar usuarios</button>
+              <button type="submit" class="btn btn-primary"><%=t('Manage_users')%></button>
             </a>
           </div>
         </div>
@@ -76,7 +77,7 @@
       <div class="col-md-12" align="center">
         <div class="box box-primary">
            <a href="/dojos/<%=@dojo.id%>/edit">
-            <button type="submit" class="btn btn-primary">Editar</button>
+            <button type="submit" class="btn btn-primary"><%=t('Edit')%></button>
            </a>
         </div>
       </div>

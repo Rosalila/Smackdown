@@ -15,7 +15,19 @@ class DojosController < ApplicationController
   # GET /dojos/new
   def new
     @dojo = Dojo.new
-    my_address = Geocoder.search("190.124.164.129")
+    my_address = Geocoder.search(request.env['REMOTE_ADDR'])
+    if !my_address
+      my_address = Geocoder.search(request.env['REMOTE_ADDR'])
+    end
+    if !my_address
+      my_address = Geocoder.search(request.env['REMOTE_ADDR'])
+    end
+    if !my_address
+      my_address = Geocoder.search(request.env['REMOTE_ADDR'])
+    end
+    if !my_address
+      my_address = Geocoder.search(request.env['REMOTE_ADDR'])
+    end
     @dojo.latitude = my_address[0].latitude
     @dojo.longitude = my_address[0].longitude
   end
