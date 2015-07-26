@@ -59,7 +59,7 @@
                   <input name="opponent_id" type="hidden" value="<%= @user.id %>" />
                   <input name="judge_id" type="hidden" value="<%= @judge.id %>" />
                   <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Enviar Smackdown!</button>
+                    <button type="submit" class="btn btn-primary"><%=t('Send')%>!</button>
                   </div>
                 <% else %>
                   <p><%= @user.name %> no ha seleccionado al menos una regla de cada grupo para poder jugar <%= @game.name %>.</p>
