@@ -42,6 +42,12 @@ es:
   My_games: "Mis juegos"
   Sign_out: "Cerrar sesión"
   find_opponents_all_around_the_world: "encuentra opponentes al rededor del mundo"
+  Type_the_user_name_here: "Escribe el nombre del usuario aquí"
+  Search: "Buscar"
+  Image: "Imagen"
+  Name: "Nombre"
+  Add_your_dojo: "Agrega tu dojo"
+  Show: "Ver"
 
   time:
      formats:
