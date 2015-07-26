@@ -121,6 +121,16 @@ folder instead of downloading all of them to reduce the load. -->
 
                 <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
+                  <a href="/?locale=es" class="dropdown-toggle">
+                    ES
+                  </a>
+                </li>
+                <li class="dropdown messages-menu">
+                  <a href="/?locale=en" class="dropdown-toggle">
+                    EN
+                  </a>
+                </li>
+                <li class="dropdown messages-menu">
                   <% @pending_respond = pendingRespond %>
                   <% @pending_judge = pendingJudge %>
                   <% @pending = @pending_respond + @pending_judge %>
@@ -351,17 +361,17 @@ folder instead of downloading all of them to reduce the load. -->
           <ul class="sidebar-menu">
             <li>
               <a href="/home/explore">
-                <i class="fa fa-th"></i> <span>Explorar</span>
+                <i class="fa fa-th"></i> <span><%= t('Explore')%></span>
               </a>
             </li>
             <li class="active treeview">
               <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Mi historial</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-dashboard"></i> <span><%= t('MyHistory') %></span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li class="active"><a href="/home/history_sent_smackdowns"><i class="fa fa-circle-o"></i>Enviados</a></li>              
-                <li class="active"><a href="/home/history_received_smackdowns"><i class="fa fa-circle-o"></i>Recibidos</a></li>              
-                <li class="active"><a href="/home/history_judged_smackdowns"><i class="fa fa-circle-o"></i>Juzgados</a></li>              
+                <li class="active"><a href="/home/history_sent_smackdowns"><i class="fa fa-circle-o"></i><%=t('Sent')%></a></li>              
+                <li class="active"><a href="/home/history_received_smackdowns"><i class="fa fa-circle-o"></i><%=t('Received')%></a></li>              
+                <li class="active"><a href="/home/history_judged_smackdowns"><i class="fa fa-circle-o"></i><%=t('Judged')%></a></li>              
               </ul>
             </li> 
 
