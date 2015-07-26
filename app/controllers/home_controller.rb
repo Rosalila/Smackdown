@@ -120,6 +120,13 @@ class HomeController < ApplicationController
   def explore
     @like_param = params["like_param"]
     @favorite_id = params["favorite_id"]
+    @locale = params["locale"]
+
+    if @locale == "es"
+      I18n.locale = :es
+    elsif @locale == "en"
+      I18n.locale = :en
+    end
 
     if @favorite_id != "" && @favorite_id != nil
       current_user.toggleFavorite @favorite_id

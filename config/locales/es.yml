@@ -19,9 +19,15 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  Explore: "Explore"
-  MyHistory: "My History"
-  Sent: "Sent"
-  Received: "Received"
-  Judged: "Judged"
+es:
+  Explore: "Explorar"
+  MyHistory: "Mi Historial"
+  Sent: "Enviados"
+  Received: "Recibidos"
+  Judged: "Juzgados"
+
+  time:
+     formats:
+       default: "%Y/%m/%d"
+       short: "%b %d"
+       long: "%B %d, %Y"
