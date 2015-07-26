@@ -18,34 +18,34 @@
   <% end %>
 
   <div class="field">
-    <label>Nombre</label>
+    <label><%=t('Name')%></label>
     <input class="form-control input-lg" type="text" placeholder="ejemplo: The World Warriors" name="dojo[name]" value="<%=@dojo.name%>">
   </div>
   <div class="field">
-    <label>Lema</label>
+    <label><%=t('Motto')%></label>
     <input class="form-control" type="text" placeholder="ejemplo: No mercy" name="dojo[motto]" value="<%=@dojo.motto%>"><%@dojo.motto%></input>
   </div>
   <div class="field">
-    <label>Imagen</label>
+    <label><%=t('Image')%></label>
     <%= f.file_field :main_image %>
     <p class="help-block">Imagen principal de tu dojo.</p>
   </div>
   <div class="field">
-    <label>Medalla</label>
+    <label><%=t('Badge')%></label>
     <%= f.file_field :badge_image %>
     <p class="help-block">Medalla y marca en el mapa de tu dojo.</p>
   </div>
   </div>
   <div class="field">
-    <label>Descripción</label>
+    <label><%=t('About')%></label>
     <textarea class="form-control" rows="3" placeholder="ejemplo: Si no quieres perder, no jueges." name="dojo[about]"><%=@dojo.about%></textarea>
   </div>
   <div class="field">
-    <label>Horario</label>
+    <label><%=t('Schedule')%></label>
     <textarea class="form-control" rows="3" placeholder="ejemplo: Todos los fines de semana en la noche." name="dojo[schedule]"><%=@dojo.schedule%></textarea>
   </div>
   <div class="field">
-    <label>Dirección</label>
+    <label><%=t('Address')%></label>
     <textarea class="form-control" rows="3" placeholder="ejemplo: Barrio La Planeta, ultimo pasaje al fondo. Contiguo la quebrada." name="dojo[public_address]"><%=@dojo.public_address%></textarea>
   </div>
   <div class="field">
