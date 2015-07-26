@@ -110,7 +110,7 @@ folder instead of downloading all of them to reduce the load. -->
           </a>
           <!-- Navigation notificacions todo -->
           <a href="/smackdown_creator/select_user">
-            <button style="background-color: #e74c3c;position: absolute;top: 0; bottom:0; left: 0; right:0;margin: auto;" type="submit" class="btn btn-primary">Enviar smackdown!</button>
+            <button style="background-color: #e74c3c;position: absolute;top: 0; bottom:0; left: 0; right:0;margin: auto;" type="submit" class="btn btn-primary"><%= t('Send') %> Smackdown!</button>
           </a>
 
             <div class="navbar-custom-menu">
@@ -139,7 +139,7 @@ folder instead of downloading all of them to reduce the load. -->
                     <span class="label label-danger"><%= @pending.count + current_user.dojo_invitations.count %></span>
                   </a>
                   <ul class="dropdown-menu">
-                    <li class="header">Tú tienes <%= @pending.count + current_user.dojo_invitations.count %> notificaciones</li>
+                    <li class="header"><%=t('You_have')%> <%= @pending.count + current_user.dojo_invitations.count %> <%=t('notifications')%></li>
                     <li>
                       <!-- inner menu: contains the actual data -->
                       <ul class="menu">
@@ -150,10 +150,10 @@ folder instead of downloading all of them to reduce the load. -->
                                 <img src="http://graph.facebook.com/<%= User.find_by_id(dojo_invitation.admin_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
                               </div>
                               <h4>
-                                Invitación a un dojo!
+                                <%=t('Dojo_invitation')%>
                                 <small><i class="fa fa-clock-o"></i><%= time_ago_in_words(dojo_invitation.created_at) %> ago</small>
                               </h4>
-                              <p><%= User.find_by_id(dojo_invitation.admin_id).name %> te invitó a <%=dojo_invitation.dojo.name%>.</p>
+                              <p><%= User.find_by_id(dojo_invitation.admin_id).name %> <%=t('invited_you_to')%> <%=dojo_invitation.dojo.name%>.</p>
                             </a>
                           </li><!-- end message -->
                         <% end %>
@@ -167,7 +167,7 @@ folder instead of downloading all of them to reduce the load. -->
                                 Smackdown!
                                 <small><i class="fa fa-clock-o"></i><%= time_ago_in_words(smackdown.created_at) %> ago</small>
                               </h4>
-                              <p><%= User.find_by_id(smackdown.player1_id).name %> te envió un smackdown.</p>
+                              <p><%= User.find_by_id(smackdown.player1_id).name %> <%=t('sent_you_a')%> smackdown.</p>
                             </a>
                           </li><!-- end message -->
                         <% end %>
@@ -186,11 +186,11 @@ folder instead of downloading all of them to reduce the load. -->
                                 <small><i class="fa fa-clock-o"></i><%= time_ago_in_words(smackdown.created_at) %> ago</small>
                               </h4>
                               <% if smackdown.judge1_id == current_user.id && smackdown.judge2_id == current_user.id %>
-                                <p><%= User.find_by_id(smackdown.player1_id).name %> y <%= User.find_by_id(smackdown.player2_id).name %> te solicitaron ser juez.</p>
+                                <p><%= User.find_by_id(smackdown.player1_id).name %> y <%= User.find_by_id(smackdown.player2_id).name %> <%=t('asked_you_to_judge_plural')%>.</p>
                               <% elsif smackdown.judge1_id == current_user.id %>
-                                <p><%= User.find_by_id(smackdown.player1_id).name %> te solocitó ser juez.</p>
+                                <p><%= User.find_by_id(smackdown.player1_id).name %> <%=t('asked_you_to_judge')%>.</p>
                               <% else %>
-                                <p><%= User.find_by_id(smackdown.player2_id).name %> te solocitó ser juez.</p>
+                                <p><%= User.find_by_id(smackdown.player2_id).name %> <%=t('asked_you_to_judge')%>.</p>
                               <% end %>
                             </a>
                           </li><!-- end message -->
@@ -214,7 +214,7 @@ folder instead of downloading all of them to reduce the load. -->
                     <span class="label label-warning"><%= @waiting.count %></span>
                   </a>
                   <ul class="dropdown-menu">
-                    <li class="header">Tú estás esperando <%= @waiting.count %> respuestas</li>
+                    <li class="header"><%= t('You_are_wating') %> <%= @waiting.count %> <%=t('answers')%></li>
                     <li>
                       <!-- inner menu: contains the actual data -->
                       <ul class="menu">
@@ -225,10 +225,10 @@ folder instead of downloading all of them to reduce the load. -->
                                 <img src="http://graph.facebook.com/<%= User.find_by_id(smackdown.player2_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
                               </div>
                               <h4>
-                                Oponente!
+                                <%= t('Opponent') %>!
                                 <small><i class="fa fa-clock-o"></i><%= time_ago_in_words(smackdown.created_at) %> ago</small>
                               </h4>
-                              <p>Tú estas esperando a <%= User.find_by_id(smackdown.player2_id).name %></p>
+                              <p><%=t('You_are_wating_a')%> <%= User.find_by_id(smackdown.player2_id).name %></p>
                             </a>
                           </li><!-- end message -->
                         <% end %>
@@ -240,10 +240,10 @@ folder instead of downloading all of them to reduce the load. -->
                                   <img src="http://graph.facebook.com/<%= User.find_by_id(smackdown.judge1_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
                                 </div>
                                 <h4>
-                                  Juicio!
+                                  <%=t('Judgement')%>!
                                   <small><i class="fa fa-clock-o"></i><%= time_ago_in_words(smackdown.created_at) %> ago</small>
                                 </h4>
-                                <p>Tú estás esperando a <%= User.find_by_id(smackdown.judge1_id).name %></p>
+                                <p><%=t('You_are_wating_a')%> <%= User.find_by_id(smackdown.judge1_id).name %></p>
                               <% elsif smackdown.judge1_accepted == nil && smackdown.judge2_accepted == nil %>
                                 <div class="pull-left">
                                   <img src="http://graph.facebook.com/<%= User.find_by_id(smackdown.judge1_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
@@ -252,7 +252,7 @@ folder instead of downloading all of them to reduce the load. -->
                                   Juicio!
                                   <small><i class="fa fa-clock-o"></i><%= time_ago_in_words(smackdown.created_at) %> ago</small>
                                 </h4>
-                                <p>Tú estás esperando a <%= User.find_by_id(smackdown.judge1_id).name %> y a <%= User.find_by_id(smackdown.judge2_id).name %></p>
+                                <p><%=t('You_are_wating_a')%> <%= User.find_by_id(smackdown.judge1_id).name %> y a <%= User.find_by_id(smackdown.judge2_id).name %></p>
                               <% elsif smackdown.judge1_accepted == nil %>
                                 <div class="pull-left">
                                   <img src="http://graph.facebook.com/<%= User.find_by_id(smackdown.judge1_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
@@ -261,7 +261,7 @@ folder instead of downloading all of them to reduce the load. -->
                                   Juicio!
                                   <small><i class="fa fa-clock-o"></i><%= time_ago_in_words(smackdown.created_at) %> ago</small>
                                 </h4>
-                                <p>Tú estás esperando a <%= User.find_by_id(smackdown.judge1_id).name %></p>
+                                <p><%=t('You_are_wating_a')%> <%= User.find_by_id(smackdown.judge1_id).name %></p>
                               <% else %>
                                 <div class="pull-left">
                                   <img src="http://graph.facebook.com/<%= User.find_by_id(smackdown.judge2_id).uid %>/picture?type=small" class="img-circle" alt="User Image"/>
@@ -270,7 +270,7 @@ folder instead of downloading all of them to reduce the load. -->
                                   Juicio!
                                   <small><i class="fa fa-clock-o"></i><%= time_ago_in_words(smackdown.created_at) %> ago</small>
                                 </h4>
-                                <p>Tú estás esperando a <%= User.find_by_id(smackdown.judge2_id).name %></p>
+                                <p><%=t('You_are_wating_a')%> <%= User.find_by_id(smackdown.judge2_id).name %></p>
                               <% end %>
                             </a>
                           </li><!-- end message -->
@@ -315,10 +315,10 @@ folder instead of downloading all of them to reduce the load. -->
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="/home/profile" class="btn btn-default btn-flat">Mis juegos</a>
+                      <a href="/home/profile" class="btn btn-default btn-flat"><%=t('My_games')%></a>
                     </div>
                     <div class="pull-right">
-                      <a href="<%= signout_path %>" class="btn btn-default btn-flat">Cerrar sesion</a>
+                      <a href="<%= signout_path %>" class="btn btn-default btn-flat"><%=t('Sign_out')%></a>
                     </div>
                   </li>
                 </ul>
@@ -354,7 +354,7 @@ folder instead of downloading all of them to reduce the load. -->
             </div>
             -->
               <div class="pull-left info">
-                <p>Bienvenido <%= current_user.name %></p>
+                <p><%= t('Welcome')%> <%= current_user.name %></p>
               </div>
           </div>
           <!-- sidebar menu: : style can be found in sidebar.less -->

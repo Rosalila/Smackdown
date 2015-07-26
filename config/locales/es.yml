@@ -20,11 +20,28 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es:
+  Send: "Enviar"
+  Welcome: "Bienvenido"
   Explore: "Explorar"
   MyHistory: "Mi Historial"
   Sent: "Enviados"
   Received: "Recibidos"
   Judged: "Juzgados"
+  You_have: "Tú tienes"
+  notifications: "notificaciones"
+  Dojo_invitation: "Invitación a un dojo!"
+  invited_you_to: "te invitó a"
+  sent_you_a: "te envió un"
+  asked_you_to_judge: "te solocitó ser juez"
+  asked_you_to_judge_plural: "te solocitaron ser juez"
+  You_are_wating: "Tú estás esperando"
+  answers: "respuestas"
+  Opponent: "Oponente"
+  You_are_wating_a: "Tú estás esperando a"
+  Judgement: "Juicio"
+  My_games: "Mis juegos"
+  Sign_out: "Cerrar sesión"
+  find_opponents_all_around_the_world: "encuentra opponentes al rededor del mundo"
 
   time:
      formats:
