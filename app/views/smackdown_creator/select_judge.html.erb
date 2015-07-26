@@ -1,7 +1,7 @@
 <section class="content-header">
   <h1>
-    Selecciona un juez
-    <small>enviar un smackdown</small>
+    <%=t('Select_the_judge')%>
+    <small><%=t('send_a_smackdown')%></small>
   </h1>
 <div class="progress">
   <div class="progress-bar progress-bar-striped active" role="progressbar"
@@ -17,11 +17,13 @@
           <div class="form-group">
             <input name="user_id" type="hidden" value="<%= @user.id %>" />
             <input name="game_id" type="hidden" value="<%= @game.id %>" />
-            <input name="dojo_id" type="hidden" value="<%= @dojo.id %>" />
+            <%if @dojo%>
+              <input name="dojo_id" type="hidden" value="<%= @dojo.id %>" />
+            <%end%>
             <div class="input-group input-group-sm">
-              <input name="like_param" placeholder="Escribe el nombre del juez aqui." type="text" class="form-control">
+              <input name="like_param" placeholder="<%=t('Type_the_judge_name_here')%>." type="text" class="form-control">
               <span class="input-group-btn">
-                <button class="btn btn-info btn-flat" type="submit">Buscar!</button>
+                <button class="btn btn-info btn-flat" type="submit"><%=t('Search')%>!</button>
               </span>
             </div>
           </div>
@@ -30,8 +32,8 @@
     <table id="example1" class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>Imagen</th>
-          <th>Nombre</th>
+          <th><%=t('Image')%></th>
+          <th><%=t('Name')%></th>
         </tr>
       </thead>
       <tbody>
@@ -40,12 +42,21 @@
             <tr>
               <td>
                 <% if user.uid!= nil %>
-                  <%= link_to image_tag("http://graph.facebook.com/" + user.uid + "/picture?type=large", :class => "resizable_image"), {:controller => "smackdown_creator", :action => "select_rules", :user_id => @user.id, :dojo_id => @dojo.id, :game_id => @game.id, :judge_id => user.id }%>
+                  <%if @dojo%>
+                    <%= link_to image_tag("http://graph.facebook.com/" + user.uid + "/picture?type=large", :class => "resizable_image"), {:controller => "smackdown_creator", :action => "select_rules", :user_id => @user.id, :dojo_id => @dojo.id, :game_id => @game.id, :judge_id => user.id }%>
+                  <%else%>
+                    <%= link_to image_tag("http://graph.facebook.com/" + user.uid + "/picture?type=large", :class => "resizable_image"), {:controller => "smackdown_creator", :action => "select_rules", :user_id => @user.id, :game_id => @game.id, :judge_id => user.id }%>
+                  <%end%>
                 <% end %>
               </td>
               <td>
-                <%= link_to user.name,{:controller => "smackdown_creator", :action => "select_rules", :user_id => @user.id,:dojo_id => @dojo.id, :game_id => @game.id, :judge_id => user.id }%>
+                <%if @dojo%>
+                  <%= link_to user.name,{:controller => "smackdown_creator", :action => "select_rules", :user_id => @user.id,:dojo_id => @dojo.id, :game_id => @game.id, :judge_id => user.id }%>
                   <a href="/smackdown_creator/select_judge?game_id=<%=@game.id%>&user_id=<%=@user.id%>&dojo_id=<%=@dojo.id%>&like_param=<%=@like_param%>&favorite_id=<%=user.id%>">
+                <%else%>
+                <%= link_to user.name,{:controller => "smackdown_creator", :action => "select_rules", :user_id => @user.id, :game_id => @game.id, :judge_id => user.id }%>
+                  <a href="/smackdown_creator/select_judge?game_id=<%=@game.id%>&user_id=<%=@user.id%>&like_param=<%=@like_param%>&favorite_id=<%=user.id%>">
+                <%end%>
                     <% if Favorite.where(user: current_user, favorited_id: user.id).count>0 %>
                       <i style="color: #e74c3c" class="fa fa-heart"></i>
                     <% else %>
@@ -59,8 +70,8 @@
       </tbody>
       <tfoot>
         <tr>
-          <th>Imagen</th>
-          <th>Nombre</th>
+          <th><%=t('Image')%></th>
+          <th><%=t('Name')%></th>
         </tr>
       </tfoot>
     </table>

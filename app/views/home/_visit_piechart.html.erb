@@ -5,9 +5,6 @@
             <div class="col-md-6">
               <!-- DONUT CHART -->
               <div class="box box-danger">
-                <div class="box-header">
-                  <h3 class="box-title">Donut Chart</h3>
-                </div>
                 <div class="box-body">
                   <div class="chart-responsive">
                     <canvas id="pieChart" height="250"></canvas>
@@ -40,43 +37,43 @@
             value: <%= stats_hash['user1_ganadas'] %>,
             color: "#00a65a",
             highlight: "#00a65a",
-            label: '<%= current_user.name %> ganadas'
+            label: '<%= current_user.name %> <%=t('won_plural')%>'
           },
           {
             value: <%= stats_hash['user2_ganadas']%>,
             color: "#f56954",
             highlight: "#f56954",
-            label: '<%= user.name %> ganadas'
+            label: '<%= user.name %> <%=t('won_plural')%>'
           },
           {
             value: <%= stats_hash['pendientes'] %>,
             color: "#f39c12",
             highlight: "#f39c12",
-            label: 'Pendientes'
+            label: '<%=t('Pending_plural')%>'
           },
           {
             value: <%= stats_hash['user1_rechazadas'] %>,
             color: "#00c0ef",
             highlight: "#00c0ef",
-            label: '<%= current_user.name %> rechazadas'
+            label: '<%= current_user.name %> <%=t('rejected_plural')%>'
           },
           {
             value: <%= stats_hash['user2_rechazadas']%>,
             color: "#3c8dbc",
             highlight: "#3c8dbc",
-            label: '<%= user.name %> rechazadas'
+            label: '<%= user.name %> <%=t('rejected_plural')%>'
           },
           {
             value: <%= stats_hash['conflictos'] %>,
             color: "#d2d6de",
             highlight: "#d2d6de",
-            label: 'Conflictos'
+            label: '<%=t('Conflicts')%>'
           },
           {
             value: <%= stats_hash['errores'] %>,
             color: "#000000",
             highlight: "#000000",
-            label: 'Errores'
+            label: '<%=t('Errors')%>'
           }
         ];
         var pieOptions = {

@@ -1,7 +1,7 @@
 <section class="content-header">
   <h1>
-    Selecciona el juego
-    <small>enviar un smackdown</small>
+    <%=t('Select_the_game')%>
+    <small><%=t('send_a_smackdown')%></small>
   </h1>
   <div class="progress">
     <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width:25%">
@@ -31,7 +31,11 @@
   <% receiving_smackdown = true %>
   <% if userIsPlayingGame(@user.id,game.id) %>
     <div align="center">
-      <%= link_to image_tag(game.image_path, :class => "resizable_image", :align => "center"), {:controller => "smackdown_creator", :action => "select_judge", :game_id => game.id, :user_id =>@user.id, :dojo_id => @dojo.id }%>
+      <% if @dojo%>
+        <%= link_to image_tag(game.image_path, :class => "resizable_image", :align => "center"), {:controller => "smackdown_creator", :action => "select_judge", :game_id => game.id, :user_id =>@user.id, :dojo_id => @dojo.id }%>
+      <%else%>
+        <%= link_to image_tag(game.image_path, :class => "resizable_image", :align => "center"), {:controller => "smackdown_creator", :action => "select_judge", :game_id => game.id, :user_id =>@user.id }%>
+      <% end %>
     </div>
     </br>
   <% end %>
