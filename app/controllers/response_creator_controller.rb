@@ -6,6 +6,16 @@ class ResponseCreatorController < ApplicationController
     @smackdown = Smackdown.find(params[:smackdown_id])
     @accepted = (params[:accepted]=='true')
     @like_param = params["like_param"]
+    if !@accepted
+      if current_user.id == @smackdown.player2_id
+        @smackdown.player2_accepted = false
+        @smackdown.save
+        flash[:notice] = "You rejected a smackdown."
+      else
+        flash[:notice] = "Error."
+      end
+      redirect_to "/"
+    end
     if @like_param=="" || @like_param == nil
       @judges=[]
     else

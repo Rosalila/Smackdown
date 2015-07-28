@@ -50,25 +50,25 @@
 
 
 <script type="text/javascript">
+  var dynamic_punch=[];
+  var polygons;
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers([
-    <% @dojos.each do |dojo| %>
-      {
-        "lat": <%=dojo.latitude%>,
-        "lng": <%=dojo.longitude%>,
-        "picture": {
-          "url": "<%=dojo.badge_image%>",
-          "width":  36,
-          "height": 36
-        },
-        "infowindow": "<%=dojo.motto%> <a href='/dojos/<%=dojo.id%>'>Visit</a>"
-      },
-    <%end%>
-    ]);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
+    polygons = handler.addPolygons(
+    [
+      dynamic_punch
+    ],
+    { strokeColor: '#FF0000'}
+    );
+    google.maps.event.addListener(handler.map.serviceObject, "click", function( evt ) {
+      dynamic_punch.push({lat:  evt.latLng.lat(), lng: evt.latLng.lng()});
+      polygons[0].setMap(null);
+      polygons = handler.addPolygons(
+        [
+          dynamic_punch
+        ],
+        { strokeColor: '#FF0000'}
+      );
+    });
   });
 </script>
-
-<%= link_to 'New Dojo', new_dojo_path %>
