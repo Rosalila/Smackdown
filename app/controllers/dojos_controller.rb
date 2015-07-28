@@ -14,6 +14,9 @@ class DojosController < ApplicationController
 
   # GET /dojos/new
   def new
+    if !current_user
+      redirect_to "/"
+    end
     @dojo = Dojo.new
     my_address = Geocoder.search(request.remote_ip)
     if my_address[0]
@@ -27,11 +30,18 @@ class DojosController < ApplicationController
 
   # GET /dojos/1/edit
   def edit
+    if !current_user
+      redirect_to "/"
+    end
   end
 
   # POST /dojos
   # POST /dojos.json
   def create
+    if !current_user
+      redirect_to "/"
+    end
+
     @dojo = Dojo.new(dojo_params)
 
     @dojo.main_image = params[:main_image]
@@ -56,6 +66,10 @@ class DojosController < ApplicationController
   # PATCH/PUT /dojos/1
   # PATCH/PUT /dojos/1.json
   def update
+    if !current_user
+      redirect_to "/"
+    end
+
     respond_to do |format|
       if @dojo.update(dojo_params)
         format.html { redirect_to @dojo, notice: 'Dojo was successfully updated.' }
@@ -70,6 +84,10 @@ class DojosController < ApplicationController
   # DELETE /dojos/1
   # DELETE /dojos/1.json
   def destroy
+    if !current_user
+      redirect_to "/"
+    end
+
     @dojo.destroy
     respond_to do |format|
       format.html { redirect_to dojos_url }
@@ -78,6 +96,10 @@ class DojosController < ApplicationController
   end
 
   def manage_users
+    if !current_user
+      redirect_to "/"
+    end
+
     @dojo = Dojo.find_by_id(params[:dojo_id])
     @like_param = params["like_param"]
     @remove_admin = params["remove_admin"]
@@ -109,6 +131,10 @@ class DojosController < ApplicationController
   end
 
   def accept_invitation
+    if !current_user
+      redirect_to "/"
+    end
+
     @dojo_invitation = DojoInvitation.find_by_id(params["dojo_invitation_id"])
     @dojo = @dojo_invitation.dojo
     @user_in_dojo = UserInDojo.create(user: current_user,dojo: @dojo_invitation.dojo,is_admin: false)
@@ -118,6 +144,10 @@ class DojosController < ApplicationController
   end
 
   def decline_invitation
+    if !current_user
+      redirect_to "/"
+    end
+
     @dojo_invitation = DojoInvitation.find_by_id(params["dojo_invitation_id"])
     @dojo_invitation.destroy
   end
