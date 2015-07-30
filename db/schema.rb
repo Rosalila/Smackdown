@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150725042638) do
+ActiveRecord::Schema.define(version: 20150730230620) do
+
+  create_table "communities", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "main_image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "community_points", force: true do |t|
+    t.integer  "community_id"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "dojo_invitations", force: true do |t|
     t.integer  "user_id"
@@ -103,6 +119,13 @@ ActiveRecord::Schema.define(version: 20150725042638) do
     t.boolean  "judge2_accepted"
     t.text     "judge1_comment"
     t.text     "judge2_comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_in_communities", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "community_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -15,6 +15,9 @@
           <a href="/dojos/new">
             <button type="submit" class="btn btn-primary"><%=t('Add_your_dojo')%>!</button>
           </a>
+          <a href="/communities/new">
+            <button type="submit" class="btn btn-primary"><%=t('Add_your_community')%>!</button>
+          </a>
         </div>
       <%end%>
       <div class="box-body">
@@ -91,6 +94,7 @@
 </div>
 <script type="text/javascript">
   handler = Gmaps.build('Google');
+  var polygons;
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     markers = handler.addMarkers([
       <% Dojo.all.each do |dojo| %>
@@ -106,6 +110,24 @@
         },
       <%end%>
     ]);
+    <% Community.all.each do |community| %>
+      polygons = handler.addPolygons(
+      [
+        [
+          <%community.community_points.each do |point|%>
+            {lat: <%=point.latitude%>, lng: <%=point.longitude%>},
+          <%end%>
+        ],
+      ],
+      { strokeColor: '#FF0000', poly_id_redirection: <%=community.id%>}
+      );
+      google.maps.event.addListener(polygons[0].serviceObject, "click", function( evt ) {
+        window.location = "/communities/"+polygons[0].serviceObject.poly_id_redirection;
+      });
+    <% end %>
+
+
+
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
   });

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Community:</strong>
+  <%= @community_point.community_id %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @community_point.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @community_point.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_community_point_path(@community_point) %> |
+<%= link_to 'Back', community_points_path %>

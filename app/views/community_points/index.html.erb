@@ -1,0 +1,31 @@
+<h1>Listing community_points</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Community</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @community_points.each do |community_point| %>
+      <tr>
+        <td><%= community_point.community_id %></td>
+        <td><%= community_point.latitude %></td>
+        <td><%= community_point.longitude %></td>
+        <td><%= link_to 'Show', community_point %></td>
+        <td><%= link_to 'Edit', edit_community_point_path(community_point) %></td>
+        <td><%= link_to 'Destroy', community_point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Community point', new_community_point_path %>
