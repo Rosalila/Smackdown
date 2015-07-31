@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150730230620) do
+ActiveRecord::Schema.define(version: 20150731213259) do
 
   create_table "communities", force: true do |t|
     t.string   "name"
@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(version: 20150730230620) do
     t.integer  "community_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_admin"
   end
 
   create_table "user_in_dojos", force: true do |t|

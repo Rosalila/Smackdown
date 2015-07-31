@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :user_in_dojos
   has_many :dojo_invitations
   has_many :communities, through: :user_in_community
-  has_many :user_in_community
+  has_many :user_in_communities
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
