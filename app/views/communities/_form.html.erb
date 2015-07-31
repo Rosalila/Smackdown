@@ -77,5 +77,8 @@
       document.getElementById("testa").value += ",";
     });
     handler.map.serviceObject.setCenter(new google.maps.LatLng(<%= @latitude %>, <%= @longitude %>));
+    navigator.geolocation.getCurrentPosition(function(pos){
+          handler.map.serviceObject.setCenter(new google.maps.LatLng(pos.coords.latitude,pos.coords.longitude));
+    });
   });
 </script>
