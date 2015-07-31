@@ -14,7 +14,18 @@ class CommunitiesController < ApplicationController
 
   # GET /communities/new
   def new
+    if !current_user
+      redirect_to "/"
+    end
     @community = Community.new
+    my_address = Geocoder.search(request.remote_ip)
+    if my_address[0]
+      @latitude = my_address[0].latitude
+      @longitude = my_address[0].longitude
+    else
+      @latitude = 36.125
+      @longitude = -115.175
+    end
   end
 
   # GET /communities/1/edit

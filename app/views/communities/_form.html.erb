@@ -76,5 +76,6 @@
       document.getElementById("testa").value += evt.latLng.lng();
       document.getElementById("testa").value += ",";
     });
+    handler.map.serviceObject.setCenter(new google.maps.LatLng(<%= @latitude %>, <%= @longitude %>));
   });
 </script>
