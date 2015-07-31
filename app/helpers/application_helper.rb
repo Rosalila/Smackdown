@@ -386,4 +386,26 @@ module ApplicationHelper
     return diff_global_list.sort_by { |user, diff| diff }.reverse
   end
 
+  def streakGlobalByGameListByCommunity game_id, community_id
+    streak_global_list=[]
+    community = Community.find_by_id(community_id)
+    community.users.each do |user|
+      user_streak = streakGlobalByGame(user.id,game_id)
+      if user_streak > 0
+        streak_global_list.push([user,user_streak])
+      end
+    end
+    return streak_global_list.sort_by { |user, streak| streak }.reverse
+  end
+
+  def differenceGlobalByGameListByCommunity game_id, community_id
+    diff_global_list=[]
+    community = Community.find_by_id(community_id)
+    community.users.each do |user|
+      user_diff = differenceGlobalByGame(user.id,game_id)
+      diff_global_list.push([user,user_diff,user.smackdownsPlayedByGame(game_id)])
+    end
+    return diff_global_list.sort_by { |user, diff| diff }.reverse
+  end
+
 end
