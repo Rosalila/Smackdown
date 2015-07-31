@@ -26,6 +26,8 @@ class CommunitiesController < ApplicationController
   def create
     @community = Community.new(community_params)
 
+    @community.main_image = params[:main_image]
+
     respond_to do |format|
       if @community.save
 

@@ -1,5 +1,16 @@
-<h1>New community</h1>
+<section class="content-header">
+  <h1>
+    <%=t('Add_your_community')%>
+    <small><%=t('enter_information')%></small>
+  </h1>
+</section>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', communities_path %>
+<div class="box">
+  <div class="box-body">
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>
