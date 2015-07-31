@@ -30,7 +30,7 @@ class CommunitiesController < ApplicationController
 
     respond_to do |format|
       if @community.save
-
+        UserInCommunity.create(community: @community,user: current_user)
         community_points = params[:community_points]
         points = community_points.split(',')
         for i in 0..(points.count/2)-1
