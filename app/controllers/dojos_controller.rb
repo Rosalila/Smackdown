@@ -103,6 +103,7 @@ class DojosController < ApplicationController
     @dojo = Dojo.find_by_id(params[:dojo_id])
     @like_param = params["like_param"]
     @remove_admin = params["remove_admin"]
+    @make_admin = params["make_admin"]
     @invite_user = params["invite_user"]
     @kick = params["kick"]
     if @like_param=="" || @like_param == nil

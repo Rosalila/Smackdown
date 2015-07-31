@@ -1,0 +1,112 @@
+<section class="content-header">
+  <h1>
+    <% user = User.find_by_id(params[:id].to_i) %>
+    <%=t('Miembros_de_es_only')%> <%= @community.name %> <%=t('members_en_only')%>
+    <small><%=t('manage_the_members')%></small>
+  </h1>
+</section>
+<div class="box">
+  <div class="row">
+    <div class="col-md-12">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th><%=t('Image')%></th>
+            <th><%=t('Name')%></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @community.users.each do |user| %>
+              <tr>
+                <td>
+                  <a href="/home/visit/<%= user.id %>">
+                    <img class="resizable_image" src="http://graph.facebook.com/<%= user.uid %>/picture?type=large"/>
+                  </a>
+                </td>
+                <td>
+                  <a href="/home/visit/<%= user.id %>">
+                    <%=user.name%>
+                  </a>
+                  <% if UserInCommunity.where(user: user,community: @community)[0].is_admin %>
+                    <a href="/communities/manage_users?community_id=<%=@community.id%>&remove_admin=<%=user.id%>">
+                      <button type="submit" class="btn btn-primary"><%=t('Remove_administrator')%></button>
+                    </a>
+                  <%else%>
+                    <a href="/communities/manage_users?community_id=<%=@community.id%>&make_admin=<%=user.id%>">
+                      <button type="submit" class="btn btn-primary"><%=t('Make_administrator')%></button>
+                    </a>
+                  <%end%>
+              <a href="/communities/manage_users?community_id=<%=@community.id%>&kick=<%=user.id%>">
+                <button type="submit" class="btn btn-primary"><%=t('Kick')%></button>
+              </a>
+                </td>
+              </tr>
+            <% end %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th><%=t('Image')%></th>
+            <th><%=t('Name')%></th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="col-md-12">
+      <h2><%=t('Add_new_members')%></h2>
+    </div>
+    <div class="col-md-12">
+      <form role="form" accept-charset="UTF-8" action="/communities/manage_users" method="get" class="nifty_form">
+        <div class="input-group input-group-sm">
+          <input name="community_id" value="<%=@community.id%>" type="hidden" class="form-control">
+          <input name="like_param" placeholder="<%=t('Type_the_user_name_here')%>." type="text" class="form-control">
+          <span class="input-group-btn">
+            <button class="btn btn-info btn-flat" type="submit"><%=t('Search')%>!</button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+
+    <div class="col-md-12">
+    <%if @users.count>0%>
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th><%=t('Image')%></th>
+            <th><%=t('Name')%></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <% if user.id!=current_user.id %>
+              <tr>
+                <td>
+                  <% if user.uid!= nil %>
+                    <%= link_to image_tag("http://graph.facebook.com/" + user.uid + "/picture?type=large", :class => "resizable_image"), {:controller => "home", :action => "respond_smackdown" }%>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to user.name,{:controller => "home", :action => "respond_smackdown" }%>
+
+              <a href="/communities/manage_users?community_id=<%=@community.id%>&invite_user=<%=user.id%>">
+                <button type="submit" class="btn btn-primary"><%=t('Add')%></button>
+              </a>
+
+
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th><%=t('Image')%></th>
+            <th><%=t('Name')%></th>
+          </tr>
+        </tfoot>
+      </table>
+    <%end%>
+    </div>
+
+  </div>
+</div>

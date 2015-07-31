@@ -87,6 +87,41 @@ class CommunitiesController < ApplicationController
     end
   end
 
+  def manage_users
+    if !current_user
+      redirect_to "/"
+    end
+
+    @community = Community.find_by_id(params[:community_id])
+    @like_param = params["like_param"]
+    @remove_admin = params["remove_admin"]
+    @make_admin = params["make_admin"]
+    @invite_user = params["invite_user"]
+    @kick = params["kick"]
+    if @like_param=="" || @like_param == nil
+      @users=[]
+    else
+      @users=User.where("name LIKE ?" , "%#{@like_param}%")
+    end
+    if @remove_admin!="" && @remove_admin != nil
+      @user_in_community = UserInCommunity.where(user: User.find_by_id(@remove_admin),community: @community)[0]
+      @user_in_community.is_admin = false
+      @user_in_community.save
+    end
+    if @make_admin!="" && @make_admin != nil
+      @user_in_community = UserInCommunity.where(user: User.find_by_id(@make_admin),community: @community)[0]
+      @user_in_community.is_admin = true
+      @user_in_community.save
+    end
+    if @invite_user!="" && @invite_user != nil
+      UserInCommunity.create(user: User.find_by_id(@invite_user),community: @community,is_admin: false)
+    end
+    if @kick!="" && @kick != nil
+      @user_in_community = UserInCommunity.where(user: User.find_by_id(@kick),community: @community)[0]
+      @user_in_community.destroy
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_community
