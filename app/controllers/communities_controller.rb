@@ -30,7 +30,7 @@ class CommunitiesController < ApplicationController
 
     respond_to do |format|
       if @community.save
-        UserInCommunity.create(community: @community,user: current_user)
+        UserInCommunity.create(community: @community,user: current_user,is_admin: true)
         community_points = params[:community_points]
         points = community_points.split(',')
         for i in 0..(points.count/2)-1
@@ -84,6 +84,6 @@ class CommunitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def community_params
-      params.require(:community).permit(:name, :description, :main_image)
+      params.require(:community).permit(:name, :description, :main_image, :is_admin)
     end
 end
