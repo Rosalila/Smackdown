@@ -108,6 +108,7 @@
           elem_latitude.value = pos.coords.latitude;
           var elem_longitude = document.getElementById("dojo_longitude");
           elem_longitude.value = longitude;
+          handler.map.serviceObject.setCenter(new google.maps.LatLng(elem_latitude,elem_longitude));
     });
   });
 </script>
