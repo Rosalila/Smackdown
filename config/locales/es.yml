@@ -117,6 +117,14 @@ es:
   Select: "Seleccionar"
   Write_a_comment: "Escribe un comentario"
   Write_your_comment_ here: "Escribe tu comentario aquí."
+  Add_your_community: "Agrega tu comunidad"
+  example_community_name: "ejemplo: Los Reyes del Sur"
+  example_community_about: "example: Únete y participa en los smackdowns o torneos!"
+  explanation_community_image: "Selecciona la imagen principal de tu comunidad."
+  Click_the_map_multiple_times_to_set_the_community_area: "Haz clic en el mapa multiples veces para determinar el área de tu comunidad"
+  Edit_your_community: "Edita tu comunidad"
+  Agrega_your_community: "Agrega tu comunidad"
+  you_are_visiting_a_community: "tú estás visitando una comunidad"
 
   time:
      formats:
