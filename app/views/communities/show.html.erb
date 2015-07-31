@@ -57,6 +57,69 @@
   </div>
 </div>
 
+<%Game.all.each do |game|%>
+
+<img class="resizable_image" src="<%= game.image_path.split('.')[0] %>_100.png"/>
+<h2>Racha</h2>
+    <% streakGlobalByGameList(game.id).each do |streak|%>
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
+            <div class="info-box-content">
+              <table>
+                <tr>
+                  <td>
+                    <img height="90" src='http://graph.facebook.com/<%= streak[0].uid %>/picture?type=normal'/>
+                  </td>
+                  <td>
+                    <span class="info-box-text">Racha</span>
+                    <span class="info-box-number"><%= streak[1] %></span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%end%>
+
+<br/>
+<br/>
+<h2>Diferencia</h2>
+
+    <% differenceGlobalByGameList(game.id).each do |diff|%>
+      <% if diff[2]>0 %>
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="info-box">
+              <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
+              <div class="info-box-content">
+                <table>
+                  <tr>
+                    <td>
+                      <img height="90" src='http://graph.facebook.com/<%= diff[0].uid %>/picture?type=normal'/>
+                    </td>
+                    <td>
+                      <% if diff[1]>0 %>
+                        <span class="info-box-text" style="color: green">Diferencia: <b>+<%= diff[1] %></b></span>
+                      <% elsif diff[1]<0 %>
+                        <span class="info-box-text" style="color: red">Diferencia: <b><%= diff[1] %></b></span>
+                      <% else %>
+                        <span class="info-box-text">Diferencia: <b><%= diff[1] %></b></span>
+                      <% end %>
+                      <span class="info-box-text">Smackdowns jugados: <b><%= diff[2] %></b></span>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    <%end%>
+<%end%>
+
 <script type="text/javascript">
   var polygons;
   handler = Gmaps.build('Google');
