@@ -6,6 +6,7 @@ class RuleGroupsController < ApplicationController
   def index
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     @rule_groups = RuleGroup.all
@@ -16,6 +17,7 @@ class RuleGroupsController < ApplicationController
   def show
     if !userIsAdmin
       redirect_to "/"
+      return
     end
   end
 
@@ -23,6 +25,7 @@ class RuleGroupsController < ApplicationController
   def new
     if !userIsAdmin
       redirect_to "/"
+      return
     end
     @rule_group = RuleGroup.new
   end
@@ -31,6 +34,7 @@ class RuleGroupsController < ApplicationController
   def edit
     if !userIsAdmin
       redirect_to "/"
+      return
     end
   end
 
@@ -39,6 +43,7 @@ class RuleGroupsController < ApplicationController
   def create
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     @rule_group = RuleGroup.new(rule_group_params)
@@ -59,6 +64,7 @@ class RuleGroupsController < ApplicationController
   def update
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     respond_to do |format|
@@ -77,6 +83,7 @@ class RuleGroupsController < ApplicationController
   def destroy
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     @rule_group.destroy

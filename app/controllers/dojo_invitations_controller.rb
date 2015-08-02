@@ -4,26 +4,46 @@ class DojoInvitationsController < ApplicationController
   # GET /dojo_invitations
   # GET /dojo_invitations.json
   def index
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @dojo_invitations = DojoInvitation.all
   end
 
   # GET /dojo_invitations/1
   # GET /dojo_invitations/1.json
   def show
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
   end
 
   # GET /dojo_invitations/new
   def new
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @dojo_invitation = DojoInvitation.new
   end
 
   # GET /dojo_invitations/1/edit
   def edit
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
   end
 
   # POST /dojo_invitations
   # POST /dojo_invitations.json
   def create
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @dojo_invitation = DojoInvitation.new(dojo_invitation_params)
 
     respond_to do |format|
@@ -40,6 +60,10 @@ class DojoInvitationsController < ApplicationController
   # PATCH/PUT /dojo_invitations/1
   # PATCH/PUT /dojo_invitations/1.json
   def update
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     respond_to do |format|
       if @dojo_invitation.update(dojo_invitation_params)
         format.html { redirect_to @dojo_invitation, notice: 'Dojo invitation was successfully updated.' }
@@ -54,6 +78,10 @@ class DojoInvitationsController < ApplicationController
   # DELETE /dojo_invitations/1
   # DELETE /dojo_invitations/1.json
   def destroy
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @dojo_invitation.destroy
     respond_to do |format|
       format.html { redirect_to dojo_invitations_url }

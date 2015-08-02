@@ -6,6 +6,7 @@ class SmackdownsController < ApplicationController
   def index
     if !userIsAdmin
       redirect_to "/"
+      return
     end
     @smackdowns = Smackdown.all
   end
@@ -15,6 +16,7 @@ class SmackdownsController < ApplicationController
   def show
     if !userIsAdmin
       redirect_to "/"
+      return
     end
   end
 
@@ -22,6 +24,7 @@ class SmackdownsController < ApplicationController
   def new
     if !userIsAdmin
       redirect_to "/"
+      return
     end
     @smackdown = Smackdown.new
   end
@@ -30,6 +33,7 @@ class SmackdownsController < ApplicationController
   def edit
     if !userIsAdmin
       redirect_to "/"
+      return
     end
   end
 
@@ -38,6 +42,7 @@ class SmackdownsController < ApplicationController
   def create
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     @smackdown = Smackdown.new(smackdown_params)
@@ -58,6 +63,7 @@ class SmackdownsController < ApplicationController
   def update
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     respond_to do |format|
@@ -76,6 +82,7 @@ class SmackdownsController < ApplicationController
   def destroy
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     SmackdownRule.where(:smackdown_id => @smackdown.id).destroy_all

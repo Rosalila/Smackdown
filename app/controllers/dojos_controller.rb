@@ -4,6 +4,10 @@ class DojosController < ApplicationController
   # GET /dojos
   # GET /dojos.json
   def index
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @dojos = Dojo.all
   end
 
@@ -16,6 +20,7 @@ class DojosController < ApplicationController
   def new
     if !current_user
       redirect_to "/"
+      return
     end
     @dojo = Dojo.new
     my_address = Geocoder.search(request.remote_ip)
@@ -30,8 +35,9 @@ class DojosController < ApplicationController
 
   # GET /dojos/1/edit
   def edit
-    if !current_user
+    if !@dojo.userIsAdmin current_user
       redirect_to "/"
+      return
     end
   end
 
@@ -40,6 +46,7 @@ class DojosController < ApplicationController
   def create
     if !current_user
       redirect_to "/"
+      return
     end
 
     @dojo = Dojo.new(dojo_params)
@@ -66,10 +73,10 @@ class DojosController < ApplicationController
   # PATCH/PUT /dojos/1
   # PATCH/PUT /dojos/1.json
   def update
-    if !current_user
+    if !@dojo.userIsAdmin current_user
       redirect_to "/"
+      return
     end
-
     respond_to do |format|
       if @dojo.update(dojo_params)
         format.html { redirect_to @dojo, notice: 'Dojo was successfully updated.' }
@@ -84,8 +91,9 @@ class DojosController < ApplicationController
   # DELETE /dojos/1
   # DELETE /dojos/1.json
   def destroy
-    if !current_user
+    if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     @dojo.destroy
@@ -96,8 +104,9 @@ class DojosController < ApplicationController
   end
 
   def manage_users
-    if !current_user
+    if !@dojo.userIsAdmin current_user
       redirect_to "/"
+      return
     end
 
     @dojo = Dojo.find_by_id(params[:dojo_id])
@@ -134,6 +143,7 @@ class DojosController < ApplicationController
   def accept_invitation
     if !current_user
       redirect_to "/"
+      return
     end
 
     @dojo_invitation = DojoInvitation.find_by_id(params["dojo_invitation_id"])
@@ -147,6 +157,7 @@ class DojosController < ApplicationController
   def decline_invitation
     if !current_user
       redirect_to "/"
+      return
     end
 
     @dojo_invitation = DojoInvitation.find_by_id(params["dojo_invitation_id"])

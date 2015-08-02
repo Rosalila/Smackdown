@@ -6,6 +6,7 @@ class GamesController < ApplicationController
   def index
     if !userIsAdmin
       redirect_to "/"
+      return
     end
     @games = Game.all
   end
@@ -13,12 +14,17 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
   end
 
   # GET /games/new
   def new
     if !userIsAdmin
       redirect_to "/"
+      return
     end
     @game = Game.new
   end
@@ -27,6 +33,7 @@ class GamesController < ApplicationController
   def edit
     if !userIsAdmin
       redirect_to "/"
+      return
     end
   end
 
@@ -35,6 +42,7 @@ class GamesController < ApplicationController
   def create
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     @game = Game.new(game_params)
@@ -55,6 +63,7 @@ class GamesController < ApplicationController
   def update
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     respond_to do |format|
@@ -73,6 +82,7 @@ class GamesController < ApplicationController
   def destroy
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     @game.destroy

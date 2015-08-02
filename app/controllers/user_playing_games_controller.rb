@@ -6,6 +6,7 @@ class UserPlayingGamesController < ApplicationController
   def index
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     @user_playing_games = UserPlayingGame.all
@@ -16,6 +17,7 @@ class UserPlayingGamesController < ApplicationController
   def show
     if !userIsAdmin
       redirect_to "/"
+      return
     end
   end
 
@@ -23,6 +25,7 @@ class UserPlayingGamesController < ApplicationController
   def new
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     @user_playing_game = UserPlayingGame.new
@@ -32,6 +35,7 @@ class UserPlayingGamesController < ApplicationController
   def edit
     if !userIsAdmin
       redirect_to "/"
+      return
     end
   end
 
@@ -40,6 +44,7 @@ class UserPlayingGamesController < ApplicationController
   def create
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     @user_playing_game = UserPlayingGame.new(user_playing_game_params)
@@ -60,6 +65,7 @@ class UserPlayingGamesController < ApplicationController
   def update
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     new_is_playing = !@user_playing_game.is_playing
@@ -81,6 +87,7 @@ class UserPlayingGamesController < ApplicationController
   def destroy
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     @user_playing_game.destroy

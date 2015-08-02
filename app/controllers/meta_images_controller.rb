@@ -6,6 +6,7 @@ class MetaImagesController < ApplicationController
   def index
     if !userIsAdmin
       redirect_to "/"
+      return
     end
     @meta_images = MetaImage.all
   end
@@ -15,6 +16,7 @@ class MetaImagesController < ApplicationController
   def show
     if !userIsAdmin
       redirect_to "/"
+      return
     end
   end
 
@@ -22,12 +24,17 @@ class MetaImagesController < ApplicationController
   def new
     if !userIsAdmin
       redirect_to "/"
+      return
     end
     @meta_image = MetaImage.new
   end
 
   # GET /meta_images/1/edit
   def edit
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
   end
 
   # POST /meta_images
@@ -35,6 +42,7 @@ class MetaImagesController < ApplicationController
   def create
     if !userIsAdmin
       redirect_to "/"
+      return
     end
     @meta_image = MetaImage.new(meta_image_params)
 
@@ -54,6 +62,7 @@ class MetaImagesController < ApplicationController
   def update
     if !userIsAdmin
       redirect_to "/"
+      return
     end
     respond_to do |format|
       if @meta_image.update(meta_image_params)
@@ -71,6 +80,7 @@ class MetaImagesController < ApplicationController
   def destroy
     if !userIsAdmin
       redirect_to "/"
+      return
     end
     @meta_image.destroy
     respond_to do |format|

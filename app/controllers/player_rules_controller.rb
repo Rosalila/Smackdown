@@ -6,6 +6,7 @@ class PlayerRulesController < ApplicationController
   def index
     if !userIsAdmin
       redirect_to "/"
+      return
     end
     @player_rules = PlayerRule.all
   end
@@ -15,6 +16,7 @@ class PlayerRulesController < ApplicationController
   def show
     if !userIsAdmin
       redirect_to "/"
+      return
     end
   end
 
@@ -22,6 +24,7 @@ class PlayerRulesController < ApplicationController
   def new
     if !userIsAdmin
       redirect_to "/"
+      return
     end
     @player_rule = PlayerRule.new
   end
@@ -30,6 +33,7 @@ class PlayerRulesController < ApplicationController
   def edit
     if !userIsAdmin
       redirect_to "/"
+      return
     end
   end
 
@@ -38,6 +42,7 @@ class PlayerRulesController < ApplicationController
   def create
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     @player_rule = PlayerRule.new(player_rule_params)
@@ -58,6 +63,7 @@ class PlayerRulesController < ApplicationController
   def update
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     new_activated = !@player_rule.activated
@@ -79,6 +85,7 @@ class PlayerRulesController < ApplicationController
   def destroy
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     @player_rule.destroy

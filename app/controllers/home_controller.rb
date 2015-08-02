@@ -1,17 +1,36 @@
 class HomeController < ApplicationController
   def index
-    redirect_to 'http://smackdown.club/home/index' if url_for(:only_path => false) == 'http://www.smackdown.club/home/index'
+    redirect_to 'http://smackdown.club/home/explore' if url_for(:only_path => false) == 'http://www.smackdown.club/home/explore'
   end
 
   def visit
   end
 
   def send_smackdown
-    #<% params["rule"].each do |rule| %>
-    #  <p><%= Rule.find_by_id(rule[1]).name %></p>
-    #<% end %>
     judge1_id = params["judge_id"]
     player2_id = params["opponent_id"]
+    game = Rule.find_by_id(params["rule"].first.second).rule_group.game
+    player2 = User.find_by_id(player2_id)
+
+    if !current_user
+      redirect_to "/"
+      return
+    end
+    if !User.find_by_id(player2_id).isPlayingGame(game)
+      redirect_to "/"
+      return
+    end
+    if current_user.id == judge1_id || current_user.id == player2_id
+      redirect_to "/"
+      return
+    end
+    params["rule"].each do |rule|
+      rule_id = rule[1]
+      if !player2.hasRule rule_id.to_i
+        redirect_to "/"
+        return
+      end
+    end
 
     smackdown = Smackdown.new
     smackdown.judge1_id = judge1_id
@@ -36,8 +55,13 @@ class HomeController < ApplicationController
     judge2_id = params["judge_id"]
     player2_accepted = params["player2_accepted"]
     smackdown_id = params["smackdown_id"]
-
     smackdown = Smackdown.find_by_id(smackdown_id)
+
+    if current_user.id == judge2_id || current_user.id != smackdown.player2_id
+      redirect_to "/"
+      return
+    end
+
     smackdown.judge2_id = judge2_id
     smackdown.player2_accepted = player2_accepted
     smackdown.save
@@ -57,16 +81,20 @@ class HomeController < ApplicationController
     smackdown = Smackdown.find_by_id(smackdown_id)
     correct = false
     if smackdown.judge1_id == current_user.id
-      smackdown.judge1_accepted = judge_accepted
-      smackdown.judge1_winner_id = winner_id
-      smackdown.judge1_comment = judge_comment
-      correct = true
+      if smackdown.player1_id == winner_id || smackdown.player2_id == winner_id
+        smackdown.judge1_accepted = judge_accepted
+        smackdown.judge1_winner_id = winner_id
+        smackdown.judge1_comment = judge_comment
+        correct = true
+      end
     end
     if smackdown.judge2_id == current_user.id
-      smackdown.judge2_accepted = judge_accepted
-      smackdown.judge2_winner_id = winner_id
-      smackdown.judge2_comment = judge_comment
-      correct = true
+      if smackdown.player1_id == winner_id || smackdown.player2_id == winner_id
+        smackdown.judge2_accepted = judge_accepted
+        smackdown.judge2_winner_id = winner_id
+        smackdown.judge2_comment = judge_comment
+        correct = true
+      end
     end
 
     if correct && smackdown.save
@@ -77,43 +105,6 @@ class HomeController < ApplicationController
       respond_to do |format|
         format.html { redirect_to "/home/history_judged_smackdowns", notice: '¡Ocurrio un error!' }
       end
-    end
-  end
-
-  def judge1_smackdown
-    smackdown_id = params["smackdown_id"]
-    judge1_accepted = params["judge1_accepted"]
-    winner_id = params["winner_id"]
-    judge1_comment = params["judge1_comment"]
-
-    smackdown = Smackdown.find_by_id(smackdown_id)
-    smackdown.judge1_accepted = judge1_accepted
-    smackdown.judge1_winner_id = winner_id
-    if smackdown.judge1_id == smackdown.judge2_id
-      smackdown.judge2_winner_id = winner_id
-    end
-    smackdown.judge1_comment = judge1_comment
-    smackdown.save
-
-    respond_to do |format|
-      format.html { redirect_to "/home/history_judged_smackdowns", notice: '¡Has juzgado un Smackdown!' }
-    end
-  end
-
-  def judge2_smackdown
-    smackdown_id = params["smackdown_id"]
-    judge2_accepted = params["judge2_accepted"]
-    winner_id = params["winner_id"]
-    judge2_comment = params["judge2_comment"]
-
-    smackdown = Smackdown.find_by_id(smackdown_id)
-    smackdown.judge2_accepted = judge2_accepted
-    smackdown.judge2_winner_id = winner_id
-    smackdown.judge2_comment = judge2_comment  
-    smackdown.save
-
-    respond_to do |format|
-      format.html { redirect_to "/home/history_judged_smackdowns", notice: '¡Has juzgado un Smackdown!' }
     end
   end
 
@@ -143,7 +134,7 @@ class HomeController < ApplicationController
       end
     else
       if current_user
-        @users=User.where("name LIKE ?" , "%#{@like_param}%").where.not(user_id: current_user.id)
+        @users=User.where("name LIKE ?" , "%#{@like_param}%").where.not(id: current_user.id)
       else
         @users=User.where("name LIKE ?" , "%#{@like_param}%")
       end
@@ -160,18 +151,6 @@ class HomeController < ApplicationController
 
   def history_judged_smackdowns
     @judge_smackdowns = Smackdown.where("(judge1_id = ? AND (judge1_accepted = ? OR judge1_accepted = ?)) OR (judge1_id = ? AND (judge1_accepted = ? OR judge1_accepted = ?))", current_user.id,true,false,current_user.id,true,false).paginate(:page => params[:page], :per_page => 5)
-    #@judge_smackdowns = Smackdown.where(:judge1_id=>current_user.id, :judge1_accepted => [true,false])
-    #Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => [true,false]).each do |smackdown|
-    #  next if smackdown.judge1_id==smackdown.judge2_id
-    #  @judge_smackdowns.push(smackdown)
-    #end
-    #@judge_smackdowns.paginate(:page => params[:page], :per_page => 5)
-
-    #@judge2_smackdowns = []
-    #Smackdown.where(:judge2_id=>current_user.id, :judge2_accepted => [true,false]).each do |smackdown|
-    #  next if smackdown.judge1_id==smackdown.judge2_id
-    #  @judge2_smackdowns.push(smackdown)
-    #end
   end
 
   def profile

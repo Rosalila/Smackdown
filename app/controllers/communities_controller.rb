@@ -4,6 +4,10 @@ class CommunitiesController < ApplicationController
   # GET /communities
   # GET /communities.json
   def index
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @communities = Community.all
   end
 
@@ -16,6 +20,7 @@ class CommunitiesController < ApplicationController
   def new
     if !current_user
       redirect_to "/"
+      return
     end
     @community = Community.new
     my_address = Geocoder.search(request.remote_ip)
@@ -30,11 +35,20 @@ class CommunitiesController < ApplicationController
 
   # GET /communities/1/edit
   def edit
+    if !@community.userIsAdmin current_user
+      redirect_to "/"
+      return
+    end
   end
 
   # POST /communities
   # POST /communities.json
   def create
+    if !current_user
+      redirect_to "/"
+      return
+    end
+
     @community = Community.new(community_params)
 
     @community.main_image = params[:main_image]
@@ -66,6 +80,10 @@ class CommunitiesController < ApplicationController
   # PATCH/PUT /communities/1
   # PATCH/PUT /communities/1.json
   def update
+    if !@community.userIsAdmin current_user
+      redirect_to "/"
+      return
+    end
     respond_to do |format|
       if @community.update(community_params)
         format.html { redirect_to @community, notice: 'Community was successfully updated.' }
@@ -80,6 +98,11 @@ class CommunitiesController < ApplicationController
   # DELETE /communities/1
   # DELETE /communities/1.json
   def destroy
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
+
     @community.destroy
     respond_to do |format|
       format.html { redirect_to communities_url }
@@ -88,8 +111,9 @@ class CommunitiesController < ApplicationController
   end
 
   def manage_users
-    if !current_user
+    if !@community.userIsAdmin current_user
       redirect_to "/"
+      return
     end
 
     @community = Community.find_by_id(params[:community_id])

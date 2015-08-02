@@ -4,6 +4,14 @@ class Community < ActiveRecord::Base
   has_many :users, through: :user_in_communities
   has_many :user_in_communities
 
+  def userIsAdmin user
+    user_in_community = UserInCommunity.where(user: user, community_id: id)[0]
+    if user_in_community == nil
+      return false
+    end
+    return user_in_community.is_admin
+  end
+
   def getSmackdowns
     ids = []
     users.each do |user|

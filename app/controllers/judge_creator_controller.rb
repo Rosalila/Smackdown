@@ -18,6 +18,7 @@ class JudgeCreatorController < ApplicationController
         flash[:notice] = "Error."
       end
       redirect_to "/"
+      return
     end
   end
   def select_comment

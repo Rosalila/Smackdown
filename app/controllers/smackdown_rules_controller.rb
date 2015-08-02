@@ -4,26 +4,46 @@ class SmackdownRulesController < ApplicationController
   # GET /smackdown_rules
   # GET /smackdown_rules.json
   def index
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @smackdown_rules = SmackdownRule.all
   end
 
   # GET /smackdown_rules/1
   # GET /smackdown_rules/1.json
   def show
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
   end
 
   # GET /smackdown_rules/new
   def new
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @smackdown_rule = SmackdownRule.new
   end
 
   # GET /smackdown_rules/1/edit
   def edit
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
   end
 
   # POST /smackdown_rules
   # POST /smackdown_rules.json
   def create
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @smackdown_rule = SmackdownRule.new(smackdown_rule_params)
 
     respond_to do |format|
@@ -40,6 +60,10 @@ class SmackdownRulesController < ApplicationController
   # PATCH/PUT /smackdown_rules/1
   # PATCH/PUT /smackdown_rules/1.json
   def update
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     respond_to do |format|
       if @smackdown_rule.update(smackdown_rule_params)
         format.html { redirect_to @smackdown_rule, notice: 'Smackdown rule was successfully updated.' }
@@ -54,6 +78,10 @@ class SmackdownRulesController < ApplicationController
   # DELETE /smackdown_rules/1
   # DELETE /smackdown_rules/1.json
   def destroy
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @smackdown_rule.destroy
     respond_to do |format|
       format.html { redirect_to smackdown_rules_url }
