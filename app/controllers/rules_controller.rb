@@ -6,6 +6,7 @@ class RulesController < ApplicationController
   def index
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     @rules = Rule.all
@@ -16,6 +17,7 @@ class RulesController < ApplicationController
   def show
     if !userIsAdmin
       redirect_to "/"
+      return
     end
   end
 
@@ -23,6 +25,7 @@ class RulesController < ApplicationController
   def new
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     @rule = Rule.new
@@ -32,6 +35,7 @@ class RulesController < ApplicationController
   def edit
     if !userIsAdmin
       redirect_to "/"
+      return
     end
   end
 
@@ -40,6 +44,7 @@ class RulesController < ApplicationController
   def create
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     @rule = Rule.new(rule_params)
@@ -60,6 +65,7 @@ class RulesController < ApplicationController
   def update
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     respond_to do |format|
@@ -78,6 +84,7 @@ class RulesController < ApplicationController
   def destroy
     if !userIsAdmin
       redirect_to "/"
+      return
     end
 
     @rule.destroy

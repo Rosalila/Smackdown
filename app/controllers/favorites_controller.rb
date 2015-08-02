@@ -4,26 +4,47 @@ class FavoritesController < ApplicationController
   # GET /favorites
   # GET /favorites.json
   def index
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @favorites = Favorite.all
   end
 
   # GET /favorites/1
   # GET /favorites/1.json
   def show
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
   end
 
   # GET /favorites/new
   def new
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @favorite = Favorite.new
   end
 
   # GET /favorites/1/edit
   def edit
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
   end
 
   # POST /favorites
   # POST /favorites.json
   def create
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
+
     @favorite = Favorite.new(favorite_params)
 
     respond_to do |format|
@@ -40,6 +61,11 @@ class FavoritesController < ApplicationController
   # PATCH/PUT /favorites/1
   # PATCH/PUT /favorites/1.json
   def update
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
+
     respond_to do |format|
       if @favorite.update(favorite_params)
         format.html { redirect_to @favorite, notice: 'Favorite was successfully updated.' }
@@ -54,6 +80,11 @@ class FavoritesController < ApplicationController
   # DELETE /favorites/1
   # DELETE /favorites/1.json
   def destroy
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
+
     @favorite.destroy
     respond_to do |format|
       format.html { redirect_to favorites_url }

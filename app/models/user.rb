@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :dojo_invitations
   has_many :communities, through: :user_in_communities
   has_many :user_in_communities
+  has_many :rules, through: :player_rules
+  has_many :player_rules
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -17,6 +19,23 @@ class User < ActiveRecord::Base
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
     end
+  end
+
+  def hasRule rule_id
+    rules.each do |rule|
+      if rule.id == rule_id
+        return true
+      end
+    end
+    return false
+  end
+
+  def isPlayingGame game
+    user_playing_game = UserPlayingGame.where(user_id: id,game: game)[0]
+    if user_playing_game==nil
+      return false
+    end
+    return user_playing_game.is_playing
   end
 
   def smackdownsPlayedByGame game_id

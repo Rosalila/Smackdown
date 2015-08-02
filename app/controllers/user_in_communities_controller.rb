@@ -4,26 +4,46 @@ class UserInCommunitiesController < ApplicationController
   # GET /user_in_communities
   # GET /user_in_communities.json
   def index
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @user_in_communities = UserInCommunity.all
   end
 
   # GET /user_in_communities/1
   # GET /user_in_communities/1.json
   def show
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
   end
 
   # GET /user_in_communities/new
   def new
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @user_in_community = UserInCommunity.new
   end
 
   # GET /user_in_communities/1/edit
   def edit
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
   end
 
   # POST /user_in_communities
   # POST /user_in_communities.json
   def create
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @user_in_community = UserInCommunity.new(user_in_community_params)
 
     respond_to do |format|
@@ -40,6 +60,10 @@ class UserInCommunitiesController < ApplicationController
   # PATCH/PUT /user_in_communities/1
   # PATCH/PUT /user_in_communities/1.json
   def update
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     respond_to do |format|
       if @user_in_community.update(user_in_community_params)
         format.html { redirect_to @user_in_community, notice: 'User in community was successfully updated.' }
@@ -54,6 +78,10 @@ class UserInCommunitiesController < ApplicationController
   # DELETE /user_in_communities/1
   # DELETE /user_in_communities/1.json
   def destroy
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @user_in_community.destroy
     respond_to do |format|
       format.html { redirect_to user_in_communities_url }

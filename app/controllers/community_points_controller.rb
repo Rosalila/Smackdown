@@ -4,26 +4,46 @@ class CommunityPointsController < ApplicationController
   # GET /community_points
   # GET /community_points.json
   def index
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @community_points = CommunityPoint.all
   end
 
   # GET /community_points/1
   # GET /community_points/1.json
   def show
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
   end
 
   # GET /community_points/new
   def new
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @community_point = CommunityPoint.new
   end
 
   # GET /community_points/1/edit
   def edit
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
   end
 
   # POST /community_points
   # POST /community_points.json
   def create
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @community_point = CommunityPoint.new(community_point_params)
 
     respond_to do |format|
@@ -40,6 +60,10 @@ class CommunityPointsController < ApplicationController
   # PATCH/PUT /community_points/1
   # PATCH/PUT /community_points/1.json
   def update
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     respond_to do |format|
       if @community_point.update(community_point_params)
         format.html { redirect_to @community_point, notice: 'Community point was successfully updated.' }
@@ -54,6 +78,10 @@ class CommunityPointsController < ApplicationController
   # DELETE /community_points/1
   # DELETE /community_points/1.json
   def destroy
+    if !userIsAdmin
+      redirect_to "/"
+      return
+    end
     @community_point.destroy
     respond_to do |format|
       format.html { redirect_to community_points_url }

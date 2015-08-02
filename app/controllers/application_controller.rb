@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def userIsAdmin
+    #return false
     return current_user==User.first
   end
 

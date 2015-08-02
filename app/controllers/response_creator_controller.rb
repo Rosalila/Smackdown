@@ -15,6 +15,7 @@ class ResponseCreatorController < ApplicationController
         flash[:notice] = "Error."
       end
       redirect_to "/"
+      return
     end
     if @like_param=="" || @like_param == nil
       @judges=[]

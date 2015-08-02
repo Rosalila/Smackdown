@@ -21,10 +21,10 @@
         <div class="box-header">
           <h3 class="box-title">Tu juicio</h3>
         </div>
-        <form role="form" accept-charset="UTF-8" action="/home/judge2_smackdown" method="get" class="nifty_form">
+        <form role="form" accept-charset="UTF-8" action="/home/judge_smackdown" method="get" class="nifty_form">
           <div class="form-group">
             <label>¿Aceptas juzgar este Smackdown?</label>
-            <select class="form-control" name="judge2_accepted">
+            <select class="form-control" name="judge_accepted">
               <% smackdown.judge2_accepted=true if smackdown.judge2_accepted==nil %>
                 <option <%= "selected" if smackdown.judge2_accepted %> value="true">Aceptar</option>
                 <option <%= "selected" if !smackdown.judge2_accepted %> value="false">Rechazar</option>
@@ -39,7 +39,7 @@
           </div>
           <div class="form-group">
             <label>Tu comentario</label>
-            <textarea name="judge2_comment" class="form-control" rows="3" placeholder="Enter ..."><%= smackdown.judge2_comment %></textarea>
+            <textarea name="judge_comment" class="form-control" rows="3" placeholder="Enter ..."><%= smackdown.judge2_comment %></textarea>
             </div>
             <input name="smackdown_id" type="hidden" value="<%= smackdown.id %>" />
             <div class="box-footer">
