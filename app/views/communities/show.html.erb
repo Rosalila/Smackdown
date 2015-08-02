@@ -61,7 +61,8 @@
 
 <img class="resizable_image" src="<%= game.image_path.split('.')[0] %>_100.png"/>
 <h2>Racha</h2>
-    <% streakGlobalByGameListByCommunity(game.id,@community.id).each do |streak|%>
+    <% @community.getStreak.each do |streak|%>
+      <%if streak[2]==game.id && streak[1]>0%>
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="info-box">
@@ -83,13 +84,14 @@
         </div>
       </div>
     <%end%>
+    <%end%>
 
 <br/>
 <br/>
 <h2>Diferencia</h2>
 
-    <% differenceGlobalByGameListByCommunity(game.id,@community.id).each do |diff|%>
-      <% if diff[2]>0 %>
+    <% @community.getDifference.each do |diff|%>
+      <%if diff[2]==game.id%>
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="info-box">
@@ -108,7 +110,7 @@
                       <% else %>
                         <span class="info-box-text">Diferencia: <b><%= diff[1] %></b></span>
                       <% end %>
-                      <span class="info-box-text">Smackdowns jugados: <b><%= diff[2] %></b></span>
+                      <span class="info-box-text">Smackdowns jugados: <b><%= diff[3] %></b></span>
                     </td>
                   </tr>
                 </table>
