@@ -111,6 +111,7 @@ class CommunitiesController < ApplicationController
   end
 
   def manage_users
+    @community = Community.find_by_id(params["community_id"])
     if !@community.userIsAdmin current_user
       redirect_to "/"
       return
