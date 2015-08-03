@@ -73,6 +73,6 @@ class Community < ActiveRecord::Base
         diff_global_list.push([user,diff,game.id,smackdown_played])
       end
     end
-    return diff_global_list
+    return diff_global_list.sort_by { 2 }
   end
 end
