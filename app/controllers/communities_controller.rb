@@ -14,6 +14,8 @@ class CommunitiesController < ApplicationController
   # GET /communities/1
   # GET /communities/1.json
   def show
+    @differences = @community.getDifference
+    @streaks = @community.getStreak
   end
 
   # GET /communities/new
