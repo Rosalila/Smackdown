@@ -85,6 +85,11 @@
                 <span class="info-box-text"><%=t('Difference')%>: <b><%= diff[1] %></b></span>
               <% end %>
               <span class="info-box-text"><%=t('Smackdowns_played')%>: <b><%= diff[3] %></b></span>
+              <% @streaks.each do |streak|%>
+                <%if streak[2]==game.id && streak[1]>0 && streak[0]==diff[0]%>
+                  <span class="info-box-text"><%=t('Streak')%>: <b><%= streak[1] %></b></span>
+                <%end%>
+              <%end%>
             <%end%>
           <%end%>
           </div>
