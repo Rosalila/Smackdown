@@ -41,7 +41,7 @@ class Community < ActiveRecord::Base
         streak_global_list.push([user,streak,game.id])
       end
     end
-    return streak_global_list
+    return streak_global_list.sort_by { |a,b,c| b }.reverse
   end
 
   def getDifference

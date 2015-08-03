@@ -73,7 +73,7 @@
           <h2><%=t('Ranking')%></h2>
           <%position=1%>
           <% @differences.each do |diff|%>
-            <%if diff[2]==game.id%>
+            <%if diff[2]==game.id && diff[3]>0 %>
               <h3>#<%=position%></h3>
               <%position+=1%>
               <img height="90" src='http://graph.facebook.com/<%= diff[0].uid %>/picture?type=normal'/>
