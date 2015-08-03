@@ -58,8 +58,11 @@
         </div>
       <%end%>
     </div>
-    <div class="row">
+      <%game=0%>
       <%Game.all.each do |game|%>
+        <%if game%3==0%>
+          <div class="row">
+        <%end%>
         <div class="col-md-4" align="center">
           <div class="box box-primary">
           <img class="resizable_image" src="<%= game.image_path.split('.')[0] %>_100.png"/>
@@ -89,8 +92,11 @@
           <%end%>
           </div>
         </div>
+        <%if game%3==0%>
+          </div>
+        <%end%>
+        <%game+=1%>
       <%end%>
-    </div>
   </div>
 </div>
 
