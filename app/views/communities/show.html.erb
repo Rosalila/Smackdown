@@ -58,9 +58,9 @@
         </div>
       <%end%>
     </div>
-      <%game=0%>
+      <%game_count=0%>
       <%Game.all.each do |game|%>
-        <%if game%3==0%>
+        <%if game_count%3==0%>
           <div class="row">
         <%end%>
         <div class="col-md-4" align="center">
@@ -92,10 +92,10 @@
           <%end%>
           </div>
         </div>
-        <%if game%3==0%>
+        <%if game_count%3==0%>
           </div>
         <%end%>
-        <%game+=1%>
+        <%game_count+=1%>
       <%end%>
   </div>
 </div>
