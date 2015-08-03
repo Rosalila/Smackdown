@@ -32,11 +32,13 @@
               <img height="90" src='http://graph.facebook.com/<%= user.uid %>/picture?type=normal'/>
             </a>
           <%end%>
-          <div class="box-footer">
-            <a href="/communities/manage_users?community_id=<%=@community.id%>">
-              <button type="submit" class="btn btn-primary"><%=t('Manage_users')%></button>
-            </a>
-          </div>
+          <%if @community.userIsAdmin current_user%>
+            <div class="box-footer">
+              <a href="/communities/manage_users?community_id=<%=@community.id%>">
+                <button type="submit" class="btn btn-primary"><%=t('Manage_users')%></button>
+              </a>
+            </div>
+          <%end%>
         </div>
       </div>
       <div class="col-md-12" align="center">
@@ -46,81 +48,50 @@
           </div>
         </div>
       </div>
-      <div class="col-md-12" align="center">
-        <div class="box box-primary">
-           <a href="/communities/<%=@community.id%>/edit">
-            <button type="submit" class="btn btn-primary"><%=t('Edit')%></button>
-           </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<%Game.all.each do |game|%>
-
-<img class="resizable_image" src="<%= game.image_path.split('.')[0] %>_100.png"/>
-<h2>Racha</h2>
-    <% @community.getStreak.each do |streak|%>
-      <%if streak[2]==game.id && streak[1]>0%>
-      <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
-            <div class="info-box-content">
-              <table>
-                <tr>
-                  <td>
-                    <img height="90" src='http://graph.facebook.com/<%= streak[0].uid %>/picture?type=normal'/>
-                  </td>
-                  <td>
-                    <span class="info-box-text">Racha</span>
-                    <span class="info-box-number"><%= streak[1] %></span>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    <%end%>
-    <%end%>
-
-<br/>
-<br/>
-<h2>Diferencia</h2>
-
-    <% @community.getDifference.each do |diff|%>
-      <%if diff[2]==game.id%>
-        <div class="row">
-          <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="info-box">
-              <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
-              <div class="info-box-content">
-                <table>
-                  <tr>
-                    <td>
-                      <img height="90" src='http://graph.facebook.com/<%= diff[0].uid %>/picture?type=normal'/>
-                    </td>
-                    <td>
-                      <% if diff[1]>0 %>
-                        <span class="info-box-text" style="color: green">Diferencia: <b>+<%= diff[1] %></b></span>
-                      <% elsif diff[1]<0 %>
-                        <span class="info-box-text" style="color: red">Diferencia: <b><%= diff[1] %></b></span>
-                      <% else %>
-                        <span class="info-box-text">Diferencia: <b><%= diff[1] %></b></span>
-                      <% end %>
-                      <span class="info-box-text">Smackdowns jugados: <b><%= diff[3] %></b></span>
-                    </td>
-                  </tr>
-                </table>
-              </div>
-            </div>
+      <%if @community.userIsAdmin current_user%>
+        <div class="col-md-12" align="center">
+          <div class="box box-primary">
+             <a href="/communities/<%=@community.id%>/edit">
+              <button type="submit" class="btn btn-primary"><%=t('Edit')%></button>
+             </a>
           </div>
         </div>
       <%end%>
-    <%end%>
-<%end%>
+    </div>
+    <div class="row">
+      <%Game.all.each do |game|%>
+        <div class="col-md-4" align="center">
+          <div class="box box-primary">
+          <img class="resizable_image" src="<%= game.image_path.split('.')[0] %>_100.png"/>
+          <h2>Racha</h2>
+          <% @community.getStreak.each do |streak|%>
+            <%if streak[2]==game.id && streak[1]>0%>
+              <span class="info-box-icon bg-green"><i class="fa fa-angle-double-up"></i></span>
+              <img height="90" src='http://graph.facebook.com/<%= streak[0].uid %>/picture?type=normal'/>
+	      <span class="info-box-text">Racha</span>
+              <span class="info-box-number"><%= streak[1] %></span>
+            <%end%>
+          <%end%>
+          <h2>Diferencia</h2>
+          <% @community.getDifference.each do |diff|%>
+            <%if diff[2]==game.id%>
+              <img height="90" src='http://graph.facebook.com/<%= diff[0].uid %>/picture?type=normal'/>
+              <% if diff[1]>0 %>
+                <span class="info-box-text" style="color: green">Diferencia: <b>+<%= diff[1] %></b></span>
+              <% elsif diff[1]<0 %>
+                <span class="info-box-text" style="color: red">Diferencia: <b><%= diff[1] %></b></span>
+              <% else %>
+                <span class="info-box-text">Diferencia: <b><%= diff[1] %></b></span>
+              <% end %>
+              <span class="info-box-text">Smackdowns jugados: <b><%= diff[3] %></b></span>
+            <%end%>
+          <%end%>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
+</div>
 
 <script type="text/javascript">
   var polygons=[];
