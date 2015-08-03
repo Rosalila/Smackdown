@@ -38,6 +38,15 @@ class User < ActiveRecord::Base
     return user_playing_game.is_playing
   end
 
+  def isPlayingAGame
+    user_playing_games.each do |upg|
+      if upg.is_playing
+        return true
+      end
+    end
+    return false
+  end
+
   def smackdownsPlayedByGame game_id
     games_played=0
     Smackdown.where("player1_id = ? or player2_id = ?", id, id).order('created_at DESC').each do |smackdown| 

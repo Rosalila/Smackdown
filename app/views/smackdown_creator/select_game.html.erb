@@ -40,5 +40,8 @@
     </br>
   <% end %>
 <% end %>
+<%if !@user.isPlayingAGame%>
+  <h3><%@user.name%> is not playing any game right now. Go and tell him to add games to his profile!</h3>
+<%end%>
 
 </div>
