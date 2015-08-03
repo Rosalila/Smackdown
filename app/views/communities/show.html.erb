@@ -58,18 +58,16 @@
         </div>
       <%end%>
     </div>
-    <div class="row">
+      <%game_count=0%>
+      <%game_col_count=0%>
       <%Game.all.each do |game|%>
+        <%if game_count%3==0%>
+          <div class="row">
+        <%end%>
+        <%game_col_count+=1%>
         <div class="col-md-4" align="center">
           <div class="box box-primary">
           <img class="resizable_image" src="<%= game.image_path.split('.')[0] %>_100.png"/>
-          <h2><%=t('Streak')%></h2>
-          <% @streaks.each do |streak|%>
-            <%if streak[2]==game.id && streak[1]>0%>
-              <img height="90" src='http://graph.facebook.com/<%= streak[0].uid %>/picture?type=normal'/>
-              <span class="info-box-number"><%= streak[1] %></span>
-            <%end%>
-          <%end%>
           <h2><%=t('Ranking')%></h2>
           <%position=1%>
           <% @differences.each do |diff|%>
@@ -94,8 +92,15 @@
           <%end%>
           </div>
         </div>
+
+        <%game_count+=1%>
+        <%if game_col_count==3%>
+            </div>
+          <%game_col_count=0%>
+        <%end%>
+
+
       <%end%>
-    </div>
   </div>
 </div>
 
