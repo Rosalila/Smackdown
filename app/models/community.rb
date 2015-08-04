@@ -5,6 +5,9 @@ class Community < ActiveRecord::Base
   has_many :user_in_communities
 
   def userIsAdmin user
+    if !user
+      return false
+    end
     user_in_community = UserInCommunity.where(user: user, community_id: id)[0]
     if user_in_community == nil
       return false
