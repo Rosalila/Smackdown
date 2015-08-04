@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<body>
+<html>
+
+<h1 id="#content">test</h1>
+<h1 id="#content1">kill</h1>
+    <script src="/backend/plugins/jQuery/jQuery-2.1.3.min.js"></script>
+<script src="/js/bootstrap-tour.js"></script>
+<script src="/js/bootstrap-tour.min.js"></script>
+<script>
+  // Instance the tour
+  var tour = new Tour();
+
+  // Add your steps. Not too many, you don't really want to get your users sleepy
+  tour.addSteps([
+    {
+      element: "#content", // string (jQuery selector) - html element next to which the step popover should be shown
+      title: "Title of my step", // string - title of the popover
+      content: "Content of my step" // string - content of the popover
+    },
+    {
+      element: "#content1",
+      title: "Title of my step",
+      content: "Content of my step"
+    }
+ ]);
+
+ // Initialize the tour
+ tour.init();
+
+ // Start the tour
+ tour.start();
+</script>
+</body>
+</html>
