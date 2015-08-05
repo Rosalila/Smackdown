@@ -41,6 +41,14 @@ class CommunitiesController < ApplicationController
       redirect_to "/"
       return
     end
+    my_address = Geocoder.search(request.remote_ip)
+    if my_address[0]
+      @latitude = my_address[0].latitude
+      @longitude = my_address[0].longitude
+    else
+      @latitude = 36.125
+      @longitude = -115.175
+    end
   end
 
   # POST /communities
@@ -88,6 +96,18 @@ class CommunitiesController < ApplicationController
     end
     respond_to do |format|
       if @community.update(community_params)
+        CommunityPoint.where(:community => @community).destroy_all
+        community_points = params[:community_points]
+        points = community_points.split(',')
+        for i in 0..(points.count/2)-1
+          latitude = 0
+          longitude = 0
+          for j in 0..1
+            latitude = points[i*2]
+            longitude = points[i*2+1]
+          end
+          CommunityPoint.create(community: @community, latitude: latitude, longitude: longitude)
+        end
         format.html { redirect_to @community, notice: 'Community was successfully updated.' }
         format.json { head :no_content }
       else

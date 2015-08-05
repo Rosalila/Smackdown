@@ -71,14 +71,29 @@
         ],
         { strokeColor: '#FF0000'}
       );
+
+    markers = handler.addMarkers([
+      {
+        "lat": evt.latLng.lat(),
+        "lng": evt.latLng.lng(),
+        "picture": {
+          "url": "/badge.png",
+          "width":  36,
+          "height": 36
+        },
+        "infowindow": "hello!"
+      }
+    ]);
+
       document.getElementById("testa").value += evt.latLng.lat();
       document.getElementById("testa").value += ",";
       document.getElementById("testa").value += evt.latLng.lng();
       document.getElementById("testa").value += ",";
     });
+
     handler.map.serviceObject.setCenter(new google.maps.LatLng(<%= @latitude %>, <%= @longitude %>));
     navigator.geolocation.getCurrentPosition(function(pos){
-          handler.map.serviceObject.setCenter(new google.maps.LatLng(pos.coords.latitude,pos.coords.longitude));
+      handler.map.serviceObject.setCenter(new google.maps.LatLng(pos.coords.latitude,pos.coords.longitude));
     });
   });
 </script>

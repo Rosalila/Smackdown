@@ -119,10 +119,11 @@
           <%end%>
         ],
       ],
-      { strokeColor: '#FF0000', poly_id_redirection: <%=community.id%>}
+      { strokeColor: '#FF0000'}
       );
+      //polygons[0].serviceObject.poly_id_redirection=<%=community.id%>;
       google.maps.event.addListener(polygons[0].serviceObject, "click", function( evt ) {
-        window.location = "/communities/"+polygons[0].serviceObject.poly_id_redirection;
+        window.location = "/communities/<%=community.id%>";
       });
       for (i = 0; i < polygons[0].serviceObject.getPath().j.length; i++) {
         lat = polygons[0].serviceObject.getPath().j[i]["k"];
@@ -131,7 +132,6 @@
         handler.bounds.extend(myLatLng);
       }
     <% end %>
-
 
 
     handler.bounds.extendWith(markers);
