@@ -28,9 +28,9 @@
       <div class="col-md-9" align="center">
         <div class="box box-primary">
           <%@community.users.each do |user|%>
-            <a href="/smackdown_creator/select_game?user_id=<%=user.id%>">
+            <%if current_user%><a href="/smackdown_creator/select_game?user_id=<%=user.id%>"><%end%>
               <img height="90" src='http://graph.facebook.com/<%= user.uid %>/picture?type=normal'/>
-            </a>
+            <%if current_user%></a><%end%>
           <%end%>
           <%if @community.userIsAdmin current_user%>
             <div class="box-footer">

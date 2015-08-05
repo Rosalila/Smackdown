@@ -118,10 +118,6 @@ folder instead of downloading all of them to reduce the load. -->
             <div class="navbar-custom-menu">
 
               <ul class="nav navbar-nav">
-
-              <%if current_user%>
-
-                <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
                   <a href="/?locale=es" class="dropdown-toggle">
                     ES
@@ -132,6 +128,7 @@ folder instead of downloading all of them to reduce the load. -->
                     EN
                   </a>
                 </li>
+              <%if current_user%>
                 <li class="dropdown messages-menu">
                   <% @pending_respond = pendingRespond %>
                   <% @pending_judge = pendingJudge %>
@@ -328,7 +325,7 @@ folder instead of downloading all of them to reduce the load. -->
           <% else %>
               <li class="dropdown user user-menu">
                 <a href="/auth/facebook">
-                  <span>Iniciar sesión</span>
+                  <span><%=t('Log_in')%></span>
                 </a>
               </li>
           <% end %>
