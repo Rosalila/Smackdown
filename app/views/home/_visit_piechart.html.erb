@@ -1,5 +1,6 @@
-<%user = locals[:user]%>
-<% stats_hash = getStats(current_user,user) %>
+<%player1 = locals[:player1]%>
+<%player2 = locals[:player2]%>
+<% stats_hash = getStats(player1,player2) %>
 
 
             <div class="col-md-6">
@@ -37,13 +38,13 @@
             value: <%= stats_hash['user1_ganadas'] %>,
             color: "#00a65a",
             highlight: "#00a65a",
-            label: '<%= current_user.name %> <%=t('won_plural')%>'
+            label: '<%= player1.name %> <%=t('won_plural')%>'
           },
           {
             value: <%= stats_hash['user2_ganadas']%>,
             color: "#f56954",
             highlight: "#f56954",
-            label: '<%= user.name %> <%=t('won_plural')%>'
+            label: '<%= player2.name %> <%=t('won_plural')%>'
           },
           {
             value: <%= stats_hash['pendientes'] %>,
@@ -55,13 +56,13 @@
             value: <%= stats_hash['user1_rechazadas'] %>,
             color: "#00c0ef",
             highlight: "#00c0ef",
-            label: '<%= current_user.name %> <%=t('rejected_plural')%>'
+            label: '<%= player1.name %> <%=t('rejected_plural')%>'
           },
           {
             value: <%= stats_hash['user2_rechazadas']%>,
             color: "#3c8dbc",
             highlight: "#3c8dbc",
-            label: '<%= user.name %> <%=t('rejected_plural')%>'
+            label: '<%= player2.name %> <%=t('rejected_plural')%>'
           },
           {
             value: <%= stats_hash['conflictos'] %>,
