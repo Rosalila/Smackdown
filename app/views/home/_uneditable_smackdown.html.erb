@@ -1,4 +1,5 @@
 <% smackdown=locals[:smackdown] %>
+<% hide_share_link=locals[:hide_share_link] %>
 <section class="content">
   <div class="row">
     <%= render '/home/smackdown_header', :locals => {:smackdown=> smackdown} %>
@@ -6,6 +7,8 @@
   <div class="row">
     <%= render '/home/smackdown_info', :locals => {:smackdown=> smackdown} %>
     <%= render '/home/smackdown_rules', :locals => {:smackdown=> smackdown} %>
-    <%= render '/home/share_smackdown', :locals => {:smackdown=> smackdown} %>
+    <% if hide_share_link %>
+      <%= render '/home/share_smackdown', :locals => {:smackdown=> smackdown} %>
+    <% end %>
   </div>
 </section>
