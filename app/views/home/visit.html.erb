@@ -28,7 +28,7 @@
   <% if current_user_streak!=0 || user_streak!=0 %>
     <div class="row" align="center">
       <%= render '/home/visit_linechart', :locals => {:player1 => current_user,:player2 => user} %>
-      <%= render '/home/visit_piechart', :locals => {:player1 => user1,:player2 => user2} %>
+      <%= render '/home/visit_piechart', :locals => {:player1 => current_user,:player2 => user} %>
       <div class="col-md-8 col-sm-10 col-xs-12" align="center">
         <div class="info-box">
           <span class="info-box-icon bg-blue"><i class="fa fa-globe"></i></span>
