@@ -7,27 +7,43 @@
 
 <div align="center">
 
-<h1><%=user1.name%> vs <%=user2.name%></h2>
-
-<table align="center">
-  <tr>
-    <td>
-      <img class="resizable_image" src="http://graph.facebook.com/<%= user1.uid %>/picture?type=large"/>
-    </td>
-    <td>
-      <img class="resizable_image" src="/assets/Smackdown_150px/vs.png"/>
-    </td>
-    <td>
-      <img class="resizable_image" src="http://graph.facebook.com/<%= user2.uid %>/picture?type=large"/>
-    </td>
-  </tr>
-</table>
-
-<img src="<%= MetaImage.find_by_id(params[:meta_image].to_i).path %>"/>
+<section class="content-header">
+  <h1>
+    <%=user1.name%> vs <%=user2.name%>
+  </h1>
+</section>
 
 
-      <%= render '/home/visit_linechart', :locals => {:player1 => user1,:player2 => user2} %>
-      <%= render '/home/visit_piechart', :locals => {:player1 => user1,:player2 => user2} %>
+<div class="box">
+  <div class="row" align="center">
+    <div class="col-md-12" align="center">
+      <div class="box box-primary" align="center">
+        <table align="center">
+          <tr>
+            <td>
+              <img class="resizable_image" src="http://graph.facebook.com/<%= user1.uid %>/picture?type=large"/>
+            </td>
+            <td>
+              <img class="resizable_image" src="/assets/Smackdown_150px/vs.png"/>
+            </td>
+            <td>
+              <img class="resizable_image" src="http://graph.facebook.com/<%= user2.uid %>/picture?type=large"/>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row" align="center">
+    <div class="col-md-12" align="center">
+      <div class="box box-primary" align="center">
+        <img src="<%= MetaImage.find_by_id(params[:meta_image].to_i).path %>"/>
+      </div>
+    </div>
+  </div>
+  <%= render '/home/visit_linechart', :locals => {:player1 => user1,:player2 => user2} %>
+  <%= render '/home/visit_piechart', :locals => {:player1 => user1,:player2 => user2} %>
+</div>
 
 
 <div class="fb-share-button"
