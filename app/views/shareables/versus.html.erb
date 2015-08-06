@@ -25,35 +25,10 @@
 
 <img src="<%= MetaImage.find_by_id(params[:meta_image].to_i).path %>"/>
 
-<% stats_hash = getStats(user1,user2) %>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript">
-  google.load("visualization", "1", {packages:["corechart"]});
-  google.setOnLoadCallback(drawChart);
-  function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Smackdowns', 'Totales'],
-      ['<%= user1.name %> ganadas',       <%= stats_hash['user1_ganadas'] %>],
-      ['<%= user2.name %> ganadas',      <%= stats_hash['user2_ganadas'] %>],
-      ['Pendientes',    <%= stats_hash['pendientes'] %>],
-      ['<%= user1.name %> rechazadas',    <%= stats_hash['user1_rechazadas'] %>],
-      ['<%= user2.name %> rechazadas',    <%= stats_hash['user2_rechazadas'] %>],
-      ['Conflictos',    <%= stats_hash['conflictos'] %>],
-      ['Errores',       <%= stats_hash['errores'] %>]
-    ]);
-    var options = {
-      title: 'Historial',
-      is3D: false,
-    };
-    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-    chart.draw(data, options);
-  }
-</script>
-<body>
-  <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
-</body>
 
-<%= annotationChartScript(user1,user2).html_safe %>
+      <%= render '/home/visit_linechart', :locals => {:player1 => user1,:player2 => user2} %>
+      <%= render '/home/visit_piechart', :locals => {:player1 => user1,:player2 => user2} %>
+
 
 <div class="fb-share-button"
   data-href="http://smackdown.club/shareables/versus/<%= user1.id %>/<%= user2.id %>/<%= params[:meta_image] %>" data-width="500">
