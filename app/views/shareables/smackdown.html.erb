@@ -16,13 +16,14 @@
 </section>
 
 <div class="box">
+  <div class="box-body">
   <div class="row" align="center">
     <%= render '/home/uneditable_smackdown', :locals => {:smackdown=> @smackdown, :hide_share_link => true} %>
   </div>
 
   <div class="row" align="center">
     <div class="col-md-12" align="center">
-      <h2>Comparte este Smackdown</h2>
+      <h2><%=t('Share_on_Facebook')%></h2>
       <table class="resizable_table">
         <tbody>
           <% i=0 %>
@@ -52,5 +53,6 @@
         </tbody>
       </table>
     </div>
+  </div>
   </div>
 </div>
