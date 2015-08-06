@@ -129,6 +129,7 @@ es:
   Profile: "Perfil"
   select_at_least_a_game_and_one_of_each_rules_to_start_receiving_smackdowns: "selecciona al menos un juego y una regla de cada set para empezar a recibir Smackdowns"
   Log_in: "Iniciar sesión"
+  you_are_watching_a_Smackdown: "estás viendo un Smackdown"
 
   time:
      formats:
