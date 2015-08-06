@@ -7,7 +7,7 @@
   <div class="row">
     <%= render '/home/smackdown_info', :locals => {:smackdown=> smackdown} %>
     <%= render '/home/smackdown_rules', :locals => {:smackdown=> smackdown} %>
-    <% if hide_share_link %>
+    <% if !hide_share_link %>
       <%= render '/home/share_smackdown', :locals => {:smackdown=> smackdown} %>
     <% end %>
   </div>
