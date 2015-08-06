@@ -9,6 +9,7 @@
 
 <%if current_user%>
 <div class="box">
+  <div class="box-body">
   <div class="row" align="center">
     <div class="col-md-12" align="center">
       <div class="box box-primary">
@@ -29,11 +30,10 @@
     <div class="row" align="center">
       <%= render '/home/visit_linechart', :locals => {:player1 => current_user,:player2 => user} %>
       <%= render '/home/visit_piechart', :locals => {:player1 => current_user,:player2 => user} %>
-      <div class="col-md-8 col-sm-10 col-xs-12" align="center">
-        <div class="info-box">
-          <span class="info-box-icon bg-blue"><i class="fa fa-globe"></i></span>
+      <div class="col-md-12" align="center">
+        <div class="box box-primary" align="center">
+          <h2>Global</h2>
           <% if current_user_streak > user_streak %>
-            <div class="info-box-content" align="center">
               <table align="center">
                 <tr>
                   <td>
@@ -62,9 +62,7 @@
                   </td>
                 </tr>
               </table>
-            </div>
           <% else %>
-            <div class="info-box-content" align="center">
               <table align="center">
                 <tr>
                   <td>
@@ -94,7 +92,6 @@
                 </tr>
                 </tr>
               </table>
-            </div>
           <% end %>
         </div>
       </div>
@@ -112,12 +109,12 @@
     <% difference_game = differenceInGame(current_user.id,user.id,game.id) %>
 
     <!-- STREAK IN GAME -->
+  </div>
     <div class="row">
-      <div class="col-md-8 col-sm-10 col-xs-12">
-        <div class="info-box">
-          <span class="info-box-icon"><img width="90" src="<%= game.image_path.split('.')[0] %>_100.png"/></span>
+      <div class="col-md-12">
+        <div class="box box-primary" align="center">
+          <img align="center" class="resizable_image" src="<%= game.image_path.split('.')[0] %>_100.png"/>
           <% if current_user_streak_game > user_streak_game %>
-            <div class="info-box-content" align="center">
               <table align="center">
                 <tr>
                   <td>
@@ -146,9 +143,7 @@
                   </td>
                 </tr>
               </table>
-            </div>
           <% else %>
-            <div class="info-box-content" align="center">
               <table align="center">
                 <tr>
                   <td>
@@ -177,7 +172,6 @@
                   </td>
                 </tr>
               </table>
-            </div>
           <% end %>
         </div>
       </div>
@@ -220,6 +214,7 @@
 <% end %>
 </tbody>
 </table>
+</div>
 </div>
 </div>
 <%else%>
