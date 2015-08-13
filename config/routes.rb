@@ -2,6 +2,8 @@ Myapp::Application.routes.draw do
   get '/dojos/manage_users', to: 'dojos#manage_users', as: 'dojo_manage_users'
   get '/dojos/accept_invitation', to: 'dojos#accept_invitation', as: 'dojo_accept_invitation'
   get '/dojos/decline_invitation', to: 'dojos#decline_invitation', as: 'dojo_decline_invitation'
+  get '/communities/join', to: 'communities#join', as: 'join_community'
+  get '/communities/leave', to: 'communities#leave', as: 'leave_community'
   get '/communities/manage_users', to: 'communities#manage_users', as: 'community_manage_users'
 
   resources :user_in_communities

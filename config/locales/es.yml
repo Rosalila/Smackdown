@@ -88,6 +88,7 @@ es:
   address: "dirección"
   Edit: "Editar"
   Do_you_want_to_join_this_dojo: "Deseas unirte a este dojo"
+  Do_you_want_to_join_this_community: "Deseas unirte a esta comunidad"
   Miembros_de_es_only: "Miembros de"
   members_en_only: ""
   manage_the_members: "administra los miembros"
@@ -131,6 +132,10 @@ es:
   Log_in: "Iniciar sesión"
   you_are_watching_a_Smackdown: "estás viendo un Smackdown"
   Status: "Estado"
+  You_still_have_no_favourite_friends_find_them_in_the_search_bar_above_and_click_on_the_favorite_icon: "Todavía no tienes amigos favoritos, encuéntralos en la barra buscadora de arriba y haz clic en el ícono de favoritos"
+  or_invite_them_using_the_share_button: "or invítalos usando el botón de compartir"
+  Join: "Unirte"
+  Leave: "Salirte"
 
   time:
      formats:

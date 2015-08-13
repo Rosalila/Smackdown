@@ -75,7 +75,13 @@
         </tr>
       </tfoot>
     </table>
-<%end%>
+<% else %>
+      <p><%=t('You_still_have_no_favourite_friends_find_them_in_the_search_bar_above_and_click_on_the_favorite_icon')%> (<i style="color: #e74c3c" class="fa fa-heart-o"></i>) <%=t('or_invite_them_using_the_share_button')%>.
+        <div class="fb-share-button"
+          data-href="http://smackdown.club" data-width="20" data-layout="button">
+        </div>
+      </p>
+<% end %>
   </div><!-- /.box-body -->
 </div><!-- /.box -->
 

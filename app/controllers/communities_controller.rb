@@ -169,6 +169,27 @@ class CommunitiesController < ApplicationController
     end
   end
 
+  def join
+    if !current_user && UserInCommunity.where(community: @community, user: current_user)[0]!=nil
+      redirect_to "/"
+      return
+    end
+    @community = Community.find_by_id(params["community_id"])
+    UserInCommunity.create(community: @community, user: current_user)
+    redirect_to @community
+  end
+
+  def leave
+    if !current_user && UserInCommunity.where(community: @community, user: current_user)[0]==nil
+      redirect_to "/"
+      return
+    end
+    @community = Community.find_by_id(params["community_id"])
+    uic = UserInCommunity.where(community: @community, user: current_user)[0]
+    uic.destroy
+    redirect_to @community
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_community
