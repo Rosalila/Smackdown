@@ -39,7 +39,7 @@
         </div>
       </form>
       <div class="box-body">
-        <%if @users.count>0%>
+        <%if !current_user || @users.count>0%>
         <table id="example1" class="table table-bordered table-striped">
           <thead>
             <tr>
