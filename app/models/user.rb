@@ -39,12 +39,25 @@ class User < ActiveRecord::Base
   end
 
   def isPlayingAGame
-    user_playing_games.each do |upg|
-      if upg.is_playing
-        return true
+    at_least_a_game = false
+    Game.all.each do |game|
+      rules_ok = true
+      game.rule_groups.each do |rule_group|
+          at_least_a_rule = false
+          rule_group.rules.each do |rule|
+            if PlayerRule.where(:user_id=>id,:rule_id=>rule.id,:activated=>true)[0]!=nil
+              at_least_a_rule = true
+            end
+          end
+          if !at_least_a_rule || !isPlayingGame(game)
+            rules_ok=false
+          end
+      end
+      if rules_ok
+        at_least_a_game = true
       end
     end
-    return false
+    return at_least_a_game
   end
 
   def smackdownsPlayedByGame game_id
@@ -78,5 +91,35 @@ class User < ActiveRecord::Base
       f.destroy
       f.save
     end
+  end
+
+  def sentASmackdown
+    return Smackdown.where(player1_id: id).count>0
+  end
+
+  def hasFavourite
+    return favorites.count>0
+  end
+
+  def receivedASmackdown
+    return Smackdown.where(player2_id: id).count>0
+  end
+  def judgedASmackdown
+    return Smackdown.where("judge1_id=? AND (judge1_accepted = ? OR judge1_accepted = ?)",id,true,false).count>0 || Smackdown.where("judge2_id=? AND (judge2_accepted = ? OR judge2_accepted = ?)",id,true,false).count>0
+  end
+  def belongsToADojo
+    return dojos.count>0
+  end
+  def belongsToACommunity
+    return communities.count>0
+  end
+
+  def finishedASmackdown
+    Smackdown.where(player1_id: id).each do |smackdown|
+      if smackdown.isFinished
+        return true
+      end
+    end
+    return false
   end
 end

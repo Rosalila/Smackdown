@@ -118,6 +118,15 @@ folder instead of downloading all of them to reduce the load. -->
             <div class="navbar-custom-menu">
 
               <ul class="nav navbar-nav">
+
+                <li class="dropdown messages-menu">
+                  <div class="dropdown-toggle" align="center" valign="bottom">
+                      <div class="fb-share-button"
+                        data-href="http://smackdown.club" data-width="20" data-layout="button">
+                      </div>
+                  </div>
+                </li>
+
                 <li class="dropdown messages-menu">
                   <a href="/?locale=es" class="dropdown-toggle">
                     ES
@@ -312,6 +321,73 @@ folder instead of downloading all of them to reduce the load. -->
                   </li>
                   -->
                   <!-- Menu Footer-->
+
+<%isPlayingAGame = current_user.isPlayingAGame%>
+<%hasFavourite = current_user.hasFavourite%>
+<%sentASmackdown = current_user.sentASmackdown%>
+<%finishedASmackdown = current_user.finishedASmackdown%>
+
+<%receivedASmackdown = current_user.receivedASmackdown%>
+<%judgedASmackdown = current_user.judgedASmackdown%>
+<%belongsToACommunity = current_user.belongsToACommunity%>
+<%belongsToADojo = current_user.belongsToADojo%>
+
+<%
+profile_compleition = 0
+
+if isPlayingAGame
+  profile_compleition += 12.5
+end
+if hasFavourite
+  profile_compleition += 12.5
+end
+if sentASmackdown
+  profile_compleition += 12.5
+end
+if finishedASmackdown
+  profile_compleition += 12.5
+end
+
+if receivedASmackdown
+  profile_compleition += 12.5
+end
+if judgedASmackdown
+  profile_compleition += 12.5
+end
+if belongsToACommunity
+  profile_compleition += 12.5
+end
+if belongsToADojo
+  profile_compleition += 12.5
+end
+
+%>
+
+<h4>Profile completion</h4>
+<div class="progress">
+  <div class="progress-bar progress-bar-striped active" role="progressbar"
+  aria-valuenow="<%=profile_compleition%>" aria-valuemin="0" aria-valuemax="100" style="width:<%=profile_compleition%>%">
+    <%=profile_compleition%>%
+  </div>
+</div>
+
+<a href="/home/profile"><p>Select your games </a><%if isPlayingAGame %><i class="fa fa-check text-success"></i><%end%> <i title="Select your the games you play and at least one rule for each category to start receving Smackdowns. (Please refresh when added to update.)" class="fa fa-question-circle"></i></p>
+
+<a href="/home/explore"><p>Add a favorite friend </a><%if current_user.hasFavourite %><i class="fa fa-check text-success"></i><%end%> <i title="Find friends in the search bar or invite them with the Facebook share button." class="fa fa-question-circle"></i></p>
+
+<a href="/smackdown_creator/select_user"><p>Send a Smackdown </a><%if current_user.sentASmackdown %><i class="fa fa-check text-success"></i><%end%> <i title="Send a Smackdown to another player." class="fa fa-question-circle"></i></p>
+
+<a href="/home/profile"><p>Complete a Smackdown </a><%if current_user.finishedASmackdown %><i class="fa fa-check text-success"></i><%end%> <i title="A Smackdown is completed when both judges selected the winners." class="fa fa-question-circle"></i></p>
+
+<p>Receive a Smackdown<%if current_user.receivedASmackdown %><i class="fa fa-check text-success"></i><%end%> <i title="Ask another player to send you a Smackdown." class="fa fa-question-circle"></i></p>
+
+<p>Judge a Smackdown<%if current_user.judgedASmackdown %><i class="fa fa-check text-success"></i><%end%> <i title="Ask another player to name you a judge in a Smackdown." class="fa fa-question-circle"></i></p>
+
+<p><a href="/home/explore">Join</a> or <a href="/communities/new">create</a> a community<%if current_user.belongsToACommunity %><i class="fa fa-check text-success"></i><%end%> <i title="Find people to play with and dominate an area." class="fa fa-question-circle"></i></p>
+
+<p>Join or <a href="/dojos/new">create</a> a dojo <%if current_user.belongsToADojo %><i class="fa fa-check text-success"></i><%end%> <i title="You can create a Dojo or ask a Dojo admin to invite you to his dojo. You can't send Dojo Smackdowns yet because it's still under development." class="fa fa-question-circle"></i></p>
+
+
                   <li class="user-footer">
                     <div class="pull-left">
                       <a href="/home/profile" class="btn btn-default btn-flat"><%=t('My_games')%></a>
