@@ -20,7 +20,7 @@
 
 <% switch_cont = 0%>
 <% switch_rule_cont = 0%>
-<script src="/javascripts/jquery-1.3.2.min.js"></script>
+<!--<script src="/javascripts/jquery-1.3.2.min.js"></script>-->
   <% Game.all.each do |g| %>
     <% upg = UserPlayingGame.where(:user_id=>current_user.id, :game_id=>g.id)[0] %>
     <% if upg==nil %>
