@@ -127,10 +127,18 @@ class HomeController < ApplicationController
       if current_user
         @users = current_user.getFavorites
         if @users.count == 0
-          @users = []
+          if current_user
+            @users = []
+          else
+            @users = User.all.shuffle[0..5]
+          end
         end
       else
-        @users = []
+        if current_user
+          @users = []
+        else
+          @users = User.all.shuffle[0..5]
+        end
       end
     else
       if current_user
