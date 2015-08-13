@@ -28,8 +28,14 @@
       <% upg.is_playing = false %>
       <% upg.save %>
     <% end %>
+    <table class="resizable_table" align="center">
+      <tr>
+        <td>
           <img class="resizable_image" src="<%= g.image_path %>"/>
-</br>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
           <%= form_for upg, remote:true do |f| %>
             <%= hidden_field_tag "user_playing_game[user_id]", current_user.id %>
             <%= hidden_field_tag "user_playing_game[game_id]", g.id %>
@@ -48,6 +54,9 @@
               $("#rule_div_<%=g.id%>").slideToggle("slow");
             });
           </script>
+        </td>
+      </tr>
+    </table>
     <div id="rule_div_<%=g.id%>" <%= "style='display:none;'".html_safe if !upg.is_playing %> ><!-- Toggle rules div end -->
       <% g.rule_groups.each do |rule_group| %>
         <table align="center">
