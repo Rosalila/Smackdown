@@ -47,7 +47,7 @@ class HomeController < ApplicationController
       smackdown_rule.save
     end
     respond_to do |format|
-      format.html { redirect_to "/home/wating_opponent", notice: '¡Has enviado un Smackdown!' }
+      format.html { redirect_to "/shareables/smackdown/"+smackdown.id.to_s+"/0", notice: '¡Has enviado un Smackdown!' }
     end
   end
 
@@ -67,7 +67,7 @@ class HomeController < ApplicationController
     smackdown.save
 
     respond_to do |format|
-      format.html { redirect_to "/home/wating_judges", notice: '¡Has respondido un Smackdown!' }
+      format.html { redirect_to "/shareables/smackdown/"+smackdown.id.to_s+"/0", notice: '¡Has respondido un Smackdown!' }
     end
 
   end

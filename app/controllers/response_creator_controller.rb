@@ -6,6 +6,12 @@ class ResponseCreatorController < ApplicationController
     @smackdown = Smackdown.find(params[:smackdown_id])
     @accepted = (params[:accepted]=='true')
     @like_param = params["like_param"]
+    @favorite_id = params["favorite_id"]
+
+    if @favorite_id != "" && @favorite_id != nil
+      current_user.toggleFavorite @favorite_id
+    end
+
     if !@accepted
       if current_user.id == @smackdown.player2_id
         @smackdown.player2_accepted = false
@@ -18,7 +24,7 @@ class ResponseCreatorController < ApplicationController
       return
     end
     if @like_param=="" || @like_param == nil
-      @judges=[]
+      @judges=current_user.getFavorites
     else
       @judges=User.where("name LIKE ?" , "%#{@like_param}%")
     end
