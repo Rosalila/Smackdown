@@ -208,4 +208,18 @@ class HomeController < ApplicationController
   def waiting_judge_page
     @smackdown = Smackdown.find_by_id(params[:smackdown_id].to_i)
   end
+
+  def set_rules
+    player_rules=params["player_rules"]
+    player_rules.each do |player_rule_params|
+      player_rule = PlayerRule.find_by_id(player_rule_params.first)
+      if player_rule_params.second == "on" && player_rule.user_id == current_user.id
+        player_rule.activated = true
+      else
+        player_rule.activated = false
+      end
+      player_rule.save
+    end
+    redirect_to "/home/profile"
+  end
 end

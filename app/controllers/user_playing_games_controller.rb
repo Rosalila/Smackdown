@@ -97,6 +97,29 @@ class UserPlayingGamesController < ApplicationController
     end
   end
 
+  def play_game
+    game_id = params[:game_id]
+    upg = UserPlayingGame.where(:user_id=>current_user.id, :game_id=>game_id)[0]
+    if upg==nil
+      upg = UserPlayingGame.new
+    end
+    upg.is_playing = true
+    upg.save
+    redirect_to "/home/profile"
+  end
+
+
+  def stop_playing_game
+    game_id = params[:game_id]
+    upg = UserPlayingGame.where(:user_id=>current_user.id, :game_id=>game_id)[0]
+    if upg==nil
+      upg = UserPlayingGame.new
+    end
+    upg.is_playing = false
+    upg.save
+    redirect_to "/home/profile"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user_playing_game
