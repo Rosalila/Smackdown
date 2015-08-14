@@ -380,9 +380,9 @@ end
 
 <a class="<%="text-success" if finishedASmackdown%>" href="/home/profile"><p>Complete a Smackdown </a><%if finishedASmackdown %><i class="fa fa-check text-success"></i><%end%> <i title="A Smackdown is completed when both judges selected the winners." class="fa fa-question-circle"></i></p>
 
-<p>Receive a Smackdown<%if receivedASmackdown %><i class="fa fa-check text-success"></i><%end%><i title="Ask another player to send you a Smackdown." class="fa fa-question-circle"></i></p>
+<p class="<%="text-success" if finishedASmackdown%>">Receive a Smackdown<%if receivedASmackdown %><i class="fa fa-check text-success"></i><%end%><i title="Ask another player to send you a Smackdown." class="fa fa-question-circle"></i></p>
 
-<p class="<%="text-success" if judgedASmackdown%>">Judge a Smackdown<%if judgedASmackdown %><i class="fa fa-check text-success"></i><%end%></p><i title="Ask another player to name you a judge in a Smackdown." class="fa fa-question-circle"></i>
+<p class="<%="text-success" if judgedASmackdown%>">Judge a Smackdown<%if judgedASmackdown %><i class="fa fa-check text-success"></i><%end%><i title="Ask another player to name you a judge in a Smackdown." class="fa fa-question-circle"></i></p>
 
 <p class="<%="text-success" if belongsToACommunity%>"><a href="/home/explore">Join</a> or <a href="/communities/new">create</a> a community<%if belongsToACommunity %><i class="fa fa-check text-success"></i><%end%> <i title="Find people to play with and dominate an area." class="fa fa-question-circle"></i></p>
 
