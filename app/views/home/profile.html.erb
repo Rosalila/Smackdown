@@ -1,136 +1,60 @@
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag "test.css" %>
-
-<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-
 <section class="content-header">
   <h1>
     <%=t('My_games')%>
     <small><%=t("select_at_least_a_game_and_one_of_each_rules_to_start_receiving_smackdowns")%></small>
   </h1>
 </section>
-
-
 <div class="box">
-<!--
-<% if !playingAtLeastAGame current_user %>
-  <p>Todavía no estás listo para recibir Smackdowns. Selecciona al menos un juego y una regla de cada grupo.</p>
-<% end %>
--->
-
-<% switch_cont = 0%>
-<% switch_rule_cont = 0%>
-<script src="/jquery-1.11.1.min.js"></script>
-  <% Game.all.each do |g| %>
-    <% upg = UserPlayingGame.where(:user_id=>current_user.id, :game_id=>g.id)[0] %>
-    <% if upg==nil %>
-      <% upg = UserPlayingGame.new %>
-      <% upg.is_playing = false %>
-      <% upg.save %>
-    <% end %>
-    <table class="resizable_table" align="center">
-      <tr>
-        <td>
-          <img class="resizable_image" src="<%= g.image_path %>"/>
-        </td>
-      </tr>
-      <tr>
-        <td align="center">
-          <%= form_for upg, remote:true do |f| %>
-            <%= hidden_field_tag "user_playing_game[user_id]", current_user.id %>
-            <%= hidden_field_tag "user_playing_game[game_id]", g.id %>
-            <%= hidden_field_tag "user_playing_game[is_playing]", !upg.is_playing %>
-            <div class="onoffswitch">
-              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch<%=switch_cont%>" <%= "checked" if upg.is_playing %> >
-              <label class="onoffswitch-label" for="myonoffswitch<%=switch_cont%>">
-                <span class="onoffswitch-inner"></span>
-                <span class="onoffswitch-switch"></span>
-              </label>
-              <%switch_cont+=1%>
-            </div>
-          <%end%>
-          <script>
-            $('#edit_user_playing_game_<%= upg.id %>').on('ajax:success', function(event, data, status, xhr) {
-              $("#rule_div_<%=g.id%>").slideToggle("slow");
-            });
-          </script>
-        </td>
-      </tr>
-    </table>
-    <div id="rule_div_<%=g.id%>" <%= "style='display:none;'".html_safe if !upg.is_playing %> ><!-- Toggle rules div end -->
-      <% g.rule_groups.each do |rule_group| %>
-        <table align="center">
-          <tr>
-            <td align="center" colspan="10">
-              <b><%= rule_group.name %></b>
-            </td>
-          </tr>
-          <tr>
-            <% rule_group.rules.each do |rule| %>
-              <td align="center" valign="bottom">
-                <table>
-                  <tr>
-                    <td align="center">
-                      <%= rule.name %>
-                      <% player_rule = PlayerRule.where(:user_id=>current_user.id, :rule_id=>rule.id)[0] %>
-                      <% if player_rule==nil %>
-                        <% player_rule = PlayerRule.new %>
-                      <% end %>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="center">
-                      <%= form_for player_rule, remote:true do |f| %>
-                        <%= hidden_field_tag "player_rule[user_id]", current_user.id %>
-                        <%= hidden_field_tag "player_rule[rule_id]", rule.id %>
-                        <%= hidden_field_tag "player_rule[activated]", !player_rule.activated %>
-                        <div class="actions">
-                          <% if player_rule.activated %>
-                            <div class="onoffswitch">
-                              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch_rule<%=switch_rule_cont%>" checked>
-                              <label class="onoffswitch-label" for="switch_rule<%=switch_rule_cont%>">
-                                <span class="onoffswitch-inner"></span>
-                                <span class="onoffswitch-switch"></span>
-                              </label>
-                              <%switch_rule_cont+=1%>
-                            </div>
-                          <% else %>
-                            <div class="onoffswitch">
-                              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch_rule<%=switch_rule_cont%>">
-                              <label class="onoffswitch-label" for="switch_rule<%=switch_rule_cont%>">
-                                <span class="onoffswitch-inner"></span>
-                                <span class="onoffswitch-switch"></span>
-                              </label>
-                              <%switch_rule_cont+=1%>
-                              </div>
-                          <% end %>
-                        </div>
-                      <%end%>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            <% end %>
-          </tr>
-        </table>
-      <% end %>
-    </div><!-- Toggle rules div end -->
-  <% end %>
+  <div class="box-body">
+    <div class="row">
+      <%Game.all.each do |game|%>
+        <% upg = UserPlayingGame.where(:user_id=>current_user.id, :game_id=>game.id)[0] %>
+        <% if upg==nil %>
+          <% upg = UserPlayingGame.new %>
+          <% upg.is_playing = false %>
+          <% upg.save %>
+        <% end %>
+        <div class="col-md-4">
+          <div class="box box-primary" align="center">
+            <img class="resizable_image" src="<%= game.image_path.split('.')[0] %>_100.png"/>
+            <br>
+            <%if !upg.is_playing%>
+              <a href="/user_playing_games/play_game?game_id=<%=game.id%>">
+                <button type="submit" class="btn btn-primary"><%=t('Play')%></button>
+              </a>
+            <%else%>
+              <a href="/user_playing_games/stop_playing_game?game_id=<%=game.id%>">
+                <button type="submit" class="btn btn-primary"><%=t('Stop playing')%></button>
+              </a>
+              <%=form_tag "/home/set_rules", method: :post do%>
+                <% game.rule_groups.each do |rule_group| %>
+                  <h3><%=rule_group.name%></h3>
+                  <% rule_group.rules.each do |rule| %>
+                    <% player_rule = PlayerRule.where(:user_id=>current_user.id, :rule_id=>rule.id)[0] %>
+                    <% if player_rule==nil %>
+                      <% player_rule = PlayerRule.new %>
+                      <% player_rule.user_id = current_user.id %>
+                      <% player_rule.rule_id = rule.id %>
+                      <% player_rule.save %>
+                    <% end %>
+                    <div class="form-group">
+                      <div class="checkbox">
+                        <label>
+                          <input name="player_rules[<%=player_rule.id%>]" type="hidden"/>
+                          <input name="player_rules[<%=player_rule.id%>]" type="checkbox" <%= "checked" if player_rule.activated %>/>
+                          <%=player_rule.id%>
+                          <%= rule.name %>
+                        </label>
+                      </div>
+                    </div>
+                  <%end%>
+                <%end%>
+                <button type="submit" class="btn btn-primary"><%=t('Save')%></button>
+              <%end%>
+            <%end%>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
 </div>
-
-<script>
-  <% for i in 0..switch_cont-1 %>
-    $( "#myonoffswitch<%= i %>" ).click(function() {
-        $(this).closest('form').submit();
-    });
-  <% end %>
-
-  <% for i in 0..switch_rule_cont-1 %>
-    $( "#switch_rule<%= i %>" ).click(function() {
-        $(this).closest('form').submit();
-    });
-  <% end %>
-
-  $( 'form' ).submit(function() {
-  });
-</script>
