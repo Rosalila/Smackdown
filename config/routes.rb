@@ -7,7 +7,6 @@ Myapp::Application.routes.draw do
   get '/communities/manage_users', to: 'communities#manage_users', as: 'community_manage_users'
   get '/user_playing_games/play_game', to: 'user_playing_games#play_game', as: 'user_playing_games_play_game'
   get '/user_playing_games/stop_playing_game', to: 'user_playing_games#stop_playing_game', as: 'user_playing_games_stop_playing_game'
-  #get '/home/set_rules', to: 'home#set_rules', as: 'home_set_rules'
   match '/home/set_rules' => 'home#set_rules', via: :post
 
   resources :user_in_communities
