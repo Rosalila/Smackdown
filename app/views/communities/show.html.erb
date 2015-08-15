@@ -14,22 +14,23 @@
 </section>
 <div class="box">
   <div class="box-body">
-
-    <%if UserInCommunity.where(community: @community, user: current_user)[0] == nil%>
-    <div class="row">
-      <div class="col-lg-12 col-xs-12">
-        <div class="box box-primary">
-          <div class="box-header" align="center">
-            <h2><%=t('Do_you_want_to_join_this_community')%>?</h2>
-          </div>
-          <div class="box-footer" align="center">
-            <a href="/communities/join?community_id=<%=@community.id%>">
-              <button type="submit" class="btn btn-primary"><%=t('Join')%></button>
-            </a>
+    <% if current_user%>
+      <%if UserInCommunity.where(community: @community, user: current_user)[0] == nil%>
+      <div class="row">
+        <div class="col-lg-12 col-xs-12">
+          <div class="box box-primary">
+            <div class="box-header" align="center">
+              <h2><%=t('Do_you_want_to_join_this_community')%>?</h2>
+            </div>
+            <div class="box-footer" align="center">
+              <a href="/communities/join?community_id=<%=@community.id%>">
+                <button type="submit" class="btn btn-primary"><%=t('Join')%></button>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <%end%>
     <%end%>
 
     <div class="row">
@@ -69,6 +70,7 @@
           </div>
         </div>
       </div>
+      <% if current_user%>
         <div class="col-md-12" align="center">
           <div class="box box-primary">
              <%if @community.userIsAdmin current_user%>
@@ -83,6 +85,7 @@
             <%end%>
           </div>
         </div>
+      <%end%>
     </div>
       <%game_count=0%>
       <%game_col_count=0%>
