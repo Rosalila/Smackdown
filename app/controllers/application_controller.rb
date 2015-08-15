@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     if Rails.env.production?
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     else
-      #User.first
+      User.first
     end
   end
 
