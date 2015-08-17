@@ -47,7 +47,7 @@ class HomeController < ApplicationController
       smackdown_rule.save
     end
     respond_to do |format|
-      format.html { redirect_to "/shareables/smackdown/"+smackdown.id.to_s+"/0", notice: '¡Has enviado un Smackdown!' }
+      format.html { redirect_to "/shareables/smackdown/"+smackdown.id.to_s+"/0", notice: 'You have sent a Smackdown!' }
     end
   end
 
@@ -67,7 +67,7 @@ class HomeController < ApplicationController
     smackdown.save
 
     respond_to do |format|
-      format.html { redirect_to "/shareables/smackdown/"+smackdown.id.to_s+"/0", notice: '¡Has respondido un Smackdown!' }
+      format.html { redirect_to "/shareables/smackdown/"+smackdown.id.to_s+"/0", notice: 'You answered a Smackdown!' }
     end
 
   end
@@ -99,11 +99,11 @@ class HomeController < ApplicationController
 
     if correct && smackdown.save
       respond_to do |format|
-        format.html { redirect_to "/home/history_judged_smackdowns", notice: '¡Has juzgado un Smackdown!' }
+        format.html { redirect_to "/shareables/smackdown/"+smackdown.id.to_s+"/0", notice: 'You have judged Smackdown!' }
       end
     else
       respond_to do |format|
-        format.html { redirect_to "/home/history_judged_smackdowns", notice: '¡Ocurrio un error!' }
+        format.html { redirect_to "/shareables/smackdown/"+smackdown.id.to_s+"/0", notice: 'Error!' }
       end
     end
   end
