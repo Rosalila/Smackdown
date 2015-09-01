@@ -131,7 +131,14 @@
 <script type="text/javascript">
   var polygons=[];
   handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  handler.buildMap({ provider:
+    {
+      scrollwheel: false,
+      navigationControl: false,
+      mapTypeControl: false,
+      scaleControl: false,
+      draggable: false,
+    }, internal: {id: 'map'}}, function(){
     polygons = handler.addPolygons(
     [
       [
