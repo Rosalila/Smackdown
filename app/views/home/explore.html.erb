@@ -134,8 +134,8 @@
         window.location = "/communities/<%=community.id%>";
       });
       for (i = 0; i < polygons[0].serviceObject.getPath().j.length; i++) {
-        lat = parseFloat(polygons[0].serviceObject.getPath().j[i]["A"]);
-        lng = parseFloat(polygons[0].serviceObject.getPath().j[i]["F"]);
+        lat = parseFloat(polygons[0].serviceObject.getPath().j[i]["G"]);
+        lng = parseFloat(polygons[0].serviceObject.getPath().j[i]["K"]);
         var myLatLng = new google.maps.LatLng(lat,lng);
         handler.bounds.extend(myLatLng);
       }
