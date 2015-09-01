@@ -143,8 +143,8 @@
     { strokeColor: '#FF0000'}
     );
     for (i = 0; i < polygons[0].serviceObject.getPath().j.length; i++) {
-      lat = polygons[0].serviceObject.getPath().j[i]["k"];
-      lng = polygons[0].serviceObject.getPath().j[i]["D"];
+      lat = parseFloat(polygons[0].serviceObject.getPath().j[i]["A"]);
+      lng = parseFloat(polygons[0].serviceObject.getPath().j[i]["F"]);
       var myLatLng = new google.maps.LatLng(lat,lng);
       handler.bounds.extend(myLatLng);
     }
