@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :rule_group_id %><br>
-    <%= collection_select(:rule, :rule_group_id, RuleGroup.all, :id, :name) %>
+    <%= collection_select(:rule, :rule_group_id, RuleGroup.all, :id, :gameAndRuleGroupName) %>
   </div>
   <div class="field">
     <%= f.label :name %><br>
