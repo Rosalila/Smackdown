@@ -14,7 +14,7 @@
   <tbody>
     <% @rule_groups.each do |rule_group| %>
       <tr>
-        <td><%= rule_group.game_id %></td>
+        <td><%= rule_group.game.name %></td>
         <td><%= rule_group.name %></td>
         <td><%= link_to 'Show', rule_group %></td>
         <td><%= link_to 'Edit', edit_rule_group_path(rule_group) %></td>

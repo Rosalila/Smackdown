@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Game</th>
       <th>Rule group</th>
       <th>Name</th>
       <th></th>
@@ -14,7 +15,8 @@
   <tbody>
     <% @rules.each do |rule| %>
       <tr>
-        <td><%= rule.rule_group_id %></td>
+        <td><%= rule.rule_group.game.name %></td>
+        <td><%= rule.rule_group.name %></td>
         <td><%= rule.name %></td>
         <td><%= link_to 'Show', rule %></td>
         <td><%= link_to 'Edit', edit_rule_path(rule) %></td>
