@@ -20,11 +20,7 @@
           <div class="box box-primary" align="center">
             <img class="resizable_image" src="<%= game.image_path.split('.')[0] %>_100.png"/>
             <br>
-            <%if !upg.is_playing%>
-              <a href="/user_playing_games/play_game?game_id=<%=game.id%>">
-                <button type="submit" class="btn btn-primary"><%=t('Play')%></button>
-              </a>
-            <%else%>
+            <%if upg.is_playing%>
               <a href="/user_playing_games/stop_playing_game?game_id=<%=game.id%>">
                 <button type="submit" class="btn btn-primary"><%=t('Stop playing')%></button>
               </a>
@@ -52,6 +48,27 @@
                 <%end%>
                 <button type="submit" class="btn btn-primary"><%=t('Save')%></button>
               <%end%>
+            <%end%>
+          </div>
+        </div>
+      <%end%>
+      <%Game.all.each do |game|%>
+        <% upg = UserPlayingGame.where(:user_id=>current_user.id, :game_id=>game.id)[0] %>
+        <% if upg==nil %>
+          <% upg = UserPlayingGame.new %>
+          <% upg.user_id = current_user.id %>
+          <% upg.game_id = game.id %>
+          <% upg.is_playing = false %>
+          <% upg.save %>
+        <% end %>
+        <div class="col-md-4">
+          <div class="box box-primary" align="center">
+            <img class="resizable_image" src="<%= game.image_path.split('.')[0] %>_100.png"/>
+            <br>
+            <%if !upg.is_playing%>
+              <a href="/user_playing_games/play_game?game_id=<%=game.id%>">
+                <button type="submit" class="btn btn-primary"><%=t('Play')%></button>
+              </a>
             <%end%>
           </div>
         </div>
