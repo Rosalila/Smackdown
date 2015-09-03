@@ -3,8 +3,38 @@
     <% smackdown=locals[:smackdown] %>
     <% user1 = User.find_by_id(smackdown.player1_id) %>
     <% user2 = User.find_by_id(smackdown.player2_id) %>
-    <img class='resizable_image' src='http://graph.facebook.com/<%= user1.uid %>/picture?type=normal'/>
-    <img class='resizable_image' src='/assets/Smackdown_150px/vs.png' />
-    <img class='resizable_image' src='http://graph.facebook.com/<%= user2.uid %>/picture?type=normal'/>
+    <table>
+      <%if smackdown.isFinished%>
+      <tr>
+        <td align="center">
+          <%if smackdown.player1Wins%>
+            <h3>Winner</h3>
+          <%else%>
+            <h3>Loser</h3>
+          <%end%>
+        </td>
+        <td>
+        </td>
+        <td align="center">
+          <%if smackdown.player2Wins%>
+            <h3>Winner</h3>
+          <%else%>
+            <h3>Loser</h3>
+          <%end%>
+        </td>
+      </tr>
+      <%end%>
+      <tr>
+        <td>
+          <img class='resizable_image' src='http://graph.facebook.com/<%= user1.uid %>/picture?type=normal'/>
+        </td>
+        <td>
+          <img class='resizable_image' src='/assets/Smackdown_150px/vs.png' />
+        </td>
+        <td>
+          <img class='resizable_image' src='http://graph.facebook.com/<%= user2.uid %>/picture?type=normal'/>
+        </td>
+      </tr>
+    </table>
   </div>
 </div>
