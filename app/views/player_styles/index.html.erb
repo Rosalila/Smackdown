@@ -1,0 +1,33 @@
+<h1>Listing player_styles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Description</th>
+      <th>Long description link</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @player_styles.each do |player_style| %>
+      <tr>
+        <td><%= player_style.name %></td>
+        <td><%= player_style.image %></td>
+        <td><%= player_style.description %></td>
+        <td><%= player_style.long_description_link %></td>
+        <td><%= link_to 'Show', player_style %></td>
+        <td><%= link_to 'Edit', edit_player_style_path(player_style) %></td>
+        <td><%= link_to 'Destroy', player_style, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Player style', new_player_style_path %>

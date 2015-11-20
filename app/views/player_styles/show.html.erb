@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @player_style.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @player_style.image %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @player_style.description %>
+</p>
+
+<p>
+  <strong>Long description link:</strong>
+  <%= @player_style.long_description_link %>
+</p>
+
+<%= link_to 'Edit', edit_player_style_path(@player_style) %> |
+<%= link_to 'Back', player_styles_path %>
