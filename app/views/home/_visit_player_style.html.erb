@@ -2,9 +2,30 @@
 <%player2 = locals[:player2]%>
 <div class="col-md-12">
   <div class="box box-primary">
-    <%PlayerStyle.all.each do |player_style|%>
-      <img src="<%=player_style.image%>"/>
-    <%end%>
+    <h2>Player Style</h2>
+    <table  align="center">
+      <tr>
+        <%PlayerStyle.all.each do |player_style|%>
+          <td  align="center">
+            <%=player_style.name%>
+          </td>
+        <%end%>
+      <tr>
+      <tr>
+        <%PlayerStyle.all.each do |player_style|%>
+          <td  align="center">
+            <img src="<%=player_style.image%>"/>
+          </td>
+        <%end%>
+      <tr>
+      <tr>
+        <%PlayerStyle.all.each do |player_style|%>
+          <td align="center">
+            <%=Random.rand(100)%>
+          </td>
+        <%end%>
+      <tr>
+    </table>
   </div>
 </div>
 
