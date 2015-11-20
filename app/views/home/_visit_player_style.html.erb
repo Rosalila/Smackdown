@@ -1,0 +1,10 @@
+<%player1 = locals[:player1]%>
+<%player2 = locals[:player2]%>
+<div class="col-md-12">
+  <div class="box box-primary">
+    <%PlayerStyle.all.each do |player_style|%>
+      <img src="<%=player_style.image%>"/>
+    <%end%>
+  </div>
+</div>
+
