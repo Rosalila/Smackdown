@@ -16,6 +16,9 @@ gem 'omniauth-facebook', '1.4.0'
 #facebook interaction
 gem "koala", "~> 1.10.0rc"
 
+#steam login
+gem 'omniauth-steam'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
