@@ -171,7 +171,7 @@ class HomeController < ApplicationController
 
    @test=$x
 
-   if session[:steamid]!=nil
+   if @test!=nil
       u = User.find_by_id(current_user.id)
       u.steamid=@test
       u.save
