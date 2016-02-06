@@ -4,8 +4,13 @@ class SessionsController < ApplicationController
     if provider_info[0] == "steam"
       session["nanaex"]=provider_info[1]
       $x=provider_info[1]
-#      redirect_to "/home/profile"
-      redirect_to("/home/profile?chanchada="+provider_info[1], flash: {:notice => "Sorry there was an error"})
+
+      u = User.find_by_id(current_user.id)
+      u.steamid="xxxxxx"
+      u.save
+
+      redirect_to "/home/profile"
+      #redirect_to("/home/profile?chanchada="+provider_info[1], flash: {:notice => "Sorry there was an error"})
     else
       session[:user_id] = provider_info[1].id
       if !provider_info[1].isPlayingAGame

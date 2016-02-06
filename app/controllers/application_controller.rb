@@ -19,4 +19,9 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
+
+  def current_user=(user)
+    @current_user = user
+    session[:user_id] = user.id
+  end
 end
