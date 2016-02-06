@@ -171,7 +171,9 @@ class HomeController < ApplicationController
 
    if current_user.steamid
      require 'net/http'
-     source = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=63B42B959BC86C52FCA00AD37AFCC81C&steamid='+ current_user.steamid +'&format=json&&include_appinfo=1'
+     source = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=63B42B959BC86C52FCA00AD37AFCC81C&steamid='
+     source+= current_user.steamid 
+     source+='&format=json&&include_appinfo=1'
      resp = Net::HTTP.get_response(URI.parse(source))
      data = resp.body
      @games_played = JSON.parse(data)
