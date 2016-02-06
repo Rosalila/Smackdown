@@ -162,6 +162,13 @@ class HomeController < ApplicationController
   end
 
   def profile
+
+   if session[:steamid]!=nil
+      u = User.find_by_id(current_user.id)
+      u.steamid=session[:steamid]
+      u.save
+    end
+
    require 'net/http'
    source = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=63B42B959BC86C52FCA00AD37AFCC81C&steamid=76561198071708793&format=json&&include_appinfo=1'
    resp = Net::HTTP.get_response(URI.parse(source))

@@ -2,9 +2,7 @@ class SessionsController < ApplicationController
   def create
     provider_info = User.from_omniauth(env["omniauth.auth"])
     if provider_info[0] == "steam"
-      u = User.find_by_id(self.current_user.id)
-      u.steamid=provider_info[1]
-      u.save
+      session[:steamid]=provider_info[1]
       redirect_to "/home/profile"
     else
       session[:user_id] = provider_info[1].id
