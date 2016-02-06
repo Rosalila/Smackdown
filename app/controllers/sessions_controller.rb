@@ -1,11 +1,18 @@
 class SessionsController < ApplicationController
   def create
-    user = User.from_omniauth(env["omniauth.auth"])
-    session[:user_id] = user.id
-    if !user.isPlayingAGame
+    provider_info = User.from_omniauth(env["omniauth.auth"])
+    if provider_info[0] == "steam"
+      u = User.find_by_id(current_user.id)
+      u.steamid=provider_info[1]
+      u.save
       redirect_to "/home/profile"
     else
-      redirect_to root_url
+      session[:user_id] = provider_info[1].id
+      if !provider_info[1].isPlayingAGame
+        redirect_to "/home/profile"
+      else
+        redirect_to root_url
+      end
     end
   end
 

@@ -162,6 +162,12 @@ class HomeController < ApplicationController
   end
 
   def profile
+
+  require 'net/http'
+   source = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=63B42B959BC86C52FCA00AD37AFCC81C&steamid=76561198071708793&format=json&&include_appinfo=1'
+   resp = Net::HTTP.get_response(URI.parse(source))
+   data = resp.body
+   @games_played = JSON.parse(data)
   end
 
   def pending_respond_smackdowns

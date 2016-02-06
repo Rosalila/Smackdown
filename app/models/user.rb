@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :player_rules
 
   def self.from_omniauth(auth)
+    return_value=[]
     if auth.provider == "facebook"
       where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
         user.provider = auth.provider
@@ -19,13 +20,18 @@ class User < ActiveRecord::Base
         user.oauth_token = auth.credentials.token
         user.oauth_expires_at = Time.at(auth.credentials.expires_at)
         user.save!
+        return_value.push("facebook")
+        return_value.push(user)
       end
     end
     if auth.provider == "steam"
+      return_value.push("steam")
+      return_value.push(auth.uid)
       #if current_user
       #  current_user.steamid = "testa"
       #end
     end
+    return return_value
   end
 
   def hasRule rule_id
