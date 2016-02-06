@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
       session["nanaex"]=provider_info[1]
       $x=provider_info[1]
 
-      u = User.find_by_id(current_user.id)
+      u = User.find_by_id(self.current_user.id)
       u.steamid="xxxxxx"
       u.save
 
