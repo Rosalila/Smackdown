@@ -22,9 +22,9 @@ class User < ActiveRecord::Base
       end
     #end
     #if auth.provider == "steam"
-      if current_user
-        current_user.steamid = "testa"
-      end
+      #if current_user
+      #  current_user.steamid = "testa"
+      #end
     #end
   end
 
