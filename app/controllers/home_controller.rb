@@ -171,9 +171,9 @@ class HomeController < ApplicationController
 
    @test=$x
 
-   if @test!=nil
+   if params[:chanchada]!=nil
       u = User.find_by_id(current_user.id)
-      u.steamid=@test
+      u.steamid=params[:chanchada]
       u.save
     end
 
