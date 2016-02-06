@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :player_rules
 
   def self.from_omniauth(auth)
-    if auth.provider == "facebook"
+    #if auth.provider == "facebook"
       where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
         user.provider = auth.provider
         user.uid = auth.uid
@@ -20,12 +20,12 @@ class User < ActiveRecord::Base
         user.oauth_expires_at = Time.at(auth.credentials.expires_at)
         user.save!
       end
-    end
-    if auth.provider == "steam"
+    #end
+    #if auth.provider == "steam"
       if current_user
         current_user.steamid = "testa"
       end
-    end
+    #end
   end
 
   def hasRule rule_id
@@ -69,7 +69,7 @@ class User < ActiveRecord::Base
 
   def smackdownsPlayedByGame game_id
     games_played=0
-    Smackdown.where("player1_id = ? or player2_id = ?", id, id).order('created_at DESC').each do |smackdown| 
+    Smackdown.where("player1_id = ? or player2_id = ?", id, id).order('created_at DESC').each do |smackdown|
       if smackdown.isFinished
         if smackdown.game_id == game_id
           games_played+=1
