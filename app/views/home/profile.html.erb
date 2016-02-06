@@ -9,6 +9,8 @@
 
 <a href="http://steamcommunity.com/profiles/<%=current_user.steamid%>">Ver perfil de steam</a>
 
+<p>Test:<%=@test%></p>
+
 <%if @games_played%>
   <%@games_played["response"]["games"].each do |game|%>
     <h3><%=game["name"]%></h3>

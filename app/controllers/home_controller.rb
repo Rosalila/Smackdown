@@ -163,9 +163,17 @@ class HomeController < ApplicationController
 
   def profile
 
+#   if session[:steamid]!=nil
+#      u = User.find_by_id(current_user.id)
+#      u.steamid=session[:steamid]
+#      u.save
+#    end
+
+   @test=$x
+
    if session[:steamid]!=nil
       u = User.find_by_id(current_user.id)
-      u.steamid=session[:steamid]
+      u.steamid=@test
       u.save
     end
 
