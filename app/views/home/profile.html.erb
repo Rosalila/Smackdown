@@ -9,9 +9,11 @@
 
 <a href="http://steamcommunity.com/profiles/<%=current_user.steamid%>">Ver perfil de steam</a>
 
-<%@games_played["response"]["games"].each do |game|%>
-  <h3><%=game["name"]%></h3>
-  <p><%=game%></p>
+<%if @games_played%>
+  <%@games_played["response"]["games"].each do |game|%>
+    <h3><%=game["name"]%></h3>
+    <p><%=game%></p>
+  <%end%>
 <%end%>
 
 <div class="box">
