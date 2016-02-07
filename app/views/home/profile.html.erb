@@ -14,6 +14,8 @@
 <%if @games_played%>
   <%@games_played["response"]["games"].each do |game|%>
     <h3><%=game["name"]%></h3>
+    <img src="http://media.steampowered.com/steamcommunity/public/images/apps/<%=game["appid"]%>/<%=game["img_logo_url"]%>.jpg"/>
+    <img src="http://media.steampowered.com/steamcommunity/public/images/apps/<%=game["appid"]%>/<%=game["img_icon_url"]%>.jpg"/>
     <p><%=game%></p>
   <%end%>
 <%end%>
