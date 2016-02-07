@@ -149,6 +149,11 @@
       }
     <% end %>
     handler.bounds.extendWith(markers);
+
+    navigator.geolocation.getCurrentPosition(function(pos){
+          handler.map.serviceObject.setCenter(new google.maps.LatLng(pos.coords.latitude,pos.coords.longitude));
+    });
+
 /*
 		//This is not working
     handler.fitMapToBounds();
