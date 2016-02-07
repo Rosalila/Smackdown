@@ -104,6 +104,7 @@ class DojosController < ApplicationController
   end
 
   def manage_users
+    @dojo = Dojo.find_by_id(params[:dojo_id])
     if !@dojo.userIsAdmin current_user
       redirect_to "/"
       return
